@@ -27,4 +27,5 @@
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="@integer/widget_update_period_millis"
     android:widgetCategory="home_screen|keyguard"
-    android:widgetFeatures="reconfigurable|configuration_optional"/>
+    android:widgetFeatures="reconfigurable|configuration_optional"
+    android:initialLayout="@layout/glance_default_loading_layout"/>
