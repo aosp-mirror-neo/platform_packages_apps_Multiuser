@@ -18,5 +18,9 @@
  -->
 <!-- TODO: b/371006714: multiuser_widget_name is user visible and needs to be approved. -->
 <resources>
+  <string name="add_user_button_title" translation_description="Title for the button that allows adding a user. [CHAR_LIMIT=NONE]">Add user</string>
   <string name="multiuser_widget_name" translation_description="The widget name displayed in the widget picker. [CHAR_LIMIT=NONE]">Multiuser widget</string>
+  <string name="multiuser_widget_title" translation_description="The text displayed in the title bar. [CHAR_LIMIT=NONE]">Switch user</string>
+  <string name="multiuser_widget_error_message" translation_description="The text displayed when user data doesn't load. [CHAR_LIMIT=NONE]">Failed to load widget.</string>
+  <string name="widget_settings_button_content_description" translation_description="Text describing the action of the Settings button on the widget. Used by accessibility services. {CHAR_LIMIT=NONE}">Go to Users Settings.</string>
 </resources>

@@ -18,10 +18,13 @@ package com.android.multiuser.widget
 
 import android.content.Context
 import androidx.glance.appwidget.GlanceAppWidget
+import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.provideContent
 import androidx.glance.GlanceId
 
 class MultiuserWidget : GlanceAppWidget() {
+  override val sizeMode: SizeMode = SizeMode.Exact
+
   override suspend fun provideGlance(context: Context, id: GlanceId) {
     provideContent {}
   }
