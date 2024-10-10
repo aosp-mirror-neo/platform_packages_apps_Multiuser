@@ -12,3 +12,20 @@ license {
         "NOTICE",
     ],
 }
+
+android_app {
+    name: "Multiuser",
+
+    certificate: "platform",
+    platform_apis: true,
+    privileged: true,
+
+    optimize: {
+        enabled: true,
+    },
+    static_libs: [
+        "MultiuserWidgetLib",
+    ],
+
+    kotlincflags: ["-Xjvm-default=all"],
+}
