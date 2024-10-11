@@ -4,6 +4,11 @@ android_library {
     srcs: ["src/**/*.kt"],
     resource_dirs: ["src/main/res"],
     static_libs: [
+        "androidx.activity_activity-compose",
+        "androidx.annotation_annotation",
+        "androidx.appcompat_appcompat",
+        "androidx.compose.runtime_runtime",
+        "androidx.compose.ui_ui",
         "androidx.glance_glance-appwidget",
         "androidx.glance_glance",
     ],
