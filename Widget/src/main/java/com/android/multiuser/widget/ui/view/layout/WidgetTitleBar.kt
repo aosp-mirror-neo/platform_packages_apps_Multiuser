@@ -22,7 +22,7 @@ import androidx.glance.appwidget.components.TitleBar
 import androidx.glance.GlanceTheme
 import androidx.glance.ImageProvider
 import androidx.glance.LocalSize
-import com.android.multiuser.R
+import com.android.multiuser.widget.R
 import com.android.multiuser.widget.ui.util.EMPTY_STRING
 import com.android.multiuser.widget.ui.util.ResourceDp
 import com.android.multiuser.widget.ui.util.ResourceString

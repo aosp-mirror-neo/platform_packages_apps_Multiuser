@@ -17,10 +17,10 @@
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.android.multiuser">
+    package="com.android.multiuser.widget">
   <application>
     <receiver
-        android:name=".widget.MultiuserWidgetReceiver"
+        android:name=".MultiuserWidgetReceiver"
         android:label="@string/multiuser_widget_name"
         android:exported="true">
       <intent-filter>
