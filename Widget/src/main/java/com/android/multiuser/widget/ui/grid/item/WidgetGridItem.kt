@@ -30,7 +30,7 @@ import androidx.glance.layout.Spacer
 import androidx.glance.layout.wrapContentHeight
 import androidx.glance.text.Text
 import com.android.multiuser.widget.model.GridItemInfo
-import com.android.multiuser.R
+import com.android.multiuser.widget.R
 import com.android.multiuser.widget.ui.util.getImageProviderForIcon
 import com.android.multiuser.widget.ui.util.ResourceDp
 import com.android.multiuser.widget.ui.util.UserBoxModifier

@@ -24,7 +24,7 @@ import androidx.glance.layout.size
 import androidx.glance.text.Text
 import com.android.multiuser.widget.ui.util.ResourceString
 import com.android.multiuser.widget.ui.util.WidgetTextStyles
-import com.android.multiuser.R
+import com.android.multiuser.widget.R
 
 @Composable
 fun ErrorWidget() {
