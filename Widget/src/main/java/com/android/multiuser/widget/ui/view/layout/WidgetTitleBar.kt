@@ -16,13 +16,17 @@
 
 package com.android.multiuser.widget.ui.view.layout
 
+import android.content.ComponentName
+import android.content.Intent
+import android.provider.Settings
 import androidx.compose.runtime.Composable
+import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.appwidget.components.CircleIconButton
 import androidx.glance.appwidget.components.TitleBar
 import androidx.glance.GlanceTheme
 import androidx.glance.ImageProvider
 import androidx.glance.LocalSize
-import com.android.multiuser.R
+import com.android.multiuser.widget.R
 import com.android.multiuser.widget.ui.util.EMPTY_STRING
 import com.android.multiuser.widget.ui.util.ResourceDp
 import com.android.multiuser.widget.ui.util.ResourceString
@@ -44,7 +48,12 @@ fun WidgetTitleBar() {
                 contentDescription = ResourceString(R.string.widget_settings_button_content_description),
                 contentColor = GlanceTheme.colors.secondary,
                 backgroundColor = null,
-                onClick = {/* TODO: Open Users Settings */},
+                onClick = actionStartActivity(Intent(Settings.ACTION_USER_SETTINGS)
+                        .setComponent(
+                                ComponentName("com.android.settings",
+                                        "com.android.settings.Settings\$UserSettingsActivity")
+                                )
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)),
             )
         }
     )
