@@ -24,7 +24,7 @@ import androidx.glance.layout.padding
 import com.android.multiuser.widget.model.MultiuserWidgetModel
 import com.android.multiuser.widget.ui.grid.WidgetUsersGrid
 import com.android.multiuser.widget.ui.util.ResourceDp
-import com.android.multiuser.R
+import com.android.multiuser.widget.R
 
 /**
  * A layout focused on presenting a grid of images. The list is displayed in a [Scaffold] below a

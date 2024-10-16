@@ -27,7 +27,7 @@ import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.layout.width
 import androidx.glance.layout.wrapContentSize
-import com.android.multiuser.R
+import com.android.multiuser.widget.R
 
 object WidgetGlanceModifiers {
     @Composable
