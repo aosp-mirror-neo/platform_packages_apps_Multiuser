@@ -26,7 +26,7 @@ import androidx.glance.ImageProvider
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.LocalContext
-import com.android.multiuser.R
+import com.android.multiuser.widget.R
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.DefaultUserBoxModifier
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.SelectedUserBoxModifier
 
