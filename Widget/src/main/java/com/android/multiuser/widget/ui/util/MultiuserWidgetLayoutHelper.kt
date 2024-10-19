@@ -27,21 +27,6 @@ import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.LocalContext
 import com.android.multiuser.widget.R
-import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.DefaultUserBoxModifier
-import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.SelectedUserBoxModifier
-
-fun getImageProviderForIcon (iconUri: String): ImageProvider {
-    return ImageProvider(Icon.createWithContentUri(iconUri))
-}
-
-@Composable
-fun UserBoxModifier (isSelected: Boolean): GlanceModifier {
-    return if(isSelected) {
-        SelectedUserBoxModifier()
-    } else {
-        DefaultUserBoxModifier()
-    }
-}
 
 @Composable
 fun ResourceString (resId: Int): String {
