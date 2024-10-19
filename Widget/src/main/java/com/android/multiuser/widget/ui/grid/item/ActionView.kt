@@ -19,6 +19,7 @@ package com.android.multiuser.widget.ui.grid.item
 import androidx.compose.runtime.Composable
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
+import androidx.glance.ImageProvider
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
 import androidx.glance.layout.Column
@@ -28,18 +29,20 @@ import androidx.glance.layout.padding
 import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
 import androidx.glance.layout.wrapContentHeight
+import androidx.glance.layout.wrapContentSize
 import androidx.glance.text.Text
-import com.android.multiuser.widget.model.GridItemInfo
-import com.android.multiuser.R
-import com.android.multiuser.widget.ui.util.getImageProviderForIcon
+import com.android.multiuser.widget.R
 import com.android.multiuser.widget.ui.util.ResourceDp
-import com.android.multiuser.widget.ui.util.UserBoxModifier
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.TrailingBottomModifier
 import com.android.multiuser.widget.ui.util.WidgetTextStyles
+import com.android.multiuser.widget.viewmodel.ActionViewModel
 
+/**
+ * Displays action items in the widget.
+ */
 @Composable
-fun WidgetGridItem(
-    item: GridItemInfo,
+fun ActionView (
+    viewModel: ActionViewModel,
     modifier: GlanceModifier,
 ) {
     Column(
@@ -48,12 +51,13 @@ fun WidgetGridItem(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         // Top
-        Box (modifier = UserBoxModifier(item.isSelected)
-            .padding(bottom = ResourceDp(R.dimen.widget_grid_top_spacing))) {
+        Box (modifier = GlanceModifier
+            .wrapContentSize()
+            .padding(ResourceDp(R.dimen.widget_grid_content_padding))) {
             Image(
-                provider = getImageProviderForIcon(item.iconUri),
+                provider = ImageProvider(viewModel.resourceId),
                 contentScale = ContentScale.Fit,
-                contentDescription = item.iconDescription,
+                contentDescription = viewModel.contentDescription,
                 modifier = GlanceModifier.fillMaxWidth().wrapContentHeight()
             )
         }
@@ -65,7 +69,7 @@ fun WidgetGridItem(
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
-                    text = item.title,
+                    text = viewModel.title,
                     maxLines = 1,
                     style = WidgetTextStyles.ImageTitle(),
                     modifier =  GlanceModifier.padding(start = R.dimen.widget_text_start_margin)
