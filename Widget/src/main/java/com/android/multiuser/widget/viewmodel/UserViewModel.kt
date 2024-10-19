@@ -14,12 +14,14 @@
  * limitations under the License.
  */
 
-package com.android.multiuser.widget.model
+package com.android.multiuser.widget.viewmodel
 
-data class GridItemInfo(
-    val iconUri: String,
-    val id: Int,
-    val title: String,
-    val iconDescription: String,
-    val isSelected: Boolean,
-)
+data class UserViewModel(
+    val iconUri: String?,
+    override val id: Int,
+    val name: String,
+    override val contentDescription: String?,
+    override val isSelected: Boolean,
+    // If iconUri is null, fall back onto resourceId.
+    override val resourceId: Int
+) : GridItemViewModel(id, name, contentDescription, isSelected, resourceId)
