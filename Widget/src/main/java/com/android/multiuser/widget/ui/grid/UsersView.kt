@@ -23,30 +23,38 @@ import androidx.glance.appwidget.lazy.LazyVerticalGrid
 import androidx.glance.appwidget.lazy.itemsIndexed
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
-import com.android.multiuser.widget.model.MultiuserWidgetModel
-import com.android.multiuser.widget.ui.grid.item.WidgetGridItem
+import com.android.multiuser.widget.ui.grid.item.ActionView
+import com.android.multiuser.widget.ui.grid.item.UserView
 import com.android.multiuser.widget.ui.util.GridItemModifierForIndex
 import com.android.multiuser.widget.ui.util.NumberOfColumns
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.VerticalGridBoxModifier
+import com.android.multiuser.widget.viewmodel.UsersViewModel
 import kotlin.math.ceil
 
 @Composable
-fun WidgetUsersGrid(model: MultiuserWidgetModel) {
+fun UsersView(model: UsersViewModel) {
     Box(
         modifier = VerticalGridBoxModifier()
     ) {
-        val items = model.items
+        val users = model.users
+        val actionItems = model.actions
         val gridCells = NumberOfColumns(LocalSize.current)
-        val numRows = ceil(items.size.toDouble() / gridCells).toInt()
+        val numRows = ceil((users.size + actionItems.size).toDouble() / gridCells).toInt()
 
         LazyVerticalGrid(
             gridCells = GridCells.Fixed(gridCells),
             horizontalAlignment = Alignment.Start
         ) {
-            itemsIndexed(items) { index, item ->
-                WidgetGridItem(
-                    item = item,
-                    modifier = GridItemModifierForIndex(index, gridCells, numRows)
+            itemsIndexed(users) { index, user ->
+                UserView(
+                    viewModel = user,
+                    modifier = GridItemModifierForIndex(index, gridCells, numRows),
+                )
+            }
+            itemsIndexed(actionItems) { index, actionItem ->
+                ActionView(
+                    viewModel = actionItem,
+                    modifier = GridItemModifierForIndex(index + users.size, gridCells, numRows),
                 )
             }
         }

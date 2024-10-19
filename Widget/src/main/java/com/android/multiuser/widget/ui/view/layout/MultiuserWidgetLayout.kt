@@ -21,10 +21,10 @@ import androidx.glance.GlanceModifier
 import androidx.glance.appwidget.components.Scaffold
 import androidx.glance.GlanceTheme
 import androidx.glance.layout.padding
-import com.android.multiuser.widget.model.MultiuserWidgetModel
-import com.android.multiuser.widget.ui.grid.WidgetUsersGrid
+import com.android.multiuser.widget.ui.grid.UsersView
 import com.android.multiuser.widget.ui.util.ResourceDp
 import com.android.multiuser.widget.R
+import com.android.multiuser.widget.viewmodel.UsersViewModel
 
 /**
  * A layout focused on presenting a grid of images. The list is displayed in a [Scaffold] below a
@@ -35,7 +35,7 @@ import com.android.multiuser.widget.R
  */
 @Composable
 fun MultiuserWidgetLayout(
-    model: MultiuserWidgetModel,
+    model: UsersViewModel,
 ) {
     Scaffold(
         titleBar = { WidgetTitleBar() },
@@ -43,10 +43,10 @@ fun MultiuserWidgetLayout(
         horizontalPadding = ResourceDp(R.dimen.widget_grid_content_padding),
         modifier = GlanceModifier.padding(bottom = R.dimen.widget_grid_content_padding)
     ) {
-        if (model.items.isEmpty()) {
+        if (model.users.isEmpty()) {
             ErrorWidget()
         } else {
-            WidgetUsersGrid(model)
+            UsersView(model)
         }
     }
 }
