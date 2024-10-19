@@ -31,6 +31,15 @@ import com.android.multiuser.widget.R
 
 object WidgetGlanceModifiers {
     @Composable
+    fun UserBoxModifier (isSelected: Boolean): GlanceModifier {
+        return if(isSelected) {
+            SelectedUserBoxModifier()
+        } else {
+            DefaultUserBoxModifier()
+        }
+    }
+
+    @Composable
     fun TrailingBottomModifier() = GlanceModifier
         .width(ResourceDp(R.dimen.widget_grid_bottom_spacing))
 
