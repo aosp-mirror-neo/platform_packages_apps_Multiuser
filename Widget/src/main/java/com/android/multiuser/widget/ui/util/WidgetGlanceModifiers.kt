@@ -27,9 +27,18 @@ import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.layout.width
 import androidx.glance.layout.wrapContentSize
-import com.android.multiuser.R
+import com.android.multiuser.widget.R
 
 object WidgetGlanceModifiers {
+    @Composable
+    fun UserBoxModifier (isSelected: Boolean): GlanceModifier {
+        return if(isSelected) {
+            SelectedUserBoxModifier()
+        } else {
+            DefaultUserBoxModifier()
+        }
+    }
+
     @Composable
     fun TrailingBottomModifier() = GlanceModifier
         .width(ResourceDp(R.dimen.widget_grid_bottom_spacing))

@@ -1,4 +1,5 @@
 package {
+    default_team: "trendy_team_framework_android_multiuser",
     default_applicable_licenses: ["packages_apps_Multiuser_license"],
 }
 
@@ -15,6 +16,7 @@ license {
 
 android_app {
     name: "Multiuser",
+    manifest: "AndroidManifest.xml",
 
     certificate: "platform",
     platform_apis: true,
@@ -28,4 +30,48 @@ android_app {
     ],
 
     kotlincflags: ["-Xjvm-default=all"],
+}
+
+android_library {
+    name: "MultiuserWidgetLib",
+    manifest: "AndroidManifest-Provider.xml",
+    srcs: ["Widget/src/main/java/**/*.kt"],
+    resource_dirs: ["Widget/src/main/res"],
+    static_libs: [
+        "androidx.activity_activity-compose",
+        "androidx.annotation_annotation",
+        "androidx.appcompat_appcompat",
+        "androidx.compose.runtime_runtime",
+        "androidx.compose.ui_ui",
+        "androidx.glance_glance-appwidget",
+        "androidx.glance_glance",
+        "androidx.room_room-runtime",
+        "androidx.room_room-ktx",
+    ],
+    plugins: ["androidx.room_room-compiler-plugin"],
+    kotlincflags: ["-Xjvm-default=all"],
+}
+
+android_test {
+    name: "MultiuserWidgetUnitTests",
+    manifest: "AndroidManifestUnit.xml",
+    certificate: "platform",
+    use_resource_processor: true,
+    platform_apis: true,
+    instrumentation_for: "MultiuserWidgetLib",
+    srcs: ["Widget/src/tests/**/*.kt"],
+    resource_dirs: ["Widget/src/main/res"],
+    static_libs: [
+        "MultiuserWidgetLib",
+        "androidx.test.core",
+        "androidx.test.rules",
+        "androidx.test.ext.junit",
+        "kotlinx_coroutines_test",
+        "flag-junit",
+        "androidx.test.runner",
+        "kotlin-test",
+        "androidx.room_room-testing",
+    ],
+    kotlincflags: ["-Xjvm-default=all"],
+    test_suites: ["device-tests"],
 }
