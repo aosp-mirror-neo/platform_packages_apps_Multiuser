@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package com.android.multiuser.widget.model
+package com.android.multiuser.widget.viewmodel
 
-sealed interface MultiuserWidgetState {
-    object Error : MultiuserWidgetState
-    object Loading : MultiuserWidgetState
-}
-
-data class MultiuserWidgetModel(
-    val items: List<GridItemInfo>,
-) : MultiuserWidgetState
+data class ActionViewModel (
+    override val resourceId: Int,
+    override val id: Int,
+    override val title: String,
+    override val contentDescription: String?,
+    override val isSelected: Boolean,
+) : GridItemViewModel(id, title, contentDescription, isSelected, resourceId)
