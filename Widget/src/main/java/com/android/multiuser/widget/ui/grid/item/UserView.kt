@@ -16,7 +16,6 @@
 
 package com.android.multiuser.widget.ui.grid.item
 
-import android.graphics.drawable.Icon
 import androidx.compose.runtime.Composable
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
@@ -32,7 +31,7 @@ import androidx.glance.layout.Spacer
 import androidx.glance.layout.wrapContentHeight
 import androidx.glance.text.Text
 import com.android.multiuser.widget.R
-import com.android.multiuser.widget.ui.util.ResourceDp
+import com.android.multiuser.widget.ui.util.readFromInternalStorage
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.UserBoxModifier
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.TrailingBottomModifier
 import com.android.multiuser.widget.ui.util.WidgetTextStyles
@@ -54,9 +53,8 @@ fun UserView (
         // Top
         Box (modifier = UserBoxModifier(viewModel.isSelected)) {
             Image(
-                provider = ImageProvider(Icon.createWithContentUri(viewModel.iconUri))
-                    .takeIf{ viewModel.iconUri != null }
-                    ?: ImageProvider(viewModel.resourceId),
+                provider = readFromInternalStorage(viewModel.iconPath)?.let { ImageProvider(it) }
+                    ?: ImageProvider(R.drawable.account_circle),
                 contentScale = ContentScale.Fit,
                 contentDescription = viewModel.contentDescription,
                 modifier = GlanceModifier.fillMaxWidth().wrapContentHeight()

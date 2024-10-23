@@ -40,7 +40,7 @@ abstract class UsersDatabase : RoomDatabase() {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                        UsersDatabase::class.java,
+                    UsersDatabase::class.java,
                     "multiuser_widget_database"
                 ).build()
                 INSTANCE = instance

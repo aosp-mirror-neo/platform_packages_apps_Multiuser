@@ -23,6 +23,7 @@ import androidx.test.core.app.ApplicationProvider
 import com.android.multiuser.widget.data.model.User
 import com.android.multiuser.widget.data.UserDao
 import com.android.multiuser.widget.data.UsersDatabase
+import java.io.IOException
 import java.util.concurrent.CountDownLatch
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -35,19 +36,17 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.io.IOException
 
 @RunWith(AndroidJUnit4::class)
 class UserDaoTest {
     private lateinit var database: UsersDatabase
-    private lateinit var UserDao: UserDao
+    private lateinit var userDao: UserDao
 
     @Before
     fun setUpDatabase() {
         val context = ApplicationProvider.getApplicationContext<Context>()
-        database = Room.inMemoryDatabaseBuilder(
-            context, UsersDatabase::class.java).build()
-        UserDao = database.getUserDao()
+        database = Room.inMemoryDatabaseBuilder(context, UsersDatabase::class.java).build()
+        userDao = database.getUserDao()
     }
 
     @After
@@ -62,17 +61,17 @@ class UserDaoTest {
             id = 0,
             name = "fake_user_name",
             creationTime = 0,
-            iconUri = "fake_icon_uri",
+            iconPath = "fake_icon_uri",
             isCurrentUser = false,
             isAdmin = false,
         )
-        UserDao.addUser(fakeUser)
+        userDao.addUser(fakeUser)
 
         val latch = CountDownLatch(1)
         val job = async(Dispatchers.IO) {
-            val UsersFromDatabase = UserDao.getUsers().first()
-            assertEquals(UsersFromDatabase.size, 1)
-            assertEquals(UsersFromDatabase.get(0), fakeUser)
+            val usersFromDatabase = userDao.getUsers().first()
+            assertEquals(usersFromDatabase.size, 1)
+            assertEquals(usersFromDatabase.get(0), fakeUser)
             latch.countDown()
         }
 
@@ -86,7 +85,7 @@ class UserDaoTest {
             id = 0,
             name = "fake_user_name_0",
             creationTime = 0,
-            iconUri = "fake_icon_uri_0",
+            iconPath = "fake_icon_path_0",
             isCurrentUser = false,
             isAdmin = false,
         )
@@ -94,20 +93,20 @@ class UserDaoTest {
             id = 1,
             name = "fake_user_name_1",
             creationTime = 1,
-            iconUri = "fake_icon_uri_1",
+            iconPath = "fake_icon_path_1",
             isCurrentUser = false,
             isAdmin = false,
         )
 
-        UserDao.addUser(fakeUser1)
-        UserDao.addUser(fakeUser0)
+        userDao.addUser(fakeUser1)
+        userDao.addUser(fakeUser0)
 
         val latch = CountDownLatch(1)
         val job = async(Dispatchers.IO) {
-            val UsersFromDatabase = UserDao.getUsers().first()
-            assertEquals(UsersFromDatabase.size, 2)
-            assertTrue(UsersFromDatabase.get(0).creationTime
-                    <= UsersFromDatabase.get(1).creationTime)
+            val usersFromDatabase = userDao.getUsers().first()
+            assertEquals(usersFromDatabase.size, 2)
+            assertTrue(usersFromDatabase.get(0).creationTime
+                    <= usersFromDatabase.get(1).creationTime)
             latch.countDown()
         }
 
@@ -121,7 +120,7 @@ class UserDaoTest {
             id = 0,
             name = "fake_user_name_0",
             creationTime = 0,
-            iconUri = "fake_icon_uri_0",
+            iconPath = "fake_icon_path_0",
             isCurrentUser = true,
             isAdmin = false,
         )
@@ -129,17 +128,17 @@ class UserDaoTest {
             id = 1,
             name = "fake_user_name_1",
             creationTime = 1,
-            iconUri = "fake_icon_uri_1",
+            iconPath = "fake_icon_path_1",
             isCurrentUser = false,
             isAdmin = false,
         )
 
-        UserDao.addUser(fakeCurrentUser)
-        UserDao.addUser(fakeUser)
+        userDao.addUser(fakeCurrentUser)
+        userDao.addUser(fakeUser)
 
         val latch = CountDownLatch(1)
         val job = async(Dispatchers.IO) {
-            val currentUser = UserDao.getCurrentUser().first()
+            val currentUser = userDao.getCurrentUser().first()
             assertEquals(currentUser, fakeCurrentUser)
             latch.countDown()
         }
@@ -154,7 +153,7 @@ class UserDaoTest {
             id = 0,
             name = "fake_user_name",
             creationTime = 0,
-            iconUri = "fake_icon_uri",
+            iconPath = "fake_icon_path",
             isCurrentUser = false,
             isAdmin = false,
         )
@@ -162,18 +161,18 @@ class UserDaoTest {
             id = 0,
             name = "updated_fake_user_name",
             creationTime = 0,
-            iconUri = "updated_fake_icon_uri",
+            iconPath = "fake_icon_path",
             isCurrentUser = false,
             isAdmin = false,
         )
-        UserDao.addUser(fakeUser)
-        UserDao.addUser(updatedFakeUser)
+        userDao.addUser(fakeUser)
+        userDao.addUser(updatedFakeUser)
 
         val latch = CountDownLatch(1)
         val job = async(Dispatchers.IO) {
-            val UsersFromDatabase = UserDao.getUsers().first()
-            assertEquals(UsersFromDatabase.size, 1)
-            assertEquals(UsersFromDatabase.get(0), updatedFakeUser)
+            val usersFromDatabase = userDao.getUsers().first()
+            assertEquals(usersFromDatabase.size, 1)
+            assertEquals(usersFromDatabase.get(0), updatedFakeUser)
             latch.countDown()
         }
 

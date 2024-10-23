@@ -25,7 +25,7 @@
 
     <option name="test-tag" value="MultiuserWidgetUnitTests" />
     <test class="com.android.tradefed.testtype.AndroidJUnitTest" >
-        <option name="package" value="com.android.multiuser.widget.tests.unit" />
+        <option name="package" value="com.android.multiuser.widget.tests" />
         <option name="runner" value="androidx.test.runner.AndroidJUnitRunner" />
         <option name="hidden-api-checks" value="false"/>
     </test>
