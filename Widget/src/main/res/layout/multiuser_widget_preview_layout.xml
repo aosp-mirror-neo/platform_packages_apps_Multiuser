@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (C) 2024 The Android Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/preview_layout_container">
+
+    <!-- Container for the icon and title in the upper-left corner -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_margin="8dp">
+
+        <ImageView
+            android:id="@+id/users_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/users_icon"
+            android:tint="@color/onSurface"
+            android:contentDescription="@string/preview_users_icon_content_description"/>
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/widget_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/multiuser_widget_title"
+            android:layout_toEndOf="@id/users_icon"
+            android:textSize="16sp"
+            android:textColor="@color/onSurface"/>
+
+
+        <ImageView
+            android:id="@+id/settings_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/settings"
+            android:tint="@color/onSurface"
+            android:contentDescription="@string/preview_settings_icon_content_description"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
+
+    <!-- Container for two side-by-side rounded images with titles -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@id/widget_title"
+        android:layout_centerHorizontal="true">
+
+        <!-- First image with a border and title in a vertical layout -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginEnd="16dp">
+
+            <!-- First rounded image with an outline -->
+            <ImageView
+                android:id="@+id/first_image"
+                style="@style/CircularImageViewStyle"
+                android:src="@drawable/preview_user_avatar_1"
+                android:background="@drawable/rounded_background"
+                android:contentDescription="@string/preview_first_avatar_content_description"/>
+
+            <!-- Title for the first image -->
+            <TextView
+                android:id="@+id/first_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/preview_first_user_name"
+                android:textSize="14sp"
+                android:textColor="@color/onSurface"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <!-- Second image and title in a vertical layout -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- Second rounded image (without outline) -->
+            <ImageView
+                android:id="@+id/second_image"
+                style="@style/CircularImageViewStyle"
+                android:src="@drawable/preview_user_avatar_2"
+                android:contentDescription="@string/preview_second_avatar_content_description"/>
+
+            <!-- Title for the second image -->
+            <TextView
+                android:id="@+id/second_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/preview_second_user_name"
+                android:textSize="14sp"
+                android:textColor="@color/onSurface"
+                android:gravity="center"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
