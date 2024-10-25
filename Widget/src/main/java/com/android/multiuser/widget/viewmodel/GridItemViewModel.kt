@@ -17,9 +17,7 @@
 package com.android.multiuser.widget.viewmodel
 
 sealed class GridItemViewModel(
-    open val id: Int,
     open val title: String,
     open val contentDescription: String?,
-    open val isSelected: Boolean,
     open val resourceId: Int,
 )
