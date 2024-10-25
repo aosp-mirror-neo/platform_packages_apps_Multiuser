@@ -65,7 +65,7 @@ class UserDaoTest {
             isCurrentUser = false,
             isAdmin = false,
         )
-        userDao.addUser(fakeUser)
+        userDao.addUsers(fakeUser)
 
         val latch = CountDownLatch(1)
         val job = async(Dispatchers.IO) {
@@ -98,8 +98,8 @@ class UserDaoTest {
             isAdmin = false,
         )
 
-        userDao.addUser(fakeUser1)
-        userDao.addUser(fakeUser0)
+        userDao.addUsers(fakeUser1)
+        userDao.addUsers(fakeUser0)
 
         val latch = CountDownLatch(1)
         val job = async(Dispatchers.IO) {
@@ -133,8 +133,8 @@ class UserDaoTest {
             isAdmin = false,
         )
 
-        userDao.addUser(fakeCurrentUser)
-        userDao.addUser(fakeUser)
+        userDao.addUsers(fakeCurrentUser)
+        userDao.addUsers(fakeUser)
 
         val latch = CountDownLatch(1)
         val job = async(Dispatchers.IO) {
@@ -165,8 +165,8 @@ class UserDaoTest {
             isCurrentUser = false,
             isAdmin = false,
         )
-        userDao.addUser(fakeUser)
-        userDao.addUser(updatedFakeUser)
+        userDao.addUsers(fakeUser)
+        userDao.addUsers(updatedFakeUser)
 
         val latch = CountDownLatch(1)
         val job = async(Dispatchers.IO) {

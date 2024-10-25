@@ -89,8 +89,8 @@ class LoadUsersUseCaseTest {
             isCurrentUser = false,
             isAdmin = true,
         )
-        userDao.addUser(fakeUser1)
-        userDao.addUser(fakeUser2)
+        userDao.addUsers(fakeUser1)
+        userDao.addUsers(fakeUser2)
 
         val expectedUserViewModel1 = UserViewModel(
             iconPath = "fake_icon_path_1",
@@ -130,7 +130,7 @@ class LoadUsersUseCaseTest {
             isCurrentUser = true,
             isAdmin = true,
         )
-        userDao.addUser(fakeUser)
+        userDao.addUsers(fakeUser)
 
         val latch = CountDownLatch(1)
         val job = async(Dispatchers.IO) {
@@ -154,7 +154,7 @@ class LoadUsersUseCaseTest {
             isCurrentUser = true,
             isAdmin = false,
         )
-        userDao.addUser(fakeUser)
+        userDao.addUsers(fakeUser)
 
         val latch = CountDownLatch(1)
         val job = async(Dispatchers.IO) {
