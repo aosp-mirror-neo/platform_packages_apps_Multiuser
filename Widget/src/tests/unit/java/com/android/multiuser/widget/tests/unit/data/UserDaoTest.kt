@@ -116,6 +116,39 @@ class UserDaoTest {
     }
 
     @Test
+    fun addUsers_returnsCurrentUser() = runBlocking {
+        val fakeCurrentUser = User(
+            id = 0,
+            name = "fake_user_name_0",
+            creationTime = 0,
+            iconUri = "fake_icon_uri_0",
+            isCurrentUser = true,
+            isAdmin = false,
+        )
+        val fakeUser = User(
+            id = 1,
+            name = "fake_user_name_1",
+            creationTime = 1,
+            iconUri = "fake_icon_uri_1",
+            isCurrentUser = false,
+            isAdmin = false,
+        )
+
+        UserDao.addUser(fakeCurrentUser)
+        UserDao.addUser(fakeUser)
+
+        val latch = CountDownLatch(1)
+        val job = async(Dispatchers.IO) {
+            val currentUser = UserDao.getCurrentUser().first()
+            assertEquals(currentUser, fakeCurrentUser)
+            latch.countDown()
+        }
+
+        latch.await()
+        job.cancelAndJoin()
+    }
+
+    @Test
     fun updateUsers_replacesExistingUserInfoWithNew() = runBlocking {
         val fakeUser = User(
             id = 0,

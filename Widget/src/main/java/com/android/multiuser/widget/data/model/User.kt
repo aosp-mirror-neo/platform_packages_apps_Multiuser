@@ -21,12 +21,12 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "UserModels")
 data class User(
-    @PrimaryKey val id: Int,
-    val name: String,
-    val creationTime: Long,
-    val iconUri: String?,
-    val isCurrentUser: Boolean,
-    val isAdmin: Boolean
+        @PrimaryKey val id: Int,
+        val name: String,
+        val creationTime: Long,
+        val iconUri: String?,
+        var isCurrentUser: Boolean,
+        val isAdmin: Boolean
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
