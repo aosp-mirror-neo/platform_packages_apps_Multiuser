@@ -18,10 +18,10 @@ package com.android.multiuser.widget.viewmodel
 
 data class UserViewModel(
     val iconUri: String?,
-    override val id: Int,
+    val id: Int,
     val name: String,
     override val contentDescription: String?,
-    override val isSelected: Boolean,
+    val isSelected: Boolean,
     // If iconUri is null, fall back onto resourceId.
     override val resourceId: Int
-) : GridItemViewModel(id, name, contentDescription, isSelected, resourceId)
+) : GridItemViewModel(name, contentDescription, resourceId)
