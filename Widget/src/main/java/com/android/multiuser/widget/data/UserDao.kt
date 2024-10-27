@@ -30,6 +30,9 @@ interface UserDao {
     @Query("SELECT * FROM UserModels ORDER BY creationTime ASC")
     fun getUsers(): Flow<List<User>>
 
+    @Query("SELECT * FROM UserModels WHERE isCurrentUser = TRUE LIMIT 1")
+    fun getCurrentUser(): Flow<User>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addUser(vararg users: User)
 
@@ -37,5 +40,5 @@ interface UserDao {
     fun updateUsers(vararg users: User)
 
     @Delete
-    fun deleteDatabase(vararg users: User)
+    fun deleteUser(vararg users: User)
 }
