@@ -16,6 +16,7 @@
 
 package com.android.multiuser.widget.ui.grid.item
 
+import androidx.glance.action.clickable
 import androidx.compose.runtime.Composable
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
@@ -29,7 +30,9 @@ import androidx.glance.layout.padding
 import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
 import androidx.glance.layout.wrapContentHeight
+import androidx.glance.LocalContext
 import androidx.glance.text.Text
+import com.android.multiuser.widget.action.switchUsers
 import com.android.multiuser.widget.R
 import com.android.multiuser.widget.ui.util.readFromInternalStorage
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.UserBoxModifier
@@ -45,13 +48,16 @@ fun UserView (
     viewModel: UserViewModel,
     modifier: GlanceModifier,
 ) {
+    val context = LocalContext.current
     Column(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         // Top
-        Box (modifier = UserBoxModifier(viewModel.isSelected)) {
+        Box (modifier = UserBoxModifier(viewModel.isSelected)
+            .clickable{ switchUsers(viewModel.id, context) }
+        ) {
             Image(
                 provider = readFromInternalStorage(viewModel.iconPath)?.let { ImageProvider(it) }
                     ?: ImageProvider(R.drawable.account_circle),
