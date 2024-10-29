@@ -18,8 +18,6 @@ package com.android.multiuser.widget.viewmodel
 
 data class ActionViewModel (
     override val resourceId: Int,
-    override val id: Int,
     override val title: String,
     override val contentDescription: String?,
-    override val isSelected: Boolean,
-) : GridItemViewModel(id, title, contentDescription, isSelected, resourceId)
+) : GridItemViewModel(title, contentDescription, resourceId)
