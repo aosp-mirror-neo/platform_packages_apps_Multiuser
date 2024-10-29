@@ -26,7 +26,7 @@
     <dimen name="widget_min_resize_width">40dp</dimen>
     <dimen name="widget_grid_content_padding">4dp</dimen>
     <dimen name="widget_text_start_margin">4dp</dimen>
-    <dimen name="widget_text_breakpoint">200dp</dimen>
+    <dimen name="widget_text_breakpoint">100dp</dimen>
     <dimen name="small_widget_size_breakpoint">300dp</dimen>
     <dimen name="medium_widget_size_breakpoint">400dp</dimen>
     <dimen name="large_widget_size_breakpoint">500dp</dimen>
