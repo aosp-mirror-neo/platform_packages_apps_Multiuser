@@ -44,7 +44,7 @@ fun MultiuserWidgetLayout(
         modifier = GlanceModifier.padding(bottom = R.dimen.widget_grid_content_padding)
     ) {
         if (model.users.isEmpty()) {
-            ErrorWidget()
+            ErrorLayout()
         } else {
             UsersView(model)
         }

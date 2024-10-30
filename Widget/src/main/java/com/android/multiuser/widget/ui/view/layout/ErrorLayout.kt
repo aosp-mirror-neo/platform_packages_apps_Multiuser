@@ -18,20 +18,19 @@ package com.android.multiuser.widget.ui.view.layout
 
 import androidx.compose.runtime.Composable
 import androidx.glance.GlanceModifier
+import androidx.glance.layout.Alignment
 import androidx.glance.layout.Box
 import androidx.glance.layout.fillMaxSize
-import androidx.glance.layout.size
 import androidx.glance.text.Text
 import com.android.multiuser.widget.ui.util.ResourceString
 import com.android.multiuser.widget.ui.util.WidgetTextStyles
 import com.android.multiuser.widget.R
 
 @Composable
-fun ErrorWidget() {
-    Box(modifier = GlanceModifier.fillMaxSize()) {
+fun ErrorLayout() {
+    Box(modifier = GlanceModifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Text(
             text = ResourceString(R.string.multiuser_widget_error_message),
-            modifier = GlanceModifier.size(R.dimen.error_widget_font_size),
             style = WidgetTextStyles.ErrorMessage()
         )
     }

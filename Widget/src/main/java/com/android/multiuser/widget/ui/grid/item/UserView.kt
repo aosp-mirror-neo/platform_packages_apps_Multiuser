@@ -52,8 +52,7 @@ fun UserView (
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         // Top
-        Box (modifier = UserBoxModifier(viewModel.isSelected)
-            .padding(bottom = ResourceDp(R.dimen.widget_grid_top_spacing))) {
+        Box (modifier = UserBoxModifier(viewModel.isSelected)) {
             Image(
                 provider = ImageProvider(Icon.createWithContentUri(viewModel.iconUri))
                     .takeIf{ viewModel.iconUri != null }
