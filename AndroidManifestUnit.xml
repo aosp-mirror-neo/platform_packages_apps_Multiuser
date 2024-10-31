@@ -16,14 +16,14 @@
   -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.android.multiuser.widget.tests.unit">
+    package="com.android.multiuser.widget.tests">
 
     <application android:debuggable="true">
         <uses-library android:name="android.test.runner" />
     </application>
 
     <instrumentation android:name="androidx.test.runner.AndroidJUnitRunner"
-        android:targetPackage="com.android.multiuser.widget.tests.unit"
+        android:targetPackage="com.android.multiuser.widget.tests"
         android:label="Multiuser Widget Unit Test Cases">
     </instrumentation>
 </manifest>

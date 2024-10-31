@@ -17,15 +17,45 @@
 package com.android.multiuser.widget
 
 import android.content.Context
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.Composable
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.provideContent
 import androidx.glance.GlanceId
+import androidx.glance.GlanceTheme
+import com.android.multiuser.widget.data.ActionsRepository
+import com.android.multiuser.widget.data.UsersDatabase.Companion.getDatabase
+import com.android.multiuser.widget.domain.LoadUsersUseCase
+import com.android.multiuser.widget.ui.view.layout.ErrorLayout
+import com.android.multiuser.widget.ui.view.layout.LoadingLayout
+import com.android.multiuser.widget.ui.view.layout.MultiuserWidgetLayout
+import com.android.multiuser.widget.viewmodel.StateViewModel.Loading
+import com.android.multiuser.widget.viewmodel.UsersViewModel
+import kotlinx.coroutines.flow.Flow
 
 class MultiuserWidget : GlanceAppWidget() {
   override val sizeMode: SizeMode = SizeMode.Exact
-
   override suspend fun provideGlance(context: Context, id: GlanceId) {
-    provideContent {}
+    val loadUsersUseCase = LoadUsersUseCase(
+      userDao = getDatabase(context).getUserDao(),
+      actionsRepository = ActionsRepository(context)
+    )
+    val usersViewModelFlow = loadUsersUseCase()
+
+    provideContent {
+      GlanceTheme {
+        Content(usersViewModelFlow)
+      }
+    }
+  }
+
+  @Composable
+  private fun Content(usersViewModelFlow: Flow<UsersViewModel>) {
+    when(val usersViewModel = usersViewModelFlow.collectAsState(Loading).value) {
+      is Loading -> LoadingLayout()
+      is UsersViewModel -> MultiuserWidgetLayout(usersViewModel)
+      else -> ErrorLayout()
+    }
   }
 }
