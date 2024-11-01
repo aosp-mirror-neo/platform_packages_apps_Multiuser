@@ -26,6 +26,7 @@ import com.android.multiuser.widget.data.UserDao
 import com.android.multiuser.widget.data.UsersDatabase
 import com.android.multiuser.widget.data.model.User
 import com.android.multiuser.widget.domain.LoadUsersUseCase
+import com.android.multiuser.widget.util.SHOULD_DISPLAY_ADD_USER_BUTTON
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
 import java.io.IOException
@@ -121,7 +122,7 @@ class LoadUsersUseCaseTest {
     }
 
     @Test
-    fun currentUserIsAdmin_viewmodelIncludesAddUserButton() = runBlocking {
+    fun currentUserIsAdminAndAddUserButtonFlagIsSet_viewmodelIncludesAddUserButton() = runBlocking {
         val fakeUser = User(
             id = 0,
             name = "fake_user_name",
@@ -131,12 +132,38 @@ class LoadUsersUseCaseTest {
             isAdmin = true,
         )
         userDao.addUsers(fakeUser)
+        SHOULD_DISPLAY_ADD_USER_BUTTON = true
 
         val latch = CountDownLatch(1)
         val job = async(Dispatchers.IO) {
             val model = loadUsersUseCase().first()
             assertEquals(model.actions.size, 1)
             assertContains(model.actions, addUserActionViewModel)
+            latch.countDown()
+        }
+
+        latch.await()
+        job.cancelAndJoin()
+    }
+
+    @Test
+    fun currentUserIsAdminAndAddUserButtonFlagIsNotSet_viewmodelDoesNotIncludeAddUserButton()
+        = runBlocking {
+        val fakeUser = User(
+            id = 0,
+            name = "fake_user_name",
+            creationTime = 0,
+            iconPath = "fake_icon_path",
+            isCurrentUser = true,
+            isAdmin = true,
+        )
+        userDao.addUsers(fakeUser)
+        SHOULD_DISPLAY_ADD_USER_BUTTON = false
+
+        val latch = CountDownLatch(1)
+        val job = async(Dispatchers.IO) {
+            val model = loadUsersUseCase().first()
+            assertFalse(model.actions.contains(addUserActionViewModel))
             latch.countDown()
         }
 
