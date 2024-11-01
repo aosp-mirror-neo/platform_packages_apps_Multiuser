@@ -17,11 +17,31 @@
 package com.android.multiuser.widget.viewmodel
 
 data class UserViewModel(
-    val iconUri: String?,
+    val iconPath: String,
     val id: Int,
     val name: String,
     override val contentDescription: String?,
-    val isSelected: Boolean,
-    // If iconUri is null, fall back onto resourceId.
-    override val resourceId: Int
-) : GridItemViewModel(name, contentDescription, resourceId)
+    val isSelected: Boolean
+) : GridItemViewModel(name, contentDescription) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as UserViewModel
+
+        return iconPath == other.iconPath &&
+            id == other.id &&
+            name == other.name &&
+            contentDescription == other.contentDescription &&
+            isSelected == other.isSelected
+    }
+
+    override fun hashCode(): Int {
+        var result = iconPath.hashCode()
+        result = 31 * result + id.hashCode()
+        result = 31 * result + name.hashCode()
+        result = 31 * result + contentDescription.hashCode()
+        result = 31 * result + isSelected.hashCode()
+        return result
+    }
+}
