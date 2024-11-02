@@ -17,7 +17,7 @@
 package com.android.multiuser.widget.viewmodel
 
 data class ActionViewModel (
-    override val resourceId: Int,
+    val resourceId: Int,
     override val title: String,
     override val contentDescription: String?,
-) : GridItemViewModel(title, contentDescription, resourceId)
+) : GridItemViewModel(title, contentDescription)
