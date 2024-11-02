@@ -60,7 +60,10 @@ android_test {
     platform_apis: true,
     instrumentation_for: "MultiuserWidgetLib",
     srcs: ["Widget/src/tests/**/*.kt"],
-    resource_dirs: ["Widget/src/main/res"],
+    resource_dirs: [
+        "Widget/src/main/res",
+        "Widget/src/tests/res",
+    ],
     static_libs: [
         "MultiuserWidgetLib",
         "androidx.test.core",

@@ -20,16 +20,14 @@ import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.UserDao
 import com.android.multiuser.widget.data.model.Action
 import com.android.multiuser.widget.data.model.User
-import com.android.multiuser.widget.R
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
 import com.android.multiuser.widget.viewmodel.UsersViewModel
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
-import kotlin.collections.List
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.withContext
 
 /**
@@ -46,7 +44,7 @@ class LoadUsersUseCase(
 
     private fun loadUsersViewModel(): Flow<UsersViewModel>  {
         return flow {
-            var model = UsersViewModel(
+            val model = UsersViewModel(
                 users = getUserViewModels(),
                 actions = getActionViewModels(),
             )
@@ -68,13 +66,12 @@ class LoadUsersUseCase(
 
     private fun mapUserToUserViewModel(user: User): UserViewModel {
         return UserViewModel(
-            iconUri = user.iconUri,
+            iconPath = user.iconPath,
             id = user.id,
             name = user.name,
             isSelected = user.isCurrentUser,
             // contentDescription is auto-generated because user icons are selectable
             contentDescription = null,
-            resourceId = R.drawable.account_circle,
         )
     }
 
