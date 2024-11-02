@@ -16,17 +16,18 @@
 
 package com.android.multiuser.widget.ui.util
 
-import android.graphics.drawable.Icon
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.DpSize
 import androidx.glance.GlanceModifier
-import androidx.glance.ImageProvider
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.LocalContext
 import com.android.multiuser.widget.R
+import java.io.File
 
 @Composable
 fun ResourceString (resId: Int): String {
@@ -36,6 +37,16 @@ fun ResourceString (resId: Int): String {
 @Composable
 fun ResourceDp (resId: Int): Dp {
     return Dp(LocalContext.current.resources.getDimension(resId))
+}
+
+fun readFromInternalStorage(path: String): Bitmap? {
+    val file = File(path)
+    if (file.exists()) {
+        val options = BitmapFactory.Options().apply{ inMutable = true }
+        return BitmapFactory.decodeFile(file.absolutePath, options)
+    } else {
+        return null
+    }
 }
 
 @Composable
