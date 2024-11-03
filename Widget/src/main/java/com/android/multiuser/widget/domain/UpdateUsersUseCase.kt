@@ -46,7 +46,7 @@ class UpdateUsersUseCase(
 
     suspend fun onUserAdded(user: User): Flow<Boolean> = withContext(dispatcher) {
         return@withContext flow {
-            userDao.addUser(user)
+            userDao.addUsers(user)
             emit(true)
         }
     }
