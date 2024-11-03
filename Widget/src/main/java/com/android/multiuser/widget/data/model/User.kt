@@ -24,7 +24,7 @@ data class User(
         @PrimaryKey val id: Int,
         val name: String,
         val creationTime: Long,
-        val iconUri: String?,
+        val iconPath: String,
         var isCurrentUser: Boolean,
         val isAdmin: Boolean
 ) {
@@ -37,7 +37,7 @@ data class User(
         return id == other.id &&
             name == other.name &&
             creationTime == other.creationTime &&
-            iconUri == other.iconUri &&
+            iconPath == other.iconPath &&
             isCurrentUser == other.isCurrentUser &&
             isAdmin == other.isAdmin
     }
@@ -46,7 +46,7 @@ data class User(
         var result = id.hashCode()
         result = 31 * result + name.hashCode()
         result = 31 * result + creationTime.hashCode()
-        result = 31 * result + iconUri.hashCode()
+        result = 31 * result + iconPath.hashCode()
         result = 31 * result + isCurrentUser.hashCode()
         result = 31 * result + isAdmin.hashCode()
         return result
