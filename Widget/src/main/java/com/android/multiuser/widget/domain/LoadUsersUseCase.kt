@@ -20,6 +20,7 @@ import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.UserDao
 import com.android.multiuser.widget.data.model.Action
 import com.android.multiuser.widget.data.model.User
+import com.android.multiuser.widget.util.SHOULD_DISPLAY_ADD_USER_BUTTON
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
 import com.android.multiuser.widget.viewmodel.UsersViewModel
@@ -56,8 +57,9 @@ class LoadUsersUseCase(
             userDao.getUsers().first().map { user -> mapUserToUserViewModel(user) }
 
     private suspend fun getActionViewModels(): List<ActionViewModel> {
-        // If the current user is an admin, add the button for adding users.
-        if(userDao.getCurrentUser().first().isAdmin) {
+        // If the current user is an admin and SHOW_ADD_USER_BUTTON is set to true, include the
+        // button for adding users.
+        if(userDao.getCurrentUser().first().isAdmin && SHOULD_DISPLAY_ADD_USER_BUTTON) {
             return listOf(mapActionToActionViewModel(actionsRepository.getAddUserAction()))
         }
 
