@@ -16,28 +16,41 @@
 
 package com.android.multiuser.widget.action
 
-import android.app.ActivityManager
 import android.content.Context
+import android.content.Intent
 import android.os.UserHandle
 import android.os.UserManager
+import com.android.multiuser.widget.action.util.DialogActivity
+import com.android.multiuser.widget.MultiuserWidgetUtil
 
 fun switchUsers(userId: Int, context: Context) {
-    if(!canSwitchUser(context)) {
-        // TODO let the user know switching is not allowed
+    val userManager = MultiuserWidgetUtil.getUserManager(context)
+    if(userManager == null) {
+        showFailedDialog(context, /* showSwitchFailedDialog=*/ true)
         return
     }
 
-    val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as? ActivityManager
+    if(userManager.getUserSwitchability() != UserManager.SWITCHABILITY_STATUS_OK) {
+        showFailedDialog(context, /* showSwitchFailedDialog=*/ true)
+        return
+    }
+
+    if(!userManager.isUserSwitcherEnabled(true)) {
+        showFailedDialog(context, /* showSwitchFailedDialog=*/ false)
+        return
+    }
+
+    val activityManager = MultiuserWidgetUtil.getActivityManager(context)
     if(activityManager == null || !activityManager.switchUser(UserHandle(userId))) {
-        // TODO let the user know switch can not be performed
+        showFailedDialog(context, /* showSwitchFailedDialog=*/ true)
     }
 }
 
-private fun canSwitchUser(context: Context): Boolean {
-    val userManager = context.getSystemService(UserManager::class.java) as? UserManager
-    if(userManager == null) {
-        return false
-    }
-    return userManager.getUserSwitchability() == UserManager.SWITCHABILITY_STATUS_OK
-            && userManager.isUserSwitcherEnabled(true)
+private fun showFailedDialog(context: Context, showSwitchFailedDialog: Boolean) {
+    context.startActivity(
+        Intent(context, DialogActivity::class.java).apply {
+            putExtra("showFailedDialog", showSwitchFailedDialog)
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+    )
 }
