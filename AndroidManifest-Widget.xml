@@ -30,5 +30,15 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/multiuser_widget_info" />
         </receiver>
+        <activity android:name=".action.util.DialogActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Transparent"
+            android:launchMode="singleTask"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.settings.USER_SETTINGS" />
+            </intent-filter>
+        </activity>
     </application>
 </manifest>
