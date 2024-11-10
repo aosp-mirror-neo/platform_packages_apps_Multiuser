@@ -17,11 +17,12 @@
 package com.android.multiuser.widget.data
 
 import android.content.Context
+import com.android.multiuser.widget.MultiuserWidgetUtil
 import com.android.multiuser.widget.repository.UsersRepository
 import java.util.concurrent.Executors
 
 fun populateWithInitialData(context: Context, userDao: UserDao) {
-    val usersList = UsersRepository(context).getUsers()
+    val usersList = UsersRepository(MultiuserWidgetUtil.getUserManager(context)).getUsers(context)
 
     Executors.newSingleThreadExecutor().execute {
         userDao.addUsers(*usersList.toTypedArray())
