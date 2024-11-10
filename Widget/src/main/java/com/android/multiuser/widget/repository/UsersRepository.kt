@@ -27,30 +27,30 @@ import java.io.FileOutputStream
 import java.io.IOException
 import kotlin.collections.List
 
-class UsersRepository(private val context: Context) {
-    val userManager = context.getSystemService(Context.USER_SERVICE) as? UserManager
-
-    fun getUsers(): List<User> {
+class UsersRepository(private val userManager: UserManager?) {
+    fun getUsers(context: Context): List<User> {
         if(userManager == null) {
-            // This ensures the error layout is shown in the UI
+            // This ensures the error layout is shown in the UI.
             return listOf()
         }
         var userInfoList = userManager.getAliveUsers()
-        return userInfoList.map { userInfo: UserInfo -> mapUserInfoToUser(userInfo) }
+        return userInfoList.map { userInfo: UserInfo -> mapUserInfoToUser(userInfo, context) }
     }
 
-    private fun mapUserInfoToUser(userInfo: UserInfo): User {
+    private fun mapUserInfoToUser(userInfo: UserInfo, context: Context): User {
         return User(
             id = userInfo.id,
             name = userInfo.name ?: "",
             creationTime = userInfo.creationTime,
-            iconPath = saveToInternalStorage(userManager!!.getUserIcon(userInfo.id), userInfo.id),
+            iconPath = userManager?.let{
+                saveToInternalStorage(it.getUserIcon(userInfo.id), userInfo.id, context)
+            } ?: "",
             isCurrentUser = (context.user.identifier == userInfo.id),
-            isAdmin = userManager.isUserAdmin(userInfo.id)
+            isAdmin = userManager?.isUserAdmin(userInfo.id) ?: false,
         )
     }
 
-    private fun saveToInternalStorage(bitmapImage: Bitmap, id: Int): String {
+    private fun saveToInternalStorage(bitmapImage: Bitmap, id: Int, context: Context): String {
         val cw = ContextWrapper(context)
         // path to /data/user/{id}/com.android.multiuser/app_imageDir
         val directory: File = cw.getDir("imageDir", Context.MODE_PRIVATE)

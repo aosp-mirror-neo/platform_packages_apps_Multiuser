@@ -21,17 +21,15 @@ import androidx.glance.GlanceModifier
 import androidx.glance.appwidget.components.Scaffold
 import androidx.glance.GlanceTheme
 import androidx.glance.layout.padding
+import com.android.multiuser.widget.R
 import com.android.multiuser.widget.ui.grid.UsersView
 import com.android.multiuser.widget.ui.util.ResourceDp
-import com.android.multiuser.widget.R
 import com.android.multiuser.widget.viewmodel.UsersViewModel
 
 /**
- * A layout focused on presenting a grid of images. The list is displayed in a [Scaffold] below a
- * title bar.
- * @param items list of GridItemInfos to be displayed in the grid;a user avatar and name, or a guest
- * icon or a plus sign.
- * @param currentUserId current user id
+ * A layout focused on presenting a grid of images with titles. The list is
+ displayed in a [Scaffold] below a title bar.
+ * @param model view model with users and actions data.
  */
 @Composable
 fun MultiuserWidgetLayout(
