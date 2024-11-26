@@ -34,7 +34,7 @@ class UsersRepository(private val userManager: UserManager?) {
             // This ensures the error layout is shown in the UI.
             return listOf()
         }
-        var userInfoList = userManager.getAliveUsers()
+        var userInfoList = userManager.getAliveUsers().filter { it.isFull() }
         return userInfoList.map { userInfo: UserInfo -> mapUserInfoToUser(userInfo, context) }
     }
 
