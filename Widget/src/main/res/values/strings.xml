@@ -18,6 +18,7 @@
  -->
 <!-- TODO: b/371006714: These strings are user visible and need to be approved. -->
 <resources>
+  <string name="multiuser_app_name" translation_description="The Users app name displayed in the widget library. [CHAR_LIMIT=NONE]">Users</string>
   <string name="add_user_button_title" translation_description="Title for the button that allows adding a user. [CHAR_LIMIT=NONE]">Add user</string>
   <string name="add_user_button_content_description" translation_description="Content description for the button that allows adding a user. [CHAR_LIMIT=NONE]">Add user</string>
   <string name="multiuser_widget_name" translation_description="The widget name displayed in the widget picker. [CHAR_LIMIT=NONE]">Multiuser widget</string>
