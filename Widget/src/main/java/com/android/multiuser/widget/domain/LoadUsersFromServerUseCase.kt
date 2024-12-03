@@ -17,64 +17,49 @@
 package com.android.multiuser.widget.domain
 
 import com.android.multiuser.widget.data.ActionsRepository
-import com.android.multiuser.widget.data.UserDao
+import com.android.multiuser.widget.data.ImageRepository
+import com.android.multiuser.widget.data.UsersRepository
 import com.android.multiuser.widget.data.model.Action
-import com.android.multiuser.widget.data.model.User
 import com.android.multiuser.widget.util.SHOULD_DISPLAY_ADD_USER_BUTTON
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
-import com.android.multiuser.widget.viewmodel.UsersViewModel
+import com.android.multiuser.widget.viewmodel.GridItemViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.withContext
+import kotlin.collections.List
 
 /**
- * Maps data from the local Room database into viewmodel [UsersViewModel].
+ * Maps data from the local service into list of GridItemViewModel.
  */
-class LoadUsersUseCase(
-    private val userDao: UserDao,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.Default,
-    private val actionsRepository: ActionsRepository
-) {
-    suspend operator fun invoke(): Flow<UsersViewModel> = withContext(dispatcher) {
-        return@withContext loadUsersViewModel()
+class LoadUsersFromServerUseCase(
+    private val usersRepository: UsersRepository,
+    private val actionsRepository: ActionsRepository,
+    private val imageRepository: ImageRepository,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
+) : ILoadUsersUseCase{
+    override suspend operator fun invoke(): List<GridItemViewModel> = withContext(dispatcher) {
+        return@withContext getUserViewModels() + getActionViewModels()
     }
-
-    private fun loadUsersViewModel(): Flow<UsersViewModel>  {
-        return flow {
-            val model = UsersViewModel(
-                users = getUserViewModels(),
-                actions = getActionViewModels(),
-            )
-            emit(model)
-        }
-    }
-
     private suspend fun getUserViewModels() =
-            userDao.getUsers().first().map { user -> mapUserToUserViewModel(user) }
+        usersRepository.getUsers().map { user -> UserViewModel (
+            id = user.id,
+            name = user.name,
+            isSelected = user.isCurrentUser,
+            // TODO: check content auto-generated description.
+            // contentDescription is auto-generated because user icons are selectable
+            contentDescription = null,
+            loadAvatarUseCase = LoadUserAvatarUseCase(user.id, imageRepository)
+        )}
 
     private suspend fun getActionViewModels(): List<ActionViewModel> {
         // If the current user is an admin and SHOW_ADD_USER_BUTTON is set to true, include the
         // button for adding users.
-        if(userDao.getCurrentUser().first().isAdmin && SHOULD_DISPLAY_ADD_USER_BUTTON) {
+        if(usersRepository.isCurrentUserAdmin() && SHOULD_DISPLAY_ADD_USER_BUTTON) {
             return listOf(mapActionToActionViewModel(actionsRepository.getAddUserAction()))
         }
 
         return emptyList()
-    }
-
-    private fun mapUserToUserViewModel(user: User): UserViewModel {
-        return UserViewModel(
-            iconPath = user.iconPath,
-            id = user.id,
-            name = user.name,
-            isSelected = user.isCurrentUser,
-            // contentDescription is auto-generated because user icons are selectable
-            contentDescription = null,
-        )
     }
 
     private fun mapActionToActionViewModel(action: Action): ActionViewModel {

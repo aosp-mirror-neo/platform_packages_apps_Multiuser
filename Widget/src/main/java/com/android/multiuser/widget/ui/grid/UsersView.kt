@@ -16,7 +16,9 @@
 
 package com.android.multiuser.widget.ui.grid
 
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.glance.LocalSize
 import androidx.glance.appwidget.lazy.GridCells
 import androidx.glance.appwidget.lazy.LazyVerticalGrid
@@ -28,7 +30,9 @@ import com.android.multiuser.widget.ui.grid.item.UserView
 import com.android.multiuser.widget.ui.util.GridItemModifierForIndex
 import com.android.multiuser.widget.ui.util.NumberOfColumns
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.VerticalGridBoxModifier
+import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.UsersViewModel
+import com.android.multiuser.widget.viewmodel.UserViewModel
 import kotlin.math.ceil
 
 @Composable
@@ -36,26 +40,26 @@ fun UsersView(model: UsersViewModel) {
     Box(
         modifier = VerticalGridBoxModifier()
     ) {
-        val users = model.users
-        val actionItems = model.actions
+        val items by model.data.collectAsState()
         val gridCells = NumberOfColumns(LocalSize.current)
-        val numRows = ceil((users.size + actionItems.size).toDouble() / gridCells).toInt()
+        val numRows = ceil((items.size).toDouble() / gridCells).toInt()
 
         LazyVerticalGrid(
             gridCells = GridCells.Fixed(gridCells),
             horizontalAlignment = Alignment.Start
         ) {
-            itemsIndexed(users) { index, user ->
-                UserView(
-                    viewModel = user,
-                    modifier = GridItemModifierForIndex(index, gridCells, numRows),
-                )
-            }
-            itemsIndexed(actionItems) { index, actionItem ->
-                ActionView(
-                    viewModel = actionItem,
-                    modifier = GridItemModifierForIndex(index + users.size, gridCells, numRows),
-                )
+            itemsIndexed(items) { index, item ->
+                if (item is UserViewModel) {
+                    UserView(
+                        viewModel = item,
+                        modifier = GridItemModifierForIndex(index, gridCells, numRows),
+                    )
+                } else if (item is ActionViewModel) {
+                    ActionView(
+                        viewModel = item,
+                        modifier = GridItemModifierForIndex(index, gridCells, numRows),
+                    )
+                }
             }
         }
     }

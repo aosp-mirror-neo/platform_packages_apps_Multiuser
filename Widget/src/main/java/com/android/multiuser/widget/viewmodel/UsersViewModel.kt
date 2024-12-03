@@ -16,12 +16,59 @@
 
 package com.android.multiuser.widget.viewmodel
 
-sealed interface StateViewModel {
-    object Error : StateViewModel
-    object Loading : StateViewModel
-}
+import android.util.Log
+import com.android.multiuser.widget.domain.ILoadUsersUseCase
+import java.lang.Exception
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
-data class UsersViewModel(
-    val users: List<UserViewModel>,
-    val actions: List<ActionViewModel>,
-) : StateViewModel
+class UsersViewModel(private val useCase: ILoadUsersUseCase) {
+    val data: StateFlow<List<GridItemViewModel>> = getData()
+    val uiState: StateFlow<UiState> = getState()
+
+    companion object {
+        private val _data = MutableStateFlow<List<GridItemViewModel>>(emptyList())
+        private val _uiState = MutableStateFlow<UiState>(UiState.Invalid)
+
+        fun setState(value: UiState) {
+            if(_uiState.value != value) {
+                _uiState.value = value
+            }
+        }
+        fun getData() = _data.asStateFlow()
+        fun setData(value: List<GridItemViewModel>) {
+            if (value != _data.value) {
+                _data.value = value
+            }
+        }
+
+        fun getState() = _uiState.asStateFlow()
+
+        fun invalidate() {
+            setState(UiState.Invalid)
+        }
+    }
+
+    suspend fun reload() {
+        if (uiState.value != UiState.Loading) {
+            setState(UiState.Loading)
+            try {
+                val newData = useCase()
+                if (newData != data.value) {
+                    setData(newData)
+                }
+                if (data.value.size == 0) {
+                    setState(UiState.Error)
+                } else {
+                    setState(UiState.Success)
+                }
+
+            } catch (exc: Exception) {
+                Log.e(this.javaClass.name, "Unspecified exception")
+                setState(UiState.Error)
+            }
+        }
+    }
+
+}

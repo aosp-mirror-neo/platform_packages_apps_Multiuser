@@ -17,7 +17,7 @@
 package com.android.multiuser.widget.domain
 
 import android.content.Intent
-import com.android.multiuser.widget.repository.ResourceRepository
+import com.android.multiuser.widget.data.ResourceRepository
 
 /**
  * Returns a dialog that is displayed when user switching is not successful.
