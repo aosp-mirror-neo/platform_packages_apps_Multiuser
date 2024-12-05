@@ -34,7 +34,7 @@ interface UserDao {
     fun getCurrentUser(): Flow<User>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addUser(vararg users: User)
+    fun addUsers(vararg users: User)
 
     @Update
     fun updateUsers(vararg users: User)
