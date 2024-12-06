@@ -37,16 +37,17 @@ abstract class UsersDatabase : RoomDatabase() {
         private var INSTANCE: UsersDatabase? = null
 
         fun getDatabase(context: Context): UsersDatabase {
-            return INSTANCE ?: synchronized(this) {
+            if(INSTANCE == null) {
+                // temporary instance that will be populated with initial data
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
-                        UsersDatabase::class.java,
+                    UsersDatabase::class.java,
                     "multiuser_widget_database"
                 ).build()
+                populateWithInitialData(context, instance.getUserDao())
                 INSTANCE = instance
-                // return instance
-                instance
             }
+            return INSTANCE as UsersDatabase
         }
     }
 }
