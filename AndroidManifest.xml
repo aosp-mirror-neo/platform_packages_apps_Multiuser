@@ -19,4 +19,8 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.android.multiuser">
     <uses-permission android:name="android.permission.MANAGE_USERS"/>
+    <application
+        android:label="@string/multiuser_app_name"
+        android:icon="@mipmap/ic_launcher">
+    </application>
 </manifest>
