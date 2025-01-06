@@ -21,40 +21,48 @@ import android.content.ContextWrapper
 import android.content.pm.UserInfo
 import android.graphics.Bitmap
 import android.os.UserManager
+import com.android.internal.util.UserIcons
 import com.android.multiuser.widget.data.model.User
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import kotlin.collections.List
 
-class UsersRepository(private val context: Context) {
-    val userManager = context.getSystemService(Context.USER_SERVICE) as? UserManager
-
-    fun getUsers(): List<User> {
+class UsersRepository(private val userManager: UserManager?) {
+    fun getUsers(context: Context): List<User> {
         if(userManager == null) {
-            // This ensures the error layout is shown in the UI
+            // This ensures the error layout is shown in the UI.
             return listOf()
         }
-        var userInfoList = userManager.getAliveUsers()
-        return userInfoList.map { userInfo: UserInfo -> mapUserInfoToUser(userInfo) }
+        var userInfoList = userManager.getAliveUsers().filter { it.isFull() }
+        return userInfoList.map { userInfo: UserInfo -> mapUserInfoToUser(userInfo, context) }
     }
 
-    private fun mapUserInfoToUser(userInfo: UserInfo): User {
+    private fun mapUserInfoToUser(userInfo: UserInfo, context: Context): User {
+        // Get the user icon. If the user manager doesn't provide an icon,
+        // get the default icon and convert it to the appropriate size.
+        val userIcon = userManager?.getUserIcon(userInfo.id) ?: UserIcons.getDefaultUserIcon(
+            context.resources,
+            userInfo.id,
+            false
+        ).let { UserIcons.convertToBitmapAtUserIconSize(context.resources, it) }
+
+
         return User(
             id = userInfo.id,
             name = userInfo.name ?: "",
             creationTime = userInfo.creationTime,
-            iconPath = saveToInternalStorage(userManager!!.getUserIcon(userInfo.id), userInfo.id),
+            iconPath = saveToInternalStorage(userIcon, userInfo.id, context),
             isCurrentUser = (context.user.identifier == userInfo.id),
-            isAdmin = userManager.isUserAdmin(userInfo.id)
+            isAdmin = userManager?.isUserAdmin(userInfo.id) ?: false,
         )
     }
 
-    private fun saveToInternalStorage(bitmapImage: Bitmap, id: Int): String {
+    private fun saveToInternalStorage(bitmapImage: Bitmap, id: Int, context: Context): String {
         val cw = ContextWrapper(context)
         // path to /data/user/{id}/com.android.multiuser/app_imageDir
         val directory: File = cw.getDir("imageDir", Context.MODE_PRIVATE)
-        val filePath = File(directory, "$id.jpg")
+        val filePath = File(directory, "$id.png")
         var fos: FileOutputStream? = null
         try {
             fos = FileOutputStream(filePath)
@@ -63,7 +71,7 @@ class UsersRepository(private val context: Context) {
             e.printStackTrace()
         } finally {
             try {
-                fos!!.close()
+                fos?.close()
             } catch (e: IOException) {
                 e.printStackTrace()
             }
