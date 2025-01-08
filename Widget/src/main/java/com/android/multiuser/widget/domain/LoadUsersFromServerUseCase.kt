@@ -49,6 +49,7 @@ class LoadUsersFromServerUseCase(
             // TODO: check content auto-generated description.
             // contentDescription is auto-generated because user icons are selectable
             contentDescription = null,
+            enabled = user.isCurrentUser || user.switchable,
             loadAvatarUseCase = LoadUserAvatarUseCase(user.id, imageRepository)
         )}
 
