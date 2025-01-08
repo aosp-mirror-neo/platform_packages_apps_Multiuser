@@ -27,6 +27,7 @@ class UserViewModel(
     val name: String,
     override val contentDescription: String?,
     val isSelected: Boolean,
+    val enabled: Boolean,
     private val loadAvatarUseCase: LoadUserAvatarUseCase
 ) : GridItemViewModel(name, contentDescription) {
     private val _uiState = MutableStateFlow<UiState>(UiState.Success)
@@ -44,7 +45,8 @@ class UserViewModel(
             id == other.id &&
             name == other.name &&
             contentDescription == other.contentDescription &&
-            isSelected == other.isSelected
+            isSelected == other.isSelected &&
+            enabled == other.enabled
     }
 
     override fun hashCode(): Int {
@@ -53,6 +55,7 @@ class UserViewModel(
         result = 31 * result + name.hashCode()
         result = 31 * result + contentDescription.hashCode()
         result = 31 * result + isSelected.hashCode()
+        result = 31 * result + enabled.hashCode()
         return result
     }
 

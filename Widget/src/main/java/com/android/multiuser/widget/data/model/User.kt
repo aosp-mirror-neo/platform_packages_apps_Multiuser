@@ -25,7 +25,8 @@ data class User(
         val name: String,
         val creationTime: Long,
         var isCurrentUser: Boolean,
-        val isAdmin: Boolean
+        val isAdmin: Boolean,
+        val switchable: Boolean
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -37,7 +38,8 @@ data class User(
             name == other.name &&
             creationTime == other.creationTime &&
             isCurrentUser == other.isCurrentUser &&
-            isAdmin == other.isAdmin
+            isAdmin == other.isAdmin &&
+            switchable == other.switchable
     }
 
     override fun hashCode(): Int {
@@ -46,6 +48,7 @@ data class User(
         result = 31 * result + creationTime.hashCode()
         result = 31 * result + isCurrentUser.hashCode()
         result = 31 * result + isAdmin.hashCode()
+        result = 31 * result + switchable.hashCode()
         return result
     }
 }

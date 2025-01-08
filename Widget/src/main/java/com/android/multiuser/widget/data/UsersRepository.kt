@@ -30,7 +30,7 @@ import kotlin.collections.List
 
 class UsersRepository(private val userManager: UserManager?) {
     fun getUsers(): List<User> {
-        if(userManager == null) {
+        if (userManager == null) {
             // This ensures the error layout is shown in the UI.
             return listOf()
         }
@@ -44,10 +44,15 @@ class UsersRepository(private val userManager: UserManager?) {
                     creationTime = userInfo.creationTime,
                     isCurrentUser = (currentUserId == userInfo.id),
                     isAdmin = userInfo.isAdmin(),
-                ) }
+                    switchable = !disableSwitchUsers()
+                )
+            }
     }
 
-    val currentUserId =  UserHandle.myUserId()
-
+    val currentUserId = UserHandle.myUserId()
+    fun disableSwitchUsers() = userManager?.let {
+        it.getUserSwitchability() != UserManager.SWITCHABILITY_STATUS_OK
+                || !userManager.isUserSwitcherEnabled(true)
+    } ?: true
     fun isCurrentUserAdmin() = userManager?.isUserAdmin(currentUserId) ?: false
 }
