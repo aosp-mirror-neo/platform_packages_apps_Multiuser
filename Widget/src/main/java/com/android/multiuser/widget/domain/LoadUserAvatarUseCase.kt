@@ -14,17 +14,24 @@
  * limitations under the License.
  */
 
-package com.android.multiuser.widget.data
+package com.android.multiuser.widget.domain
 
-import android.content.Context
-import com.android.multiuser.widget.MultiuserWidgetUtil
-import com.android.multiuser.widget.repository.UsersRepository
-import java.util.concurrent.Executors
+import android.graphics.Bitmap
+import com.android.multiuser.widget.data.ImageRepository
 
-fun populateWithInitialData(context: Context, userDao: UserDao) {
-    val usersList = UsersRepository(MultiuserWidgetUtil.getUserManager(context)).getUsers(context)
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
-    Executors.newSingleThreadExecutor().execute {
-        userDao.addUsers(*usersList.toTypedArray())
+/**
+ * LoadUserAvatarUseCase for user and return Bitmap
+ */
+class LoadUserAvatarUseCase(
+    private val userId: Int,
+    private val imageRepository: ImageRepository,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO
+) {
+    suspend operator fun invoke(): Bitmap = withContext(dispatcher) {
+        return@withContext imageRepository.getAvatar(userId)
     }
 }

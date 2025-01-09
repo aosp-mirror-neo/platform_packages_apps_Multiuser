@@ -16,14 +16,14 @@
 
 package com.android.multiuser.widget.data
 
-import android.content.Context
+import android.content.res.Resources
 import com.android.multiuser.widget.data.model.Action
 import com.android.multiuser.widget.R
 
-class ActionsRepository(private val context: Context) {
+class ActionsRepository(private val resources: Resources) {
     fun getAddUserAction() = Action(
-        title = context.getString(R.string.add_user_button_title),
-        contentDescription = context.getString(R.string.add_user_button_content_description),
+        title = resources.getString(R.string.add_user_button_title),
+        contentDescription = resources.getString(R.string.add_user_button_content_description),
         resourceId = R.drawable.person_add,
     )
 }

@@ -16,8 +16,12 @@
 
 package com.android.multiuser.widget.ui.grid.item
 
-import androidx.glance.action.clickable
+import android.graphics.Bitmap
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.glance.action.clickable
 import androidx.glance.GlanceModifier
 import androidx.glance.Image
 import androidx.glance.ImageProvider
@@ -38,7 +42,9 @@ import com.android.multiuser.widget.ui.util.readFromInternalStorage
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.UserBoxModifier
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.TrailingBottomModifier
 import com.android.multiuser.widget.ui.util.WidgetTextStyles
+import com.android.multiuser.widget.viewmodel.UiState
 import com.android.multiuser.widget.viewmodel.UserViewModel
+import kotlinx.coroutines.launch
 
 /**
  * Displays user data in the widget.
@@ -49,6 +55,14 @@ fun UserView (
     modifier: GlanceModifier,
 ) {
     val context = LocalContext.current
+    val bitmap by viewModel.bitmap.collectAsState()
+    val scope = rememberCoroutineScope()
+    val uiState by viewModel.uiState.collectAsState()
+    scope.launch {
+        if(uiState != UiState.Loading) {
+            viewModel.loadAvatar()
+        }
+    }
     Column(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
@@ -59,7 +73,7 @@ fun UserView (
             .clickable{ switchUsers(viewModel.id, context) }
         ) {
             Image(
-                provider = readFromInternalStorage(viewModel.iconPath)?.let { ImageProvider(it) }
+                provider = bitmap?.let { ImageProvider(it) }
                     ?: ImageProvider(R.drawable.account_circle),
                 contentScale = ContentScale.Fit,
                 contentDescription = viewModel.contentDescription,

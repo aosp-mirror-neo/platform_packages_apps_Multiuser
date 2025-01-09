@@ -20,7 +20,7 @@ import android.app.AlertDialog
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.android.multiuser.widget.domain.SwitchFailedUseCase
-import com.android.multiuser.widget.repository.ResourceRepository
+import com.android.multiuser.widget.data.ResourceRepository
 
 class DialogActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
