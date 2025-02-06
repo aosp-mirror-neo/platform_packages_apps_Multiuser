@@ -22,6 +22,6 @@
     <integer name="widget_update_period_millis">86400000</integer>
     <!-- Target cell height and width are the default dimensions the widget has in the widget
     picker. -->
-    <integer name="widget_target_cell_height">3</integer>
+    <integer name="widget_target_cell_height">2</integer>
     <integer name="widget_target_cell_width">2</integer>
 </resources>

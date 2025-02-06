@@ -24,9 +24,9 @@ data class User(
         @PrimaryKey val id: Int,
         val name: String,
         val creationTime: Long,
-        val iconPath: String,
         var isCurrentUser: Boolean,
-        val isAdmin: Boolean
+        val isAdmin: Boolean,
+        val switchable: Boolean
 ) {
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -37,18 +37,18 @@ data class User(
         return id == other.id &&
             name == other.name &&
             creationTime == other.creationTime &&
-            iconPath == other.iconPath &&
             isCurrentUser == other.isCurrentUser &&
-            isAdmin == other.isAdmin
+            isAdmin == other.isAdmin &&
+            switchable == other.switchable
     }
 
     override fun hashCode(): Int {
         var result = id.hashCode()
         result = 31 * result + name.hashCode()
         result = 31 * result + creationTime.hashCode()
-        result = 31 * result + iconPath.hashCode()
         result = 31 * result + isCurrentUser.hashCode()
         result = 31 * result + isAdmin.hashCode()
+        result = 31 * result + switchable.hashCode()
         return result
     }
 }

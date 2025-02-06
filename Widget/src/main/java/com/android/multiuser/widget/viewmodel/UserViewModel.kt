@@ -16,32 +16,56 @@
 
 package com.android.multiuser.widget.viewmodel
 
-data class UserViewModel(
-    val iconPath: String,
+import android.graphics.Bitmap
+import com.android.multiuser.widget.domain.LoadUserAvatarUseCase
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+
+class UserViewModel(
     val id: Int,
     val name: String,
     override val contentDescription: String?,
-    val isSelected: Boolean
+    val isSelected: Boolean,
+    val enabled: Boolean,
+    private val loadAvatarUseCase: LoadUserAvatarUseCase
 ) : GridItemViewModel(name, contentDescription) {
+    private val _uiState = MutableStateFlow<UiState>(UiState.Success)
+    private val _bitmap = MutableStateFlow<Bitmap?>(null)
+    val uiState: StateFlow<UiState> = _uiState.asStateFlow()
+    val bitmap: StateFlow<Bitmap?> = _bitmap.asStateFlow()
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
         other as UserViewModel
 
-        return iconPath == other.iconPath &&
+        return bitmap.value == other.bitmap.value &&
             id == other.id &&
             name == other.name &&
             contentDescription == other.contentDescription &&
-            isSelected == other.isSelected
+            isSelected == other.isSelected &&
+            enabled == other.enabled
     }
 
     override fun hashCode(): Int {
-        var result = iconPath.hashCode()
+        var result = bitmap.value.hashCode()
         result = 31 * result + id.hashCode()
         result = 31 * result + name.hashCode()
         result = 31 * result + contentDescription.hashCode()
         result = 31 * result + isSelected.hashCode()
+        result = 31 * result + enabled.hashCode()
         return result
+    }
+
+    suspend fun loadAvatar() {
+        _uiState.value = UiState.Loading
+        _bitmap.value = loadAvatarUseCase()
+        _uiState.value = UiState.Success
+    }
+
+    fun invalidate() {
+        _uiState.value = UiState.Invalid
     }
 }

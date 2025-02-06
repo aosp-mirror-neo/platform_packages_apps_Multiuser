@@ -31,9 +31,9 @@ import com.android.multiuser.widget.R
 
 object WidgetGlanceModifiers {
     @Composable
-    fun UserBoxModifier (isSelected: Boolean): GlanceModifier {
+    fun UserBoxModifier (isSelected: Boolean, alpha: Float): GlanceModifier {
         return if(isSelected) {
-            SelectedUserBoxModifier()
+            SelectedUserBoxModifier(alpha)
         } else {
             DefaultUserBoxModifier()
         }
@@ -44,11 +44,12 @@ object WidgetGlanceModifiers {
         .width(ResourceDp(R.dimen.widget_grid_bottom_spacing))
 
     @Composable
-    fun SelectedUserBoxModifier() = GlanceModifier
+    fun SelectedUserBoxModifier(alpha: Float) = GlanceModifier
         .wrapContentSize()
         .padding(ResourceDp(R.dimen.widget_grid_content_padding))
         .background(
                 ImageProvider(R.drawable.current_user_border),
+                alpha = alpha,
                 colorFilter = ColorFilter.tint(GlanceTheme.colors.primary))
 
     @Composable

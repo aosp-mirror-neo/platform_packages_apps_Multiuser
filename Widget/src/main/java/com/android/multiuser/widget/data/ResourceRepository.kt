@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.multiuser.widget.repository
+package com.android.multiuser.widget.data
 
 import android.content.ComponentName
 import android.content.Intent

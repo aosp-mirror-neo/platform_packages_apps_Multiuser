@@ -21,17 +21,21 @@
         <receiver
             android:name=".MultiuserWidgetReceiver"
             android:label="@string/multiuser_widget_name"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.settings.USER_SETTINGS" />
+                <!--To be changed to wakeup frozen widget-->
+                <action android:name="android.intent.action.USER_INFO_CHANGED_BACKGROUND"/>
+                <action android:name="android.intent.action.USER_REMOVED" />
+                <action android:name="android.intent.action.USER_ADDED" />
             </intent-filter>
             <meta-data
                 android:name="android.appwidget.provider"
                 android:resource="@xml/multiuser_widget_info" />
         </receiver>
         <activity android:name=".action.util.DialogActivity"
-            android:exported="true"
+            android:exported="false"
             android:theme="@style/Theme.Transparent"
             android:launchMode="singleTask"
             android:excludeFromRecents="true">

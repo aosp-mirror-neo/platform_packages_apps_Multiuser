@@ -21,7 +21,8 @@
   <string name="multiuser_app_name" translation_description="The Users app name displayed in the widget library. [CHAR_LIMIT=NONE]">Users</string>
   <string name="add_user_button_title" translation_description="Title for the button that allows adding a user. [CHAR_LIMIT=NONE]">Add user</string>
   <string name="add_user_button_content_description" translation_description="Content description for the button that allows adding a user. [CHAR_LIMIT=NONE]">Add user</string>
-  <string name="multiuser_widget_name" translation_description="The widget name displayed in the widget picker. [CHAR_LIMIT=NONE]">Multiuser widget</string>
+  <string name="multiuser_widget_name" translation_description="The widget name displayed in the widget picker. [CHAR_LIMIT=NONE]">Switch users</string>
+  <string name="multiuser_widget_description" translation_description="The widget description displayed in the widget picker. [CHAR_LIMIT=NONE]">Quickly switch users</string>
   <string name="multiuser_widget_title" translation_description="The text displayed in the title bar. [CHAR_LIMIT=NONE]">Switch user</string>
   <string name="multiuser_widget_error_message" translation_description="The text displayed when user data doesn't load. [CHAR_LIMIT=NONE]">Failed to load widget.</string>
   <string name="widget_settings_button_content_description" translation_description="Text describing the action of the Settings button on the widget. Used by accessibility services. {CHAR_LIMIT=NONE}">Go to Users Settings.</string>
@@ -30,4 +31,10 @@
   <string name="widget_switch_not_allowed_dialog_dismiss_button_text" translation_description="Text that appears as a negative button in an alert dialog when user tries to switch but switching is disallowed. Clicking on this text dismisses the dialog. {CHAR_LIMIT=NONE}">Dismiss</string>
   <string name="widget_switch_not_allowed_dialog_message" translation_description="Text that appears in an alert dialog when user tries to switch but switching is disallowed. {CHAR_LIMIT=NONE}">User switch is not allowed.</string>
   <string name="widget_switch_not_allowed_dialog_settings_button_text" translation_description="Text that appears as a positive button in an alert dialog when user tries to switch but switching is disallowed. Clicking on this text leads to User Settings. {CHAR_LIMIT=NONE}">Settings</string>
+  <string name="preview_first_user_name" translation_description="The name of the first user in the multiuser widget preview displayed in the widget picker. {CHAR_LIMIT=NONE}">Brenda</string>
+  <string name="preview_second_user_name" translation_description="The name of the second user in the multiuser widget preview displayed in the widget picker. {CHAR_LIMIT=NONE}">Elia</string>
+  <string name="preview_first_avatar_content_description" translation_description="Content description for the first user's avatar in the multiuser widget preview displayed in the widget picker. {CHAR_LIMIT=NONE}">Picture of Brenda</string>
+  <string name="preview_second_avatar_content_description" translation_description="Content description for the first user's avatar in the multiuser widget preview displayed in the widget picker. {CHAR_LIMIT=NONE}">Picture of Elia</string>
+  <string name="preview_users_icon_content_description" translation_description="Content description for the users icon. {CHAR_LIMIT=NONE}">Users icon</string>
+  <string name="preview_settings_icon_content_description" translation_description="Content description for the settings icon that opens users settings page. {CHAR_LIMIT=NONE}">Settings icon - select to manage users</string>
 </resources>
