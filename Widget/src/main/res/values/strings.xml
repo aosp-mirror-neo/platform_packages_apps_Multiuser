@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/**
+ * Copyright (c) 2024, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+<!-- TODO: b/371006714: These strings are user visible and need to be approved. -->
+<resources>
+  <string name="multiuser_app_name" translation_description="The Users app name displayed in the widget library. [CHAR_LIMIT=NONE]">Users</string>
+  <string name="add_user_button_title" translation_description="Title for the button that allows adding a user. [CHAR_LIMIT=NONE]">Add user</string>
+  <string name="add_user_button_content_description" translation_description="Content description for the button that allows adding a user. [CHAR_LIMIT=NONE]">Add user</string>
+  <string name="multiuser_widget_name" translation_description="The widget name displayed in the widget picker. [CHAR_LIMIT=NONE]">Multiuser widget</string>
+  <string name="multiuser_widget_title" translation_description="The text displayed in the title bar. [CHAR_LIMIT=NONE]">Switch user</string>
+  <string name="multiuser_widget_error_message" translation_description="The text displayed when user data doesn't load. [CHAR_LIMIT=NONE]">Failed to load widget.</string>
+  <string name="widget_settings_button_content_description" translation_description="Text describing the action of the Settings button on the widget. Used by accessibility services. {CHAR_LIMIT=NONE}">Go to Users Settings.</string>
+  <string name="widget_switch_failed_dialog_dismiss_button_text" translation_description="Text that appears as a negative button in an alert dialog when user tries to switch and the switch fails. Clicking on this text dismisses the dialog. {CHAR_LIMIT=NONE}">Dismiss</string>
+  <string name="widget_switch_failed_dialog_message" translation_description="Text that appears in an alert dialog when user tries to switch and the switch fails. {CHAR_LIMIT=NONE}">User switch could not be performed.</string>
+  <string name="widget_switch_not_allowed_dialog_dismiss_button_text" translation_description="Text that appears as a negative button in an alert dialog when user tries to switch but switching is disallowed. Clicking on this text dismisses the dialog. {CHAR_LIMIT=NONE}">Dismiss</string>
+  <string name="widget_switch_not_allowed_dialog_message" translation_description="Text that appears in an alert dialog when user tries to switch but switching is disallowed. {CHAR_LIMIT=NONE}">User switch is not allowed.</string>
+  <string name="widget_switch_not_allowed_dialog_settings_button_text" translation_description="Text that appears as a positive button in an alert dialog when user tries to switch but switching is disallowed. Clicking on this text leads to User Settings. {CHAR_LIMIT=NONE}">Settings</string>
+</resources>
