@@ -29,10 +29,10 @@ class DialogActivity: AppCompatActivity() {
         val switchFailedUseCase =
             SwitchFailedUseCase(ResourceRepository(this.getResources()), intent)
         val dialogViewModel = switchFailedUseCase()
-
         val dialogBuilder = AlertDialog.Builder(this)
             .setMessage(dialogViewModel.message)
             .setNegativeButton(dialogViewModel.negativeButtonText, /* listener=*/ null)
+
         if(dialogViewModel.positiveButtonText != null && dialogViewModel.actionIntent != null) {
             dialogBuilder.setPositiveButton(dialogViewModel.positiveButtonText) {  _, _ ->
                 this.startActivity(dialogViewModel.actionIntent)
@@ -40,10 +40,8 @@ class DialogActivity: AppCompatActivity() {
         }
 
         val dialog = dialogBuilder.create()
-
         // Ensure the activity stops when the dialog is closed.
         dialog.setOnDismissListener{ finish() }
-
         dialog.show()
     }
 }
