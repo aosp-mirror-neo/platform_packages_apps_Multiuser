@@ -33,15 +33,15 @@ class ResourceRepository(val resources: Resources) {
     fun getSwitchFailed() = DialogViewModel(
         message = resources.getString(R.string.widget_switch_failed_dialog_message),
         negativeButtonText =
-            resources.getString(R.string.widget_switch_failed_dialog_dismiss_button_text),
+            resources.getString(R.string.dialog_close_button_text),
     )
 
-    fun getSwitchNotAllowed() = DialogViewModel(
-        message = resources.getString(R.string.widget_switch_not_allowed_dialog_message),
+    fun getSwitchDisabled() = DialogViewModel(
+        message = resources.getString(R.string.widget_switch_disabled_dialog_message),
         positiveButtonText =
-            resources.getString(R.string.widget_switch_not_allowed_dialog_settings_button_text),
+            resources.getString(R.string.widget_switch_disabled_dialog_open_settings_button),
         negativeButtonText =
-            resources.getString(R.string.widget_switch_not_allowed_dialog_dismiss_button_text),
+            resources.getString(R.string.dialog_close_button_text),
         actionIntent = Intent(Settings.ACTION_USER_SETTINGS)
             .setComponent(
                 ComponentName("com.android.settings",
