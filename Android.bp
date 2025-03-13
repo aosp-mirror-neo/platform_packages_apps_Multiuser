@@ -25,7 +25,10 @@ android_app {
 
     optimize: {
         enabled: true,
+        optimize: true,
+        shrink_resources: true,
     },
+
     static_libs: [
         "MultiuserWidgetLib",
     ],
@@ -38,18 +41,22 @@ android_library {
     manifest: "AndroidManifest-Widget.xml",
     srcs: ["Widget/src/main/java/**/*.kt"],
     resource_dirs: ["Widget/src/main/res"],
+
+    optimize: {
+        enabled: true,
+        optimize: true,
+        shrink_resources: true,
+    },
+
     static_libs: [
         "androidx.activity_activity-compose",
         "androidx.annotation_annotation",
         "androidx.appcompat_appcompat",
         "androidx.compose.runtime_runtime",
-        "androidx.compose.ui_ui",
         "androidx.glance_glance-appwidget",
         "androidx.glance_glance",
-        "androidx.room_room-runtime",
-        "androidx.room_room-ktx",
+        "PlatformComposeCore",
     ],
-    plugins: ["androidx.room_room-compiler-plugin"],
     kotlincflags: ["-Xjvm-default=all"],
 }
 
@@ -60,7 +67,7 @@ android_test {
     use_resource_processor: true,
     platform_apis: true,
     instrumentation_for: "MultiuserWidgetLib",
-    srcs: ["Widget/src/tests/**/*.kt"],
+    srcs: ["Widget/src/tests/unit/**/*.kt"],
     resource_dirs: [
         "Widget/src/main/res",
         "Widget/src/tests/res",
@@ -74,7 +81,34 @@ android_test {
         "flag-junit",
         "androidx.test.runner",
         "kotlin-test",
-        "androidx.room_room-testing",
+    ],
+    kotlincflags: ["-Xjvm-default=all"],
+    test_suites: ["device-tests"],
+}
+
+android_test {
+    name: "MultiuserWidgetUiTests",
+    manifest: "AndroidManifestUiTests.xml",
+    certificate: "platform",
+    use_resource_processor: true,
+    platform_apis: true,
+    instrumentation_for: "MultiuserWidgetLib",
+    srcs: ["Widget/src/tests/ui/**/*.kt"],
+    resource_dirs: [
+        "Widget/src/main/res",
+        "Widget/src/tests/res",
+    ],
+    static_libs: [
+        "MultiuserWidgetLib",
+        "androidx.compose.ui_ui-test-junit4",
+        "androidx.compose.ui_ui-test-manifest",
+        "androidx.test.core",
+        "androidx.test.rules",
+        "androidx.test.ext.junit",
+        "kotlinx_coroutines_test",
+        "flag-junit",
+        "androidx.test.runner",
+        "kotlin-test",
     ],
     kotlincflags: ["-Xjvm-default=all"],
     test_suites: ["device-tests"],
