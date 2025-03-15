@@ -24,6 +24,7 @@ import com.android.multiuser.widget.R
 
 class ResourceRepository(val resources: Resources) {
     class DialogViewModel(
+        val title: String,
         val message: String,
         val positiveButtonText: String? = null,
         val negativeButtonText: String,
@@ -31,12 +32,14 @@ class ResourceRepository(val resources: Resources) {
     )
 
     fun getSwitchFailed() = DialogViewModel(
+        title = resources.getString(R.string.widget_switch_failed_dialog_title),
         message = resources.getString(R.string.widget_switch_failed_dialog_message),
         negativeButtonText =
             resources.getString(R.string.dialog_close_button_text),
     )
 
     fun getSwitchDisabled() = DialogViewModel(
+        title = resources.getString(R.string.widget_switch_disabled_dialog_title),
         message = resources.getString(R.string.widget_switch_disabled_dialog_message),
         positiveButtonText =
             resources.getString(R.string.widget_switch_disabled_dialog_open_settings_button),

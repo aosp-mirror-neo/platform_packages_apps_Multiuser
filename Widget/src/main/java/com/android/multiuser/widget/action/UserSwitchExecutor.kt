@@ -20,7 +20,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.UserHandle
 import android.os.UserManager
-import com.android.multiuser.widget.action.util.DialogActivity
+import com.android.multiuser.widget.ui.DialogActivity
 import com.android.multiuser.widget.MultiuserWidgetUtil
 
 fun switchUsers(userId: Int, context: Context) {
