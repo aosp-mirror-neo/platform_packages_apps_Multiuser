@@ -30,7 +30,7 @@ class SwitchFailedUseCase(private val repository: ResourceRepository, intent: In
         return if(showFailedDialog) {
             repository.getSwitchFailed()
         } else {
-            repository.getSwitchNotAllowed()
+            repository.getSwitchDisabled()
         }
     }
 }

@@ -1,6 +1,9 @@
 {
   "postsubmit": [
     {
+      "name": "MultiuserWidgetUiTests"
+    },
+    {
       "name": "MultiuserWidgetUnitTests"
     }
   ]

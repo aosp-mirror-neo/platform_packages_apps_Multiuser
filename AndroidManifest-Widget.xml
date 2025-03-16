@@ -34,7 +34,7 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/multiuser_widget_info" />
         </receiver>
-        <activity android:name=".action.util.DialogActivity"
+        <activity android:name=".ui.DialogActivity"
             android:exported="false"
             android:theme="@style/Theme.Transparent"
             android:launchMode="singleTask"
