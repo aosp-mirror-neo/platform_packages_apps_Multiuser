@@ -16,8 +16,10 @@
 
 package com.android.multiuser.widget.viewmodel
 
+import android.content.Intent
 import android.graphics.Bitmap
 import com.android.multiuser.widget.domain.LoadUserAvatarUseCase
+import com.android.multiuser.widget.domain.UserSwitchUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -28,7 +30,8 @@ class UserViewModel(
     override val contentDescription: String?,
     val isSelected: Boolean,
     val enabled: Boolean,
-    private val loadAvatarUseCase: LoadUserAvatarUseCase
+    private val loadAvatarUseCase: LoadUserAvatarUseCase,
+    private val userSwitchUseCase: UserSwitchUseCase
 ) : GridItemViewModel(name, contentDescription) {
     private val _uiState = MutableStateFlow<UiState>(UiState.Success)
     private val _bitmap = MutableStateFlow<Bitmap?>(null)
@@ -42,11 +45,11 @@ class UserViewModel(
         other as UserViewModel
 
         return bitmap.value == other.bitmap.value &&
-            id == other.id &&
-            name == other.name &&
-            contentDescription == other.contentDescription &&
-            isSelected == other.isSelected &&
-            enabled == other.enabled
+                id == other.id &&
+                name == other.name &&
+                contentDescription == other.contentDescription &&
+                isSelected == other.isSelected &&
+                enabled == other.enabled
     }
 
     override fun hashCode(): Int {
@@ -63,6 +66,11 @@ class UserViewModel(
         _uiState.value = UiState.Loading
         _bitmap.value = loadAvatarUseCase()
         _uiState.value = UiState.Success
+    }
+
+    //callback: (List<User>) -> Unit
+    fun switch(showError: (intent: Intent) -> Unit) {
+        userSwitchUseCase()?.let { showError(it) }
     }
 
     fun invalidate() {

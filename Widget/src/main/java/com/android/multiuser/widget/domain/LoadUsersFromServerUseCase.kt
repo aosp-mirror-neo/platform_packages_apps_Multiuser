@@ -18,7 +18,8 @@ package com.android.multiuser.widget.domain
 
 import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.ImageRepository
-import com.android.multiuser.widget.data.UsersRepository
+import com.android.multiuser.widget.data.IntentRepository
+import com.android.multiuser.widget.data.IUsersRepository
 import com.android.multiuser.widget.data.model.Action
 import com.android.multiuser.widget.util.SHOULD_DISPLAY_ADD_USER_BUTTON
 import com.android.multiuser.widget.viewmodel.ActionViewModel
@@ -33,9 +34,10 @@ import kotlin.collections.List
  * Maps data from the local service into list of GridItemViewModel.
  */
 class LoadUsersFromServerUseCase(
-    private val usersRepository: UsersRepository,
+    private val usersRepository: IUsersRepository,
     private val actionsRepository: ActionsRepository,
     private val imageRepository: ImageRepository,
+    private val intentRepository: IntentRepository,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ILoadUsersUseCase{
     override suspend operator fun invoke(): List<GridItemViewModel> = withContext(dispatcher) {
@@ -50,7 +52,8 @@ class LoadUsersFromServerUseCase(
             // contentDescription is auto-generated because user icons are selectable
             contentDescription = null,
             enabled = user.isCurrentUser || user.switchable,
-            loadAvatarUseCase = LoadUserAvatarUseCase(user.id, imageRepository)
+            loadAvatarUseCase = LoadUserAvatarUseCase(user.id, imageRepository),
+            userSwitchUseCase = UserSwitchUseCase(user.id, usersRepository, intentRepository)
         )}
 
     private suspend fun getActionViewModels(): List<ActionViewModel> {
