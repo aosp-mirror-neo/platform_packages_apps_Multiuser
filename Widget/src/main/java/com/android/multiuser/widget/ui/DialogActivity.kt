@@ -29,10 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.core.view.WindowCompat
 
 import com.android.compose.theme.PlatformTheme
-
-import com.android.multiuser.widget.domain.SwitchFailedUseCase
-import com.android.multiuser.widget.data.ResourceRepository
-import com.android.multiuser.widget.data.ResourceRepository.DialogViewModel
+import com.android.multiuser.widget.domain.DialogUseCase
 
 /**
  * Activity to display a dialog with a title, message, icon, and one or two buttons.
@@ -48,9 +45,7 @@ class DialogActivity : ComponentActivity() {
         window.statusBarColor = Color.Transparent.hashCode()
         // Transparent navigation bar (if applicable)
         window.navigationBarColor = Color.Transparent.hashCode()
-        val switchFailedUseCase =
-            SwitchFailedUseCase(ResourceRepository(resources), intent)
-        val dialogViewModel = switchFailedUseCase()
+        val dialogUseCase = DialogUseCase(intent, resources)
 
         setContent {
             PlatformTheme {
@@ -59,7 +54,7 @@ class DialogActivity : ComponentActivity() {
                     color = Color.Transparent // Important: Set the surface color to transparent
                 ) {
                     DialogView(
-                        dialogViewModel,
+                        dialogUseCase(),
                         { finish() },
                         {
                             it?.let { intent -> startActivity(intent) }

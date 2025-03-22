@@ -15,11 +15,12 @@
  */
 package com.android.multiuser.widget.ui.tests
 
+import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.assertCountEquals
-import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
@@ -32,23 +33,25 @@ import org.junit.Assert.assertTrue
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertNotNull
 
+import android.content.Context;
 import android.content.Intent;
 
-import com.android.multiuser.widget.data.ResourceRepository
-import com.android.multiuser.widget.data.ResourceRepository.DialogViewModel
+import com.android.multiuser.widget.data.IntentRepository
+import com.android.multiuser.widget.data.model.UserSwitchRestrictions
+import com.android.multiuser.widget.domain.DialogUseCase
 import com.android.multiuser.widget.ui.DialogView
 
 @RunWith(AndroidJUnit4::class)
 class DialogViewTest {
-
-    @get:Rule
-    val composeTestRule = createComposeRule()
+    @get:Rule val composeTestRule = createAndroidComposeRule<ComponentActivity>()
 
     @Test
     fun testSwitchFailedDialog() {
         val context = InstrumentationRegistry.getInstrumentation().getTargetContext()
-        val resourceRepository = ResourceRepository(context.resources)
-        val model = resourceRepository.getSwitchFailed()
+        val intentRepository = IntentRepository(context.resources)
+        val intent = intentRepository.getUserSwitchRestrictedIntent(UserSwitchRestrictions.UNKNOWN)
+        val dialogUseCase = DialogUseCase(intent, context.resources)
+        val model = dialogUseCase()
         var dismissed = false
         var actionIntent: Intent? = null
         composeTestRule.setContent {
@@ -70,10 +73,12 @@ class DialogViewTest {
     }
 
     @Test
-    fun testSwitchNotAllowed() {
+    fun testSwitchDisabledByUser() {
         val context = InstrumentationRegistry.getInstrumentation().getTargetContext()
-        val resourceRepository = ResourceRepository(context.resources)
-        val model = resourceRepository.getSwitchDisabled()
+        val intentRepository = IntentRepository(context.resources)
+        val intent = intentRepository.getUserSwitchRestrictedIntent(UserSwitchRestrictions.DISABLED)
+        val dialogUseCase = DialogUseCase(intent, context.resources)
+        val model = dialogUseCase()
         var dismissed = false
         var actionIntent: Intent? = null
         composeTestRule.setContent {
@@ -96,5 +101,62 @@ class DialogViewTest {
         assertNull(actionIntent)
         composeTestRule.onNodeWithText(actionButton).performClick()
         assertNotNull(actionIntent)
+    }
+
+
+    @Test
+    fun testSwitchDisabledByWorkPolicy() {
+        val context = InstrumentationRegistry.getInstrumentation().getTargetContext()
+        val intentRepository = IntentRepository(context.resources)
+        val intent = intentRepository.getUserSwitchRestrictedIntent(UserSwitchRestrictions.WORK_POLICY)
+        val dialogUseCase = DialogUseCase(intent, context.resources)
+        val model = dialogUseCase()
+        var dismissed = false
+        var actionIntent: Intent? = null
+        composeTestRule.setContent {
+            DialogView(model, { dismissed = true }, { actionIntent = it })
+        }
+        val title: String = context.getString(R.string.widget_switch_work_restriction_dialog_title)
+        val message: String = context.getString(R.string.widget_switch_work_restriction_dialog_message)
+        val closeButton: String = context.getString(R.string.dialog_close_button_text)
+        val actionButton: String = context.getString(R.string.widget_switch_disabled_dialog_open_settings_button)
+
+        assertEquals(model.title, title)
+        composeTestRule.onAllNodesWithText(title).assertCountEquals(1)
+        assertEquals(model.message, message)
+        composeTestRule.onAllNodesWithText(message).assertCountEquals(1)
+        composeTestRule.onAllNodesWithText(closeButton).assertCountEquals(1)
+        composeTestRule.onAllNodesWithText(actionButton).assertCountEquals(0)
+        assertFalse(dismissed)
+        composeTestRule.onNodeWithText(closeButton).performClick()
+        assertTrue(dismissed)
+    }
+
+    @Test
+    fun testSwitchDisabledNotAllowedOnCall() {
+        val context = InstrumentationRegistry.getInstrumentation().getTargetContext()
+        val intentRepository = IntentRepository(context.resources)
+        val intent = intentRepository.getUserSwitchRestrictedIntent(UserSwitchRestrictions.ONCALL_OR_LOCKED)
+        val dialogUseCase = DialogUseCase(intent, context.resources)
+        val model = dialogUseCase()
+        var dismissed = false
+        var actionIntent: Intent? = null
+        composeTestRule.setContent {
+            DialogView(model, { dismissed = true }, { actionIntent = it })
+        }
+        val title: String = context.getString(R.string.widget_switch_not_allowed_dialog_title)
+        val message: String = context.getString(R.string.widget_switch_not_allowed_dialog_message)
+        val closeButton: String = context.getString(R.string.dialog_close_button_text)
+        val actionButton: String = context.getString(R.string.widget_switch_disabled_dialog_open_settings_button)
+
+        assertEquals(model.title, title)
+        composeTestRule.onAllNodesWithText(title).assertCountEquals(1)
+        assertEquals(model.message, message)
+        composeTestRule.onAllNodesWithText(message).assertCountEquals(1)
+        composeTestRule.onAllNodesWithText(closeButton).assertCountEquals(1)
+        composeTestRule.onAllNodesWithText(actionButton).assertCountEquals(0)
+        assertFalse(dismissed)
+        composeTestRule.onNodeWithText(closeButton).performClick()
+        assertTrue(dismissed)
     }
 }

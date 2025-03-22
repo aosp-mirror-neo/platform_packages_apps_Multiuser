@@ -100,6 +100,8 @@ android_test {
     ],
     static_libs: [
         "MultiuserWidgetLib",
+        "androidx.compose.runtime_runtime",
+        "androidx.compose.ui_ui-test",
         "androidx.compose.ui_ui-test-junit4",
         "androidx.compose.ui_ui-test-manifest",
         "androidx.test.core",
