@@ -16,20 +16,25 @@
 
 package com.android.multiuser.widget.data
 
+import android.app.ActivityManager
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.pm.UserInfo
 import android.graphics.Bitmap
 import android.os.UserHandle
 import android.os.UserManager
-import com.android.multiuser.widget.data.model.User
 import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import kotlin.collections.List
+import com.android.multiuser.widget.data.model.User
+import com.android.multiuser.widget.data.model.UserSwitchRestrictions
 
-class UsersRepository(private val userManager: UserManager?) {
-    fun getUsers(): List<User> {
+class UsersRepository(private val userManager: UserManager?,
+    private var activityManager: ActivityManager?): IUsersRepository {
+    val currentUserId = UserHandle.myUserId()
+
+    override suspend fun getUsers(): List<User> {
         if (userManager == null) {
             // This ensures the error layout is shown in the UI.
             return listOf()
@@ -49,10 +54,36 @@ class UsersRepository(private val userManager: UserManager?) {
             }
     }
 
-    val currentUserId = UserHandle.myUserId()
-    fun disableSwitchUsers() = userManager?.let {
-        it.getUserSwitchability() != UserManager.SWITCHABILITY_STATUS_OK
-                || !userManager.isUserSwitcherEnabled(true)
-    } ?: true
-    fun isCurrentUserAdmin() = userManager?.isUserAdmin(currentUserId) ?: false
+    override suspend fun disableSwitchUsers(): Boolean {
+        return checkUserSwitchRestrictions() != UserSwitchRestrictions.NONE
+    }
+
+    override fun isCurrentUserAdmin(): Boolean {
+        return userManager?.isUserAdmin(currentUserId) ?: false
+    }
+
+    override fun checkUserSwitchRestrictions(): UserSwitchRestrictions {
+        if (userManager == null) {
+            return UserSwitchRestrictions.UNKNOWN
+        }
+        if (userManager.hasUserRestriction(
+                UserManager.DISALLOW_USER_SWITCH
+            )
+        ) {
+            return UserSwitchRestrictions.WORK_POLICY
+        }
+        if (userManager.getUserSwitchability() !=
+            UserManager.SWITCHABILITY_STATUS_OK
+        ) {
+            return UserSwitchRestrictions.ONCALL_OR_LOCKED
+        }
+        if (!userManager.isUserSwitcherEnabled(true)) {
+            return UserSwitchRestrictions.DISABLED
+        }
+        return UserSwitchRestrictions.NONE
+    }
+
+    override fun switchToUser(userId: Int) :Boolean {
+        return activityManager?.switchUser(UserHandle(userId))?: false
+    }
 }

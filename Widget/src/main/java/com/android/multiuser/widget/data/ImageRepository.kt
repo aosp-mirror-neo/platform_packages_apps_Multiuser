@@ -24,10 +24,9 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 
-class ImageRepository(val userManager: UserManager, val resources: Resources) {
+class ImageRepository(val userManager: UserManager?, val resources: Resources) {
 
 suspend fun getAvatar(userId: Int): Bitmap = userManager?.getUserIcon(userId)
     ?: UserIcons.getDefaultUserIcon(resources, userId, false)
         .let { UserIcons.convertToBitmapAtUserIconSize(resources, it) }
-
 }
