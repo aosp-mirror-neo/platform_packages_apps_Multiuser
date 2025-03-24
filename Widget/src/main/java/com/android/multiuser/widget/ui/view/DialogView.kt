@@ -31,7 +31,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.graphics.Color
 
 import com.android.multiuser.widget.R
-import com.android.multiuser.widget.data.ResourceRepository.DialogViewModel
+import com.android.multiuser.widget.viewmodel.DialogViewModel
 
 @Composable
 fun DialogView(dialogViewModel : DialogViewModel, onDismiss: () -> Unit, onConfirm: (intent: Intent?) -> Unit) {

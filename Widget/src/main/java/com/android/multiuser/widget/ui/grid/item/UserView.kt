@@ -36,7 +36,6 @@ import androidx.glance.layout.Spacer
 import androidx.glance.layout.wrapContentHeight
 import androidx.glance.LocalContext
 import androidx.glance.text.Text
-import com.android.multiuser.widget.action.switchUsers
 import com.android.multiuser.widget.R
 import com.android.multiuser.widget.ui.util.readFromInternalStorage
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.UserBoxModifier
@@ -71,7 +70,7 @@ fun UserView (
     ) {
         // Top
         Box (modifier = UserBoxModifier(viewModel.isSelected, alpha)
-            .clickable{ switchUsers(viewModel.id, context) }
+            .clickable{ viewModel.switch() { context.startActivity(it) } }
         ) {
             Image(
                 provider = bitmap?.let { ImageProvider(it) }

@@ -31,28 +31,30 @@ import com.android.multiuser.widget.domain.ILoadUsersUseCase
 import com.android.multiuser.widget.domain.LoadUsersFromServerUseCase
 import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.ImageRepository
+import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.UsersRepository
 import com.android.multiuser.widget.ui.view.layout.ErrorLayout
 import com.android.multiuser.widget.ui.view.layout.LoadingLayout
 import com.android.multiuser.widget.ui.view.layout.MultiuserWidgetLayout
 import com.android.multiuser.widget.viewmodel.UiState
 import com.android.multiuser.widget.viewmodel.UsersViewModel
+
 import kotlinx.coroutines.launch
 
 class MultiuserWidget : GlanceAppWidget() {
   override val sizeMode: SizeMode = SizeMode.Exact
 
   override suspend fun provideGlance(context: Context, id: GlanceId) {
-    UserManager.get(context.applicationContext)?.let { userManager ->
-      val useCase: ILoadUsersUseCase = LoadUsersFromServerUseCase(
-        UsersRepository(userManager),
-        ActionsRepository(context.resources),
-        ImageRepository(userManager, context.resources)
-      )
+    val userManager = MultiuserWidgetUtil.getUserManager(context)
+    val useCase: ILoadUsersUseCase = LoadUsersFromServerUseCase(
+      UsersRepository(userManager, MultiuserWidgetUtil.getActivityManager(context)),
+      ActionsRepository(context.resources),
+      ImageRepository(userManager, context.resources),
+      IntentRepository(context.resources)
+    )
 
-      provideContent {
-        GlanceTheme { Content(UsersViewModel(useCase)) }
-      }
+    provideContent {
+      GlanceTheme { Content(UsersViewModel(useCase)) }
     }
   }
 
