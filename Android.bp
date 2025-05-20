@@ -22,6 +22,7 @@ android_app {
     platform_apis: true,
     privileged: true,
     system_ext_specific: true,
+    resource_dirs: ["Widget/src/main/res"],
 
     optimize: {
         enabled: true,
