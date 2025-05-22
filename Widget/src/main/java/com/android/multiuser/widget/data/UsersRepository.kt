@@ -17,15 +17,10 @@
 package com.android.multiuser.widget.data
 
 import android.app.ActivityManager
-import android.content.Context
-import android.content.ContextWrapper
 import android.content.pm.UserInfo
-import android.graphics.Bitmap
+import android.multiuser.Flags
 import android.os.UserHandle
 import android.os.UserManager
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
 import kotlin.collections.List
 import com.android.multiuser.widget.data.model.User
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
@@ -39,8 +34,14 @@ class UsersRepository(private val userManager: UserManager?,
             // This ensures the error layout is shown in the UI.
             return listOf()
         }
-        var userInfoList = userManager.getAliveUsers()
-            .filter { it.isFull() && it.supportsSwitchTo() }
+        var userInfoList = userManager.getAliveUsers().filter { user ->
+            if (Flags.widgetCurrentUserView()) {
+                user.id == currentUserId
+            } else {
+                (user.isFull() && user.supportsSwitchTo())
+            }
+        }
+
         return userInfoList
             .map { userInfo: UserInfo ->
                 User(

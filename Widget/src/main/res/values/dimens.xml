@@ -22,15 +22,24 @@
     <dimen name="widget_grid_bottom_spacing">4dp</dimen>
     <dimen name="widget_cell_spacing">2dp</dimen>
     <dimen name="widget_item_corner_radius">20dp</dimen>
-    <dimen name="widget_min_resize_height">40dp</dimen>
-    <dimen name="widget_min_resize_width">40dp</dimen>
+    <dimen name="widget_min_resize_height">104dp</dimen>
+    <dimen name="widget_min_resize_width">168dp</dimen>
     <dimen name="widget_grid_content_padding">4dp</dimen>
     <dimen name="widget_text_start_margin">4dp</dimen>
     <dimen name="widget_text_breakpoint">100dp</dimen>
     <dimen name="small_widget_size_breakpoint">300dp</dimen>
     <dimen name="medium_widget_size_breakpoint">400dp</dimen>
     <dimen name="large_widget_size_breakpoint">500dp</dimen>
-    <dimen name="widget_min_height">40dp</dimen>
-    <dimen name="widget_min_width">40dp</dimen>
+    <dimen name="widget_min_height">104dp</dimen>
+    <dimen name="widget_min_width">168dp</dimen>
     <dimen name="loading_layout_circular_progress_indicator_size">48dp</dimen>
+    <!-- Redesign dimensions -->
+    <dimen name="user_image_min_size">80dp</dimen>
+    <dimen name="user_image_max_size">100dp</dimen>
+    <dimen name="user_text_min_size">16sp</dimen>
+    <dimen name="user_text_max_size">22sp</dimen>
+    <dimen name="user_vertical_gutter">8dp</dimen>
+    <dimen name="user_horizontal_gutter">12dp</dimen>
+    <dimen name="content_padding">12dp</dimen>
+    <dimen name="title_bar_height">56dp</dimen>
 </resources>
