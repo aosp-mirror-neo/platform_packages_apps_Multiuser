@@ -27,13 +27,13 @@
       name="add_user_button_content_description">Add user</string>
 
   <string translation_description="The widget name displayed in the widget picker. [CHAR_LIMIT=NONE]"
-      name="multiuser_widget_name">Switch users</string>
+      name="multiuser_widget_name">Users</string>
 
   <string translation_description="The widget description displayed in the widget picker. [CHAR_LIMIT=NONE]"
-      name="multiuser_widget_description">Quickly switch users</string>
+      name="multiuser_widget_description">Quickly add or switch users</string>
 
   <string translation_description="The text displayed in the title bar. [CHAR_LIMIT=NONE]"
-      name="multiuser_widget_title">Switch user</string>
+      name="multiuser_widget_title">Users</string>
 
   <string translation_description="The text displayed when user data doesn't load. [CHAR_LIMIT=NONE]"
       name="multiuser_widget_error_message">Failed to load widget.</string>

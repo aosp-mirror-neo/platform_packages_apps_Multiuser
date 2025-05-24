@@ -17,7 +17,7 @@
 package com.android.multiuser.widget
 
 import android.content.Context
-import android.os.UserManager
+import android.multiuser.Flags
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -33,6 +33,7 @@ import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.ImageRepository
 import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.UsersRepository
+import com.android.multiuser.widget.ui.view.LayoutView
 import com.android.multiuser.widget.ui.view.layout.ErrorLayout
 import com.android.multiuser.widget.ui.view.layout.LoadingLayout
 import com.android.multiuser.widget.ui.view.layout.MultiuserWidgetLayout
@@ -42,7 +43,8 @@ import com.android.multiuser.widget.viewmodel.UsersViewModel
 import kotlinx.coroutines.launch
 
 class MultiuserWidget : GlanceAppWidget() {
-  override val sizeMode: SizeMode = SizeMode.Exact
+
+  override val sizeMode = SizeMode.Exact
 
   override suspend fun provideGlance(context: Context, id: GlanceId) {
     val userManager = MultiuserWidgetUtil.getUserManager(context)
@@ -68,7 +70,13 @@ class MultiuserWidget : GlanceAppWidget() {
         scope.launch { viewModel.reload() }
 
       is UiState.Loading -> LoadingLayout()
-      is UiState.Success -> MultiuserWidgetLayout(viewModel)
+      is UiState.Success -> {
+        if (Flags.widgetCurrentUserView()) {
+          LayoutView(viewModel)
+        } else {
+          MultiuserWidgetLayout(viewModel)
+        }
+      }
       else -> ErrorLayout()
     }
   }
