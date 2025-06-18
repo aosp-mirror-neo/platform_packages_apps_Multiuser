@@ -1,0 +1,47 @@
+package {
+    default_team: "trendy_team_framework_android_multiuser",
+    default_applicable_licenses: ["packages_apps_Multiuser_license"],
+}
+
+android_library {
+    name: "MultiuserStacksLib",
+    manifest: "AndroidManifest.xml",
+    srcs: ["src/main/java/**/*.kt"],
+    resource_dirs: [],
+
+    optimize: {
+        enabled: true,
+        optimize: true,
+        shrink_resources: true,
+    },
+
+    static_libs: [
+        "androidx.compose.runtime_runtime",
+        "androidx.glance_glance-appwidget",
+        "androidx.glance_glance",
+    ],
+    kotlincflags: ["-Xjvm-default=all"],
+}
+
+android_test {
+    name: "MultiuserStacksUnitTests",
+    manifest: "AndroidManifestUnit.xml",
+    certificate: "platform",
+    use_resource_processor: true,
+    platform_apis: true,
+    instrumentation_for: "MultiuserStacksLib",
+    srcs: ["src/test/java/**/*.kt"],
+    resource_dirs: [],
+    static_libs: [
+        "MultiuserStacksLib",
+        "androidx.test.core",
+        "androidx.test.rules",
+        "androidx.test.ext.junit",
+        "kotlinx_coroutines_test",
+        "flag-junit",
+        "androidx.test.runner",
+        "kotlin-test",
+    ],
+    kotlincflags: ["-Xjvm-default=all"],
+    test_suites: ["general-tests"],
+}
