@@ -26,6 +26,13 @@
   <string translation_description="Content description for the button that allows adding a user. [CHAR_LIMIT=NONE]"
       name="add_user_button_content_description">Add user</string>
 
+
+  <string translation_description="Title for the button that switch users. [CHAR_LIMIT=NONE]"
+      name="switch_user_button_title">Switch user</string>
+
+  <string translation_description="Content description for the button that switch users. [CHAR_LIMIT=NONE]"
+      name="switch_user_button_content_description">Switch user</string>
+
   <string translation_description="The widget name displayed in the widget picker. [CHAR_LIMIT=NONE]"
       name="multiuser_widget_name">Users</string>
 

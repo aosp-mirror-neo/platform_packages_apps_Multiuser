@@ -17,15 +17,17 @@
 package com.android.multiuser.widget.viewmodel
 
 import android.content.res.Resources
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.DpSize
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import com.android.multiuser.widget.R
 import com.android.multiuser.stacks.ui.dp
+import com.android.multiuser.stacks.ui.inDp
+import com.android.multiuser.widget.viewmodel.stacks.ActionStacks
 
 class LayoutViewModel(
-    var size: DpSize, val res: Resources, val userViewModel: UserViewModel
+    var size: DpSize, val res: Resources, val userViewModel: UserViewModel,
+    val actionViewModelList: List<ActionViewModel>
 ) {
     val titleBarVisible: StateFlow<Boolean> = MutableStateFlow<Boolean>(false)
     val arrangement = if (size.width <= size.height) {
@@ -34,13 +36,16 @@ class LayoutViewModel(
         Arrangement.Horizontal()
     }
     var userStack: UserStack? = null
-    val actionStackHeight = 56.dp //TODO: Implement b/409212274
-    val actionStackWidth = 56.dp //TODO: Implement b/409212274
     val widgetPadding = res.dp(R.dimen.content_padding) * 2// top+bottom or left+right
 
     // with title bar visible we do not set top padding
     val titleBarHeight = res.dp(R.dimen.title_bar_height) - res.dp(R.dimen.content_padding)
     val userStacks = UserStacks(res, userViewModel.name)
+
+    // TODO: replace with more stacks when user stacks are measurable
+    val actionStack =  ActionStacks(res, actionViewModelList).TALL_HORIZONTAL
+    val actionStackHeight = actionStack.vertically.min.inDp(res.displayMetrics)
+    val actionStackWidth = actionStack.horizontally.min.inDp(res.displayMetrics)
 
     init {
         if (arrangement is Arrangement.Vertical) {

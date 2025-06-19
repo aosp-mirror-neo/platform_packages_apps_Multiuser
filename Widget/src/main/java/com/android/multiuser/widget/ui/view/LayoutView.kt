@@ -27,9 +27,10 @@ import androidx.glance.appwidget.components.Scaffold
 import androidx.glance.layout.Alignment
 import androidx.glance.layout.Row
 import androidx.glance.layout.fillMaxSize
-import com.android.multiuser.widget.ui.actions.AdaptiveActionsView
+import com.android.multiuser.widget.ui.actions.ActionsStackView
 import com.android.multiuser.widget.ui.view.layout.AdaptivePane
 import com.android.multiuser.widget.ui.view.layout.WidgetTitleBar
+import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.Arrangement
 import com.android.multiuser.widget.viewmodel.LayoutViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
@@ -40,8 +41,9 @@ import com.android.multiuser.widget.viewmodel.UsersViewModel
 @Composable
 fun LayoutView(model: UsersViewModel) {
     val items by model.data.collectAsState()
+    val actions = items.filterIsInstance<ActionViewModel>()
     items.filterIsInstance<UserViewModel>().firstOrNull()?.let { userViewModel ->
-        val layout = LayoutViewModel(LocalSize.current, LocalContext.current.resources, userViewModel)
+        val layout = LayoutViewModel(LocalSize.current, LocalContext.current.resources, userViewModel, actions)
         val titleBarVisible by layout.titleBarVisible.collectAsState()
 
         Scaffold(
@@ -75,7 +77,7 @@ fun LayoutView(model: UsersViewModel) {
                             )
                         }
                     },
-                    endPane = { AdaptiveActionsView(GlanceModifier, layout) })
+                    endPane = { ActionsStackView(GlanceModifier, layout.actionStack) })
             }
         }
     }

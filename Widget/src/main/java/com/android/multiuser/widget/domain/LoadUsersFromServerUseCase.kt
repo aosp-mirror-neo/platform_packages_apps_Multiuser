@@ -16,6 +16,7 @@
 
 package com.android.multiuser.widget.domain
 
+import android.multiuser.Flags
 import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.ImageRepository
 import com.android.multiuser.widget.data.IntentRepository
@@ -59,6 +60,9 @@ class LoadUsersFromServerUseCase(
     private suspend fun getActionViewModels(): List<ActionViewModel> {
         // If the current user is an admin and SHOW_ADD_USER_BUTTON is set to true, include the
         // button for adding users.
+        if (Flags.widgetCurrentUserView() && usersRepository.isCurrentUserAdmin()) {
+            return actionsRepository.getItems().map{ mapActionToActionViewModel(it)}
+        }
         if(usersRepository.isCurrentUserAdmin() && SHOULD_DISPLAY_ADD_USER_BUTTON) {
             return listOf(mapActionToActionViewModel(actionsRepository.getAddUserAction()))
         }
