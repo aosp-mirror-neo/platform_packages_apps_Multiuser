@@ -19,12 +19,13 @@ package com.android.multiuser.widget.viewmodel
 import android.content.res.Resources
 import androidx.compose.ui.unit.Dp
 import com.android.multiuser.widget.R
-import com.android.multiuser.widget.util.dp
+import com.android.multiuser.stacks.ui.dp
+import com.android.multiuser.widget.viewmodel.measurables.TextMeasurable
 
 class UserStacks(val res: Resources,val text:String) {
-    private val NONE_TEXT = TextMetric(res)
-    private val MEDIUM_TEXT = TextMetric(res, R.dimen.user_text_min_size)
-    private val LARGE_TEXT = TextMetric(res, R.dimen.user_text_max_size)
+    private val NONE_TEXT = TextMeasurable(res)
+    private val MEDIUM_TEXT = TextMeasurable(res, R.dimen.user_text_min_size)
+    private val LARGE_TEXT = TextMeasurable(res, R.dimen.user_text_max_size)
 
     val mediumImageSize: Dp = res.dp(R.dimen.user_image_min_size)
     val largeImageSize = res.dp(R.dimen.user_image_max_size)

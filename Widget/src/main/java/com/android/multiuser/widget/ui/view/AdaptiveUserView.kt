@@ -60,11 +60,11 @@ fun AdaptiveUserView (
             contentDescription = viewModel.contentDescription,
             modifier = GlanceModifier.size(userStack.imageSize)
         )},
-        endPane = { if (userStack.textMetric.size > 0.sp) {
+        endPane = { if (userStack.textMetric.fontSize > 0.sp) {
             Text(
                 text = viewModel.name,
                 maxLines = 1,
-                style = TextStyle(fontSize = userStack.textMetric.size),
+                style = TextStyle(fontSize = userStack.textMetric.fontSize),
             )
         } else { null }
         })

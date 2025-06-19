@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.DpSize
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import com.android.multiuser.widget.R
-import com.android.multiuser.widget.util.dp
+import com.android.multiuser.stacks.ui.dp
 
 class LayoutViewModel(
     var size: DpSize, val res: Resources, val userViewModel: UserViewModel

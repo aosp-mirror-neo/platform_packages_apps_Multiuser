@@ -17,11 +17,12 @@
 package com.android.multiuser.widget.viewmodel
 
 import androidx.compose.ui.unit.Dp
+import com.android.multiuser.widget.viewmodel.measurables.TextMeasurable
 
 /**
  * Single User Stack = person image + person name
  */
-class UserStack(val arrangement: Arrangement, val imageSize: Dp, val textMetric: TextMetric) {
+class UserStack(val arrangement: Arrangement, val imageSize: Dp, val textMetric: TextMeasurable) {
     val width = if(arrangement is Arrangement.Horizontal) {
         imageSize + textMetric.width + arrangement.gutter + arrangement.padding
     } else {

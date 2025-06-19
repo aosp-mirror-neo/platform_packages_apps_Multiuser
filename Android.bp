@@ -57,6 +57,7 @@ android_library {
         "androidx.glance_glance-appwidget",
         "androidx.glance_glance",
         "PlatformComposeCore",
+        "MultiuserStacksLib",
     ],
     kotlincflags: ["-Xjvm-default=all"],
 }
