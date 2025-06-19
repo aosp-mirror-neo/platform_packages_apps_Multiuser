@@ -21,9 +21,11 @@ import androidx.compose.ui.unit.DpSize
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import com.android.multiuser.widget.R
+import com.android.multiuser.widget.viewmodel.stacks.ActionStacks
+import com.android.multiuser.stacks.Stack
 import com.android.multiuser.stacks.ui.dp
 import com.android.multiuser.stacks.ui.inDp
-import com.android.multiuser.widget.viewmodel.stacks.ActionStacks
+import com.android.multiuser.widget.viewmodel.stacks.UserStacks
 
 class LayoutViewModel(
     var size: DpSize, val res: Resources, val userViewModel: UserViewModel,
@@ -35,12 +37,12 @@ class LayoutViewModel(
     } else {
         Arrangement.Horizontal()
     }
-    var userStack: UserStack? = null
+    var userStack: Stack? = null
     val widgetPadding = res.dp(R.dimen.content_padding) * 2// top+bottom or left+right
 
     // with title bar visible we do not set top padding
     val titleBarHeight = res.dp(R.dimen.title_bar_height) - res.dp(R.dimen.content_padding)
-    val userStacks = UserStacks(res, userViewModel.name)
+    val userStacks = UserStacks(res, userViewModel)
 
     // TODO: replace with more stacks when user stacks are measurable
     val actionStack =  ActionStacks(res, actionViewModelList).TALL_HORIZONTAL
@@ -59,8 +61,8 @@ class LayoutViewModel(
                 listOf(
                     userStacks.SMALL_VERTICAL,
                     userStacks.LARGE_VERTICAL
-                ).filter { it.height + verticalHeight + titleBarHeight <= (size.height) }
-                    .maxByOrNull { it.height }
+                ).filter { it.vertically.min.inDp(res.displayMetrics) + verticalHeight + titleBarHeight <= (size.height) }
+                    .maxByOrNull { it.vertically.min.inDp(res.displayMetrics) }
             if (userStack == null) { // title bar does not fit, check without title bar
                 (titleBarVisible as MutableStateFlow<Boolean>).value = false
                 // |   🙃    |
@@ -70,8 +72,8 @@ class LayoutViewModel(
                     userStacks.SMALL_IMAGE_ONLY,
                     userStacks.SMALL_VERTICAL,
                     userStacks.LARGE_VERTICAL
-                ).filter { it.height + verticalHeight <= (size.height) }
-                    .maxByOrNull { it.height }
+                ).filter { it.vertically.min.inDp(res.displayMetrics) + verticalHeight <= (size.height) }
+                    .maxByOrNull { it.vertically.min.inDp(res.displayMetrics) }
                 if (userStack == null) { // user name does not fit, use small image only
                     // |  🔄 ➕  |
                 }
@@ -84,8 +86,8 @@ class LayoutViewModel(
             // |   🙃   | 🔄 |
             // |  Name  | ➕ |
             var horizontalWidth = actionStackWidth + widgetPadding
-            if (userStacks.LARGE_VERTICAL.height + titleBarHeight + widgetPadding <= (size.height)
-                && (userStacks.LARGE_VERTICAL.width + horizontalWidth <= size.width)) {
+            if (userStacks.LARGE_VERTICAL.vertically.min.inDp(res.displayMetrics) + titleBarHeight + widgetPadding <= (size.height)
+                && (userStacks.LARGE_VERTICAL.horizontally.min.inDp(res.displayMetrics) + horizontalWidth <= size.width)) {
                 (titleBarVisible as MutableStateFlow<Boolean>).value = true
                 userStack = userStacks.LARGE_VERTICAL
             } else { // Vertical layout does not fit, try all others
@@ -98,9 +100,9 @@ class LayoutViewModel(
                     userStacks.SMALL_VERTICAL,
                     userStacks.SMALL_IMAGE_ONLY
                 ).filter {
-                        (it.height + titleBarHeight + widgetPadding <= (size.height))
-                                && (it.width + horizontalWidth <= size.width)
-                    }.maxByOrNull { it.width }
+                        (it.vertically.min.inDp(res.displayMetrics) + titleBarHeight + widgetPadding <= (size.height))
+                                && (it.horizontally.min.inDp(res.displayMetrics) + horizontalWidth <= size.width)
+                    }.maxByOrNull { it.horizontally.min.inDp(res.displayMetrics) }
                 (titleBarVisible as MutableStateFlow<Boolean>).value = true
                 if (userStack == null) {// Title bar does not fit, try without
                     // | 🙃 Name | 🔄  ➕ |        | 🙃 | 🔄  ➕ |
@@ -109,9 +111,9 @@ class LayoutViewModel(
                         userStacks.LARGE_HORIZONTAL,
                         userStacks.SMALL_IMAGE_ONLY
                     ).filter {
-                            (it.height + widgetPadding <= (size.height))
-                                    && (it.width + horizontalWidth <= size.width)
-                        }.maxByOrNull { it.width }
+                            (it.vertically.min.inDp(res.displayMetrics) + widgetPadding <= (size.height))
+                                    && (it.horizontally.min.inDp(res.displayMetrics) + horizontalWidth <= size.width)
+                        }.maxByOrNull { it.horizontally.min.inDp(res.displayMetrics) }
                     (titleBarVisible as MutableStateFlow<Boolean>).value = false
                 }
                 if (userStack == null) {

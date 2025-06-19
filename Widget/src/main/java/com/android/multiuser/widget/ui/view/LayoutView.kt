@@ -70,7 +70,7 @@ fun LayoutView(model: UsersViewModel) {
                     arrangement = layout.arrangement,
                     startPane = {
                         layout.userStack?.let { userStack ->
-                            AdaptiveUserView(
+                            UserStackView(
                                 viewModel = userViewModel,
                                 userStack,
                                 modifier = GlanceModifier
