@@ -59,5 +59,7 @@
     <dimen name="title_bar_button_vertical_padding">4dp</dimen>
     <dimen name="title_bar_horizontal_padding">14dp</dimen>
     <dimen name="title_bar_vertical_padding">4dp</dimen>
-
+    <!-- Main Layout -->
+    <dimen name="content_horizontal_gutter">12dp</dimen>
+    <dimen name="content_vertical_gutter">12dp</dimen>
 </resources>

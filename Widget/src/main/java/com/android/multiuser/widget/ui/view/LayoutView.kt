@@ -23,60 +23,39 @@ import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
 import androidx.glance.LocalContext
 import androidx.glance.LocalSize
-import androidx.glance.appwidget.components.Scaffold
-import androidx.glance.layout.Alignment
-import androidx.glance.layout.Row
+import androidx.glance.background
+import androidx.glance.layout.Box
 import androidx.glance.layout.fillMaxSize
-import com.android.multiuser.widget.ui.actions.ActionsStackView
-import com.android.multiuser.widget.ui.view.layout.AdaptivePane
+import com.android.multiuser.stacks.Stack
+import com.android.multiuser.stacks.ui.StackView
 import com.android.multiuser.widget.viewmodel.ActionViewModel
-import com.android.multiuser.widget.viewmodel.Arrangement
 import com.android.multiuser.widget.viewmodel.LayoutViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
 import com.android.multiuser.widget.viewmodel.UsersViewModel
-
+import com.android.multiuser.widget.viewmodel.stacks.TitleBarStack
 
 
 @Composable
 fun LayoutView(model: UsersViewModel) {
     val items by model.data.collectAsState()
     val actions = items.filterIsInstance<ActionViewModel>()
-    items.filterIsInstance<UserViewModel>().firstOrNull()?.let { userViewModel ->
-        val layout = LayoutViewModel(LocalSize.current, LocalContext.current.resources, userViewModel, actions)
-        val titleBarVisible by layout.titleBarVisible.collectAsState()
+    items.filterIsInstance<UserViewModel>().firstOrNull()?.let { item ->
+        val layout = LayoutViewModel(LocalSize.current, LocalContext.current.resources, item, actions)
+        Box(modifier = GlanceModifier.fillMaxSize().background(GlanceTheme.colors.widgetBackground)) {
 
-        Scaffold(
-            titleBar = if (titleBarVisible) {
-                { TitleBarStackView(layout.titleBarStack) }
+            val titleBar =
+                layout.arrangement.list.firstOrNull { it is TitleBarStack } as? TitleBarStack
+            if (titleBar != null) {
+                val contentStack = layout.arrangement.list.last() as Stack
+                StackView(
+                    listOf(
+                        { TitleBarStackView(titleBar) },
+                        { ContentStackView(item, contentStack) }),
+                    layout.arrangement,
+                    GlanceModifier
+                )
             } else {
-                null
-            },
-            backgroundColor = GlanceTheme.colors.widgetBackground
-        ) {
-            Row(
-                modifier = GlanceModifier.fillMaxSize(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalAlignment = if (layout.arrangement is Arrangement.Vertical) {
-                    Alignment.CenterHorizontally
-                    // |      🙃      |
-                    // |     Name     |
-                } else {
-                    Alignment.Start
-                    // | 🙃 Name      |
-                }
-            ) {
-                AdaptivePane(
-                    arrangement = layout.arrangement,
-                    startPane = {
-                        layout.userStack?.let { userStack ->
-                            UserStackView(
-                                viewModel = userViewModel,
-                                userStack,
-                                modifier = GlanceModifier
-                            )
-                        }
-                    },
-                    endPane = { ActionsStackView(GlanceModifier, layout.actionStack) })
+                ContentStackView(item, layout.arrangement)
             }
         }
     }

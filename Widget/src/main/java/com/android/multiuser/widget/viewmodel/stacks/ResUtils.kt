@@ -17,7 +17,7 @@
 package com.android.multiuser.widget.viewmodel.stacks
 
 import android.content.res.Resources
-import androidx.glance.GlanceTheme
+import com.android.multiuser.stacks.Fixed
 import com.android.multiuser.stacks.FixedRect
 import com.android.multiuser.stacks.Measurable
 import com.android.multiuser.stacks.Resizable
@@ -25,7 +25,6 @@ import com.android.multiuser.stacks.ui.px
 import com.android.multiuser.widget.R
 import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.domain.toViewModel
-import com.android.multiuser.widget.ui.util.ResourceString
 import com.android.multiuser.widget.viewmodel.measurables.IconMeasurable
 import com.android.multiuser.widget.viewmodel.measurables.TextMeasurable
 
@@ -91,3 +90,7 @@ fun Resources.titleBarButtonPadding() = FixedRect(
 fun Resources.titleBarButton() =
     ActionButtonStack(this, ActionsRepository(this).getSettingsAction().toViewModel(),
         titleBarButtonPadding(), true, false)
+
+fun Resources.layoutPadding() = px(R.dimen.content_padding).let { padding ->
+    Measurable(Fixed(padding), Fixed(padding))
+}
