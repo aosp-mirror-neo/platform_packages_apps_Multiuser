@@ -25,11 +25,13 @@ import com.android.multiuser.widget.viewmodel.stacks.ActionStacks
 import com.android.multiuser.stacks.Stack
 import com.android.multiuser.stacks.ui.dp
 import com.android.multiuser.stacks.ui.inDp
+import com.android.multiuser.stacks.ui.toPx
+import com.android.multiuser.widget.viewmodel.stacks.TitleBarStack
 import com.android.multiuser.widget.viewmodel.stacks.UserStacks
 
 class LayoutViewModel(
-    var size: DpSize, val res: Resources, val userViewModel: UserViewModel,
-    val actionViewModelList: List<ActionViewModel>
+    var size: DpSize, val res: Resources,  userViewModel: UserViewModel,
+     actionViewModelList: List<ActionViewModel>
 ) {
     val titleBarVisible: StateFlow<Boolean> = MutableStateFlow<Boolean>(false)
     val arrangement = if (size.width <= size.height) {
@@ -43,6 +45,9 @@ class LayoutViewModel(
     // with title bar visible we do not set top padding
     val titleBarHeight = res.dp(R.dimen.title_bar_height) - res.dp(R.dimen.content_padding)
     val userStacks = UserStacks(res, userViewModel)
+    val titleBarStack = TitleBarStack.Large(res)
+        .takeIf { it.horizontally.min <= size.width.toPx(res.displayMetrics)}
+        ?: TitleBarStack.Small(res)
 
     // TODO: replace with more stacks when user stacks are measurable
     val actionStack =  ActionStacks(res, actionViewModelList).TALL_HORIZONTAL

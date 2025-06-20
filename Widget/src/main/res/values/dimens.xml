@@ -54,4 +54,10 @@
     <dimen name="action_stack_vertical_gutter">8dp</dimen>
     <dimen name="action_stack_large_vertical_padding">24dp</dimen>
     <dimen name="large_action_button_side_padding">66dp</dimen>
+    <!-- Title Bar-->
+    <dimen name="title_bar_button_horizontal_padding">14dp</dimen>
+    <dimen name="title_bar_button_vertical_padding">4dp</dimen>
+    <dimen name="title_bar_horizontal_padding">14dp</dimen>
+    <dimen name="title_bar_vertical_padding">4dp</dimen>
+
 </resources>

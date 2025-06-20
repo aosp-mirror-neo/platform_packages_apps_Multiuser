@@ -29,7 +29,6 @@ import androidx.glance.layout.Row
 import androidx.glance.layout.fillMaxSize
 import com.android.multiuser.widget.ui.actions.ActionsStackView
 import com.android.multiuser.widget.ui.view.layout.AdaptivePane
-import com.android.multiuser.widget.ui.view.layout.WidgetTitleBar
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.Arrangement
 import com.android.multiuser.widget.viewmodel.LayoutViewModel
@@ -48,7 +47,7 @@ fun LayoutView(model: UsersViewModel) {
 
         Scaffold(
             titleBar = if (titleBarVisible) {
-                { WidgetTitleBar() }
+                { TitleBarStackView(layout.titleBarStack) }
             } else {
                 null
             },

@@ -34,5 +34,11 @@ class ActionsRepository(private val resources: Resources) {
         resourceId = R.drawable.switch_arrows_24
     )
 
+    fun getSettingsAction() = Action(
+        title = resources.getString(R.string.widget_settings_button_content_description),
+        contentDescription = resources.getString(R.string.widget_settings_button_content_description),
+        resourceId = R.drawable.settings
+    )
+
     suspend fun getItems() = listOf(getSwitchUserAction(), getAddUserAction())
 }
