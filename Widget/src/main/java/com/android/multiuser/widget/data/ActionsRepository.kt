@@ -17,6 +17,7 @@
 package com.android.multiuser.widget.data
 
 import android.content.res.Resources
+import android.multiuser.Flags
 import com.android.multiuser.widget.data.model.Action
 import com.android.multiuser.widget.R
 
@@ -24,6 +25,14 @@ class ActionsRepository(private val resources: Resources) {
     fun getAddUserAction() = Action(
         title = resources.getString(R.string.add_user_button_title),
         contentDescription = resources.getString(R.string.add_user_button_content_description),
-        resourceId = R.drawable.person_add,
+        resourceId = if(Flags.widgetCurrentUserView()) R.drawable.add_24 else R.drawable.person_add
     )
+
+    fun getSwitchUserAction() = Action(
+        title = resources.getString(R.string.switch_user_button_title),
+        contentDescription = resources.getString(R.string.switch_user_button_content_description),
+        resourceId = R.drawable.switch_arrows_24
+    )
+
+    suspend fun getItems() = listOf(getSwitchUserAction(), getAddUserAction())
 }
