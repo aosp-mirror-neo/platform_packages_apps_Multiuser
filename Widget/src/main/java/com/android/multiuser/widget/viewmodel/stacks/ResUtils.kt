@@ -17,12 +17,18 @@
 package com.android.multiuser.widget.viewmodel.stacks
 
 import android.content.res.Resources
+import com.android.multiuser.stacks.Fixed
+import com.android.multiuser.stacks.FixedRect
 import com.android.multiuser.stacks.Measurable
 import com.android.multiuser.stacks.Resizable
 import com.android.multiuser.stacks.ui.px
 import com.android.multiuser.widget.R
+import com.android.multiuser.widget.data.ActionsRepository
+import com.android.multiuser.widget.domain.toViewModel
+import com.android.multiuser.widget.viewmodel.measurables.IconMeasurable
+import com.android.multiuser.widget.viewmodel.measurables.TextMeasurable
 
-
+/* Action Resources */
 fun Resources.actionButtonGutter() = px(R.dimen.action_button_gutter)
 fun Resources.actionHorizontalGutter() = px(R.dimen.action_stack_horizontal_gutter)
 fun Resources.actionVerticalGutter() = px(R.dimen.action_stack_vertical_gutter)
@@ -58,4 +64,33 @@ fun Resources.largeActionButtonPadding() : Measurable {
     val actionHorizontalPadding = Resizable( px(R.dimen.action_horizontal_padding_min),
         px(R.dimen.large_action_button_side_padding))
     return Measurable(actionHorizontalPadding, actionVerticalPadding)
+}
+
+/* TitleBar Resources */
+
+fun Resources.widgetTitle() = getString(R.string.multiuser_widget_title)
+
+fun Resources.titleBarIcon() = IconMeasurable( R.drawable.account_circle, getString(R.string.multiuser_widget_title), px(R.dimen.action_icon_size))
+
+fun Resources.titleBarText(title: String) = TextMeasurable(this, R.dimen.user_text_min_size, title)
+    .apply { this.horizontally.stretchToFill = true }
+
+fun Resources.titleBarGutter() = px(R.dimen.action_button_gutter)
+
+fun Resources.titleBarPadding() = FixedRect(
+    px(R.dimen.title_bar_horizontal_padding),
+    px(R.dimen.title_bar_vertical_padding)
+)
+
+fun Resources.titleBarButtonPadding() = FixedRect(
+    px(R.dimen.title_bar_button_horizontal_padding),
+    px(R.dimen.title_bar_button_vertical_padding)
+)
+
+fun Resources.titleBarButton() =
+    ActionButtonStack(this, ActionsRepository(this).getSettingsAction().toViewModel(),
+        titleBarButtonPadding(), true, false)
+
+fun Resources.layoutPadding() = px(R.dimen.content_padding).let { padding ->
+    Measurable(Fixed(padding), Fixed(padding))
 }

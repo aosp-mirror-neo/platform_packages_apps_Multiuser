@@ -21,7 +21,6 @@ import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.ImageRepository
 import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.IUsersRepository
-import com.android.multiuser.widget.data.model.Action
 import com.android.multiuser.widget.util.SHOULD_DISPLAY_ADD_USER_BUTTON
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
@@ -44,6 +43,7 @@ class LoadUsersFromServerUseCase(
     override suspend operator fun invoke(): List<GridItemViewModel> = withContext(dispatcher) {
         return@withContext getUserViewModels() + getActionViewModels()
     }
+
     private suspend fun getUserViewModels() =
         usersRepository.getUsers().map { user -> UserViewModel (
             id = user.id,
@@ -61,20 +61,12 @@ class LoadUsersFromServerUseCase(
         // If the current user is an admin and SHOW_ADD_USER_BUTTON is set to true, include the
         // button for adding users.
         if (Flags.widgetCurrentUserView() && usersRepository.isCurrentUserAdmin()) {
-            return actionsRepository.getItems().map{ mapActionToActionViewModel(it)}
+            return actionsRepository.getItems().map { it.toViewModel() }
         }
         if(usersRepository.isCurrentUserAdmin() && SHOULD_DISPLAY_ADD_USER_BUTTON) {
-            return listOf(mapActionToActionViewModel(actionsRepository.getAddUserAction()))
+            return listOf(actionsRepository.getAddUserAction().toViewModel())
         }
 
         return emptyList()
-    }
-
-    private fun mapActionToActionViewModel(action: Action): ActionViewModel {
-        return ActionViewModel (
-            title = action.title,
-            resourceId = action.resourceId,
-            contentDescription = action.contentDescription
-        )
     }
 }
