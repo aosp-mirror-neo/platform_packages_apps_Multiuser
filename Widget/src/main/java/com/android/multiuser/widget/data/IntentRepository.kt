@@ -20,7 +20,6 @@ import android.content.ComponentName
 import android.content.Intent
 import android.content.res.Resources
 import android.provider.Settings
-import android.os.UserManager
 import com.android.multiuser.widget.R
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
 
@@ -29,14 +28,50 @@ class IntentRepository(val res: Resources) {
         Intent(Settings.ACTION_USER_SETTINGS)
             .setComponent(
                 ComponentName(
-                    "com.android.multiuser",
-                    "com.android.multiuser.widget.ui.DialogActivity"
+                    ERROR_DIALOGS_PACKAGE,
+                    ERROR_DILOGS_ACTIVITY
                 )
             )
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            .putExtra("title", res.getUserSwitchRestrictedTitle(restriction))
-            .putExtra("message", res.getUserSwitchRestrictedMessage(restriction))
-            .multiuserSettingsIntent(restriction)
+            .putExtra(TITLE, res.getUserSwitchRestrictedTitle(restriction))
+            .putExtra(MESSAGE, res.getUserSwitchRestrictedMessage(restriction))
+            .apply {
+                if (restriction == UserSwitchRestrictions.DISABLED) {
+                    multiuserSettingsIntent()
+                        .putExtra(
+                            ACTION_TEXT,
+                            res.getString(
+                                R.string.widget_switch_disabled_dialog_open_settings_button
+                            )
+                    )
+                }
+            }
+
+    fun getSettingsIntent() = Intent(Settings.ACTION_USER_SETTINGS)
+            .setComponent(
+                ComponentName(
+                    SETTINGS_PACKAGE,
+                    SETTINGS_ACTIVITY
+                )
+            )
+            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+
+    fun getUserSwitcherIntent() = Intent(USER_SWITCHER_ACTION)
+        .setComponent(
+            ComponentName(
+                USER_DIALOGS_PACKAGE,
+                USER_SWITCHER_RECEIVER
+            )
+        )
+
+    fun getAddUserIntent() = Intent()
+        .setComponent(
+            ComponentName(
+                USER_DIALOGS_PACKAGE,
+                ADD_USER_ACTIVITY
+            )
+        )
+        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
 
     private fun Resources.getUserSwitchRestrictedTitle(
         restriction: UserSwitchRestrictions
@@ -69,43 +104,48 @@ class IntentRepository(val res: Resources) {
         }
     }
 
-    private fun Intent.multiuserSettingsIntent(
-        restriction: UserSwitchRestrictions
-    ): Intent {
-        if (restriction == UserSwitchRestrictions.DISABLED) {
-            putExtra("intent_action", Settings.ACTION_USER_SETTINGS)
-            putExtra("intent_package", "com.android.settings")
-            putExtra(
-                "intent_class",
-                "com.android.settings.Settings\$UserSettingsActivity"
-            )
-            putExtra(
-                "intent_flags",
-                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            )
-            putExtra(
-                "action_text",
-                res.getString(
-                    R.string.widget_switch_disabled_dialog_open_settings_button
-                )
-            )
-        }
+    private fun Intent.multiuserSettingsIntent() : Intent {
+        putExtra(ACTION, Settings.ACTION_USER_SETTINGS)
+        putExtra(PACKAGE, SETTINGS_PACKAGE)
+        putExtra(CLASS, SETTINGS_ACTIVITY)
+        putExtra(
+            FLAGS,
+            Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        )
         return this
+    }
+
+    companion object {
+        const val TITLE = "title"
+        const val MESSAGE = "message"
+        const val ACTION = "intent_action"
+        const val PACKAGE = "intent_package"
+        const val CLASS = "intent_class"
+        const val FLAGS = "intent_flags"
+        const val ACTION_TEXT = "action_text"
+
+        const val SETTINGS_PACKAGE = "com.android.settings"
+        const val SETTINGS_ACTIVITY = "com.android.settings.Settings\$UserSettingsActivity"
+        const val ERROR_DIALOGS_PACKAGE = "com.android.multiuser"
+        const val ERROR_DILOGS_ACTIVITY = "com.android.multiuser.widget.ui.DialogActivity"
+
+        const val USER_DIALOGS_PACKAGE = "com.android.systemui"
+        const val ADD_USER_ACTIVITY = "com.android.systemui.user.CreateUserActivity"
+        const val USER_SWITCHER_RECEIVER = "com.android.systemui.user.UserDialogReceiver"
+        const val USER_SWITCHER_ACTION = "com.android.systemui.action.LAUNCH_USER_SWITCHER_DIALOG"
     }
 }
 
 fun Intent.getActionIntent() : Intent? {
     var intent: Intent? = null
-    getStringExtra("intent_action")?.let { action ->
+    getStringExtra(IntentRepository.ACTION)?.let { action ->
         intent = Intent(action)
-        getStringExtra("intent_package")?.let { intentPackage ->
-            getStringExtra("intent_class")?.let { intentClass ->
+        getStringExtra(IntentRepository.PACKAGE)?.let { intentPackage ->
+            getStringExtra(IntentRepository.CLASS)?.let { intentClass ->
                 intent.component = ComponentName(intentPackage, intentClass)
             }
         }
-        getIntExtra("intent_flags", 0)?.let { intent.flags = it }
+        getIntExtra(IntentRepository.FLAGS, 0)?.let { intent.flags = it }
     }
     return intent
 }
-
-

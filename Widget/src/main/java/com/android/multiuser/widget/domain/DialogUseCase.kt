@@ -19,29 +19,24 @@ package com.android.multiuser.widget.domain
 import android.content.Intent
 import android.content.res.Resources
 
-import androidx.compose.ui.res.stringResource
-
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-
 import com.android.multiuser.widget.R
 import com.android.multiuser.widget.data.getActionIntent
+import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.viewmodel.DialogViewModel
 
 /**
  * Load DialogViewModel from intent and resources.
  */
-class DialogUseCase(private val intent:Intent,
-                        private val resources: Resources) {
+class DialogUseCase(private val intent: Intent,
+    private val resources: Resources) {
     operator fun invoke() : DialogViewModel {
         return DialogViewModel(
-            title = intent.getStringExtra("title")
+            title = intent.getStringExtra(IntentRepository.TITLE)
                 ?: resources.getString(R.string.widget_switch_not_allowed_dialog_message),
-            message = intent.getStringExtra("message")
+            message = intent.getStringExtra(IntentRepository.MESSAGE)
                 ?: resources.getString(R.string.widget_switch_not_allowed_dialog_message),
             positiveButtonText =
-                intent.getStringExtra("action_text"),
+                intent.getStringExtra(IntentRepository.ACTION_TEXT),
             actionIntent = intent.getActionIntent()
         )
     }
