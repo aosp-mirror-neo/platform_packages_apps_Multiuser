@@ -16,7 +16,6 @@
 
 package com.android.multiuser.widget.ui.grid.item
 
-import android.graphics.Bitmap
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -34,10 +33,8 @@ import androidx.glance.layout.padding
 import androidx.glance.layout.Row
 import androidx.glance.layout.Spacer
 import androidx.glance.layout.wrapContentHeight
-import androidx.glance.LocalContext
 import androidx.glance.text.Text
 import com.android.multiuser.widget.R
-import com.android.multiuser.widget.ui.util.readFromInternalStorage
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.UserBoxModifier
 import com.android.multiuser.widget.ui.util.WidgetGlanceModifiers.TrailingBottomModifier
 import com.android.multiuser.widget.ui.util.WidgetTextStyles
@@ -53,7 +50,6 @@ fun UserView (
     viewModel: UserViewModel,
     modifier: GlanceModifier,
 ) {
-    val context = LocalContext.current
     val bitmap by viewModel.bitmap.collectAsState()
     val scope = rememberCoroutineScope()
     val uiState by viewModel.uiState.collectAsState()
@@ -70,7 +66,7 @@ fun UserView (
     ) {
         // Top
         Box (modifier = UserBoxModifier(viewModel.isSelected, alpha)
-            .clickable{ viewModel.switch() { context.startActivity(it) } }
+            .clickable( onClick = viewModel.selectUseCase() )
         ) {
             Image(
                 provider = bitmap?.let { ImageProvider(it) }

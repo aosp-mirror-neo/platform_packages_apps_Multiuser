@@ -19,12 +19,14 @@ package com.android.multiuser.widget.ui.tests
 import android.content.Context;
 import android.content.Intent;
 
-import androidx.test.platform.app.InstrumentationRegistry;
+import androidx.glance.appwidget.action.StartActivityIntentAction
+import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
 import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
 import com.android.multiuser.widget.domain.DialogUseCase
+import com.android.multiuser.widget.domain.NoAction
 import com.android.multiuser.widget.domain.UserSwitchUseCase
 import com.android.multiuser.widget.R
 
@@ -34,6 +36,7 @@ import org.junit.runner.RunWith
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertTrue
 
 @RunWith(AndroidJUnit4::class)
 class DialogUseCaseTest {
@@ -45,8 +48,8 @@ class DialogUseCaseTest {
         val userRepository = FakeUserRepository()
         userRepository.switchSucceeded = true
         val userSwitchUseCase = UserSwitchUseCase(11, userRepository, intentRepository)
-        val intent = userSwitchUseCase()
-        assertNull(intent)
+        val action = userSwitchUseCase()
+        assertTrue(action is NoAction)
     }
 
     @Test
@@ -56,9 +59,9 @@ class DialogUseCaseTest {
         val userRepository = FakeUserRepository()
         userRepository.switchSucceeded = false
         val userSwitchUseCase = UserSwitchUseCase(11, userRepository, intentRepository)
-        val intent = userSwitchUseCase()
-        assertNotNull(intent)
-        val dialogUseCase = DialogUseCase(intent!!, context.resources)
+        val action : StartActivityIntentAction = userSwitchUseCase() as StartActivityIntentAction
+        assertNotNull(action.intent)
+        val dialogUseCase = DialogUseCase(action.intent, context.resources)
         val model = dialogUseCase()
         val title: String = context.getString(R.string.widget_switch_failed_dialog_title)
         val message: String = context.getString(R.string.widget_switch_failed_dialog_message)
@@ -75,9 +78,9 @@ class DialogUseCaseTest {
         val userRepository = FakeUserRepository()
         userRepository.userRestrictions = UserSwitchRestrictions.DISABLED
         val userSwitchUseCase = UserSwitchUseCase(11, userRepository, intentRepository)
-        val intent = userSwitchUseCase()
-        assertNotNull(intent)
-        val dialogUseCase = DialogUseCase(intent!!, context.resources)
+        val action : StartActivityIntentAction = userSwitchUseCase() as StartActivityIntentAction
+        assertNotNull(action.intent)
+        val dialogUseCase = DialogUseCase(action.intent, context.resources)
         val model = dialogUseCase()
         val title: String = context.getString(R.string.widget_switch_disabled_dialog_title)
         val message: String = context.getString(R.string.widget_switch_disabled_dialog_message)
@@ -96,9 +99,9 @@ class DialogUseCaseTest {
         val userRepository = FakeUserRepository()
         userRepository.userRestrictions = UserSwitchRestrictions.WORK_POLICY
         val userSwitchUseCase = UserSwitchUseCase(11, userRepository, intentRepository)
-        val intent = userSwitchUseCase()
-        assertNotNull(intent)
-        val dialogUseCase = DialogUseCase(intent!!, context.resources)
+        val action : StartActivityIntentAction = userSwitchUseCase() as StartActivityIntentAction
+        assertNotNull(action.intent)
+        val dialogUseCase = DialogUseCase(action.intent, context.resources)
         val model = dialogUseCase()
         val title: String = context.getString(R.string.widget_switch_work_restriction_dialog_title)
         val message: String = context.getString(R.string.widget_switch_work_restriction_dialog_message)
@@ -115,9 +118,9 @@ class DialogUseCaseTest {
         val userRepository = FakeUserRepository()
         userRepository.userRestrictions = UserSwitchRestrictions.ONCALL_OR_LOCKED
         val userSwitchUseCase = UserSwitchUseCase(11, userRepository, intentRepository)
-        val intent = userSwitchUseCase()
-        assertNotNull(intent)
-        val dialogUseCase = DialogUseCase(intent!!, context.resources)
+        val action : StartActivityIntentAction = userSwitchUseCase() as StartActivityIntentAction
+        assertNotNull(action.intent)
+        val dialogUseCase = DialogUseCase(action.intent, context.resources)
         val model = dialogUseCase()
         val title: String = context.getString(R.string.widget_switch_not_allowed_dialog_title)
         val message: String = context.getString(R.string.widget_switch_not_allowed_dialog_message)

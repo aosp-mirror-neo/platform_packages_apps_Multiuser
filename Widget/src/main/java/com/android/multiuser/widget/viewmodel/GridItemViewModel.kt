@@ -16,7 +16,10 @@
 
 package com.android.multiuser.widget.viewmodel
 
+import com.android.multiuser.widget.domain.ISelectUseCase
+
 sealed class GridItemViewModel(
     open val title: String,
     open val contentDescription: String?,
+    open val selectUseCase: ISelectUseCase
 )

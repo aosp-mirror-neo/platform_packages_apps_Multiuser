@@ -16,8 +16,11 @@
 
 package com.android.multiuser.widget.viewmodel
 
-data class ActionViewModel (
+import com.android.multiuser.widget.domain.ISelectUseCase
+
+data class ActionViewModel(
     val resourceId: Int,
     override val title: String,
     override val contentDescription: String?,
-) : GridItemViewModel(title, contentDescription)
+    override val selectUseCase: ISelectUseCase
+) : GridItemViewModel(title, contentDescription, selectUseCase)

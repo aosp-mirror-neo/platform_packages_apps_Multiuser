@@ -23,6 +23,6 @@
     <application
         android:label="@string/multiuser_app_name"
         android:theme="@style/Theme.MultiuserWidget"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/account_circle">
     </application>
 </manifest>

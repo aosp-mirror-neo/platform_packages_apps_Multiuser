@@ -58,13 +58,18 @@ class LoadUsersFromServerUseCase(
         )}
 
     private suspend fun getActionViewModels(): List<ActionViewModel> {
+        if (Flags.widgetCurrentUserView() && usersRepository.isCurrentUserAdmin()) {
+            return listOf(
+                actionsRepository.getSwitchUserAction()
+                    .toViewModel(OpenUserSwitcherUseCase(intentRepository)),
+                actionsRepository.getAddUserAction().toViewModel(AddUserUseCase(intentRepository)))
+        }
         // If the current user is an admin and SHOW_ADD_USER_BUTTON is set to true, include the
         // button for adding users.
-        if (Flags.widgetCurrentUserView() && usersRepository.isCurrentUserAdmin()) {
-            return actionsRepository.getItems().map { it.toViewModel() }
-        }
         if(usersRepository.isCurrentUserAdmin() && SHOULD_DISPLAY_ADD_USER_BUTTON) {
-            return listOf(actionsRepository.getAddUserAction().toViewModel())
+            return listOf(
+                actionsRepository.getAddUserAction().toViewModel(AddUserUseCase(intentRepository))
+            )
         }
 
         return emptyList()

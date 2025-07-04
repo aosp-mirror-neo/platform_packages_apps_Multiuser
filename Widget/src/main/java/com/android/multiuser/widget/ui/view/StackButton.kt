@@ -22,6 +22,7 @@ import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
 import androidx.glance.Image
 import androidx.glance.ImageProvider
+import androidx.glance.action.clickable
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
@@ -29,14 +30,14 @@ import com.android.multiuser.stacks.ui.StackView
 import com.android.multiuser.stacks.ui.cornerRadius
 import com.android.multiuser.stacks.ui.height
 import com.android.multiuser.stacks.ui.width
-import com.android.multiuser.stacks.Stack
 import com.android.multiuser.widget.viewmodel.measurables.IconMeasurable
 import com.android.multiuser.widget.viewmodel.measurables.TextMeasurable
+import com.android.multiuser.widget.viewmodel.stacks.ActionButtonStack
 import kotlin.math.min
 
 @Composable
 fun StackButton(
-        stack: Stack,
+        stack: ActionButtonStack,
         modifier: GlanceModifier = GlanceModifier.Companion,
         tint: ColorProvider = GlanceTheme.colors.onPrimary
     ) {
@@ -86,6 +87,7 @@ fun StackButton(
                     stack.horizontally.min
                 ) / 2)
             )
+            .clickable(onClick = stack.action.selectUseCase())
     )
 }
 

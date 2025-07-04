@@ -23,8 +23,7 @@ import com.android.multiuser.stacks.Measurable
 import com.android.multiuser.stacks.Resizable
 import com.android.multiuser.stacks.ui.px
 import com.android.multiuser.widget.R
-import com.android.multiuser.widget.data.ActionsRepository
-import com.android.multiuser.widget.domain.toViewModel
+import com.android.multiuser.widget.domain.SettingsActionUseCase
 import com.android.multiuser.widget.viewmodel.measurables.IconMeasurable
 import com.android.multiuser.widget.viewmodel.measurables.TextMeasurable
 
@@ -88,8 +87,8 @@ fun Resources.titleBarButtonPadding() = FixedRect(
 )
 
 fun Resources.titleBarButton() =
-    ActionButtonStack(this, ActionsRepository(this).getSettingsAction().toViewModel(),
-        titleBarButtonPadding(), true, false)
+    ActionButtonStack(this, SettingsActionUseCase(this)(),
+        titleBarButtonPadding())
 
 fun Resources.layoutPadding() = px(R.dimen.content_padding).let { padding ->
     Measurable(Fixed(padding), Fixed(padding))
