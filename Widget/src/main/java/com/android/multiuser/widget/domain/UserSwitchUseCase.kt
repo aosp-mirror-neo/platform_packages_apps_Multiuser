@@ -16,30 +16,29 @@
 
 package com.android.multiuser.widget.domain
 
-import android.content.Intent
-
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import androidx.glance.action.Action
 
 import com.android.multiuser.widget.data.IUsersRepository
 import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
+import androidx.glance.appwidget.action.actionStartActivity
 
 /**
  * Returns a dialog that is displayed when user switching is not restricted or unsuccessful.
  */
 class UserSwitchUseCase(private val userId: Int,
     private val usersRepo: IUsersRepository,
-    private val intentRepo: IntentRepository) {
-    operator fun invoke() : Intent? {
+    private val intentRepo: IntentRepository) : ISelectUseCase {
+    override operator fun invoke(): Action {
         val restriction = usersRepo.checkUserSwitchRestrictions()
         if (restriction != UserSwitchRestrictions.NONE) {
-            return intentRepo.getUserSwitchRestrictedIntent(restriction);
+            return actionStartActivity(intentRepo.getUserSwitchRestrictedIntent(restriction))
         }
         if (!usersRepo.switchToUser(userId)) {
-            return intentRepo.getUserSwitchRestrictedIntent(UserSwitchRestrictions.UNKNOWN);
+            return actionStartActivity(intentRepo.getUserSwitchRestrictedIntent(UserSwitchRestrictions.UNKNOWN))
         }
-        return null
+        return NoAction()
     }
 }
+
+class NoAction:Action

@@ -20,10 +20,11 @@ import com.android.multiuser.widget.data.model.Action
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 
 
-fun Action.toViewModel(): ActionViewModel {
+fun Action.toViewModel(selectUseCase: ISelectUseCase): ActionViewModel {
     return ActionViewModel (
         title = title,
         resourceId = resourceId,
-        contentDescription = contentDescription
+        contentDescription = contentDescription,
+        selectUseCase = selectUseCase
     )
 }

@@ -19,9 +19,10 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.android.multiuser">
     <uses-permission android:name="android.permission.MANAGE_USERS"/>
+    <uses-permission android:name="android.permission.START_ANY_ACTIVITY"/>
     <application
         android:label="@string/multiuser_app_name"
         android:theme="@style/Theme.MultiuserWidget"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@drawable/account_circle">
     </application>
 </manifest>
