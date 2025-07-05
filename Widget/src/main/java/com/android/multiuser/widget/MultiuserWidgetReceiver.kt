@@ -36,6 +36,7 @@ class MultiuserWidgetReceiver(
     override val glanceAppWidget: GlanceAppWidget = MultiuserWidget()
     private val allowedActions = arrayOf(
         // Start widget
+        "android.appwidget.action.APPWIDGET_UPDATE_OPTIONS",
         "android.intent.action.USER_INFO_CHANGED_BACKGROUND",
         "android.intent.action.USER_REMOVED",
         "android.intent.action.USER_ADDED"
