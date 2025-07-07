@@ -71,7 +71,7 @@ class MultiuserWidget : GlanceAppWidget() {
 
       is UiState.Loading -> LoadingLayout()
       is UiState.Success -> {
-        if (Flags.widgetCurrentUserView()) {
+        if (Flags.widgetScalingBugfix()) {
           LayoutView(viewModel)
         } else {
           MultiuserWidgetLayout(viewModel)

@@ -35,7 +35,7 @@ class UsersRepository(private val userManager: UserManager?,
             return listOf()
         }
         var userInfoList = userManager.getAliveUsers().filter { user ->
-            if (Flags.widgetCurrentUserView()) {
+            if (Flags.widgetScalingBugfix()) {
                 user.id == currentUserId
             } else {
                 (user.isFull() && user.supportsSwitchTo())
