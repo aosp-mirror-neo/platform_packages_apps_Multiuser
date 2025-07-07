@@ -24,6 +24,7 @@
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE_OPTIONS"/>
                 <action android:name="android.settings.USER_SETTINGS" />
                 <!--To be changed to wakeup frozen widget-->
                 <action android:name="android.intent.action.USER_INFO_CHANGED_BACKGROUND"/>
