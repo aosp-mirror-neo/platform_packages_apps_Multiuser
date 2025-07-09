@@ -58,7 +58,7 @@ class LoadUsersFromServerUseCase(
         )}
 
     private suspend fun getActionViewModels(): List<ActionViewModel> {
-        if (Flags.widgetCurrentUserView()) {
+        if (Flags.widgetScalingBugfix()) {
             if (usersRepository.isCurrentUserAdmin()) {
                 return listOf(
                     actionsRepository.getSwitchUserAction()
