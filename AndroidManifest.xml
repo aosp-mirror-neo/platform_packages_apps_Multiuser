@@ -24,6 +24,6 @@
     <application
         android:label="@string/multiuser_app_name"
         android:theme="@style/Theme.MultiuserWidget"
-        android:icon="@drawable/account_circle">
+        android:icon="@mipmap/ic_launcher">
     </application>
 </manifest>

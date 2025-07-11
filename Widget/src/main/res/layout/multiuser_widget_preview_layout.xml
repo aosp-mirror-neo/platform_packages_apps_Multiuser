@@ -14,119 +14,165 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:id="@+id/preview_linear_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="8dp"
-    android:background="@drawable/preview_layout_container">
+    android:background="@drawable/preview_layout_container"
+    android:padding="12dp">
 
-    <!-- Container for the icon and title in the upper-left corner -->
     <RelativeLayout
+        android:id="@+id/titleBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentTop="true"
-        android:layout_margin="8dp">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/users_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/preview_users_icon_content_description"
             android:src="@drawable/users_icon"
-            android:tint="@color/onSurface"
-            android:contentDescription="@string/preview_users_icon_content_description"/>
+            android:tint="@color/onSurface" />
 
-        <!-- Title -->
         <TextView
             android:id="@+id/widget_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/users_icon"
             android:layout_marginStart="8dp"
             android:text="@string/multiuser_widget_title"
-            android:layout_toEndOf="@id/users_icon"
-            android:textSize="16sp"
-            android:textColor="@color/onSurface"/>
-
+            android:textColor="@color/onSurface"
+            android:textSize="16sp" />
 
         <ImageView
             android:id="@+id/settings_icon"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:src="@drawable/settings"
-            android:tint="@color/onSurface"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:contentDescription="@string/preview_settings_icon_content_description"
-            android:layout_alignParentEnd="true"/>
+            android:src="@drawable/settings"
+            android:tint="@color/onSurface" />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center_vertical"
+        android:layout_weight="1">
 
-    <!-- Container for two side-by-side rounded images with titles -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_below="@id/widget_title"
-        android:layout_centerHorizontal="true">
+        android:layout_marginTop="16dp"
+        android:baselineAligned="false">
 
-        <!-- First image with a border and title in a vertical layout -->
         <LinearLayout
+            android:id="@+id/user_layout"
             android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
             android:layout_marginEnd="16dp">
 
-            <!-- First rounded image with an outline -->
             <ImageView
                 android:id="@+id/first_image"
                 style="@style/CircularImageViewStyle"
-                android:src="@drawable/preview_user_avatar_1"
+                android:adjustViewBounds="true"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
                 android:background="@drawable/rounded_background"
-                android:contentDescription="@string/preview_first_avatar_content_description"/>
+                android:contentDescription="@string/preview_first_avatar_content_description"
+                android:src="@drawable/preview_user_avatar_1" />
 
-            <!-- Title for the first image -->
             <TextView
                 android:id="@+id/first_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/preview_first_user_name"
-                android:textSize="14sp"
                 android:textColor="@color/onSurface"
-                android:gravity="center"/>
+                android:textSize="16sp" />
+
         </LinearLayout>
 
-        <!-- Second image and title in a vertical layout -->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
-
-            <!-- Second rounded image (without outline) -->
-            <ImageView
-                android:id="@+id/second_image"
-                style="@style/CircularImageViewStyle"
-                android:src="@drawable/preview_user_avatar_2"
-                android:contentDescription="@string/preview_second_avatar_content_description"/>
-
-            <!-- Title for the second image -->
-            <TextView
-                android:id="@+id/second_user_name"
-                android:layout_width="wrap_content"
+            android:id="@+id/buttons_layout"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:id="@+id/switchIconButton"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginBottom="4dp"
+                android:gravity="bottom">
+            <RelativeLayout
+                android:adjustViewBounds="true"
+                android:maxWidth="80dp"
+                android:maxHeight="40dp"
+                android:minHeight="20dp"
+                android:minWidth="20dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/preview_second_user_name"
-                android:textSize="14sp"
-                android:textColor="@color/onSurface"
-                android:gravity="center"/>
+                android:background="@drawable/preview_button_shape"
+                android:backgroundTint="@color/primary"
+                android:clipToOutline="true">
+
+                <ImageView
+                    android:id="@+id/switchIcon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginVertical="12dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/preview_settings_icon_content_description"
+                    android:src="@drawable/switch_arrows_24"
+                    android:tint="@color/onPrimary" />
+            </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/addUserButton"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="4dp"
+                android:gravity="top">
+
+            <RelativeLayout
+                android:adjustViewBounds="true"
+                android:maxWidth="80dp"
+                android:maxHeight="40dp"
+                android:minHeight="20dp"
+                android:minWidth="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/preview_button_shape"
+                android:backgroundTint="@color/secondaryContainer"
+                android:clipToOutline="true">
+
+                <ImageView
+                    android:id="@+id/addUser"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginVertical="12dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="@string/preview_settings_icon_content_description"
+                    android:src="@drawable/add_24"
+                    android:tint="@color/onSecondaryContainer" />
+            </RelativeLayout>
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
-
-</RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>
