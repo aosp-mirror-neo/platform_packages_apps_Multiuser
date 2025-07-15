@@ -21,6 +21,7 @@ import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.ImageRepository
 import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.IUsersRepository
+import com.android.multiuser.widget.data.model.UserAddRestriction
 import com.android.multiuser.widget.util.SHOULD_DISPLAY_ADD_USER_BUTTON
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
@@ -59,7 +60,8 @@ class LoadUsersFromServerUseCase(
 
     private suspend fun getActionViewModels(): List<ActionViewModel> {
         if (Flags.widgetScalingBugfix()) {
-            if (usersRepository.isCurrentUserAdmin()) {
+            // TODO b/431962954
+            if (usersRepository.checkUserAddRestrictions() == UserAddRestriction.NONE) {
                 return listOf(
                     actionsRepository.getSwitchUserAction()
                         .toViewModel(OpenUserSwitcherUseCase(intentRepository)),
