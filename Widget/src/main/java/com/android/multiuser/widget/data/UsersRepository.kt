@@ -23,6 +23,7 @@ import android.os.UserHandle
 import android.os.UserManager
 import kotlin.collections.List
 import com.android.multiuser.widget.data.model.User
+import com.android.multiuser.widget.data.model.UserAddRestriction
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
 
 class UsersRepository(private val userManager: UserManager?,
@@ -61,6 +62,26 @@ class UsersRepository(private val userManager: UserManager?,
 
     override fun isCurrentUserAdmin(): Boolean {
         return userManager?.isUserAdmin(currentUserId) ?: false
+    }
+
+    override fun checkUserAddRestrictions() : UserAddRestriction {
+        if(userManager == null) {
+            return UserAddRestriction.UNKNOWN
+        } else {
+            if (!isCurrentUserAdmin()) {
+                return UserAddRestriction.NOT_ADMIN_OR_SYSTEM
+            }
+            if (userManager.hasUserRestriction(UserManager.DISALLOW_ADD_USER)) {
+                return UserAddRestriction.WORK_POLICY
+            }
+            if (!userManager.isUserSwitcherEnabled(true)) {
+                return UserAddRestriction.DISABLED
+            }
+            if (!userManager.canAddMoreUsers(UserManager.USER_TYPE_FULL_SECONDARY)) {
+                return UserAddRestriction.MAX_USER_LIMIT
+            }
+        }
+        return UserAddRestriction.NONE
     }
 
     override fun checkUserSwitchRestrictions(): UserSwitchRestrictions {
