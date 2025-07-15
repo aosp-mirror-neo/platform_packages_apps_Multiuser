@@ -17,12 +17,16 @@
 package com.android.multiuser.widget.domain
 
 import androidx.glance.action.Action
+import androidx.glance.action.LambdaAction
 import androidx.glance.appwidget.action.actionSendBroadcast
 
 import com.android.multiuser.widget.data.IntentRepository
 
-class OpenUserSwitcherUseCase(val intentRepository: IntentRepository) : ISelectUseCase {
+class OpenUserSwitcherUseCase(val intentRepository: IntentRepository)  : ISelectUseCase {
     override fun invoke(): Action {
-        return actionSendBroadcast(intentRepository.getUserSwitcherIntent())
+        if(com.android.systemui.Flags.multiuserOpenUserSwitcherDialog()) {
+            return actionSendBroadcast(intentRepository.getUserSwitcherIntent())
+        }
+        return LambdaAction("OpenUserSwitcherUseCase") { /* No action taken */ }
     }
 }
