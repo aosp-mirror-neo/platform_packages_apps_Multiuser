@@ -18,12 +18,20 @@ package com.android.multiuser.widget.domain
 
 import androidx.glance.action.Action
 import androidx.glance.action.LambdaAction
+import androidx.glance.appwidget.action.actionStartActivity
 import androidx.glance.appwidget.action.actionSendBroadcast
 
 import com.android.multiuser.widget.data.IntentRepository
+import com.android.multiuser.widget.data.IUsersRepository
+import com.android.multiuser.widget.data.model.UserSwitchRestrictions
 
-class OpenUserSwitcherUseCase(val intentRepository: IntentRepository)  : ISelectUseCase {
+class OpenUserSwitcherUseCase(val intentRepository: IntentRepository,
+    private val usersRepo: IUsersRepository)  : ISelectUseCase {
     override fun invoke(): Action {
+        val restriction = usersRepo.checkUserSwitchRestrictions()
+        if (restriction != UserSwitchRestrictions.NONE) {
+            return actionStartActivity(intentRepository.getUserSwitchRestrictedIntent(restriction))
+        }
         if(com.android.systemui.Flags.multiuserOpenUserSwitcherDialog()) {
             return actionSendBroadcast(intentRepository.getUserSwitcherIntent())
         }

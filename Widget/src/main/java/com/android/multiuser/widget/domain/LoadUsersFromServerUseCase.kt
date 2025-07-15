@@ -62,14 +62,14 @@ class LoadUsersFromServerUseCase(
             if (usersRepository.isCurrentUserAdmin()) {
                 return listOf(
                     actionsRepository.getSwitchUserAction()
-                        .toViewModel(OpenUserSwitcherUseCase(intentRepository)),
+                        .toViewModel(OpenUserSwitcherUseCase(intentRepository, usersRepository)),
                     actionsRepository.getAddUserAction()
                         .toViewModel(AddUserUseCase(intentRepository))
                 )
             } else {
                 return listOf(
                     actionsRepository.getSwitchUserAction()
-                        .toViewModel(OpenUserSwitcherUseCase(intentRepository))
+                        .toViewModel(OpenUserSwitcherUseCase(intentRepository, usersRepository))
                 )
             }
         }
