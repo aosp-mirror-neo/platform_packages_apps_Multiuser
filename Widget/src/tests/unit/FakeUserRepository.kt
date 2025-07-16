@@ -17,6 +17,7 @@ package com.android.multiuser.widget.ui.tests
 
 import com.android.multiuser.widget.data.IUsersRepository
 import com.android.multiuser.widget.data.model.User
+import com.android.multiuser.widget.data.model.UserAddRestriction
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
 import com.android.multiuser.widget.R
 
@@ -29,6 +30,7 @@ class FakeUserRepository : IUsersRepository {
     var users = listOf<User>( User(  10, "main",  0,  true,  true, true ),
         User(  11, "secondary",  1,  false,  true, true ))
     var currentUserAdmin = true
+    var addUserRestrictions = UserAddRestriction.NONE
     var userRestrictions = UserSwitchRestrictions.NONE
     var switchSucceeded = true
 
@@ -36,5 +38,6 @@ class FakeUserRepository : IUsersRepository {
     override suspend fun disableSwitchUsers() = userRestrictions != UserSwitchRestrictions.NONE
     override fun isCurrentUserAdmin() = currentUserAdmin
     override fun checkUserSwitchRestrictions() = userRestrictions
+    override fun checkUserAddRestrictions() = addUserRestrictions
     override fun switchToUser(userId: Int) = switchSucceeded
 }

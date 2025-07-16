@@ -18,6 +18,7 @@ package com.android.multiuser.widget.data
 
 import kotlin.collections.List
 import com.android.multiuser.widget.data.model.User
+import com.android.multiuser.widget.data.model.UserAddRestriction
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
 
 interface IUsersRepository {
@@ -25,5 +26,6 @@ interface IUsersRepository {
     suspend fun disableSwitchUsers(): Boolean
     fun isCurrentUserAdmin(): Boolean
     fun checkUserSwitchRestrictions(): UserSwitchRestrictions
+    fun checkUserAddRestrictions() : UserAddRestriction
     fun switchToUser(userId: Int): Boolean
 }
