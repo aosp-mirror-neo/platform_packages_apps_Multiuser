@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (c) 2024, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+  -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="multiuser_app_name" msgid="1109697918129421444">"Erabiltzaileak"</string>
+    <string name="add_user_button_title" msgid="6199522758514312329">"Gehitu erabiltzaile bat"</string>
+    <string name="add_user_button_content_description" msgid="5993020403425051818">"Gehitu erabiltzaile bat"</string>
+    <string name="switch_user_button_title" msgid="3753063825137894956">"Aldatu erabiltzailea"</string>
+    <string name="switch_user_button_content_description" msgid="1477907734603406105">"Aldatu erabiltzailea"</string>
+    <string name="multiuser_widget_name" msgid="777739360240368049">"Erabiltzaileak"</string>
+    <string name="multiuser_widget_description" msgid="7847063013547600400">"Gehitu edo aldatu erabiltzaileak bizkor"</string>
+    <string name="multiuser_widget_title" msgid="7037827548830992353">"Erabiltzaileak"</string>
+    <string name="multiuser_widget_error_message" msgid="894068490052519574">"Ezin izan da kargatu widgeta."</string>
+    <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Joan erabiltzaileen Ezarpenak atalera."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"Itxi"</string>
+    <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Laneko gidalerroengatik blokeatuta"</string>
+    <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Erakundeak ez dizu uzten erabiltzaileak aldatzen. Informazio gehiago lortzeko, jarri IKT saileko administratzailearekin harremanetan."</string>
+    <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Ezin da aldatu erabiltzailea"</string>
+    <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Arazoren bat izan da."</string>
+    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Ezin da aldatu erabiltzailea"</string>
+    <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Ezin duzu aldatu erabiltzailea dei bat abian denean"</string>
+    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Ezin da aldatu erabiltzailea"</string>
+    <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Eman erabiltzaileak aldatzeko baimena Ezarpenak atalean eta saiatu berriro"</string>
+    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"Ezarpenak"</string>
+    <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
+    <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
+    <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Brendaren argazkia"</string>
+    <string name="preview_second_avatar_content_description" msgid="9185285291770789526">"Eliaren argazkia"</string>
+    <string name="preview_users_icon_content_description" msgid="526657279676722947">"Erabiltzaileen ikonoa"</string>
+    <string name="preview_settings_icon_content_description" msgid="4400400965374974118">"Ezarpenen ikonoa: hautatu erabiltzaileak kudeatzeko"</string>
+    <string name="lock_icon_content_description" msgid="3864843244351621215">"Giltzarrapoaren ikonoa"</string>
+</resources>

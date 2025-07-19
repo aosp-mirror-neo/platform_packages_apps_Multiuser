@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (c) 2024, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+  -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="multiuser_app_name" msgid="1109697918129421444">"ୟୁଜର"</string>
+    <string name="add_user_button_title" msgid="6199522758514312329">"ୟୁଜର ଯୋଗ କରନ୍ତୁ"</string>
+    <string name="add_user_button_content_description" msgid="5993020403425051818">"ୟୁଜର ଯୋଗ କରନ୍ତୁ"</string>
+    <string name="switch_user_button_title" msgid="3753063825137894956">"ୟୁଜରଙ୍କୁ ସ୍ୱିଚ କରନ୍ତୁ"</string>
+    <string name="switch_user_button_content_description" msgid="1477907734603406105">"ୟୁଜରଙ୍କୁ ସ୍ୱିଚ କରନ୍ତୁ"</string>
+    <string name="multiuser_widget_name" msgid="777739360240368049">"ୟୁଜର"</string>
+    <string name="multiuser_widget_description" msgid="7847063013547600400">"ୟୁଜରମାନଙ୍କୁ ଶୀଘ୍ର ଯୋଗ କିମ୍ବା ସ୍ୱିଚ କରନ୍ତୁ"</string>
+    <string name="multiuser_widget_title" msgid="7037827548830992353">"ୟୁଜର"</string>
+    <string name="multiuser_widget_error_message" msgid="894068490052519574">"ୱିଜେଟ ଲୋଡ କରିବାରେ ବିଫଳ ହୋଇଛି।"</string>
+    <string name="widget_settings_button_content_description" msgid="2218741284324972818">"ୟୁଜର ସେଟିଂସକୁ ଯାଆନ୍ତୁ।"</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"ବନ୍ଦ କରନ୍ତୁ"</string>
+    <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"ୱାର୍କ ନୀତି ଦ୍ୱାରା ବ୍ଲକ କରାଯାଇଛି"</string>
+    <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"ୟୁଜରମାନଙ୍କୁ ପରିବର୍ତ୍ତନ କରିବା ପାଇଁ ଆପଣଙ୍କ ସଂସ୍ଥା ଆପଣଙ୍କୁ ଅନୁମତି ଦିଏ ନାହିଁ। ଅଧିକ ସୂଚନା ପାଇଁ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
+    <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"ୟୁଜରଙ୍କୁ ସ୍ୱିଚ କରାଯାଇପାରିବ ନାହିଁ"</string>
+    <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"କିଛି ତ୍ରୁଟି ହୋଇଛି।"</string>
+    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"ୟୁଜରଙ୍କୁ ସ୍ୱିଚ କରାଯାଇପାରିବ ନାହିଁ"</string>
+    <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"ଏକ କଲ ସମୟରେ ଆପଣ ୟୁଜରଙ୍କୁ ସ୍ୱିଚ କରିପାରିବେ ନାହିଁ"</string>
+    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"ୟୁଜରଙ୍କୁ ସ୍ୱିଚ କରାଯାଇପାରିବ ନାହିଁ"</string>
+    <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"ସେଟିଂସରେ ୟୁଜରଙ୍କୁ ସ୍ୱିଚ କରିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ, ତା\'ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ"</string>
+    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"ସେଟିଂସ"</string>
+    <string name="preview_first_user_name" msgid="51601870734302045">"ବ୍ରେଣ୍ଡା"</string>
+    <string name="preview_second_user_name" msgid="2560219968679952876">"ଏଲିଆ"</string>
+    <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"ବ୍ରେଣ୍ଡାଙ୍କ ଛବି"</string>
+    <string name="preview_second_avatar_content_description" msgid="9185285291770789526">"ଏଲିଆଙ୍କ ଛବି"</string>
+    <string name="preview_users_icon_content_description" msgid="526657279676722947">"ୟୁଜର ଆଇକନ"</string>
+    <string name="preview_settings_icon_content_description" msgid="4400400965374974118">"ସେଟିଂସ ଆଇକନ - ୟୁଜରମାନଙ୍କୁ ପରିଚାଳନା କରିବା ପାଇଁ ଚୟନ କରନ୍ତୁ"</string>
+    <string name="lock_icon_content_description" msgid="3864843244351621215">"ଲକ ଆଇକନ"</string>
+</resources>

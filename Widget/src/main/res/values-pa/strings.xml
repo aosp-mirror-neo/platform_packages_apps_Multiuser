@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (c) 2024, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+  -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="multiuser_app_name" msgid="1109697918129421444">"ਵਰਤੋਂਕਾਰ"</string>
+    <string name="add_user_button_title" msgid="6199522758514312329">"ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰੋ"</string>
+    <string name="add_user_button_content_description" msgid="5993020403425051818">"ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰੋ"</string>
+    <string name="switch_user_button_title" msgid="3753063825137894956">"ਵਰਤੋਂਕਾਰ ਬਦਲੋ"</string>
+    <string name="switch_user_button_content_description" msgid="1477907734603406105">"ਵਰਤੋਂਕਾਰ ਬਦਲੋ"</string>
+    <string name="multiuser_widget_name" msgid="777739360240368049">"ਵਰਤੋਂਕਾਰ"</string>
+    <string name="multiuser_widget_description" msgid="7847063013547600400">"ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਤੁਰੰਤ ਸ਼ਾਮਲ ਕਰੋ ਜਾਂ ਸਵਿੱਚ ਕਰੋ"</string>
+    <string name="multiuser_widget_title" msgid="7037827548830992353">"ਵਰਤੋਂਕਾਰ"</string>
+    <string name="multiuser_widget_error_message" msgid="894068490052519574">"ਵਿਜੇਟ ਲੋਡ ਕਰਨਾ ਅਸਫਲ ਰਿਹਾ।"</string>
+    <string name="widget_settings_button_content_description" msgid="2218741284324972818">"ਵਰਤੋਂਕਾਰ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਜਾਓ।"</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"ਬੰਦ ਕਰੋ"</string>
+    <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"ਕਾਰਜ ਨੀਤੀ ਮੁਤਾਬਕ ਬਲਾਕ ਕੀਤਾ ਗਿਆ"</string>
+    <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"ਤੁਹਾਡੀ ਸੰਸਥਾ ਤੁਹਾਨੂੰ ਵਰਤੋਂਕਾਰ ਨੂੰ ਸਵਿੱਚ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਦਿੰਦੀ। ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ, ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
+    <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"ਵਰਤੋਂਕਾਰ ਨੂੰ ਸਵਿੱਚ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"</string>
+    <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"ਕੋਈ ਗੜਬੜ ਹੋ ਗਈ।"</string>
+    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"ਵਰਤੋਂਕਾਰ ਨੂੰ ਸਵਿੱਚ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"</string>
+    <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"ਤੁਸੀਂ ਕਾਲ ਦੌਰਾਨ ਵਰਤੋਂਕਾਰ ਸਵਿੱਚ ਨਹੀਂ ਕਰ ਸਕਦੇ"</string>
+    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"ਵਰਤੋਂਕਾਰ ਨੂੰ ਸਵਿੱਚ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"</string>
+    <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਵਰਤੋਂਕਾਰ ਸਵਿੱਚ ਕਰਨ ਦੀ ਆਗਿਆ ਦੇ ਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ"</string>
+    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"ਸੈਟਿੰਗਾਂ"</string>
+    <string name="preview_first_user_name" msgid="51601870734302045">"ਰਾਜਦੀਪ"</string>
+    <string name="preview_second_user_name" msgid="2560219968679952876">"ਕਿਰਨ"</string>
+    <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"ਰਾਜਦੀਪ ਦੀ ਤਸਵੀਰ"</string>
+    <string name="preview_second_avatar_content_description" msgid="9185285291770789526">"ਕਿਰਨ ਦੀ ਤਸਵੀਰ"</string>
+    <string name="preview_users_icon_content_description" msgid="526657279676722947">"ਵਰਤੋਂਕਾਰ ਦਾ ਪ੍ਰਤੀਕ"</string>
+    <string name="preview_settings_icon_content_description" msgid="4400400965374974118">"ਸੈਟਿੰਗਾਂ ਦਾ ਪ੍ਰਤੀਕ - ਵਰਤੋਂਕਾਰਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਨ ਬਾਰੇ ਚੁਣੋ"</string>
+    <string name="lock_icon_content_description" msgid="3864843244351621215">"ਲਾਕ ਪ੍ਰਤੀਕ"</string>
+</resources>

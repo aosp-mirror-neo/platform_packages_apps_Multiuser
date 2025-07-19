@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (c) 2024, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+  -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="multiuser_app_name" msgid="1109697918129421444">"Пайдаланушылар"</string>
+    <string name="add_user_button_title" msgid="6199522758514312329">"Пайдаланушы қосу"</string>
+    <string name="add_user_button_content_description" msgid="5993020403425051818">"Пайдаланушы қосу"</string>
+    <string name="switch_user_button_title" msgid="3753063825137894956">"Пайдаланушыны ауыстыру"</string>
+    <string name="switch_user_button_content_description" msgid="1477907734603406105">"Пайдаланушыны ауыстыру"</string>
+    <string name="multiuser_widget_name" msgid="777739360240368049">"Пайдаланушылар"</string>
+    <string name="multiuser_widget_description" msgid="7847063013547600400">"Пайдаланушыларды жылдам қосу немесе ауыстыру"</string>
+    <string name="multiuser_widget_title" msgid="7037827548830992353">"Пайдаланушылар"</string>
+    <string name="multiuser_widget_error_message" msgid="894068490052519574">"Виджет жүктелмеді."</string>
+    <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Пайдаланушылардың параметрлеріне өтіңіз."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"Жабу"</string>
+    <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Жұмыс саясатына сәйкес блокталды"</string>
+    <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Ұйымыңыз пайдаланушыларды ауыстыруға рұқсат бермейді. Қосымша ақпарат алу үшін әкімшіге хабарласыңыз."</string>
+    <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Пайдаланушыны ауыстыру мүмкін емес"</string>
+    <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Бірдеңе дұрыс болмады."</string>
+    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Пайдаланушыны ауыстыру мүмкін емес"</string>
+    <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Қоңырау кезінде пайдаланушыны ауыстыру мүмкін емес."</string>
+    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Пайдаланушыны ауыстыру мүмкін емес"</string>
+    <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Параметрлерде пайдаланушыны ауыстыруға рұқсат беріп, әрекетті қайталаңыз."</string>
+    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"Параметрлер"</string>
+    <string name="preview_first_user_name" msgid="51601870734302045">"Бренда"</string>
+    <string name="preview_second_user_name" msgid="2560219968679952876">"Элия"</string>
+    <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Бренданың суреті"</string>
+    <string name="preview_second_avatar_content_description" msgid="9185285291770789526">"Элияның суреті"</string>
+    <string name="preview_users_icon_content_description" msgid="526657279676722947">"Пайдаланушылар белгішесі"</string>
+    <string name="preview_settings_icon_content_description" msgid="4400400965374974118">"Параметрлер белгішесі: пайдаланушыларды басқару үшін таңдаңыз"</string>
+    <string name="lock_icon_content_description" msgid="3864843244351621215">"Құлып белгішесі"</string>
+</resources>
