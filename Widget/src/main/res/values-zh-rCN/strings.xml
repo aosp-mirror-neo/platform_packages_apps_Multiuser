@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (c) 2024, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+  -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="multiuser_app_name" msgid="1109697918129421444">"用户"</string>
+    <string name="add_user_button_title" msgid="6199522758514312329">"添加用户"</string>
+    <string name="add_user_button_content_description" msgid="5993020403425051818">"添加用户"</string>
+    <string name="switch_user_button_title" msgid="3753063825137894956">"切换用户"</string>
+    <string name="switch_user_button_content_description" msgid="1477907734603406105">"切换用户"</string>
+    <string name="multiuser_widget_name" msgid="777739360240368049">"用户"</string>
+    <string name="multiuser_widget_description" msgid="7847063013547600400">"快速添加或切换用户"</string>
+    <string name="multiuser_widget_title" msgid="7037827548830992353">"用户"</string>
+    <string name="multiuser_widget_error_message" msgid="894068490052519574">"未能加载微件。"</string>
+    <string name="widget_settings_button_content_description" msgid="2218741284324972818">"前往“用户设置”。"</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"关闭"</string>
+    <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"已被工作政策禁止"</string>
+    <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"您所属的组织不允许您更改用户。如需了解详情，请联系您的 IT 管理员。"</string>
+    <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"无法切换用户"</string>
+    <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"出了点问题。"</string>
+    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"无法切换用户"</string>
+    <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"您无法在通话期间切换用户"</string>
+    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"无法切换用户"</string>
+    <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"请在“设置”中允许切换用户，然后重试"</string>
+    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"设置"</string>
+    <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
+    <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
+    <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Brenda 的照片"</string>
+    <string name="preview_second_avatar_content_description" msgid="9185285291770789526">"Elia 的照片"</string>
+    <string name="preview_users_icon_content_description" msgid="526657279676722947">"用户图标"</string>
+    <string name="preview_settings_icon_content_description" msgid="4400400965374974118">"“设置”图标 - 点击可管理用户"</string>
+    <string name="lock_icon_content_description" msgid="3864843244351621215">"锁形图标"</string>
+</resources>

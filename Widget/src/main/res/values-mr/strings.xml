@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+/**
+ * Copyright (c) 2024, The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+  -->
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="multiuser_app_name" msgid="1109697918129421444">"वापरकर्ते"</string>
+    <string name="add_user_button_title" msgid="6199522758514312329">"वापरकर्त्याला जोडा"</string>
+    <string name="add_user_button_content_description" msgid="5993020403425051818">"वापरकर्त्याला जोडा"</string>
+    <string name="switch_user_button_title" msgid="3753063825137894956">"वापरकर्त्याला स्विच करा"</string>
+    <string name="switch_user_button_content_description" msgid="1477907734603406105">"वापरकर्त्याला स्विच करा"</string>
+    <string name="multiuser_widget_name" msgid="777739360240368049">"वापरकर्ते"</string>
+    <string name="multiuser_widget_description" msgid="7847063013547600400">"वापरकर्त्यांना झटपट जोडा किंवा स्विच करा"</string>
+    <string name="multiuser_widget_title" msgid="7037827548830992353">"वापरकर्ते"</string>
+    <string name="multiuser_widget_error_message" msgid="894068490052519574">"विजेट लोड करता आले नाही."</string>
+    <string name="widget_settings_button_content_description" msgid="2218741284324972818">"वापरकर्ते सेटिंग्ज वर जा."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"बंद करा"</string>
+    <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"तुमच्या कामाशी संबंधित धोरणाद्वारे ब्लॉक केला आहे"</string>
+    <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"तुमची संस्था तुम्हाला वापरकर्त्यांना बदलण्याची अनुमती देत नाही. अधिक माहितीसाठी, तुमच्या आयटी ॲडमिनशी संपर्क साधा."</string>
+    <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"वापरकर्त्याला स्विच करू शकत नाही"</string>
+    <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"काहीतरी चुकले."</string>
+    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"वापरकर्त्याला स्विच करू शकत नाही"</string>
+    <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"तुम्ही कॉलदरम्यान वापरकर्त्याला स्विच करू शकत नाही"</string>
+    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"वापरकर्त्याला स्विच करू शकत नाही"</string>
+    <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"सेटिंग्ज मध्ये वापरकर्त्याला स्विच करण्याची अनुमती द्या, त्यानंतर पुन्हा प्रयत्न करा"</string>
+    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"सेटिंग्ज"</string>
+    <string name="preview_first_user_name" msgid="51601870734302045">"ब्रेंडा"</string>
+    <string name="preview_second_user_name" msgid="2560219968679952876">"एलिया"</string>
+    <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"ब्रेंडा यांचा फोटो"</string>
+    <string name="preview_second_avatar_content_description" msgid="9185285291770789526">"एलिया यांचा फोटो"</string>
+    <string name="preview_users_icon_content_description" msgid="526657279676722947">"वापरकर्ते आयकन"</string>
+    <string name="preview_settings_icon_content_description" msgid="4400400965374974118">"सेटिंग्ज आयकन - वापरकर्त्यांना व्यवस्थापित करण्यासाठी निवडा"</string>
+    <string name="lock_icon_content_description" msgid="3864843244351621215">"लॉक आयकन"</string>
+</resources>
