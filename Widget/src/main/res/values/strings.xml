@@ -48,35 +48,80 @@
   <string translation_description="Text describing the action of the Settings button on the widget. Used by accessibility services. {CHAR_LIMIT=NONE}"
       name="widget_settings_button_content_description">Go to Users Settings.</string>
 
-  <string translation_description="Generic dialog close button text {CHAR_LIMIT=25}"
-      name="dialog_close_button_text">Close</string>
-
+  <!--WORK POLICY DIALOGS-->
   <string translation_description="Title that appears when user switch is restricted by work policy {CHAR_LIMIT=NONE}"
       name="widget_switch_work_restriction_dialog_title">Blocked by work policy</string>
 
+  <string translation_description="Message that appears in an alert dialog when user tries to add a user but adding is disabled by work policy. {CHAR_LIMIT=NONE}"
+      name="widget_add_work_restriction_dialog_message" translatable="false">Your organization doesn’t allow you to add users. For more info, contact your IT admin.</string>
+
   <string translation_description="Message that appears when user switch is restricted by work policy {CHAR_LIMIT=NONE}"
       name="widget_switch_work_restriction_dialog_message">Your organization doesn’t allow you to change users. For more info, contact your IT admin.</string>
+  <!--WORK POLICY DIALOGS-->
 
+  <!--GENERIC DIALOGS-->
   <string translation_description="Title that appears in an alert dialog when user tries to switch and the switch fails. {CHAR_LIMIT=NONE}"
       name="widget_switch_failed_dialog_title">Can’t switch user</string>
+
+  <string translation_description="Title that appears in an alert dialog when user tries to add a user but adding a user fails. {CHAR_LIMIT=NONE}"
+      name="widget_add_failed_dialog_title" translatable="false">Can’t add user</string>
 
   <string translation_description="Message that appears in an alert dialog when user tries to switch and the switch fails. {CHAR_LIMIT=NONE}"
       name="widget_switch_failed_dialog_message">Something went wrong.</string>
 
-  <string translation_description="Title that appears in an alert dialog when user tries to switch but switching is disallowed. {CHAR_LIMIT=NONE}"
+  <string translation_description="Generic dialog close button text {CHAR_LIMIT=25}"
+      name="dialog_close_button_text">Close</string>
+  <!--GENERIC DIALOGS-->
+
+  <!--  ON CALL DIALOGS-->
+  <string translation_description="Title that appears in an alert dialog when user tries to switch but currently on call. {CHAR_LIMIT=NONE}"
       name="widget_switch_not_allowed_dialog_title">Can’t switch user</string>
 
-  <string translation_description="Message that appears in an alert dialog when user tries to switch but switching is disallowed. {CHAR_LIMIT=NONE}"
+  <string translation_description="Title that appears in an alert dialog when user tries to add another user and switch instantly but currently on call. {CHAR_LIMIT=NONE}"
+      name="widget_add_not_allowed_dialog_title" translatable="false">Can’t add user</string>
+
+  <string translation_description="Message that appears in an alert dialog when user tries to switch but currently on call. {CHAR_LIMIT=NONE}"
       name="widget_switch_not_allowed_dialog_message">You can’t switch user during a call</string>
 
+  <string translation_description="Message that appears in an alert dialog when user tries to add but currently on call. {CHAR_LIMIT=NONE}"
+      name="widget_add_not_allowed_dialog_message" translatable="false">You can’t add user during a call</string>
+  <!--  ON CALL DIALOGS-->
+
+  <!--  SETTINGS RESTRICTIONS DIALOGS -->
   <string translation_description="Title that appears in an alert dialog when user tries to switch but switching is disabled in settings. {CHAR_LIMIT=NONE}"
       name="widget_switch_disabled_dialog_title">Can’t switch user</string>
+
+  <string translation_description="Title that appears in an alert dialog when user tries  to add another user and adding user fails. {CHAR_LIMIT=NONE}"
+      name="widget_add_disabled_dialog_title" translatable="false">Can’t add user</string>
+
+  <string translation_description="Title that appears in an alert dialog when user tries to add user from lock screen but adding users from lockscreen is disabled in settings {CHAR_LIMIT=NONE}"
+      name="widget_add_from_hub_dialog_title" translatable="false">Can’t add user</string>
 
   <string translation_description="Message that appears in an alert dialog when user tries to switch but switching is disabled in settings. {CHAR_LIMIT=NONE}"
       name="widget_switch_disabled_dialog_message">Allow user switching in Settings then try again</string>
 
+  <string translation_description="Message that appears in an alert dialog when user tries to add user from lock screen but adding users from lockscreen is disabled in settings {CHAR_LIMIT=NONE}"
+      name="widget_add_from_hub_dialog_message" translatable="false">Allow adding users from lock screen in Settings then try again</string>
+
   <string translation_description="Text that appears as a positive button in an alert dialog when user tries to switch but switching is disallowed. Clicking on this text leads to User Settings. {CHAR_LIMIT=NONE}"
       name="widget_switch_disabled_dialog_open_settings_button">Settings</string>
+  <!--  SETTINGS RESTRICTIONS DIALOGS -->
+
+  <!--  MAX USERS LIMIT DIALOGS -->
+  <string translation_description="Title that appears in an alert dialog when user tries to add user but maximum limit of users was reached {CHAR_LIMIT=NONE}"
+      name="widget_add_max_limit_dialog_title" translatable="false">Can’t add more users</string>
+
+  <string translation_description="Message that appears in an alert dialog when user tries to add user but maximum limit of users was reached {CHAR_LIMIT=NONE}"
+      name="widget_add_max_limit_dialog_message" translatable="false">You can’t add any more users. Remove a user to add a new one.</string>
+  <!--  MAX USERS LIMIT DIALOGS -->
+
+  <!--  PERMISSIONS DIALOGS -->
+  <string translation_description="Title that appears in an alert dialog when user tries to add user but is not an admin {CHAR_LIMIT=NONE}"
+      name="widget_add_not_admin_dialog_title" translatable="false">Can’t add users</string>
+
+  <string translation_description="Message that appears in an alert dialog when user tries to add user but is not an admin {CHAR_LIMIT=NONE}"
+      name="widget_add_not_admin_dialog_message" translatable="false">Only the admin can add more users</string>
+  <!--  PERMISSIONS DIALOGS -->
 
   <string translation_description="The name of the first user in the multiuser widget preview displayed in the widget picker. {CHAR_LIMIT=NONE}"
       name="preview_first_user_name">Brenda</string>
@@ -98,4 +143,5 @@
 
   <string translation_description="Content description to lock icon visible on dialog alert. {CHAR_LIMIT=NONE}"
       name="lock_icon_content_description">Lock icon</string>
+
 </resources>
