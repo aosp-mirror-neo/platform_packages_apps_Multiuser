@@ -19,56 +19,62 @@ package com.android.multiuser.widget.viewmodel
 import android.util.Log
 import com.android.multiuser.widget.domain.ILoadUsersUseCase
 import java.lang.Exception
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class UsersViewModel(private val useCase: ILoadUsersUseCase) {
-    val data: StateFlow<List<GridItemViewModel>> = getData()
-    val uiState: StateFlow<UiState> = getState()
+    private val _data = MutableStateFlow<List<GridItemViewModel>>(emptyList())
+    val data: StateFlow<List<GridItemViewModel>> = _data.asStateFlow()
 
-    companion object {
-        private val _data = MutableStateFlow<List<GridItemViewModel>>(emptyList())
-        private val _uiState = MutableStateFlow<UiState>(UiState.Invalid)
+    private val _lastUpdate = MutableSharedFlow<Long>()
+    val lastUpdate: SharedFlow<Long> = _lastUpdate.asSharedFlow()
 
-        fun setState(value: UiState) {
-            if(_uiState.value != value) {
-                _uiState.value = value
-            }
+    private val _uiState: MutableStateFlow<UiState> = MutableStateFlow<UiState>(UiState.Invalid)
+    val uiState: StateFlow<UiState> = _uiState.asStateFlow()
+
+    fun setData(value: List<GridItemViewModel>) {
+        if (value != _data.value) {
+            _data.value = value
         }
-        fun getData() = _data.asStateFlow()
-        fun setData(value: List<GridItemViewModel>) {
-            if (value != _data.value) {
-                _data.value = value
-            }
-        }
+    }
 
-        fun getState() = _uiState.asStateFlow()
-
-        fun invalidate() {
-            setState(UiState.Invalid)
+    fun setUiState(newState: UiState) {
+        if (newState != uiState.value) {
+            _uiState.value = newState
         }
+    }
+
+    fun  getUiState(): UiState {
+        return uiState.value
+    }
+
+    suspend fun invalidate() {
+        val timestamp = System.currentTimeMillis()
+        _lastUpdate.emit(timestamp)
     }
 
     suspend fun reload() {
         if (uiState.value != UiState.Loading) {
-            setState(UiState.Loading)
+            setUiState(UiState.Loading)
             try {
                 val newData = useCase()
                 if (newData != data.value) {
                     setData(newData)
                 }
                 if (data.value.size == 0) {
-                    setState(UiState.Error)
+                    setUiState(UiState.Error)
                 } else {
-                    setState(UiState.Success)
+                    setUiState(UiState.Success)
                 }
 
             } catch (exc: Exception) {
                 Log.e(this.javaClass.name, "Unspecified exception")
-                setState(UiState.Error)
+                setUiState(UiState.Error)
             }
         }
     }
-
 }
