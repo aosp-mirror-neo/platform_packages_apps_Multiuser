@@ -28,6 +28,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
+import com.android.multiuser.widget.domain.ILoadUsersUseCase
+import com.android.multiuser.widget.viewmodel.GridItemViewModel
 import com.android.multiuser.widget.viewmodel.UsersViewModel
 
 /** Broadcast receiver for multiuser widget registered in the Manifest. */
@@ -45,9 +47,14 @@ class MultiuserWidgetReceiver(
     override fun onReceive(context: Context, intent: Intent) {
         super.onReceive(context, intent)
         if (intent.action in allowedActions) {
-            // inform runnung widget that data changed
-            UsersViewModel.invalidate()
             CoroutineScope(dispatcher).launch {
+                // Invalidate empty ViewModel to trigger SharedStateFlow
+                // reload in widgets
+                UsersViewModel(object : ILoadUsersUseCase {
+                    override suspend operator fun invoke()
+                            = emptyList<GridItemViewModel>()
+                }).invalidate()
+                // Unfreeze widgets so they can be updated
                 glanceAppWidget.updateAll(context)
             }
         }
