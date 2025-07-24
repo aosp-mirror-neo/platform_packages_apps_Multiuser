@@ -16,25 +16,24 @@
 
 package com.android.multiuser.widget.domain
 
-import androidx.glance.action.Action
-import androidx.glance.action.LambdaAction
-import androidx.glance.appwidget.action.actionStartActivity
-import androidx.glance.appwidget.action.actionSendBroadcast
-
 import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.IUsersRepository
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
+import com.android.multiuser.widget.domain.interactions.*
 
-class OpenUserSwitcherUseCase(val intentRepository: IntentRepository,
-    private val usersRepo: IUsersRepository)  : ISelectUseCase {
-    override fun invoke(): Action {
+class OpenUserSwitcherUseCase(val intentRepo: IntentRepository,
+    private val usersRepo: IUsersRepository) {
+    operator fun invoke(): InteractionUseCase {
         val restriction = usersRepo.checkUserSwitchRestrictions()
         if (restriction != UserSwitchRestrictions.NONE) {
-            return actionStartActivity(intentRepository.getUserSwitchRestrictedIntent(restriction))
+            val intent = intentRepo.getUserSwitchRestrictedIntent(restriction)
+            return StartActivityUseCase(intent)
         }
         if(com.android.systemui.Flags.multiuserOpenUserSwitcherDialog()) {
-            return actionSendBroadcast(intentRepository.getUserSwitcherIntent())
+            val intent = intentRepo.getUserSwitcherIntent()
+            return SendBroadcastUseCase(intent)
         }
-        return LambdaAction("OpenUserSwitcherUseCase") { /* No action taken */ }
+        val intent = intentRepo.getUserSwitchRestrictedIntent(UserSwitchRestrictions.UNKNOWN)
+        return StartActivityUseCase(intent)
     }
 }

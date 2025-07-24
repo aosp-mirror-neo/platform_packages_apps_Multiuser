@@ -16,21 +16,16 @@
 
 package com.android.multiuser.widget.ui.tests
 
-import android.content.Context;
-import android.content.Intent;
-
-import androidx.glance.appwidget.action.StartActivityIntentAction
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
 import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
 import com.android.multiuser.widget.domain.DialogUseCase
-import com.android.multiuser.widget.domain.NoAction
 import com.android.multiuser.widget.domain.UserSwitchUseCase
+import com.android.multiuser.widget.domain.interactions.*
 import com.android.multiuser.widget.R
 
-import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.Assert.assertEquals
@@ -49,7 +44,7 @@ class DialogUseCaseTest {
         userRepository.switchSucceeded = true
         val userSwitchUseCase = UserSwitchUseCase(11, userRepository, intentRepository)
         val action = userSwitchUseCase()
-        assertTrue(action is NoAction)
+        assertTrue(action is NoInteractionUseCase)
     }
 
     @Test
@@ -59,7 +54,7 @@ class DialogUseCaseTest {
         val userRepository = FakeUserRepository()
         userRepository.switchSucceeded = false
         val userSwitchUseCase = UserSwitchUseCase(11, userRepository, intentRepository)
-        val action : StartActivityIntentAction = userSwitchUseCase() as StartActivityIntentAction
+        val action : StartActivityUseCase = userSwitchUseCase() as StartActivityUseCase
         assertNotNull(action.intent)
         val dialogUseCase = DialogUseCase(action.intent, context.resources)
         val model = dialogUseCase()
@@ -78,7 +73,7 @@ class DialogUseCaseTest {
         val userRepository = FakeUserRepository()
         userRepository.userRestrictions = UserSwitchRestrictions.DISABLED
         val userSwitchUseCase = UserSwitchUseCase(11, userRepository, intentRepository)
-        val action : StartActivityIntentAction = userSwitchUseCase() as StartActivityIntentAction
+        val action : StartActivityUseCase = userSwitchUseCase() as StartActivityUseCase
         assertNotNull(action.intent)
         val dialogUseCase = DialogUseCase(action.intent, context.resources)
         val model = dialogUseCase()
@@ -99,7 +94,7 @@ class DialogUseCaseTest {
         val userRepository = FakeUserRepository()
         userRepository.userRestrictions = UserSwitchRestrictions.WORK_POLICY
         val userSwitchUseCase = UserSwitchUseCase(11, userRepository, intentRepository)
-        val action : StartActivityIntentAction = userSwitchUseCase() as StartActivityIntentAction
+        val action : StartActivityUseCase = userSwitchUseCase() as StartActivityUseCase
         assertNotNull(action.intent)
         val dialogUseCase = DialogUseCase(action.intent, context.resources)
         val model = dialogUseCase()
@@ -118,7 +113,7 @@ class DialogUseCaseTest {
         val userRepository = FakeUserRepository()
         userRepository.userRestrictions = UserSwitchRestrictions.ONCALL_OR_LOCKED
         val userSwitchUseCase = UserSwitchUseCase(11, userRepository, intentRepository)
-        val action : StartActivityIntentAction = userSwitchUseCase() as StartActivityIntentAction
+        val action : StartActivityUseCase = userSwitchUseCase() as StartActivityUseCase
         assertNotNull(action.intent)
         val dialogUseCase = DialogUseCase(action.intent, context.resources)
         val model = dialogUseCase()

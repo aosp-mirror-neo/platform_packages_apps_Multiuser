@@ -17,6 +17,12 @@
 package com.android.multiuser.widget.domain
 
 import android.multiuser.Flags
+import androidx.glance.action.ActionParameters
+import androidx.glance.action.actionParametersOf
+import androidx.glance.appwidget.action.actionRunCallback
+
+import com.android.multiuser.widget.domain.actions.UserSwitcherAction
+import com.android.multiuser.widget.domain.actions.SwitchUserAction
 import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.ImageRepository
 import com.android.multiuser.widget.data.IntentRepository
@@ -26,6 +32,7 @@ import com.android.multiuser.widget.util.SHOULD_DISPLAY_ADD_USER_BUTTON
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
 import com.android.multiuser.widget.viewmodel.GridItemViewModel
+
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -44,7 +51,6 @@ class LoadUsersFromServerUseCase(
     override suspend operator fun invoke(): List<GridItemViewModel> = withContext(dispatcher) {
         return@withContext getUserViewModels() + getActionViewModels()
     }
-
     private suspend fun getUserViewModels() =
         usersRepository.getUsers().map { user -> UserViewModel (
             id = user.id,
@@ -55,7 +61,9 @@ class LoadUsersFromServerUseCase(
             contentDescription = null,
             enabled = user.isCurrentUser || user.switchable,
             loadAvatarUseCase = LoadUserAvatarUseCase(user.id, imageRepository),
-            userSwitchUseCase = UserSwitchUseCase(user.id, usersRepository, intentRepository)
+            action = actionRunCallback<SwitchUserAction>(
+                parameters = actionParametersOf(SwitchUserAction.userIdKey  to user.id)
+            )
         )}
 
     private suspend fun getActionViewModels(): List<ActionViewModel> {
@@ -64,14 +72,14 @@ class LoadUsersFromServerUseCase(
             if (usersRepository.checkUserAddRestrictions() == UserAddRestriction.NONE) {
                 return listOf(
                     actionsRepository.getSwitchUserAction()
-                        .toViewModel(OpenUserSwitcherUseCase(intentRepository, usersRepository)),
+                        .toViewModel(actionRunCallback<UserSwitcherAction>()),
                     actionsRepository.getAddUserAction()
-                        .toViewModel(AddUserUseCase(intentRepository))
+                        .toViewModel(AddUserUseCase(intentRepository)())
                 )
             } else {
                 return listOf(
                     actionsRepository.getSwitchUserAction()
-                        .toViewModel(OpenUserSwitcherUseCase(intentRepository, usersRepository))
+                        .toViewModel(actionRunCallback<UserSwitcherAction>())
                 )
             }
         }
@@ -79,10 +87,9 @@ class LoadUsersFromServerUseCase(
         // button for adding users.
         if(usersRepository.isCurrentUserAdmin() && SHOULD_DISPLAY_ADD_USER_BUTTON) {
             return listOf(
-                actionsRepository.getAddUserAction().toViewModel(AddUserUseCase(intentRepository))
+                actionsRepository.getAddUserAction().toViewModel(AddUserUseCase(intentRepository)())
             )
         }
-
         return emptyList()
     }
 }

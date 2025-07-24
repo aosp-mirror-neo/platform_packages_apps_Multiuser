@@ -28,5 +28,5 @@ class SettingsActionUseCase(val actionsRepository: ActionsRepository, val intent
     )
 
     operator fun invoke() = actionsRepository.getSettingsAction()
-         .toViewModel(OpenUserSettingsUseCase(intentRepository))
+         .toViewModel(OpenUserSettingsUseCase(intentRepository)())
 }
