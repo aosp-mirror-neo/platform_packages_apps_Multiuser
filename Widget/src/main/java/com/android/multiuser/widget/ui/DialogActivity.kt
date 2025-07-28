@@ -16,7 +16,9 @@
 
 package com.android.multiuser.widget.ui
 
-import android.app.Activity
+import android.app.KeyguardManager
+import android.app.KeyguardManager.KeyguardDismissCallback
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -26,9 +28,9 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.Modifier
-import androidx.core.view.WindowCompat
 
 import com.android.compose.theme.PlatformTheme
+import com.android.multiuser.widget.R
 import com.android.multiuser.widget.domain.DialogUseCase
 
 /**
@@ -37,14 +39,23 @@ import com.android.multiuser.widget.domain.DialogUseCase
  * This activity is launched when user switch fails or is disabled.
  */
 class DialogActivity : ComponentActivity() {
+    private lateinit var keyguardManager: KeyguardManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        keyguardManager = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+
+        // Determine which theme to apply
+        val themeResId = if (keyguardManager.isKeyguardLocked) {
+            R.style.Theme_MultiuserWidgetLocked
+        } else {
+            R.style.Theme_MultiuserWidget
+        }
+
+        // Apply the theme. THIS MUST BE CALLED BEFORE super.onCreate()
+        setTheme(themeResId)
+
         super.onCreate(savedInstanceState)
-        // Make the activity transparent
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        // Transparent status bar
-        window.statusBarColor = Color.Transparent.hashCode()
-        // Transparent navigation bar (if applicable)
-        window.navigationBarColor = Color.Transparent.hashCode()
+
         val dialogUseCase = DialogUseCase(intent, resources)
 
         setShowWhenLocked(true)
@@ -53,17 +64,49 @@ class DialogActivity : ComponentActivity() {
             PlatformTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = Color.Transparent // Important: Set the surface color to transparent
+                    color = Color.Black.copy(alpha = 0.2f),
                 ) {
-                    DialogView(
-                        dialogUseCase(),
-                        { finish() },
-                        {
-                            it?.let { intent -> startActivity(intent) }
-                            finish()
-                        })
+
+                    var postKeyguardIntent by remember { mutableStateOf<Intent?>(null) }
+
+                    // Only display the dialog if postKeyguardIntent is null.
+                    // This ensures the dialog doesn't reappear after keyguard dismissal logic
+                    // has started.
+                    if (postKeyguardIntent == null) {
+                        DialogView(
+                            dialogUseCase(),
+                            { finish() },
+                            {
+                                it?.let {
+                                    if (keyguardManager.isKeyguardLocked) {
+                                        postKeyguardIntent = it
+                                        keyguardManager.requestDismissKeyguard(
+                                            this,
+                                            object : KeyguardDismissCallback() {
+                                                override fun onDismissError() {
+                                                    finish()
+                                                }
+
+                                                override fun onDismissCancelled() {
+                                                    finish()
+                                                }
+
+                                                override fun onDismissSucceeded() {
+                                                    startActivity(postKeyguardIntent)
+                                                    finish()
+                                                }
+                                            }
+                                        )
+                                    } else {
+                                        startActivity(it)
+                                        finish()
+                                    }
+                                } ?: finish()
+                            })
+                    }
                 }
             }
         }
     }
+
 }
