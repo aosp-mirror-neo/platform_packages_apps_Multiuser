@@ -47,6 +47,8 @@ class DialogActivity : ComponentActivity() {
         window.navigationBarColor = Color.Transparent.hashCode()
         val dialogUseCase = DialogUseCase(intent, resources)
 
+        setShowWhenLocked(true)
+
         setContent {
             PlatformTheme {
                 Surface(

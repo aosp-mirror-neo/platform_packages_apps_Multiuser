@@ -66,7 +66,7 @@ fun UserView (
     ) {
         // Top
         Box (modifier = UserBoxModifier(viewModel.isSelected, alpha)
-            .clickable( onClick = viewModel.selectUseCase() )
+            .clickable( onClick = viewModel.action )
         ) {
             Image(
                 provider = bitmap?.let { ImageProvider(it) }

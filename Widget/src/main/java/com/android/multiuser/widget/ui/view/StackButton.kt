@@ -87,7 +87,7 @@ fun StackButton(
                     stack.horizontally.min
                 ) / 2)
             )
-            .clickable(onClick = stack.action.selectUseCase())
+            .clickable(onClick = stack.action.action)
     )
 }
 

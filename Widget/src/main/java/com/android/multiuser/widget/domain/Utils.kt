@@ -16,15 +16,16 @@
 
 package com.android.multiuser.widget.domain
 
-import com.android.multiuser.widget.data.model.Action
+import androidx.glance.action.Action
+
+import com.android.multiuser.widget.data.model.Action as ActionModel
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 
-
-fun Action.toViewModel(selectUseCase: ISelectUseCase): ActionViewModel {
+fun ActionModel.toViewModel(action: Action): ActionViewModel {
     return ActionViewModel (
         title = title,
         resourceId = resourceId,
         contentDescription = contentDescription,
-        selectUseCase = selectUseCase
+        action = action
     )
 }

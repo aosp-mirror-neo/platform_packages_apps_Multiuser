@@ -21,24 +21,23 @@ import androidx.glance.action.Action
 import com.android.multiuser.widget.data.IUsersRepository
 import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
-import androidx.glance.appwidget.action.actionStartActivity
+import com.android.multiuser.widget.domain.interactions.*
 
 /**
  * Returns a dialog that is displayed when user switching is not restricted or unsuccessful.
  */
 class UserSwitchUseCase(private val userId: Int,
     private val usersRepo: IUsersRepository,
-    private val intentRepo: IntentRepository) : ISelectUseCase {
-    override operator fun invoke(): Action {
+    private val intentRepo: IntentRepository) {
+    operator fun invoke(): InteractionUseCase {
         val restriction = usersRepo.checkUserSwitchRestrictions()
         if (restriction != UserSwitchRestrictions.NONE) {
-            return actionStartActivity(intentRepo.getUserSwitchRestrictedIntent(restriction))
+            return StartActivityUseCase(intentRepo.getUserSwitchRestrictedIntent(restriction))
         }
         if (!usersRepo.switchToUser(userId)) {
-            return actionStartActivity(intentRepo.getUserSwitchRestrictedIntent(UserSwitchRestrictions.UNKNOWN))
+            return StartActivityUseCase(intentRepo.getUserSwitchRestrictedIntent(UserSwitchRestrictions.UNKNOWN))
         }
-        return NoAction()
+        return NoInteractionUseCase()
     }
 }
 
-class NoAction:Action

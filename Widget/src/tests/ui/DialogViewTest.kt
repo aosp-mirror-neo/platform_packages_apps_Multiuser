@@ -33,7 +33,6 @@ import org.junit.Assert.assertTrue
 import org.junit.Assert.assertNull
 import org.junit.Assert.assertNotNull
 
-import android.content.Context;
 import android.content.Intent;
 
 import com.android.multiuser.widget.data.IntentRepository
@@ -70,6 +69,7 @@ class DialogViewTest {
         assertFalse(dismissed)
         composeTestRule.onNodeWithText(closeButton).performClick()
         assertTrue(dismissed)
+        assertNull(actionIntent)
     }
 
     @Test
@@ -130,6 +130,7 @@ class DialogViewTest {
         assertFalse(dismissed)
         composeTestRule.onNodeWithText(closeButton).performClick()
         assertTrue(dismissed)
+        assertNull(actionIntent)
     }
 
     @Test
@@ -158,5 +159,6 @@ class DialogViewTest {
         assertFalse(dismissed)
         composeTestRule.onNodeWithText(closeButton).performClick()
         assertTrue(dismissed)
+        assertNull(actionIntent)
     }
 }
