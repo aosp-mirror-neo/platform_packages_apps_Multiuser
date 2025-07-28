@@ -29,11 +29,11 @@
     <string name="multiuser_widget_title" msgid="7037827548830992353">"Mga User"</string>
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Hindi na-load ang widget."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Pumunta sa Mga Setting ng Mga User."</string>
-    <string name="dialog_close_button_text" msgid="4056505010322506240">"Isara"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Bina-block ng patakaran sa trabaho"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Hindi ka pinapayagan ng iyong organisasyon na magpalit ng user. Para sa higit pang impormasyon, makipag-ugnayan sa iyong IT admin."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Hindi makapagpalit ng user"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Nagkaproblema."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"Isara"</string>
     <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Hindi makapagpalit ng user"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Hindi ka makakapagpalit ng user habang nasa tawag"</string>
     <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Hindi makapagpalit ng user"</string>

@@ -29,11 +29,11 @@
     <string name="multiuser_widget_title" msgid="7037827548830992353">"ユーザー"</string>
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"ウィジェットを読み込めませんでした。"</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"[ユーザー設定] に移動します。"</string>
-    <string name="dialog_close_button_text" msgid="4056505010322506240">"閉じる"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"仕事用ポリシーによりブロックされています"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"組織では、ユーザーの変更を許可していません。詳しくは、IT 管理者にお問い合わせください。"</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"ユーザーを切り替えられません"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"エラーが発生しました。"</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"閉じる"</string>
     <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"ユーザーを切り替えられません"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"通話中はユーザーを切り替えられません"</string>
     <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"ユーザーを切り替えられません"</string>

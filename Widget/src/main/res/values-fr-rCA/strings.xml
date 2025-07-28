@@ -29,11 +29,11 @@
     <string name="multiuser_widget_title" msgid="7037827548830992353">"Utilisateurs"</string>
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Échec du chargement du widget."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Accéder aux paramètres des utilisateurs."</string>
-    <string name="dialog_close_button_text" msgid="4056505010322506240">"Fermer"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Bloqué conformément à la politique de l\'entreprise"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Votre organisation ne vous autorise pas à changer d\'utilisateur. Pour en savoir plus, communiquez avec votre administrateur informatique."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Impossible de changer d\'utilisateur"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Un problème est survenu."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"Fermer"</string>
     <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Impossible de changer d\'utilisateur"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Vous ne pouvez pas changer d\'utilisateur pendant un appel"</string>
     <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Impossible de changer d\'utilisateur"</string>

@@ -29,11 +29,11 @@
     <string name="multiuser_widget_title" msgid="7037827548830992353">"Корисници"</string>
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Учитавање виџета није успело."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Идите у Подешавања корисника."</string>
-    <string name="dialog_close_button_text" msgid="4056505010322506240">"Затвори"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Блокирају смернице за посао"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Организација вам не дозвољава да мењате кориснике. Обратите се ИТ администратору за више информација."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Промена корисника није успела"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Дошло је до грешке."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"Затвори"</string>
     <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Промена корисника није успела"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Не можете да промените корисника током позива"</string>
     <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Промена корисника није успела"</string>
