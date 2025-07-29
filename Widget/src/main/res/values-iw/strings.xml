@@ -29,11 +29,11 @@
     <string name="multiuser_widget_title" msgid="7037827548830992353">"משתמשים"</string>
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"אי אפשר לטעון את הווידג\'ט."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"אל הגדרות המשתמשים."</string>
-    <string name="dialog_close_button_text" msgid="4056505010322506240">"סגירה"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"התכונה חסומה בגלל המדיניות של מקום העבודה"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"הארגון לא מאפשר לך להחליף את המשתמשים. למידע נוסף, אפשר ליצור קשר עם האדמין ממחלקת ה-IT."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"אי אפשר להחליף את המשתמש"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"משהו השתבש."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"סגירה"</string>
     <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"אי אפשר להחליף את המשתמש"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"אי אפשר להחליף משתמש במהלך שיחה"</string>
     <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"אי אפשר להחליף את המשתמש"</string>

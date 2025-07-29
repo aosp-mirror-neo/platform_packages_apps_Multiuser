@@ -29,11 +29,11 @@
     <string name="multiuser_widget_title" msgid="7037827548830992353">"Nutzer"</string>
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Widget konnte nicht geladen werden."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Nutzereinstellungen öffnen."</string>
-    <string name="dialog_close_button_text" msgid="4056505010322506240">"Schließen"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Von der Arbeitsrichtlinie blockiert"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Deine Organisation erlaubt nicht, dass Nutzer gewechselt werden. Weitere Informationen erhältst du von deinem IT-Administrator."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Nutzer kann nicht gewechselt werden"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Ein Fehler ist aufgetreten."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"Schließen"</string>
     <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Nutzer kann nicht gewechselt werden"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Während eines Anrufs kannst du Nutzer nicht wechseln"</string>
     <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Nutzer kann nicht gewechselt werden"</string>

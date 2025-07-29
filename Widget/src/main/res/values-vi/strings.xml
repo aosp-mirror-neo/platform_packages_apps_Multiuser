@@ -29,11 +29,11 @@
     <string name="multiuser_widget_title" msgid="7037827548830992353">"Người dùng"</string>
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Không tải được tiện ích."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Chuyển đến phần Cài đặt người dùng."</string>
-    <string name="dialog_close_button_text" msgid="4056505010322506240">"Đóng"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Bị chặn theo chính sách của nơi làm việc"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Tổ chức của bạn không cho phép bạn chuyển đổi người dùng. Để biết thêm thông tin, hãy liên hệ với quản trị viên CNTT của bạn."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Không chuyển đổi được người dùng"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Đã xảy ra lỗi."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"Đóng"</string>
     <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Không chuyển đổi được người dùng"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Bạn không thể chuyển đổi người dùng trong khi gọi điện"</string>
     <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Không chuyển đổi được người dùng"</string>

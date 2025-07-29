@@ -29,11 +29,11 @@
     <string name="multiuser_widget_title" msgid="7037827548830992353">"વપરાશકર્તાઓ"</string>
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"વિજેટ લોડ કરવામાં નિષ્ફળ રહ્યા."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"વપરાશકર્તાઓના સેટિંગ પર જાઓ."</string>
-    <string name="dialog_close_button_text" msgid="4056505010322506240">"બંધ કરો"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"ઑફિસની પૉલિસી દ્વારા બ્લૉક કરેલી છે"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"તમારી સંસ્થા તમને વપરાશકર્તાઓને બદલવાની મંજૂરી આપતી નથી. વધુ માહિતી માટે, તમારા IT ઍડમિનનો સંપર્ક કરો."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"વપરાશકર્તા સ્વિચ કરી શકાતા નથી"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"કંઈક ખોટું થયું."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"બંધ કરો"</string>
     <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"વપરાશકર્તા સ્વિચ કરી શકાતા નથી"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"તમે કૉલ દરમિયાન વપરાશકર્તા સ્વિચ કરી શકતા નથી"</string>
     <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"વપરાશકર્તા સ્વિચ કરી શકાતા નથી"</string>

@@ -29,11 +29,11 @@
     <string name="multiuser_widget_title" msgid="7037827548830992353">"Abasebenzisi"</string>
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Yehlulekile ukulayisha iwijethi."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Iya kokuthi Amasethingi Wabasebenzisi."</string>
-    <string name="dialog_close_button_text" msgid="4056505010322506240">"Vala"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Ivinjwe yinqubomgomo yomsebenzi"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Inhlangano yakho ayikuvumeli ukuthi ushintshe abasebenzisi. Ukuze uthole ulwazi olwengeziwe, xhumana nomphathi wakho we-IT."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Ayikwazi ukushintsha umsebenzisi"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Kukhona okungahambanga kahle."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"Vala"</string>
     <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Ayikwazi ukushintsha umsebenzisi"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Awukwazi ukushintsha umsebenzisi ngesikhathi socingo"</string>
     <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Ayikwazi ukushintsha umsebenzisi"</string>
