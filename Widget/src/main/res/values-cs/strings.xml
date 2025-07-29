@@ -29,11 +29,11 @@
     <string name="multiuser_widget_title" msgid="7037827548830992353">"Uživatelé"</string>
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Widget se nepodařilo načíst."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Přejděte do Nastavení uživatelů."</string>
-    <string name="dialog_close_button_text" msgid="4056505010322506240">"Zavřít"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Blokováno pracovními zásadami"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Organizace vám neumožňuje měnit uživatele. Další informace vám poskytne administrátor IT."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Uživatele se nepodařilo přepnout"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Něco se pokazilo."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"Zavřít"</string>
     <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Uživatele se nepodařilo přepnout"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Nelze přepnout uživatele během hovoru"</string>
     <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Uživatele se nepodařilo přepnout"</string>

@@ -29,11 +29,11 @@
     <string name="multiuser_widget_title" msgid="7037827548830992353">"사용자"</string>
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"위젯을 로드할 수 없습니다."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"사용자 설정으로 이동합니다."</string>
-    <string name="dialog_close_button_text" msgid="4056505010322506240">"닫기"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"업무 정책에 따라 차단됨"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"조직에서 사용자 변경을 허용하지 않습니다. 자세한 내용은 IT 관리자에게 문의하세요."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"사용자를 전환할 수 없음"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"문제가 발생했습니다."</string>
+    <string name="dialog_close_button_text" msgid="4056505010322506240">"닫기"</string>
     <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"사용자를 전환할 수 없음"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"통화 중에는 사용자를 전환할 수 없습니다."</string>
     <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"사용자를 전환할 수 없음"</string>
