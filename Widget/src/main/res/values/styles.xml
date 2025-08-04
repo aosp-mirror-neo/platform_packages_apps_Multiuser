@@ -14,13 +14,16 @@
   ~ limitations under the License.
   -->
 <resources>
-    <style name="Theme.Transparent" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@android:color/transparent</item>
+    <style name="Theme.MultiuserWidget" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
-        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackgroundBlurRadius">0dp</item>
     </style>
 
-    <style name="Theme.MultiuserWidget" parent="android:Theme.Material.Light.NoActionBar">
+    <style name="Theme.MultiuserWidgetLocked" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowBackgroundBlurRadius">30dp</item>
     </style>
 
     <style name="CircularImageViewStyle">
