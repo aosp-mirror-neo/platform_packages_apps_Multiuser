@@ -28,6 +28,7 @@ import com.android.multiuser.widget.data.ImageRepository
 import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.IUsersRepository
 import com.android.multiuser.widget.data.model.UserAddRestriction
+import com.android.multiuser.widget.domain.actions.AddUserAction
 import com.android.multiuser.widget.util.SHOULD_DISPLAY_ADD_USER_BUTTON
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
@@ -45,7 +46,7 @@ class LoadUsersFromServerUseCase(
     private val usersRepository: IUsersRepository,
     private val actionsRepository: ActionsRepository,
     private val imageRepository: ImageRepository,
-    private val intentRepository: IntentRepository,
+    private val widgetCategory: Int,
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ILoadUsersUseCase{
     override suspend operator fun invoke(): List<GridItemViewModel> = withContext(dispatcher) {
@@ -68,13 +69,14 @@ class LoadUsersFromServerUseCase(
 
     private suspend fun getActionViewModels(): List<ActionViewModel> {
         if (Flags.widgetScalingBugfix()) {
-            // TODO b/431962954
-            if (usersRepository.checkUserAddRestrictions() == UserAddRestriction.NONE) {
+            if (usersRepository.checkUserAddRestrictions(widgetCategory) == UserAddRestriction.NONE) {
                 return listOf(
                     actionsRepository.getSwitchUserAction()
                         .toViewModel(actionRunCallback<UserSwitcherAction>()),
                     actionsRepository.getAddUserAction()
-                        .toViewModel(AddUserUseCase(intentRepository)())
+                        .toViewModel(actionRunCallback<AddUserAction>(
+                            parameters = actionParametersOf(AddUserAction.widgetCategory to widgetCategory)
+                        ))
                 )
             } else {
                 return listOf(
@@ -87,7 +89,11 @@ class LoadUsersFromServerUseCase(
         // button for adding users.
         if(usersRepository.isCurrentUserAdmin() && SHOULD_DISPLAY_ADD_USER_BUTTON) {
             return listOf(
-                actionsRepository.getAddUserAction().toViewModel(AddUserUseCase(intentRepository)())
+                actionsRepository.getAddUserAction().toViewModel(
+                    actionRunCallback<AddUserAction>(
+                        parameters = actionParametersOf(AddUserAction.widgetCategory  to widgetCategory)
+                    )
+                )
             )
         }
         return emptyList()

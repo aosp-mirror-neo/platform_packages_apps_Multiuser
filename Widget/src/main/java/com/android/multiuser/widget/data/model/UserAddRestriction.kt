@@ -19,8 +19,10 @@ package com.android.multiuser.widget.data.model
 enum class UserAddRestriction(int: Int) {
     NONE(0),
     WORK_POLICY(1),
-    NOT_ADMIN_OR_SYSTEM(2),
-    DISABLED(3),
-    MAX_USER_LIMIT(4),
-    UNKNOWN(5)
+    ONCALL_OR_LOCKED(2),
+    NOT_ADMIN_OR_SYSTEM(3),
+    SWITCH_DISABLED(4),
+    DISABLED_ON_LOCKSCREEN(5),
+    MAX_USER_LIMIT(6),
+    UNKNOWN(7)
 }

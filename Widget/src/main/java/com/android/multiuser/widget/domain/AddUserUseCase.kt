@@ -16,13 +16,19 @@
 
 package com.android.multiuser.widget.domain
 
-import androidx.glance.action.Action
-import androidx.glance.appwidget.action.actionStartActivity
-
+import com.android.multiuser.widget.data.IUsersRepository
 import com.android.multiuser.widget.data.IntentRepository
+import com.android.multiuser.widget.data.model.UserAddRestriction
+import com.android.multiuser.widget.domain.interactions.InteractionUseCase
+import com.android.multiuser.widget.domain.interactions.StartActivityUseCase
 
-class AddUserUseCase(val intentRepository: IntentRepository) : ISelectUseCase {
-    override fun invoke() : Action {
-        return actionStartActivity(intentRepository.getAddUserIntent())
+class AddUserUseCase( val usersRepo: IUsersRepository, val intentRepo: IntentRepository) {
+    operator fun invoke(widgetCategory: Int) : InteractionUseCase {
+        val restriction = usersRepo.checkUserAddRestrictions(widgetCategory)
+
+        if (restriction != UserAddRestriction.NONE) {
+            return StartActivityUseCase(intentRepo.getAddUserRestrictedIntent(restriction))
+        }
+        return StartActivityUseCase(intentRepo.getAddUserIntent())
     }
 }
