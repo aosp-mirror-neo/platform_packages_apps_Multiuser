@@ -22,8 +22,33 @@ import android.content.res.Resources
 import android.provider.Settings
 import com.android.multiuser.widget.R
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
+import com.android.multiuser.widget.data.model.UserAddRestriction
 
 class IntentRepository(val res: Resources) {
+    fun getAddUserRestrictedIntent(restriction: UserAddRestriction) =
+        Intent(Settings.ACTION_USER_SETTINGS)
+            .setComponent(
+                ComponentName(
+                    ERROR_DIALOGS_PACKAGE,
+                    ERROR_DILOGS_ACTIVITY
+                )
+            )
+            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            .putExtra(TITLE, res.getAddUserRestrictedTitle(restriction))
+            .putExtra(MESSAGE, res.getAddUserRestrictedMessage(restriction))
+            .apply {
+                if (restriction == UserAddRestriction.SWITCH_DISABLED
+                    || restriction == UserAddRestriction.DISABLED_ON_LOCKSCREEN ) {
+                    multiuserSettingsIntent()
+                        .putExtra(
+                            ACTION_TEXT,
+                            res.getString(
+                                R.string.widget_switch_disabled_dialog_open_settings_button
+                            )
+                        )
+                }
+            }
+
     fun getUserSwitchRestrictedIntent(restriction: UserSwitchRestrictions) =
         Intent(Settings.ACTION_USER_SETTINGS)
             .setComponent(
@@ -94,11 +119,56 @@ class IntentRepository(val res: Resources) {
         return when (restriction) {
             UserSwitchRestrictions.WORK_POLICY ->
                 getString(R.string.widget_switch_work_restriction_dialog_message)
-            // impossible to show widged on locked system?
             UserSwitchRestrictions.ONCALL_OR_LOCKED ->
                 getString(R.string.widget_switch_not_allowed_dialog_message)
             UserSwitchRestrictions.DISABLED ->
                 getString(R.string.widget_switch_disabled_dialog_message)
+            else ->
+                getString(R.string.widget_switch_failed_dialog_message)
+        }
+    }
+
+
+    private fun Resources.getAddUserRestrictedTitle(
+        restriction: UserAddRestriction
+    ): String {
+        return when (restriction) {
+            UserAddRestriction.WORK_POLICY ->
+                // Work policy title is the same for adding and switching users
+                getString(R.string.widget_switch_work_restriction_dialog_title)
+            UserAddRestriction.ONCALL_OR_LOCKED ->
+                getString(R.string.widget_add_not_allowed_dialog_title)
+            UserAddRestriction.NOT_ADMIN_OR_SYSTEM ->
+                getString(R.string.widget_add_not_admin_dialog_title)
+            UserAddRestriction.SWITCH_DISABLED ->
+                getString(R.string.widget_add_disabled_dialog_title)
+            UserAddRestriction.DISABLED_ON_LOCKSCREEN ->
+                getString(R.string.widget_add_from_hub_dialog_title)
+            UserAddRestriction.MAX_USER_LIMIT ->
+                getString(R.string.widget_add_max_limit_dialog_title)
+            else ->
+                getString(R.string.widget_add_failed_dialog_title)
+        }
+    }
+
+    private fun Resources.getAddUserRestrictedMessage(
+        restriction: UserAddRestriction
+    ): String {
+        return when (restriction) {
+            UserAddRestriction.WORK_POLICY ->
+                getString(R.string.widget_add_work_restriction_dialog_message)
+            // Impossible to show widget on locked system?
+            UserAddRestriction.ONCALL_OR_LOCKED ->
+                getString(R.string.widget_add_not_allowed_dialog_message)
+            UserAddRestriction.NOT_ADMIN_OR_SYSTEM ->
+                getString(R.string.widget_add_not_admin_dialog_message)
+            // Disabled by user switch as flow add and switch user instantly
+            UserAddRestriction.SWITCH_DISABLED ->
+                getString(R.string.widget_switch_disabled_dialog_message)
+            UserAddRestriction.DISABLED_ON_LOCKSCREEN ->
+                getString(R.string.widget_add_from_hub_dialog_message)
+            UserAddRestriction.MAX_USER_LIMIT ->
+                getString(R.string.widget_add_max_limit_dialog_message)
             else ->
                 getString(R.string.widget_switch_failed_dialog_message)
         }

@@ -17,17 +17,21 @@
 package com.android.multiuser.widget.data
 
 import android.app.ActivityManager
+import android.appwidget.AppWidgetProviderInfo
+import android.content.ContentResolver
 import android.content.pm.UserInfo
 import android.multiuser.Flags
 import android.os.UserHandle
 import android.os.UserManager
+import android.provider.Settings.Global
 import kotlin.collections.List
 import com.android.multiuser.widget.data.model.User
 import com.android.multiuser.widget.data.model.UserAddRestriction
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
 
 class UsersRepository(private val userManager: UserManager?,
-    private var activityManager: ActivityManager?): IUsersRepository {
+    private var activityManager: ActivityManager??,
+    private val contentResolver: ContentResolver): IUsersRepository {
     val currentUserId = UserHandle.myUserId()
 
     override suspend fun getUsers(): List<User> {
@@ -64,21 +68,28 @@ class UsersRepository(private val userManager: UserManager?,
         return userManager?.isUserAdmin(currentUserId) ?: false
     }
 
-    override fun checkUserAddRestrictions() : UserAddRestriction {
+    override fun checkUserAddRestrictions(widgetCategory: Int) : UserAddRestriction {
+        val onLockscreen = widgetCategory == AppWidgetProviderInfo.WIDGET_CATEGORY_KEYGUARD
         if(userManager == null) {
             return UserAddRestriction.UNKNOWN
         } else {
             if (!isCurrentUserAdmin()) {
                 return UserAddRestriction.NOT_ADMIN_OR_SYSTEM
             }
+            if (userManager.getUserSwitchability() != UserManager.SWITCHABILITY_STATUS_OK) {
+                return UserAddRestriction.ONCALL_OR_LOCKED
+            }
             if (userManager.hasUserRestriction(UserManager.DISALLOW_ADD_USER)) {
                 return UserAddRestriction.WORK_POLICY
             }
             if (!userManager.isUserSwitcherEnabled(true)) {
-                return UserAddRestriction.DISABLED
+                return UserAddRestriction.SWITCH_DISABLED
             }
             if (!userManager.canAddMoreUsers(UserManager.USER_TYPE_FULL_SECONDARY)) {
                 return UserAddRestriction.MAX_USER_LIMIT
+            }
+            if(onLockscreen && !canAddUsersWhenLocked()) {
+                return UserAddRestriction.DISABLED_ON_LOCKSCREEN
             }
         }
         return UserAddRestriction.NONE
@@ -107,5 +118,9 @@ class UsersRepository(private val userManager: UserManager?,
 
     override fun switchToUser(userId: Int) :Boolean {
         return activityManager?.switchUser(UserHandle(userId))?: false
+    }
+
+    private fun canAddUsersWhenLocked(): Boolean {
+        return Global.getInt(contentResolver, Global.ADD_USERS_WHEN_LOCKED, 0) != 0
     }
 }

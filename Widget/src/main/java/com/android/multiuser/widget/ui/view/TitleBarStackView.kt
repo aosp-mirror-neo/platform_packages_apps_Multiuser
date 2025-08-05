@@ -56,7 +56,10 @@ fun TitleBarStackView(stack: TitleBarStack) {
                     Text(
                         text = measurable.text,
                         maxLines = 1,
-                        style = TextStyle(fontSize = measurable.fontSize),
+                        style = TextStyle(
+                            fontSize = measurable.fontSize,
+                            color = GlanceTheme.colors.onSurface
+                        ),
                         modifier = GlanceModifier
                             .width(measurable.horizontally.min)
                             .height(measurable.vertically.min)

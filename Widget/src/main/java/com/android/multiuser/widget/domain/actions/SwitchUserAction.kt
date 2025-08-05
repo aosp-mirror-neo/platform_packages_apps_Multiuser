@@ -34,10 +34,8 @@ class SwitchUserAction : ActionCallback {
     ) {
         parameters[userIdKey]?.let { userId ->
             val userManager = MultiuserWidgetUtil.getUserManager(context)
-            val usersRepo = UsersRepository(
-                userManager,
-                MultiuserWidgetUtil.getActivityManager(context)
-            )
+            val activityManager = MultiuserWidgetUtil.getActivityManager(context)
+            val usersRepo = UsersRepository(userManager,activityManager, context.contentResolver)
             val intentRepo = IntentRepository(context.resources)
             val interaction = UserSwitchUseCase(userId, usersRepo, intentRepo)()
             interaction(context)
