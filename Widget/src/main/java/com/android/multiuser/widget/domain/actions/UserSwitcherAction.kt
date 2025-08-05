@@ -33,10 +33,8 @@ class UserSwitcherAction : ActionCallback {
         parameters: ActionParameters
     ) {
         val userManager = MultiuserWidgetUtil.getUserManager(context)
-        val usersRepo = UsersRepository(
-            userManager,
-            MultiuserWidgetUtil.getActivityManager(context)
-        )
+        val activityManager = MultiuserWidgetUtil.getActivityManager(context)
+        val usersRepo = UsersRepository(userManager,activityManager, context.contentResolver)
         val intentRepo = IntentRepository(context.resources)
         val interaction = OpenUserSwitcherUseCase(intentRepo, usersRepo)()
         interaction(context)

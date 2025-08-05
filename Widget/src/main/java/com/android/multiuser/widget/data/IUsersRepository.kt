@@ -26,6 +26,6 @@ interface IUsersRepository {
     suspend fun disableSwitchUsers(): Boolean
     fun isCurrentUserAdmin(): Boolean
     fun checkUserSwitchRestrictions(): UserSwitchRestrictions
-    fun checkUserAddRestrictions() : UserAddRestriction
+    fun checkUserAddRestrictions(widgetCategory: Int) : UserAddRestriction
     fun switchToUser(userId: Int): Boolean
 }

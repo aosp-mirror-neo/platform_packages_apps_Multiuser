@@ -16,6 +16,7 @@
 
 package com.android.multiuser.widget
 
+import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.multiuser.Flags
 
@@ -31,6 +32,7 @@ import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.provideContent
 import androidx.glance.GlanceId
 import androidx.glance.GlanceTheme
+import androidx.glance.appwidget.LocalAppWidgetOptions
 
 import com.android.multiuser.widget.domain.ILoadUsersUseCase
 import com.android.multiuser.widget.domain.LoadUsersFromServerUseCase
@@ -53,14 +55,17 @@ class MultiuserWidget : GlanceAppWidget() {
 
   override suspend fun provideGlance(context: Context, id: GlanceId) {
     val userManager = MultiuserWidgetUtil.getUserManager(context)
-    val useCase: ILoadUsersUseCase = LoadUsersFromServerUseCase(
-      UsersRepository(userManager, MultiuserWidgetUtil.getActivityManager(context)),
-      ActionsRepository(context.resources),
-      ImageRepository(userManager, context.resources),
-      IntentRepository(context.resources)
-    )
+    val activityManager = MultiuserWidgetUtil.getActivityManager(context)
 
     provideContent {
+    val widgetCategory = LocalAppWidgetOptions.current
+      .getInt(AppWidgetManager.OPTION_APPWIDGET_HOST_CATEGORY)
+      val useCase: ILoadUsersUseCase = LoadUsersFromServerUseCase(
+        UsersRepository(userManager, activityManager, context.contentResolver),
+        ActionsRepository(context.resources),
+        ImageRepository(userManager, context.resources),
+        widgetCategory
+      )
       GlanceTheme { Content(UsersViewModel(useCase)) }
     }
   }

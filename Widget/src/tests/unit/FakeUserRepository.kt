@@ -38,6 +38,6 @@ class FakeUserRepository : IUsersRepository {
     override suspend fun disableSwitchUsers() = userRestrictions != UserSwitchRestrictions.NONE
     override fun isCurrentUserAdmin() = currentUserAdmin
     override fun checkUserSwitchRestrictions() = userRestrictions
-    override fun checkUserAddRestrictions() = addUserRestrictions
+    override fun checkUserAddRestrictions(widgetCategory: Int) = addUserRestrictions
     override fun switchToUser(userId: Int) = switchSucceeded
 }
