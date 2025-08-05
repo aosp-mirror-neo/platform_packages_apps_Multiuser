@@ -21,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.glance.GlanceModifier
+import androidx.glance.GlanceTheme
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.text.Text
@@ -73,7 +74,10 @@ fun UserStackView (
                         Text(
                             text = measurable.text,
                             maxLines = 1,
-                            style = TextStyle(fontSize = measurable.fontSize),
+                            style = TextStyle(
+                                fontSize = measurable.fontSize,
+                                color = GlanceTheme.colors.onSecondaryContainer
+                            ),
                         )
                     }
                 }
