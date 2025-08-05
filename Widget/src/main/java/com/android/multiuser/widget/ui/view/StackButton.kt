@@ -50,7 +50,7 @@ fun StackButton(
                     {
                         Image(
                             provider = ImageProvider(measurable.resourceId),
-                            contentDescription = measurable.contentDescription,
+                            contentDescription = if(stack.list.size == 1) { measurable.contentDescription } else { "" },
                             colorFilter = ColorFilter.tint(tint),
                             modifier = GlanceModifier
                                 .width(measurable.horizontally.min)
