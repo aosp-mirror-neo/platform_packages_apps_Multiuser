@@ -69,7 +69,7 @@ fun Resources.largeActionButtonPadding() : Measurable {
 
 fun Resources.widgetTitle() = getString(R.string.multiuser_widget_title)
 
-fun Resources.titleBarIcon() = IconMeasurable( R.drawable.account_circle, getString(R.string.multiuser_widget_title), px(R.dimen.action_icon_size))
+fun Resources.titleBarIcon() = IconMeasurable( R.drawable.users_icon, getString(R.string.multiuser_widget_title), px(R.dimen.action_icon_size))
 
 fun Resources.titleBarText(title: String) = TextMeasurable(this, R.dimen.user_text_min_size, title)
     .apply { this.horizontally.stretchToFill = true }

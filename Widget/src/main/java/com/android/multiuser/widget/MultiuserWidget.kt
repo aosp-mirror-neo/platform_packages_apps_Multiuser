@@ -25,7 +25,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.SizeMode
@@ -38,8 +37,8 @@ import com.android.multiuser.widget.domain.ILoadUsersUseCase
 import com.android.multiuser.widget.domain.LoadUsersFromServerUseCase
 import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.ImageRepository
-import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.UsersRepository
+import com.android.multiuser.widget.ui.SystemUiColorProviders
 import com.android.multiuser.widget.ui.view.LayoutView
 import com.android.multiuser.widget.ui.view.layout.ErrorLayout
 import com.android.multiuser.widget.ui.view.layout.LoadingLayout
@@ -66,7 +65,7 @@ class MultiuserWidget : GlanceAppWidget() {
         ImageRepository(userManager, context.resources),
         widgetCategory
       )
-      GlanceTheme { Content(UsersViewModel(useCase)) }
+      GlanceTheme(colors = SystemUiColorProviders) { Content(UsersViewModel(useCase)) }
     }
   }
 
