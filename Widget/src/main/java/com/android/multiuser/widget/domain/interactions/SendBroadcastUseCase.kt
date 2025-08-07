@@ -18,9 +18,10 @@ package com.android.multiuser.widget.domain.interactions
 
 import android.content.Intent
 import android.content.Context
+import android.os.UserHandle
 
 class SendBroadcastUseCase(val intent: Intent): InteractionUseCase {
     override operator fun invoke(context: Context) {
-        context.sendBroadcast(intent)
+        context.sendBroadcastAsUser(intent, UserHandle.SYSTEM)
     }
 }
