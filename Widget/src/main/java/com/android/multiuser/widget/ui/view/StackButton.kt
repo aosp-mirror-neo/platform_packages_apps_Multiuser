@@ -26,6 +26,7 @@ import androidx.glance.action.clickable
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
+import com.android.multiuser.stacks.Stack
 import com.android.multiuser.stacks.ui.StackView
 import com.android.multiuser.stacks.ui.cornerRadius
 import com.android.multiuser.stacks.ui.height
@@ -33,61 +34,67 @@ import com.android.multiuser.stacks.ui.width
 import com.android.multiuser.widget.viewmodel.measurables.IconMeasurable
 import com.android.multiuser.widget.viewmodel.measurables.TextMeasurable
 import com.android.multiuser.widget.viewmodel.stacks.ActionButtonStack
+import com.android.multiuser.widget.viewmodel.stacks.VerticalPaddingWrapperStack
 import kotlin.math.min
 
 @Composable
 fun StackButton(
         stack: ActionButtonStack,
-        modifier: GlanceModifier = GlanceModifier.Companion,
+        modifier: GlanceModifier = GlanceModifier,
         tint: ColorProvider = GlanceTheme.colors.onPrimary
     ) {
-    StackView(
-        // It's good practice to use mapNotNull here
-        items = stack.list.mapNotNull { measurable ->
-            when (measurable) {
-                is IconMeasurable -> {
-                    // Return a lambda: @Composable () -> Unit
-                    {
-                        Image(
-                            provider = ImageProvider(measurable.resourceId),
-                            contentDescription = if(stack.list.size == 1) { measurable.contentDescription } else { "" },
-                            colorFilter = ColorFilter.tint(tint),
-                            modifier = GlanceModifier
-                                .width(measurable.horizontally.min)
-                                .height(measurable.vertically.min)
-                        )
-                    }
-                }
+    val cornerRadius = min(stack.vertically.min, stack.horizontally.min) / 2
+    VerticalPaddingWrapperStackView(
+        stack as VerticalPaddingWrapperStack<Stack>,
 
-                is TextMeasurable -> {
-                    // Return a lambda: @Composable () -> Unit
-                    {
-                        Text(
-                            modifier = GlanceModifier
-                                .width(measurable.horizontally.min)
-                                .height(measurable.vertically.min),
-                            text = measurable.text,
-                            style = TextStyle(
-                                color = tint,
-                                fontSize = measurable.fontSize
-                            ),
-                            maxLines = 1
-                        )
-                    }
-                }
+        // Return a lambda: @Composable () -> Unit
+        {
+            StackView(
+                // It's good practice to use mapNotNull here
+                items = stack.stack.list.mapNotNull { measurable ->
+                    when (measurable) {
+                        is IconMeasurable -> {
+                            // Return a lambda: @Composable () -> Unit
+                            {
+                                Image(
+                                    provider = ImageProvider(measurable.resourceId),
+                                    contentDescription = if (stack.list.size == 1) {
+                                        measurable.contentDescription
+                                    } else {
+                                        ""
+                                    },
+                                    colorFilter = ColorFilter.tint(tint),
+                                    modifier = GlanceModifier
+                                        .width(measurable.horizontally.min)
+                                        .height(measurable.vertically.min)
+                                )
+                            }
+                        }
 
-                else -> null
-            }
-        },
-        stack = stack,
-        modifier = modifier
-            .cornerRadius(
-                (min(
-                    stack.vertically.min,
-                    stack.horizontally.min
-                ) / 2)
+                        is TextMeasurable -> {
+                            // Return a lambda: @Composable () -> Unit
+                            {
+                                Text(
+                                    modifier = GlanceModifier
+                                        .width(measurable.horizontally.min)
+                                        .height(measurable.vertically.min),
+                                    text = measurable.text,
+                                    style = TextStyle(
+                                        color = tint,
+                                        fontSize = measurable.fontSize
+                                    ),
+                                    maxLines = 1
+                                )
+                            }
+                        }
+
+                        else -> null
+                    }
+                },
+                stack = stack.stack,
+                modifier = modifier.cornerRadius(cornerRadius)
             )
-            .clickable(onClick = stack.action.action)
+        },
+        modifier = GlanceModifier.clickable(onClick = stack.stack.action.action)
     )
 }
-

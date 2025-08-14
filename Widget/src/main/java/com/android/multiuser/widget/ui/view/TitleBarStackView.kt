@@ -70,8 +70,8 @@ fun TitleBarStackView(stack: TitleBarStack) {
                 {
                     StackButton(
                         measurable,
-                        GlanceModifier.background( if(measurable.isPrimary) GlanceTheme.colors.primary else GlanceTheme.colors.secondaryContainer),
-                        if(measurable.isPrimary) GlanceTheme.colors.onPrimary else GlanceTheme.colors.onSecondaryContainer
+                        GlanceModifier.background(GlanceTheme.colors.secondaryContainer),
+                        GlanceTheme.colors.onSecondaryContainer
                     )
                 }
             }

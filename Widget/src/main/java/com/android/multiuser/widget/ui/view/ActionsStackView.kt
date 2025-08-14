@@ -32,8 +32,12 @@ fun ActionsStackView (
 ) {
     StackView(
         items = actionsStack.list.filterIsInstance<ActionButtonStack>().map { actionStack ->
-            val background = if(actionStack.isPrimary) GlanceTheme.colors.primary else GlanceTheme.colors.secondaryContainer
-            val tint = if(actionStack.isPrimary) GlanceTheme.colors.onPrimary else GlanceTheme.colors.onSecondaryContainer
+            var background = GlanceTheme.colors.secondaryContainer
+            var tint = GlanceTheme.colors.onSecondaryContainer
+            if(actionStack.stack.isPrimary) {
+                background = GlanceTheme.colors.primary
+                tint = GlanceTheme.colors.onPrimary
+            }
             {
                 StackButton(
                     actionStack,
