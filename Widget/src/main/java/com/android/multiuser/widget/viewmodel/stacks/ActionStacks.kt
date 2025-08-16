@@ -29,7 +29,7 @@ class ActionStacks (val res: Resources, val actions:List<ActionViewModel>) {
             button.horizontally.max = max
         }
         buttons.first().apply{
-            isPrimary = true
+           stack.isPrimary = true
         }
     }
 
