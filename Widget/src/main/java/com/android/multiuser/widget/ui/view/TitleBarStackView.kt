@@ -23,6 +23,8 @@ import androidx.glance.GlanceTheme
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.background
+import androidx.glance.semantics.contentDescription
+import androidx.glance.semantics.semantics
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import com.android.multiuser.stacks.ui.height
@@ -42,7 +44,7 @@ fun TitleBarStackView(stack: TitleBarStack) {
                 {
                     Image(
                         provider = ImageProvider(measurable.resourceId),
-                        contentDescription = measurable.contentDescription,
+                        contentDescription = "",
                         colorFilter = ColorFilter.tint(GlanceTheme.colors.primary),
                         modifier = GlanceModifier
                             .width(measurable.horizontally.min)
@@ -54,15 +56,16 @@ fun TitleBarStackView(stack: TitleBarStack) {
                 // Return another lambda: @Composable () -> Unit
                 {
                     Text(
+                        modifier = GlanceModifier
+                            .width(measurable.horizontally.min)
+                            .height(measurable.vertically.min)
+                            .semantics { contentDescription = "" },
                         text = measurable.text,
                         maxLines = 1,
                         style = TextStyle(
                             fontSize = measurable.fontSize,
                             color = GlanceTheme.colors.onSurface
-                        ),
-                        modifier = GlanceModifier
-                            .width(measurable.horizontally.min)
-                            .height(measurable.vertically.min)
+                        )
                     )
                 }
             }
@@ -78,5 +81,5 @@ fun TitleBarStackView(stack: TitleBarStack) {
             // mapNotNull will automatically filter out the nulls
             else -> null
         }
-    }, stack, GlanceModifier.Companion)
+    }, stack, GlanceModifier.semantics { contentDescription = "" })
 }

@@ -20,13 +20,19 @@ import android.content.res.Resources
 import android.graphics.Bitmap
 import android.os.UserManager
 import com.android.internal.util.UserIcons
-import java.io.File
-import java.io.FileOutputStream
-import java.io.IOException
+import com.android.multiuser.widget.R
 
 class ImageRepository(val userManager: UserManager?, val resources: Resources) {
 
 suspend fun getAvatar(userId: Int): Bitmap = userManager?.getUserIcon(userId)
     ?: UserIcons.getDefaultUserIcon(resources, userId, false)
         .let { UserIcons.convertToBitmapAtUserIconSize(resources, it) }
+
+
+    suspend fun getContentDescription(userName: String, isCurrent: Boolean): String {
+        if (isCurrent) {
+            return resources.getString(R.string.current_user_content_description, userName)
+        }
+        return userName
+    }
 }

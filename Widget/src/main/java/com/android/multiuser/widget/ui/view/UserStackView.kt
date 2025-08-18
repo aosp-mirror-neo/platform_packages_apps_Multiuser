@@ -24,6 +24,8 @@ import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
 import androidx.glance.Image
 import androidx.glance.ImageProvider
+import androidx.glance.semantics.contentDescription
+import androidx.glance.semantics.semantics
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import com.android.multiuser.stacks.Stack
@@ -63,7 +65,7 @@ fun UserStackView (
                         Image(
                             provider = bitmap?.let { ImageProvider(it) }
                                 ?: ImageProvider(R.drawable.account_circle),
-                            contentDescription = viewModel.contentDescription,
+                            contentDescription = "",
                             modifier = GlanceModifier.size(measurable.vertically.min)
                         )
                     }
@@ -72,6 +74,8 @@ fun UserStackView (
                     // Return another lambda: @Composable () -> Unit
                     {
                         Text(
+                            modifier = GlanceModifier
+                                .semantics { contentDescription = "" },
                             text = measurable.text,
                             maxLines = 1,
                             style = TextStyle(
@@ -87,5 +91,6 @@ fun UserStackView (
         },
         stack = stack,
         modifier = modifier
+            .semantics { contentDescription = viewModel.contentDescription ?: "" }
     )
 }

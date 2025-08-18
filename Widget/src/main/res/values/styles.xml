@@ -25,4 +25,9 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowBackgroundBlurRadius">30dp</item>
     </style>
+
+    <style name="Glance.AppWidget.Box" parent="">
+        <item name="android:screenReaderFocusable">true</item>
+        <item name="android:focusable">false</item>
+    </style>
 </resources>

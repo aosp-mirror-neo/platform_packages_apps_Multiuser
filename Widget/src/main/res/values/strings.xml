@@ -20,12 +20,14 @@
   <string translation_description="The Users app name displayed in the widget library. [CHAR_LIMIT=NONE]"
       name="multiuser_app_name">Users</string>
 
+  <string translation_description="Content description so it is clear who is the current user"
+      name="current_user_content_description">The current user on this device is %1$s</string>
+
   <string translation_description="Title for the button that allows adding a user. [CHAR_LIMIT=NONE]"
       name="add_user_button_title">Add user</string>
 
   <string translation_description="Content description for the button that allows adding a user. [CHAR_LIMIT=NONE]"
       name="add_user_button_content_description">Add user</string>
-
 
   <string translation_description="Title for the button that switch users. [CHAR_LIMIT=NONE]"
       name="switch_user_button_title">Switch user</string>

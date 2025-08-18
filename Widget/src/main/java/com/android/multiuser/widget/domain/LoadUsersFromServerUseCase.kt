@@ -57,13 +57,14 @@ class LoadUsersFromServerUseCase(
             id = user.id,
             name = user.name,
             isSelected = user.isCurrentUser,
-            // TODO: check content auto-generated description.
-            // contentDescription is auto-generated because user icons are selectable
-            contentDescription = null,
+            contentDescription = imageRepository.getContentDescription(
+                user.name,
+                user.isCurrentUser
+            ),
             enabled = user.isCurrentUser || user.switchable,
             loadAvatarUseCase = LoadUserAvatarUseCase(user.id, imageRepository),
             action = actionRunCallback<SwitchUserAction>(
-                parameters = actionParametersOf(SwitchUserAction.userIdKey  to user.id)
+                parameters = actionParametersOf(SwitchUserAction.userIdKey to user.id)
             )
         )}
 

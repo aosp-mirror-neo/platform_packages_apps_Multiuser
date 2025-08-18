@@ -26,6 +26,8 @@ import androidx.glance.LocalSize
 import androidx.glance.background
 import androidx.glance.layout.Box
 import androidx.glance.layout.fillMaxSize
+import androidx.glance.semantics.contentDescription
+import androidx.glance.semantics.semantics
 import com.android.multiuser.stacks.Stack
 import com.android.multiuser.stacks.ui.StackView
 import com.android.multiuser.widget.viewmodel.ActionViewModel
@@ -41,7 +43,10 @@ fun LayoutView(model: UsersViewModel) {
     val actions = items.filterIsInstance<ActionViewModel>()
     items.filterIsInstance<UserViewModel>().firstOrNull()?.let { item ->
         val layout = LayoutViewModel(LocalSize.current, LocalContext.current.resources, item, actions)
-        Box(modifier = GlanceModifier.fillMaxSize().background(GlanceTheme.colors.widgetBackground)) {
+        Box(modifier = GlanceModifier
+            .fillMaxSize()
+            .background(GlanceTheme.colors.widgetBackground)
+            .semantics { contentDescription = "" }) {
 
             val titleBar =
                 layout.arrangement.list.firstOrNull { it is TitleBarStack } as? TitleBarStack
