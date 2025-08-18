@@ -23,6 +23,8 @@ import androidx.glance.GlanceTheme
 import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.action.clickable
+import androidx.glance.semantics.contentDescription
+import androidx.glance.semantics.semantics
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
@@ -58,11 +60,7 @@ fun StackButton(
                             {
                                 Image(
                                     provider = ImageProvider(measurable.resourceId),
-                                    contentDescription = if (stack.list.size == 1) {
-                                        measurable.contentDescription
-                                    } else {
-                                        ""
-                                    },
+                                    contentDescription = "",
                                     colorFilter = ColorFilter.tint(tint),
                                     modifier = GlanceModifier
                                         .width(measurable.horizontally.min)
@@ -77,7 +75,8 @@ fun StackButton(
                                 Text(
                                     modifier = GlanceModifier
                                         .width(measurable.horizontally.min)
-                                        .height(measurable.vertically.min),
+                                        .height(measurable.vertically.min)
+                                        .semantics { contentDescription = "" },
                                     text = measurable.text,
                                     style = TextStyle(
                                         color = tint,
@@ -96,5 +95,6 @@ fun StackButton(
             )
         },
         modifier = GlanceModifier.clickable(onClick = stack.stack.action.action)
+            .semantics { contentDescription = stack.stack.action.contentDescription ?: stack.stack.action.title }
     )
 }
