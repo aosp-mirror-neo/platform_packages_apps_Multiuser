@@ -25,7 +25,7 @@ class ActionsRepository(private val resources: Resources) {
     fun getAddUserAction() = Action(
         title = resources.getString(R.string.add_user_button_title),
         contentDescription = resources.getString(R.string.add_user_button_content_description),
-        resourceId = if(Flags.widgetScalingBugfix()) R.drawable.add_24 else R.drawable.person_add
+        resourceId = R.drawable.add_24
     )
 
     fun getSwitchUserAction() = Action(

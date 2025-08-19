@@ -88,13 +88,7 @@ class MultiuserWidget : GlanceAppWidget() {
     when (uiState) {
       is UiState.Invalid -> scope.launch { viewModel.reload() }
       is UiState.Loading -> LoadingLayout()
-      is UiState.Success -> {
-        if (Flags.widgetScalingBugfix()) {
-          LayoutView(viewModel)
-        } else {
-          MultiuserWidgetLayout(viewModel)
-        }
-      }
+      is UiState.Success -> LayoutView(viewModel)
       else -> ErrorLayout()
     }
   }

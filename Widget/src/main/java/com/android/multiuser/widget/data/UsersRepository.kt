@@ -39,13 +39,8 @@ class UsersRepository(private val userManager: UserManager?,
             // This ensures the error layout is shown in the UI.
             return listOf()
         }
-        var userInfoList = userManager.getAliveUsers().filter { user ->
-            if (Flags.widgetScalingBugfix()) {
-                user.id == currentUserId
-            } else {
-                (user.isFull() && user.supportsSwitchTo())
-            }
-        }
+        var userInfoList = userManager.getAliveUsers()
+            .filter { user ->user.id == currentUserId}
 
         return userInfoList
             .map { userInfo: UserInfo ->
