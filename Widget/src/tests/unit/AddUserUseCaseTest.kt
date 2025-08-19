@@ -98,7 +98,7 @@ class AddUserUseCaseTest {
             assertNotNull("Expected settings action intent", actionIntent)
             assertEquals(Settings.ACTION_USER_SETTINGS, actionIntent!!.action)
             assertEquals(ComponentName(IntentRepository.SETTINGS_PACKAGE, IntentRepository.SETTINGS_ACTIVITY), actionIntent.component)
-            assertEquals(resources.getString(R.string.widget_switch_disabled_dialog_open_settings_button), intent.getStringExtra(IntentRepository.ACTION_TEXT))
+            assertEquals(resources.getString(R.string.widget_dialog_open_settings_button), intent.getStringExtra(IntentRepository.ACTION_TEXT))
             val flags = intent.getIntExtra(IntentRepository.FLAGS, 0)
             assertTrue("Expected NEW_TASK flag in actionIntent", flags and Intent.FLAG_ACTIVITY_NEW_TASK != 0)
             assertTrue("Expected CLEAR_TASK flag in actionIntent", flags and Intent.FLAG_ACTIVITY_CLEAR_TASK != 0)
@@ -141,7 +141,7 @@ class AddUserUseCaseTest {
         assertRestrictedDialogIntentBase(intent)
         assertDialogContent(
             intent,
-            R.string.widget_add_disabled_dialog_title,
+            R.string.widget_add_failed_dialog_title,
             R.string.widget_switch_disabled_dialog_message,
             expectSettingsAction = true
         )
@@ -161,7 +161,7 @@ class AddUserUseCaseTest {
         assertRestrictedDialogIntentBase(intent)
         assertDialogContent(
             intent,
-            R.string.widget_add_max_limit_dialog_title,
+            R.string.widget_add_failed_dialog_title,
             R.string.widget_add_max_limit_dialog_message
         )
     }
@@ -180,7 +180,7 @@ class AddUserUseCaseTest {
         assertRestrictedDialogIntentBase(intent)
         assertDialogContent(
             intent,
-            R.string.widget_add_not_admin_dialog_title,
+            R.string.widget_add_failed_dialog_title,
             R.string.widget_add_not_admin_dialog_message
         )
     }
@@ -218,7 +218,7 @@ class AddUserUseCaseTest {
         assertRestrictedDialogIntentBase(intent)
         assertDialogContent(
             intent,
-            R.string.widget_add_not_allowed_dialog_title,
+            R.string.widget_add_failed_dialog_title,
             R.string.widget_add_not_allowed_dialog_message
         )
     }
@@ -237,7 +237,7 @@ class AddUserUseCaseTest {
         assertRestrictedDialogIntentBase(intent)
         assertDialogContent(
             intent,
-            R.string.widget_add_from_hub_dialog_title,
+            R.string.widget_add_failed_dialog_title,
             R.string.widget_add_from_hub_dialog_message,
             expectSettingsAction = true
         )

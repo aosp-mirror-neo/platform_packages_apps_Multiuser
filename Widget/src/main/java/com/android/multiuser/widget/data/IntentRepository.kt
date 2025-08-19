@@ -43,7 +43,7 @@ class IntentRepository(val res: Resources) {
                         .putExtra(
                             ACTION_TEXT,
                             res.getString(
-                                R.string.widget_switch_disabled_dialog_open_settings_button
+                                R.string.widget_dialog_open_settings_button
                             )
                         )
                 }
@@ -66,7 +66,7 @@ class IntentRepository(val res: Resources) {
                         .putExtra(
                             ACTION_TEXT,
                             res.getString(
-                                R.string.widget_switch_disabled_dialog_open_settings_button
+                                R.string.widget_dialog_open_settings_button
                             )
                     )
                 }
@@ -105,9 +105,9 @@ class IntentRepository(val res: Resources) {
             UserSwitchRestrictions.WORK_POLICY ->
                 getString(R.string.widget_switch_work_restriction_dialog_title)
             UserSwitchRestrictions.ONCALL_OR_LOCKED ->
-                getString(R.string.widget_switch_not_allowed_dialog_title)
+                getString(R.string.widget_switch_failed_dialog_title)
             UserSwitchRestrictions.DISABLED ->
-                getString(R.string.widget_switch_disabled_dialog_title)
+                getString(R.string.widget_switch_failed_dialog_title)
             else ->
                 getString(R.string.widget_switch_failed_dialog_title)
         }
@@ -137,15 +137,15 @@ class IntentRepository(val res: Resources) {
                 // Work policy title is the same for adding and switching users
                 getString(R.string.widget_switch_work_restriction_dialog_title)
             UserAddRestriction.ONCALL_OR_LOCKED ->
-                getString(R.string.widget_add_not_allowed_dialog_title)
+                getString(R.string.widget_add_failed_dialog_title)
             UserAddRestriction.NOT_ADMIN_OR_SYSTEM ->
-                getString(R.string.widget_add_not_admin_dialog_title)
+                getString(R.string.widget_add_failed_dialog_title)
             UserAddRestriction.SWITCH_DISABLED ->
-                getString(R.string.widget_add_disabled_dialog_title)
+                getString(R.string.widget_add_failed_dialog_title)
             UserAddRestriction.DISABLED_ON_LOCKSCREEN ->
-                getString(R.string.widget_add_from_hub_dialog_title)
+                getString(R.string.widget_add_failed_dialog_title)
             UserAddRestriction.MAX_USER_LIMIT ->
-                getString(R.string.widget_add_max_limit_dialog_title)
+                getString(R.string.widget_add_failed_dialog_title)
             else ->
                 getString(R.string.widget_add_failed_dialog_title)
         }

@@ -34,6 +34,8 @@ import org.junit.Assert.assertNull
 import org.junit.Assert.assertNotNull
 
 import android.content.Intent;
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.fromHtml
 
 import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
@@ -59,10 +61,10 @@ class DialogViewTest {
         val title = context.getString(R.string.widget_switch_failed_dialog_title)
         val message = context.getString(R.string.widget_switch_failed_dialog_message)
         val closeButton = context.getString(R.string.dialog_close_button_text)
-        val actionButton = context.getString(R.string.widget_switch_disabled_dialog_open_settings_button)
+        val actionButton = context.getString(R.string.widget_dialog_open_settings_button)
         assertEquals(model.title, title)
         composeTestRule.onAllNodesWithText(title).assertCountEquals(1)
-        assertEquals(model.message, message)
+        assertEquals(model.message, AnnotatedString.Companion.fromHtml(message))
         composeTestRule.onAllNodesWithText(message).assertCountEquals(1)
         composeTestRule.onAllNodesWithText(closeButton).assertCountEquals(1)
         composeTestRule.onAllNodesWithText(actionButton).assertCountEquals(0)
@@ -84,14 +86,14 @@ class DialogViewTest {
         composeTestRule.setContent {
             DialogView(model, { dismissed = true }, { actionIntent = it })
         }
-        val title: String = context.getString(R.string.widget_switch_disabled_dialog_title)
+        val title: String = context.getString(R.string.widget_switch_failed_dialog_title)
         val message: String = context.getString(R.string.widget_switch_disabled_dialog_message)
         val closeButton: String = context.getString(R.string.dialog_close_button_text)
-        val actionButton: String = context.getString(R.string.widget_switch_disabled_dialog_open_settings_button)
+        val actionButton: String = context.getString(R.string.widget_dialog_open_settings_button)
 
         assertEquals(model.title, title)
         composeTestRule.onAllNodesWithText(title).assertCountEquals(1)
-        assertEquals(model.message, message)
+        assertEquals(model.message, AnnotatedString.Companion.fromHtml(message))
         composeTestRule.onAllNodesWithText(message).assertCountEquals(1)
         composeTestRule.onAllNodesWithText(closeButton).assertCountEquals(1)
         composeTestRule.onAllNodesWithText(actionButton).assertCountEquals(1)
@@ -119,11 +121,11 @@ class DialogViewTest {
         val title: String = context.getString(R.string.widget_switch_work_restriction_dialog_title)
         val message: String = context.getString(R.string.widget_switch_work_restriction_dialog_message)
         val closeButton: String = context.getString(R.string.dialog_close_button_text)
-        val actionButton: String = context.getString(R.string.widget_switch_disabled_dialog_open_settings_button)
+        val actionButton: String = context.getString(R.string.widget_dialog_open_settings_button)
 
         assertEquals(model.title, title)
         composeTestRule.onAllNodesWithText(title).assertCountEquals(1)
-        assertEquals(model.message, message)
+        assertEquals(model.message, AnnotatedString.Companion.fromHtml(message))
         composeTestRule.onAllNodesWithText(message).assertCountEquals(1)
         composeTestRule.onAllNodesWithText(closeButton).assertCountEquals(1)
         composeTestRule.onAllNodesWithText(actionButton).assertCountEquals(0)
@@ -145,14 +147,14 @@ class DialogViewTest {
         composeTestRule.setContent {
             DialogView(model, { dismissed = true }, { actionIntent = it })
         }
-        val title: String = context.getString(R.string.widget_switch_not_allowed_dialog_title)
+        val title: String = context.getString(R.string.widget_switch_failed_dialog_title)
         val message: String = context.getString(R.string.widget_switch_not_allowed_dialog_message)
         val closeButton: String = context.getString(R.string.dialog_close_button_text)
-        val actionButton: String = context.getString(R.string.widget_switch_disabled_dialog_open_settings_button)
+        val actionButton: String = context.getString(R.string.widget_dialog_open_settings_button)
 
         assertEquals(model.title, title)
         composeTestRule.onAllNodesWithText(title).assertCountEquals(1)
-        assertEquals(model.message, message)
+        assertEquals(model.message, AnnotatedString.Companion.fromHtml(message))
         composeTestRule.onAllNodesWithText(message).assertCountEquals(1)
         composeTestRule.onAllNodesWithText(closeButton).assertCountEquals(1)
         composeTestRule.onAllNodesWithText(actionButton).assertCountEquals(0)
