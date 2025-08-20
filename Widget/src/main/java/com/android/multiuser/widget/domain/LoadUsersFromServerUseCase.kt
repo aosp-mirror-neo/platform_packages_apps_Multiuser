@@ -69,34 +69,20 @@ class LoadUsersFromServerUseCase(
         )}
 
     private suspend fun getActionViewModels(): List<ActionViewModel> {
-        if (Flags.widgetScalingBugfix()) {
-            if (usersRepository.checkUserAddRestrictions(widgetCategory) == UserAddRestriction.NONE) {
-                return listOf(
-                    actionsRepository.getSwitchUserAction()
-                        .toViewModel(actionRunCallback<UserSwitcherAction>()),
-                    actionsRepository.getAddUserAction()
-                        .toViewModel(actionRunCallback<AddUserAction>(
-                            parameters = actionParametersOf(AddUserAction.widgetCategory to widgetCategory)
-                        ))
-                )
-            } else {
-                return listOf(
-                    actionsRepository.getSwitchUserAction()
-                        .toViewModel(actionRunCallback<UserSwitcherAction>())
-                )
-            }
-        }
-        // If the current user is an admin and SHOW_ADD_USER_BUTTON is set to true, include the
-        // button for adding users.
-        if(usersRepository.isCurrentUserAdmin() && SHOULD_DISPLAY_ADD_USER_BUTTON) {
+        if (usersRepository.checkUserAddRestrictions(widgetCategory) == UserAddRestriction.NONE) {
             return listOf(
-                actionsRepository.getAddUserAction().toViewModel(
-                    actionRunCallback<AddUserAction>(
-                        parameters = actionParametersOf(AddUserAction.widgetCategory  to widgetCategory)
-                    )
-                )
+                actionsRepository.getSwitchUserAction()
+                    .toViewModel(actionRunCallback<UserSwitcherAction>()),
+                actionsRepository.getAddUserAction()
+                    .toViewModel(actionRunCallback<AddUserAction>(
+                        parameters = actionParametersOf(AddUserAction.widgetCategory to widgetCategory)
+                    ))
+            )
+        } else {
+            return listOf(
+                actionsRepository.getSwitchUserAction()
+                    .toViewModel(actionRunCallback<UserSwitcherAction>())
             )
         }
-        return emptyList()
     }
 }
