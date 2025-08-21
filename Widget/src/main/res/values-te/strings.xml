@@ -20,6 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"యూజర్‌లు"</string>
+    <string name="current_user_content_description" msgid="9064744464195867095">"ఈ డివైజ్‌లో ప్రస్తుత యూజర్ %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"యూజర్‌ను జోడించండి"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"యూజర్‌ను జోడించండి"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"యూజర్‌ను మార్చండి"</string>
@@ -30,15 +31,26 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"విడ్జెట్‌ను లోడ్ చేయడం విఫలమైంది."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"యూజర్‌ల సెట్టింగ్‌లకు వెళ్లండి."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"వర్క్ పాలసీ ప్రకారం బ్లాక్ అయింది"</string>
+    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
+    <skip />
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"యూజర్‌లను మార్చే అనుమతిని మీ సంస్థ మీకు ఇవ్వలేదు. మరింత సమాచారం కోసం, మీ IT అడ్మిన్‌ను కాంటాక్ట్ చేయండి."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"యూజర్‌ను మార్చడం సాధ్యపడదు"</string>
+    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
+    <skip />
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"ఏదో పొరపాటు జరిగింది."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"మూసివేయండి"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"యూజర్‌ను మార్చడం సాధ్యపడదు"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"కాల్ మధ్యలో మీరు యూజర్‌ను మార్చలేరు"</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"యూజర్‌ను మార్చడం సాధ్యపడదు"</string>
+    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
+    <skip />
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"సెట్టింగ్‌లలో యూజర్‌ను మార్చడానికి అనుమతించి, ఆపై మళ్లీ ట్రై చేయండి"</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"సెట్టింగ్‌లు"</string>
+    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
+    <skip />
+    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
+    <skip />
+    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
+    <skip />
+    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
+    <skip />
     <string name="preview_first_user_name" msgid="51601870734302045">"బ్రెండా"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"ఎలియా"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"బ్రెండా ఫోటో"</string>

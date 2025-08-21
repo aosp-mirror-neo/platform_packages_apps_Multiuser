@@ -20,6 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"Usuarios"</string>
+    <string name="current_user_content_description" msgid="9064744464195867095">"O usuario actual deste dispositivo é %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"Engadir usuario"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"Engadir usuario"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"Cambiar de usuario ou usuaria"</string>
@@ -30,15 +31,26 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Produciuse un erro ao cargar o widget."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Ir á configuración de usuarios."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Bloqueouse debido á política do traballo"</string>
+    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
+    <skip />
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"A túa organización non che permite cambiar usuarios ou usuarias. Para obter máis información, contacta co teu administrador de TI."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Non se puido cambiar de usuaria ou usuario"</string>
+    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
+    <skip />
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Produciuse un erro."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Pechar"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Non se puido cambiar de usuaria ou usuario"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Non podes cambiar de usuario ou usuaria durante unha chamada"</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Non se puido cambiar de usuaria ou usuario"</string>
+    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
+    <skip />
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Permite o cambio de usuario ou usuaria en Configuración. Despois, téntao de novo"</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"Configuración"</string>
+    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
+    <skip />
+    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
+    <skip />
+    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
+    <skip />
+    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
+    <skip />
     <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Imaxe de Brenda"</string>
