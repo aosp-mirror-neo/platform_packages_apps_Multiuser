@@ -20,6 +20,8 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"کاربران"</string>
+    <!-- no translation found for current_user_content_description (9064744464195867095) -->
+    <skip />
     <string name="add_user_button_title" msgid="6199522758514312329">"افزودن کاربر"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"افزودن کاربر"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"عوض کردن کاربر"</string>
@@ -30,15 +32,26 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"ابزاره بار نشد."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"رفتن به «تنظیمات کاربران»."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"توسط خط‌مشی کاری مسدود شده است"</string>
+    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
+    <skip />
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"سازمانتان به شما اجازه نمی‌دهد کاربر را تغییر دهید. برای کسب اطلاعات بیشتر، با سرپرست فناوری اطلاعات تماس بگیرید."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"کاربر عوض نشد"</string>
+    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
+    <skip />
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"مشکلی پیش آمد."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"بستن"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"کاربر عوض نشد"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"نمی‌توانید کاربر را درحین مکالمه عوض کنید"</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"کاربر عوض نشد"</string>
+    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
+    <skip />
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"«عوض کردن کاربر» را در «تنظیمات» مجاز کنید و دوباره امتحان کنید"</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"تنظیمات"</string>
+    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
+    <skip />
+    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
+    <skip />
+    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
+    <skip />
+    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
+    <skip />
     <string name="preview_first_user_name" msgid="51601870734302045">"بیتا"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"الهه"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"عکس بیتا"</string>
