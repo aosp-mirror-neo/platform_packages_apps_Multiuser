@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"使用者"</string>
-    <!-- no translation found for current_user_content_description (9064744464195867095) -->
-    <skip />
+    <string name="current_user_content_description" msgid="9064744464195867095">"此裝置目前的使用者是 %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"新增使用者"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"新增使用者"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"切換使用者"</string>
@@ -32,26 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"無法載入小工具。"</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"前往使用者設定"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"已因工作政策而被封鎖"</string>
-    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
-    <skip />
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"機構不允許你新增使用者。詳情請聯絡 IT 管理員。"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"機構不允許你變更使用者。詳情請聯絡 IT 管理員。"</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"無法切換使用者"</string>
-    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
-    <skip />
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"無法新增使用者"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"發生錯誤。"</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"關閉"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"通話期間無法切換使用者"</string>
-    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
-    <skip />
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"通話期間無法新增使用者"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"前往「設定」允許切換使用者，然後重試"</string>
-    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
-    <skip />
-    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
-    <skip />
-    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
-    <skip />
-    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
-    <skip />
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"如要在裝置鎖定時新增使用者，請前往「設定」開啟「在上鎖畫面加入使用者」&lt;b&gt;&lt;/b&gt;"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"管理使用者"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"使用者人數已達上限。你需要移除一位使用者，才能新增使用者。"</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"只有裝置的管理員可以新增另一位使用者"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Brenda 的相片"</string>

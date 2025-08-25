@@ -31,26 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"ವಿಜೆಟ್ ಲೋಡ್ ಮಾಡಲು ವಿಫಲವಾಗಿದೆ."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"ಬಳಕೆದಾರರ ಸೆಟ್ಟಿಂಗ್‌ಗಳಿಗೆ ಹೋಗಿ."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"ಉದ್ಯೋಗ ನೀತಿಯಿಂದ ನಿರ್ಬಂಧಿಸಲಾಗಿದೆ"</string>
-    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
-    <skip />
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ಬಳಕೆದಾರರನ್ನು ಸೇರಿಸಲು ನಿಮಗೆ ಅವಕಾಶ ನೀಡುವುದಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"ನಿಮ್ಮ ಸಂಸ್ಥೆಯು ಬಳಕೆದಾರರನ್ನು ಬದಲಾಯಿಸಲು ನಿಮಗೆ ಅನುಮತಿಸುವುದಿಲ್ಲ. ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"ಬಳಕೆದಾರರನ್ನು ಬದಲಾಯಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
-    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
-    <skip />
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"ಬಳಕೆದಾರರನ್ನು ಸೇರಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"ಏನೋ ತಪ್ಪಾಗಿದೆ."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"ಮುಚ್ಚಿರಿ"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"ಕರೆಯ ಸಮಯದಲ್ಲಿ ನೀವು ಬಳಕೆದಾರರನ್ನು ಬದಲಾಯಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ"</string>
-    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
-    <skip />
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"ಕರೆಯ ಸಮಯದಲ್ಲಿ ಬಳಕೆದಾರರನ್ನು ಸೇರಿಸಲು ನಿಮಗೆ ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಬಳಕೆದಾರ ಬದಲಾವಣೆಯನ್ನು ಅನುಮತಿಸಿ ನಂತರ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ"</string>
-    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
-    <skip />
-    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
-    <skip />
-    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
-    <skip />
-    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
-    <skip />
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"ನಿಮ್ಮ ಸಾಧನ ಲಾಕ್ ಆಗಿರುವಾಗ ಬಳಕೆದಾರರನ್ನು ಸೇರಿಸಲು, ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ &lt;b&gt;ಲಾಕ್ ಸ್ಕ್ರೀನ್‌ನಿಂದ ಬಳಕೆದಾರರನ್ನು ಸೇರಿಸಿ&lt;/b&gt; ಎಂಬುದನ್ನು ಆನ್ ಮಾಡಿ"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"ಬಳಕೆದಾರರನ್ನು ನಿರ್ವಹಿಸಿ"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"ನೀವು ಗರಿಷ್ಠ ಸಂಖ್ಯೆಯ ಬಳಕೆದಾರರ ಮಿತಿಯನ್ನು ತಲುಪಿದ್ದೀರಿ. ಹೊಸ ಬಳಕೆದಾರರನ್ನು ಸೇರಿಸಲು ಈಗಾಗಲೇ ಇರುವವರನ್ನು ತೆಗೆದುಹಾಕಿ."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"ಸಾಧನದ ನಿರ್ವಾಹಕರು ಮಾತ್ರ ಇನ್ನೊಬ್ಬ ಬಳಕೆದಾರರನ್ನು ಸೇರಿಸಬಹುದು"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"ಬ್ರೆಂಡಾ"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"ಎಲಿಯಾ"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"ಬ್ರೆಂಡಾ ಅವರ ಚಿತ್ರ"</string>

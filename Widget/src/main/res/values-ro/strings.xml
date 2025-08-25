@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"Utilizatori"</string>
-    <!-- no translation found for current_user_content_description (9064744464195867095) -->
-    <skip />
+    <string name="current_user_content_description" msgid="9064744464195867095">"Utilizatorul actual al acestui dispozitiv este %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"Adaugă un utilizator"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"Adaugă un utilizator"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"Schimbă utilizatorul"</string>
@@ -32,26 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Widgetul nu s-a încărcat."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Accesează Setările pentru utilizatori."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Blocată de politica privind activitatea"</string>
-    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
-    <skip />
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Organizația nu îți permite să adaugi utilizatori. Pentru mai multe informații, contactează administratorul IT."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Organizația nu îți permite să schimbi utilizatorii. Pentru mai multe informații, contactează administratorul IT."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Nu se poate schimba utilizatorul"</string>
-    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
-    <skip />
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Utilizatorul nu poate fi adăugat"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"A apărut o eroare."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Închide"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Nu poți schimba utilizatorul în timpul unui apel"</string>
-    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
-    <skip />
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Nu poți adăuga un utilizator în timpul unui apel"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Permite schimbarea utilizatorului în Setări, apoi încearcă din nou"</string>
-    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
-    <skip />
-    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
-    <skip />
-    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
-    <skip />
-    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
-    <skip />
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Pentru a adăuga utilizatori când dispozitivul este blocat, activează opțiunea &lt;b&gt;Adaugă utilizatori de pe ecranul de blocare&lt;/b&gt; în Setări"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Gestionează utilizatorii"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Ai atins numărul maxim de utilizatori. Exclude un utilizator ca să adaugi altul."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Numai administratorul dispozitivului poate adăuga alt utilizator"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Paula"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Emil"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Fotografie cu Paula"</string>

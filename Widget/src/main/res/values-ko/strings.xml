@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"사용자"</string>
-    <!-- no translation found for current_user_content_description (9064744464195867095) -->
-    <skip />
+    <string name="current_user_content_description" msgid="9064744464195867095">"이 기기의 현재 사용자는 %1$s입니다."</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"사용자 추가"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"사용자 추가"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"사용자 전환"</string>
@@ -32,26 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"위젯을 로드할 수 없습니다."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"사용자 설정으로 이동합니다."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"업무 정책에 따라 차단됨"</string>
-    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
-    <skip />
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"조직에서 사용자 추가를 허용하지 않습니다. 자세한 내용은 IT 관리자에게 문의하세요."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"조직에서 사용자 변경을 허용하지 않습니다. 자세한 내용은 IT 관리자에게 문의하세요."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"사용자를 전환할 수 없음"</string>
-    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
-    <skip />
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"사용자를 추가할 수 없음"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"문제가 발생했습니다."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"닫기"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"통화 중에는 사용자를 전환할 수 없습니다."</string>
-    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
-    <skip />
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"통화 중에는 사용자를 추가할 수 없습니다."</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"설정에서 사용자 전환을 허용한 후 다시 시도해 주세요."</string>
-    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
-    <skip />
-    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
-    <skip />
-    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
-    <skip />
-    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
-    <skip />
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"기기가 잠겨 있는 동안 사용자를 추가하려면 설정의 &lt;b&gt;잠금 화면에서 사용자 추가&lt;/b&gt;를 사용 설정하세요."</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"사용자 관리"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"최대 사용자 수에 도달했습니다. 새 사용자를 추가하려면 기존 사용자를 삭제하세요."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"기기 관리자만 다른 사용자를 추가할 수 있습니다."</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"브렌다"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"엘리아"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"브렌다 사진"</string>

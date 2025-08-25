@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"משתמשים"</string>
-    <!-- no translation found for current_user_content_description (9064744464195867095) -->
-    <skip />
+    <string name="current_user_content_description" msgid="9064744464195867095">"המשתמש הנוכחי במכשיר הזה הוא %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"הוספת משתמש"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"הוספת משתמש"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"החלפת משתמש"</string>
@@ -32,26 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"אי אפשר לטעון את הווידג\'ט."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"אל הגדרות המשתמשים."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"התכונה חסומה בגלל המדיניות של מקום העבודה"</string>
-    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
-    <skip />
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"הארגון לא מאפשר לך להוסיף משתמשים. למידע נוסף, אפשר ליצור קשר עם האדמין ממחלקת ה-IT."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"הארגון לא מאפשר לך להחליף את המשתמשים. למידע נוסף, אפשר ליצור קשר עם האדמין ממחלקת ה-IT."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"אי אפשר להחליף את המשתמש"</string>
-    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
-    <skip />
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"אי אפשר להוסיף משתמש"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"משהו השתבש."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"סגירה"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"אי אפשר להחליף משתמש במהלך שיחה"</string>
-    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
-    <skip />
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"אי אפשר להוסיף משתמש במהלך שיחה"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"צריך לאפשר החלפת משתמשים בהגדרות ואז לנסות שוב"</string>
-    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
-    <skip />
-    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
-    <skip />
-    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
-    <skip />
-    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
-    <skip />
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"כדי להוסיף משתמשים כשהמכשיר נעול, צריך להפעיל את ההגדרה &lt;b&gt;הוספת משתמשים ממסך הנעילה&lt;/b&gt; בהגדרות"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"ניהול משתמשים"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"הגעת למספר המקסימלי של משתמשים. צריך להסיר משתמש כדי להוסיף משתמש חדש."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"רק האדמין של המכשיר יכול להוסיף משתמש אחר"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"תמונה של Brenda"</string>

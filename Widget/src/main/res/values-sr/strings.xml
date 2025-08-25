@@ -31,26 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Учитавање виџета није успело."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Идите у Подешавања корисника."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Блокирају смернице за посао"</string>
-    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
-    <skip />
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Организација вам не дозвољава да додајете кориснике. Обратите се ИТ администратору за више информација."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Организација вам не дозвољава да мењате кориснике. Обратите се ИТ администратору за више информација."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Промена корисника није успела"</string>
-    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
-    <skip />
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Додавање корисника није успело"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Дошло је до грешке."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Затвори"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Не можете да промените корисника током позива"</string>
-    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
-    <skip />
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Не можете да додате корисника током позива"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Дозволите промену корисника у Подешавањима, па пробајте поново"</string>
-    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
-    <skip />
-    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
-    <skip />
-    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
-    <skip />
-    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
-    <skip />
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Да бисте додали кориснике док је уређај закључан, укључите &lt;b&gt;Додајте кориснике са закључаног екрана&lt;/b&gt; у Подешавањима"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Управљање корисницима"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Достигли сте максималан број корисника. Уклоните неког корисника да бисте додали новог."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Само администратор уређаја може да дода другог корисника"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Бојана"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Лука"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Слика Бојане"</string>

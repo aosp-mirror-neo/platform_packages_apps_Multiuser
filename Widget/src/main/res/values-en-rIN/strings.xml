@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"Users"</string>
-    <!-- no translation found for current_user_content_description (9064744464195867095) -->
-    <skip />
+    <string name="current_user_content_description" msgid="9064744464195867095">"The current user on this device is %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"Add user"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"Add user"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"Switch user"</string>
@@ -32,26 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Failed to load widget."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Go to user settings."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Blocked by work policy"</string>
-    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
-    <skip />
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Your organisation doesn\'t allow you to add users. For more info, contact your IT admin."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Your organisation doesn\'t allow you to change users. For more info, contact your IT admin."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Can\'t switch user"</string>
-    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
-    <skip />
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Can\'t add user"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Something went wrong."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Close"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"You can\'t switch user during a call"</string>
-    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
-    <skip />
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"You can\'t add a user during a call"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Allow user switching in settings, then try again"</string>
-    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
-    <skip />
-    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
-    <skip />
-    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
-    <skip />
-    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
-    <skip />
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"To add users while your device is locked, turn on &lt;b&gt;Add users from lock screen&lt;/b&gt; in settings"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Manage users"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"You\'ve reached the maximum number of users. Remove a user to add a new one."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Only the device\'s admin can add another user"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Bella"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Picture of Brenda"</string>
