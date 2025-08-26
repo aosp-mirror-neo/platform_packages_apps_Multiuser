@@ -15,13 +15,11 @@ package com.android.multiuser.widget.ui.tests
  * limitations under the License.
  */
 
+import android.appwidget.AppWidgetProviderInfo
 import com.android.multiuser.widget.data.IUsersRepository
 import com.android.multiuser.widget.data.model.User
 import com.android.multiuser.widget.data.model.UserAddRestriction
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
-import com.android.multiuser.widget.R
-
-import kotlin.collections.List
 
 /**
  * Fake User Repository so we don't have to mock UserManager
@@ -38,6 +36,12 @@ class FakeUserRepository : IUsersRepository {
     override suspend fun disableSwitchUsers() = userRestrictions != UserSwitchRestrictions.NONE
     override fun isCurrentUserAdmin() = currentUserAdmin
     override fun checkUserSwitchRestrictions() = userRestrictions
-    override fun checkUserAddRestrictions(widgetCategory: Int) = addUserRestrictions
+    override fun checkUserAddRestrictions(widgetCategory: Int): UserAddRestriction {
+        if(addUserRestrictions == UserAddRestriction.DISABLED_ON_LOCKSCREEN
+            && widgetCategory != AppWidgetProviderInfo.WIDGET_CATEGORY_KEYGUARD) {
+                return UserAddRestriction.NONE
+        }
+        return addUserRestrictions
+    }
     override fun switchToUser(userId: Int) = switchSucceeded
 }

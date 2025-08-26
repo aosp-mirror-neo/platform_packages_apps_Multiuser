@@ -16,8 +16,6 @@
 
 package com.android.multiuser.widget.domain
 
-import android.multiuser.Flags
-import androidx.glance.action.ActionParameters
 import androidx.glance.action.actionParametersOf
 import androidx.glance.appwidget.action.actionRunCallback
 
@@ -25,11 +23,12 @@ import com.android.multiuser.widget.domain.actions.UserSwitcherAction
 import com.android.multiuser.widget.domain.actions.SwitchUserAction
 import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.ImageRepository
-import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.IUsersRepository
 import com.android.multiuser.widget.data.model.UserAddRestriction
 import com.android.multiuser.widget.domain.actions.AddUserAction
-import com.android.multiuser.widget.util.SHOULD_DISPLAY_ADD_USER_BUTTON
+import com.android.multiuser.widget.domain.restrictions.AddUserStateUseCase
+import com.android.multiuser.widget.domain.restrictions.SwitchUserStateUseCase
+import com.android.multiuser.widget.domain.restrictions.UserStateUseCase
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
 import com.android.multiuser.widget.viewmodel.GridItemViewModel
@@ -61,27 +60,34 @@ class LoadUsersFromServerUseCase(
                 user.name,
                 user.isCurrentUser
             ),
-            enabled = user.isCurrentUser || user.switchable,
             loadAvatarUseCase = LoadUserAvatarUseCase(user.id, imageRepository),
             action = actionRunCallback<SwitchUserAction>(
                 parameters = actionParametersOf(SwitchUserAction.userIdKey to user.id)
-            )
+            ),
+            enabledUseCase = UserStateUseCase(user)
         )}
 
     private suspend fun getActionViewModels(): List<ActionViewModel> {
-        if (usersRepository.checkUserAddRestrictions(widgetCategory) == UserAddRestriction.NONE) {
+        if (usersRepository.checkUserAddRestrictions(widgetCategory) !=
+            UserAddRestriction.NOT_ADMIN_OR_SYSTEM
+        ) {
             return listOf(
                 actionsRepository.getSwitchUserAction()
-                    .toViewModel(actionRunCallback<UserSwitcherAction>()),
+                    .toViewModel(actionRunCallback<UserSwitcherAction>(),
+                        SwitchUserStateUseCase(usersRepository)
+                    ).also { it.refresh() },
                 actionsRepository.getAddUserAction()
                     .toViewModel(actionRunCallback<AddUserAction>(
                         parameters = actionParametersOf(AddUserAction.widgetCategory to widgetCategory)
-                    ))
+                    ), AddUserStateUseCase(usersRepository, widgetCategory)
+                    ).also { it.refresh() }
             )
         } else {
             return listOf(
                 actionsRepository.getSwitchUserAction()
-                    .toViewModel(actionRunCallback<UserSwitcherAction>())
+                    .toViewModel(actionRunCallback<UserSwitcherAction>(),
+                        SwitchUserStateUseCase(usersRepository)
+                    ).also { it.refresh() }
             )
         }
     }
