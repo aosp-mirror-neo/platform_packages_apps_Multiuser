@@ -18,13 +18,10 @@ package com.android.multiuser.widget
 
 import android.appwidget.AppWidgetManager
 import android.content.Context
-import android.multiuser.Flags
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.SizeMode
@@ -42,7 +39,6 @@ import com.android.multiuser.widget.ui.SystemUiColorProviders
 import com.android.multiuser.widget.ui.view.LayoutView
 import com.android.multiuser.widget.ui.view.layout.ErrorLayout
 import com.android.multiuser.widget.ui.view.layout.LoadingLayout
-import com.android.multiuser.widget.ui.view.layout.MultiuserWidgetLayout
 import com.android.multiuser.widget.viewmodel.UiState
 import com.android.multiuser.widget.viewmodel.UsersViewModel
 
@@ -72,18 +68,7 @@ class MultiuserWidget : GlanceAppWidget() {
   @Composable
   private fun Content(viewModel: UsersViewModel) {
     val uiState by viewModel.uiState.collectAsState()
-    val lastUpdateState = remember { mutableStateOf(0L) }
-    val lastUpdate by lastUpdateState
     val scope = rememberCoroutineScope()
-
-    scope.launch {
-      viewModel.lastUpdate.collect { latest ->
-        if(lastUpdateState.value < latest) {
-          lastUpdateState.value = latest
-          viewModel.setUiState(UiState.Invalid)
-        }
-      }
-    }
 
     when (uiState) {
       is UiState.Invalid -> scope.launch { viewModel.reload() }

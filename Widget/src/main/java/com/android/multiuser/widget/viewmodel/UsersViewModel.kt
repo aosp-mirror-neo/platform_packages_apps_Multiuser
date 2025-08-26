@@ -19,19 +19,13 @@ package com.android.multiuser.widget.viewmodel
 import android.util.Log
 import com.android.multiuser.widget.domain.ILoadUsersUseCase
 import java.lang.Exception
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class UsersViewModel(private val useCase: ILoadUsersUseCase) {
     private val _data = MutableStateFlow<List<GridItemViewModel>>(emptyList())
     val data: StateFlow<List<GridItemViewModel>> = _data.asStateFlow()
-
-    private val _lastUpdate = MutableSharedFlow<Long>()
-    val lastUpdate: SharedFlow<Long> = _lastUpdate.asSharedFlow()
 
     private val _uiState: MutableStateFlow<UiState> = MutableStateFlow<UiState>(UiState.Invalid)
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
@@ -50,11 +44,6 @@ class UsersViewModel(private val useCase: ILoadUsersUseCase) {
 
     fun  getUiState(): UiState {
         return uiState.value
-    }
-
-    suspend fun invalidate() {
-        val timestamp = System.currentTimeMillis()
-        _lastUpdate.emit(timestamp)
     }
 
     suspend fun reload() {
