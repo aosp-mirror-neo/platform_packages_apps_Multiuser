@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"ব্যবহারকারী"</string>
-    <!-- no translation found for current_user_content_description (9064744464195867095) -->
-    <skip />
+    <string name="current_user_content_description" msgid="9064744464195867095">"এই ডিভাইসের বর্তমান ব্যবহারকারী হল %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"ব্যবহারকারীকে যোগ করুন"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"ব্যবহারকারীকে যোগ করুন"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"ব্যবহারকারী পরিবর্তন করুন"</string>
@@ -32,26 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"উইজেট লোড করা যায়নি।"</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"ব্যবহারকারী সেটিংসে যান।"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"কাজ সংক্রান্ত নীতি অনুযায়ী ব্লক করা হয়েছে"</string>
-    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
-    <skip />
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"আপনার সংস্থা আপনাকে ব্যবহারকারীদের যোগ করার অনুমতি দেয় না। আরও তথ্যের জন্য, আপনার আইটি অ্যাডমিনের সাথে যোগাযোগ করুন।"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"আপনার সংস্থা আপনাকে ব্যবহারকারী পরিবর্তন করার অনুমতি দেয় না। আরও তথ্যের জন্য, আপনার আইটি অ্যাডমিনের সাথে যোগাযোগ করুন।"</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"ব্যবহারকারী পরিবর্তন করা যাচ্ছে না"</string>
-    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
-    <skip />
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"ব্যবহারকারী যোগ করা যাচ্ছে না"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"কোনও সমস্যা হয়েছে।"</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"বন্ধ করুন"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"কল চলাকালীন আপনি ব্যবহারকারী পরিবর্তন করতে পারবেন না"</string>
-    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
-    <skip />
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"কল চলাকালীন আপনি কোনও ব্যবহারকারীকে যোগ করতে পারবেন না"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"সেটিংসে ব্যবহারকারী পরিবর্তন করার অনুমতি দিন, তারপর আবার চেষ্টা করুন"</string>
-    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
-    <skip />
-    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
-    <skip />
-    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
-    <skip />
-    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
-    <skip />
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"ডিভাইস লক থাকাকালীন ব্যবহারকারীদের যোগ করতে, সেটিংসে গিয়ে &lt;b&gt;লক স্ক্রিন থেকে ব্যবহারকারীদের যোগ করুন&lt;/b&gt; বিকল্প চালু করুন"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"ব্যবহারকারীদের পরিচালনা করুন"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"আপনি ব্যবহারকারী যোগ সর্বাধিক সংখ্যায় পৌঁছেছেন। নতুন কাউকে যোগ করতে একজন ব্যবহারকারীকে সরিয়ে দিন।"</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"শুধুমাত্র ডিভাইসের অ্যাডমিনই অন্য ব্যবহারকারীকে যোগ করতে পারবেন"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"সুচিত্রা সেন"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"সন্ধ্যা রায়"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"সুচিত্রা সেনের ছবি"</string>

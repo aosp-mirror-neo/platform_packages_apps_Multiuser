@@ -31,26 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Det gick inte att läsa in widgeten."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Öppna användarinställningarna."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Blockeras av en jobbprincip"</string>
-    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
-    <skip />
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Organisationen tillåter inte att du lägger till användare. Kontakta IT-administratören för mer information."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Organisationen tillåter inte att du byter användare. Kontakta IT-administratören för mer information."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Det går inte att byta användare"</string>
-    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
-    <skip />
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Det gick inte att lägga till användaren"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Något gick fel."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Stäng"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Du kan inte byta användare under ett samtal"</string>
-    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
-    <skip />
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Du kan inte lägga till en användare under ett samtal"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Tillåt användarbyte i inställningarna och försök igen"</string>
-    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
-    <skip />
-    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
-    <skip />
-    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
-    <skip />
-    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
-    <skip />
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Om du vill lägga till användare när enheten är låst måste du aktivera &lt;b&gt;Lägg till användare från låsskärmen&lt;/b&gt; i inställningarna"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Hantera användare"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Du har nått det högsta tillåtna antalet användare. Ta bort en användare om du vill lägga till en ny."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Det är bara enhetens administratör som kan lägga till en ytterligare användare"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Bild på Brenda"</string>

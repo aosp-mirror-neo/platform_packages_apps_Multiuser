@@ -31,26 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Kan widget niet laden."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Ga naar Gebruikersinstellingen."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Geblokkeerd door werkbeleid"</string>
-    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
-    <skip />
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Je organisatie staat niet toe dat je gebruikers toevoegt. Neem voor meer informatie contact op met je IT-beheerder."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Je organisatie staat niet toe dat je van gebruiker wisselt. Neem voor meer informatie contact op met je IT-beheerder."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Kan niet van gebruiker wisselen"</string>
-    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
-    <skip />
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Kan gebruiker niet toevoegen"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Er is iets misgegaan."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Sluiten"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Je kunt niet van gebruiker wisselen tijdens een gesprek"</string>
-    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
-    <skip />
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Je kunt geen gebruiker toevoegen tijdens een gesprek"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Sta het wisselen van gebruikers toe in Instellingen en probeer het opnieuw"</string>
-    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
-    <skip />
-    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
-    <skip />
-    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
-    <skip />
-    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
-    <skip />
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Als je gebruikers wilt toevoegen terwijl je apparaat is vergrendeld, zet je &lt;b&gt;Gebruikers toevoegen vanaf vergrendelscherm&lt;/b&gt; aan in Instellingen"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Gebruikers beheren"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Je hebt het maximale aantal gebruikers bereikt. Verwijder een gebruiker om een nieuwe toe te voegen."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Alleen de beheerder van het apparaat kan een andere gebruiker toevoegen"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Foto van Brenda"</string>

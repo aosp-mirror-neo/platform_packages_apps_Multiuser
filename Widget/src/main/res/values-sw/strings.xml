@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"Watumiaji"</string>
-    <!-- no translation found for current_user_content_description (9064744464195867095) -->
-    <skip />
+    <string name="current_user_content_description" msgid="9064744464195867095">"Mtumiaji wa sasa kwenye kifaa hiki ni %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"Weka mtumiaji"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"Weka mtumiaji"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"Badilisha mtumiaji"</string>
@@ -32,26 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Imeshindwa kupakia wijeti."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Nenda kwenye Mipangilio ya Watumiaji."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Imezuiwa na sera ya kazi"</string>
-    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
-    <skip />
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Shirika lako halikuruhusu kuweka watumiaji. Wasiliana na msimamizi wako wa TEHAMA ili upate maelezo zaidi."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Shirika lako halikuruhusu ubadilishe watumiaji. Wasiliana na msimamizi wako wa TEHAMA ili upate maelezo zaidi."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Imeshindwa kubadilisha mtumiaji"</string>
-    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
-    <skip />
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Huwezi kuweka mtumiaji"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Hitilafu fulani imetokea."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Funga"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Huwezi kubadilisha mtumiaji unapoendelea na mazungumzo kwenye simu"</string>
-    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
-    <skip />
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Huwezi kuweka mtumiaji unapoendelea na mazungumzo kwenye simu"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Ruhusu ubadilishaji wa watumiaji katika Mipangilio kisha ujaribu tena"</string>
-    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
-    <skip />
-    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
-    <skip />
-    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
-    <skip />
-    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
-    <skip />
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Ili kuweka watumiaji wakati kifaa chako kimefungwa, washa kipengele cha &lt;b&gt;Weka watumiaji wakati skrini imefungwa&lt;/b&gt; katika Mipangilio"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Dhibiti Watumiaji"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Umefikia idadi ya juu watumiaji unaoruhusiwa kuweka. Ondoa mtumiaji mmoja ili uweke mwingine."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Ni msimamizi wa kifaa tu anayeweza kuweka mtumiaji mwingine"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Picha ya Brenda"</string>

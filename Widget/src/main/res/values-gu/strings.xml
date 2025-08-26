@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"વપરાશકર્તાઓ"</string>
-    <!-- no translation found for current_user_content_description (9064744464195867095) -->
-    <skip />
+    <string name="current_user_content_description" msgid="9064744464195867095">"આ ડિવાઇસ પર વર્તમાન વપરાશકર્તા %1$s છે"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"વપરાશકર્તા ઉમેરો"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"વપરાશકર્તા ઉમેરો"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"વપરાશકર્તા સ્વિચ કરો"</string>

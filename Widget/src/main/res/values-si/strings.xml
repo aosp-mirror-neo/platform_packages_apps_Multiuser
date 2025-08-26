@@ -20,8 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"පරිශීලකයින්"</string>
-    <!-- no translation found for current_user_content_description (9064744464195867095) -->
-    <skip />
+    <string name="current_user_content_description" msgid="9064744464195867095">"මෙම උපාංගයෙහි වත්මන් පරිශීලකයා %1$s වේ"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"පරිශීලකයා එක් කරන්න"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"පරිශීලකයා එක් කරන්න"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"පරිශීලක මාරු කරන්න"</string>
@@ -32,26 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"විජට්ටුව පූරණය කිරීමට අසමත් විය."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"පරිශීලක සැකසීම් වෙත යන්න."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"වැඩ ප්‍රතිපත්තිය මගින් අවහිර කර ඇත"</string>
-    <!-- no translation found for widget_add_work_restriction_dialog_message (741989896505806720) -->
-    <skip />
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"ඔබේ සංවිධානය ඔබට පරිශීලකයින් එක් කිරීමට ඉඩ නොදෙයි. වැඩි විස්තර සඳහා, ඔබේ IT පරිපාලක අමතන්න."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"ඔබේ සංවිධානය ඔබට පරිශීලකයින් වෙනස් කිරීමට ඉඩ නොදෙයි. වැඩි විස්තර සඳහා, ඔබේ IT පරිපාලක අමතන්න."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"පරිශීලකයා මාරු කළ නොහැක"</string>
-    <!-- no translation found for widget_add_failed_dialog_title (3556723397434372310) -->
-    <skip />
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"පරිශීලකයා එක් කළ නොහැක"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"යමක් වැරදී ඇත."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"වසන්න"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"ඇමතුමක් අතරතුර ඔබට පරිශීලකයා මාරු කළ නොහැක"</string>
-    <!-- no translation found for widget_add_not_allowed_dialog_message (5753877342745410161) -->
-    <skip />
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"ඇමතුමක් අතරතුර ඔබට පරිශීලකයෙකු එක් කළ නොහැක"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"සැකසීම් තුළ පරිශීලක මාරු වීමට ඉඩ දී නැවත උත්සාහ කරන්න."</string>
-    <!-- no translation found for widget_add_from_hub_dialog_message (334286440533177497) -->
-    <skip />
-    <!-- no translation found for widget_dialog_open_settings_button (7960364294257867877) -->
-    <skip />
-    <!-- no translation found for widget_add_max_limit_dialog_message (1929914006709425071) -->
-    <skip />
-    <!-- no translation found for widget_add_not_admin_dialog_message (6824808684423667963) -->
-    <skip />
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"ඔබේ උපාංගය අගුළු දමා ඇති අතරේ පරිශීලකයින් එක් කිරීමට, සැකසීම් තුළ &lt;b&gt;අගුළු තිරයෙන් පරිශීලකයින් එක් කරන්න&lt;/b&gt; ක්‍රියාත්මක කරන්න"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"පරිශීලකයන් කළමනාකරණය කරන්න"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"ඔබ උපරිම පරිශීලකයින් සංඛ්‍යාවට ළඟා වී ඇත. නව අයකු එක් කිරීමට පරිශීලකයෙකු ඉවත් කරන්න."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"උපාංගයේ පරිපාලකයාට පමණක් වෙනත් පරිශීලකයෙකු එක් කළ හැක"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"බ‍්‍රෙන්ඩා"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"එලියා"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"බ්‍රෙන්ඩාගේ පින්තූරය"</string>

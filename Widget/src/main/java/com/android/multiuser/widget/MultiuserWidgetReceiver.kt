@@ -38,6 +38,7 @@ class MultiuserWidgetReceiver(
     override val glanceAppWidget: GlanceAppWidget = MultiuserWidget()
     private val allowedActions = arrayOf(
         // Start widget
+        "android.appwidget.action.APPWIDGET_UPDATE",
         "android.appwidget.action.APPWIDGET_UPDATE_OPTIONS",
         "android.intent.action.USER_INFO_CHANGED_BACKGROUND",
         "android.intent.action.USER_REMOVED",
@@ -48,13 +49,6 @@ class MultiuserWidgetReceiver(
         super.onReceive(context, intent)
         if (intent.action in allowedActions) {
             CoroutineScope(dispatcher).launch {
-                // Invalidate empty ViewModel to trigger SharedStateFlow
-                // reload in widgets
-                UsersViewModel(object : ILoadUsersUseCase {
-                    override suspend operator fun invoke()
-                            = emptyList<GridItemViewModel>()
-                }).invalidate()
-                // Unfreeze widgets so they can be updated
                 glanceAppWidget.updateAll(context)
             }
         }
