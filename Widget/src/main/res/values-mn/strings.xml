@@ -42,7 +42,7 @@
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Тохиргоонд хэрэглэгч сэлгэхийг зөвшөөрөөд, дахин оролдоно уу"</string>
     <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Төхөөрөмжөө түгжээтэй үед хэрэглэгч нэмэхийн тулд Тохиргоо хэсэгт &lt;b&gt;Түгжээтэй дэлгэцээс хэрэглэгч нэмэх&lt;/b&gt; гэснийг асаана уу"</string>
     <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Хэрэглэгчдийг удирдах"</string>
-    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Та хэрэглэгчдийн дээд хязгаарт хүрсэн байна. Шинэ хэрэглэгч нэмэхийн тулд хэрэглэгч хасна уу."</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Та хэрэглэгчдийн тооны дээд хязгаарт хүрсэн байна. Шинэ хэрэглэгч нэмэхийн тулд хэрэглэгч хасна уу."</string>
     <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Зөвхөн төхөөрөмжийн админ өөр хэрэглэгч нэмэх боломжтой"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Бренда"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Элиа"</string>

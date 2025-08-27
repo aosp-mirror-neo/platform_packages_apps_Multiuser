@@ -38,7 +38,7 @@
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"କିଛି ତ୍ରୁଟି ହୋଇଛି।"</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"ବନ୍ଦ କରନ୍ତୁ"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"ଏକ କଲ ସମୟରେ ଆପଣ ୟୁଜରଙ୍କୁ ସ୍ୱିଚ କରିପାରିବେ ନାହିଁ"</string>
-    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"ଏକ କଲ ସମୟରେ ଆପଣ ଜଣେ ୟୁଜରଙ୍କୁ ଯୋଗ କରିପାରିବେ"</string>
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"ଏକ କଲ ସମୟରେ ଆପଣ ଜଣେ ୟୁଜରଙ୍କୁ ଯୋଗ କରିପାରିବେ ନାହିଁ"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"ସେଟିଂସରେ ୟୁଜରଙ୍କୁ ସ୍ୱିଚ କରିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ, ତା\'ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ"</string>
     <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"ଆପଣଙ୍କ ଡିଭାଇସ ଲକ ଥିବା ସମୟରେ ୟୁଜରମାନଙ୍କୁ ଯୋଗ କରିବା ପାଇଁ, ସେଟିଂସରେ &lt;b&gt;ଲକ ସ୍କ୍ରିନରୁ ୟୁଜରମାନଙ୍କୁ ଯୋଗ କରନ୍ତୁ&lt;/b&gt;କୁ ଚାଲୁ କରନ୍ତୁ"</string>
     <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"ୟୁଜରମାନଙ୍କୁ ପରିଚାଳନା କରନ୍ତୁ"</string>
