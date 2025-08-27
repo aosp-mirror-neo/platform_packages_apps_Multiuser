@@ -17,9 +17,29 @@
 package com.android.multiuser.widget.viewmodel
 
 import androidx.glance.action.Action
+import androidx.glance.action.LambdaAction
+import com.android.multiuser.widget.domain.restrictions.DefaultStateUseCase
+import com.android.multiuser.widget.domain.restrictions.IStateUseCase
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
-sealed class GridItemViewModel(
-    open val title: String,
-    open val contentDescription: String?,
-    open val action: Action
-)
+open class GridItemViewModel(
+    val title: String,
+    val contentDescription: String? = null,
+    val action: Action = LambdaAction("GridItemViewModel $title", {}),
+    val enabledUseCase: IStateUseCase<Boolean> = DefaultStateUseCase()
+) {
+    private val _enabled: MutableStateFlow<Boolean> = MutableStateFlow(true)
+    val enabled = _enabled.asStateFlow()
+
+    // Always refresh ViewModel before use
+    open suspend fun refresh() {
+        setEnabled(enabledUseCase())
+    }
+
+   private fun setEnabled(newState: Boolean) {
+        if (newState != enabled.value) {
+            _enabled.value = newState
+        }
+    }
+}

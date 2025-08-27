@@ -16,8 +16,7 @@
 
 package com.android.multiuser.widget.ui.util
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -26,8 +25,8 @@ import androidx.glance.GlanceModifier
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
 import androidx.glance.LocalContext
+import androidx.glance.unit.ColorProvider
 import com.android.multiuser.widget.R
-import java.io.File
 
 @Composable
 fun ResourceString (resId: Int): String {
@@ -37,16 +36,6 @@ fun ResourceString (resId: Int): String {
 @Composable
 fun ResourceDp (resId: Int): Dp {
     return Dp(LocalContext.current.resources.getDimension(resId))
-}
-
-fun readFromInternalStorage(path: String): Bitmap? {
-    val file = File(path)
-    if (file.exists()) {
-        val options = BitmapFactory.Options().apply{ inMutable = true }
-        return BitmapFactory.decodeFile(file.absolutePath, options)
-    } else {
-        return null
-    }
 }
 
 @Composable
@@ -137,5 +126,12 @@ private enum class WidgetLayoutSize(val maxWidth: Dp) {
         }
     }
 }
+
+fun ColorProvider.byState(context: Context, enabled: Boolean): ColorProvider {
+    if (enabled)
+        return this
+    return ColorProvider(this.getColor(context).copy(alpha = 0.38f))
+}
+
 
 const val EMPTY_STRING = ""

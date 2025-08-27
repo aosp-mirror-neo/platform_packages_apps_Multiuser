@@ -53,7 +53,8 @@ fun UserView (
     val bitmap by viewModel.bitmap.collectAsState()
     val scope = rememberCoroutineScope()
     val uiState by viewModel.uiState.collectAsState()
-    val alpha = if (viewModel.enabled) { 1.0f } else { 0.38f }
+    val enabled by viewModel.enabled.collectAsState()
+    val alpha = if (enabled) { 1.0f } else { 0.38f }
     scope.launch {
         if(uiState != UiState.Loading) {
             viewModel.loadAvatar()

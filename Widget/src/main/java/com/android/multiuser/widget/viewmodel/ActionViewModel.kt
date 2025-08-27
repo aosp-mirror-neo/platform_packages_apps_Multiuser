@@ -17,10 +17,13 @@
 package com.android.multiuser.widget.viewmodel
 
 import androidx.glance.action.Action
+import com.android.multiuser.widget.domain.restrictions.DefaultStateUseCase
+import com.android.multiuser.widget.domain.restrictions.IStateUseCase
 
-data class ActionViewModel(
+class ActionViewModel(
     val resourceId: Int,
-    override val title: String,
-    override val contentDescription: String?,
-    override val action: Action
-) : GridItemViewModel(title, contentDescription, action)
+    title: String,
+    contentDescription: String?,
+    action: Action,
+    enabledUseCase: IStateUseCase<Boolean> = DefaultStateUseCase()
+ ) : GridItemViewModel(title, contentDescription, action, enabledUseCase)

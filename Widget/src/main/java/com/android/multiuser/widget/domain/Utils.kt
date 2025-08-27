@@ -17,15 +17,21 @@
 package com.android.multiuser.widget.domain
 
 import androidx.glance.action.Action
+import com.android.multiuser.widget.domain.restrictions.DefaultStateUseCase
+import com.android.multiuser.widget.domain.restrictions.IStateUseCase
 
 import com.android.multiuser.widget.data.model.Action as ActionModel
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 
-fun ActionModel.toViewModel(action: Action): ActionViewModel {
+fun ActionModel.toViewModel(
+  action: Action,
+  enabledUseCase: IStateUseCase<Boolean> = DefaultStateUseCase()
+): ActionViewModel {
     return ActionViewModel (
         title = title,
         resourceId = resourceId,
         contentDescription = contentDescription,
-        action = action
+        action = action,
+        enabledUseCase = enabledUseCase
     )
 }

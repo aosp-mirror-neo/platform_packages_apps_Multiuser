@@ -18,6 +18,7 @@ package com.android.multiuser.widget.viewmodel
 
 import android.graphics.Bitmap
 import androidx.glance.action.Action
+import com.android.multiuser.widget.domain.restrictions.IStateUseCase
 import com.android.multiuser.widget.domain.LoadUserAvatarUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -26,12 +27,12 @@ import kotlinx.coroutines.flow.asStateFlow
 class UserViewModel(
     val id: Int,
     val name: String,
-    override val contentDescription: String?,
+    contentDescription: String?,
     val isSelected: Boolean,
-    val enabled: Boolean,
     private val loadAvatarUseCase: LoadUserAvatarUseCase,
-    override val action: Action
-) : GridItemViewModel(name, contentDescription, action) {
+    action: Action,
+    enabledUseCase: IStateUseCase<Boolean>
+) : GridItemViewModel(name, contentDescription, action, enabledUseCase) {
     private val _uiState = MutableStateFlow<UiState>(UiState.Success)
     private val _bitmap = MutableStateFlow<Bitmap?>(null)
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()

@@ -16,13 +16,21 @@
 
 package com.android.multiuser.widget.ui.view
 
+import android.content.Context
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.glance.ColorFilter
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
 import androidx.glance.Image
 import androidx.glance.ImageProvider
+import androidx.glance.LocalContext
 import androidx.glance.action.clickable
+import androidx.glance.background
 import androidx.glance.semantics.contentDescription
 import androidx.glance.semantics.semantics
 import androidx.glance.text.Text
@@ -33,19 +41,32 @@ import com.android.multiuser.stacks.ui.StackView
 import com.android.multiuser.stacks.ui.cornerRadius
 import com.android.multiuser.stacks.ui.height
 import com.android.multiuser.stacks.ui.width
+import com.android.multiuser.widget.ui.util.byState
 import com.android.multiuser.widget.viewmodel.measurables.IconMeasurable
 import com.android.multiuser.widget.viewmodel.measurables.TextMeasurable
 import com.android.multiuser.widget.viewmodel.stacks.ActionButtonStack
 import com.android.multiuser.widget.viewmodel.stacks.VerticalPaddingWrapperStack
 import kotlin.math.min
+import kotlinx.coroutines.launch
 
 @Composable
 fun StackButton(
         stack: ActionButtonStack,
         modifier: GlanceModifier = GlanceModifier,
+        color: ColorProvider = GlanceTheme.colors.primary,
         tint: ColorProvider = GlanceTheme.colors.onPrimary
     ) {
+
     val cornerRadius = min(stack.vertically.min, stack.horizontally.min) / 2
+    val enabled by stack.stack.action.enabled.collectAsState()
+    val background = color.byState(LocalContext.current, enabled)
+    val foreground = tint.byState(LocalContext.current, enabled)
+    val scope = rememberCoroutineScope()
+
+    scope.launch {
+        stack.stack.action.refresh()
+    }
+
     VerticalPaddingWrapperStackView(
         stack as VerticalPaddingWrapperStack<Stack>,
 
@@ -79,7 +100,7 @@ fun StackButton(
                                         .semantics { contentDescription = "" },
                                     text = measurable.text,
                                     style = TextStyle(
-                                        color = tint,
+                                        color = foreground,
                                         fontSize = measurable.fontSize
                                     ),
                                     maxLines = 1
@@ -91,10 +112,11 @@ fun StackButton(
                     }
                 },
                 stack = stack.stack,
-                modifier = modifier.cornerRadius(cornerRadius)
+                modifier = modifier.background(background).cornerRadius(cornerRadius)
             )
         },
-        modifier = GlanceModifier.clickable(onClick = stack.stack.action.action)
+        modifier = GlanceModifier
+            .clickable( stack.stack.action.action)
             .semantics { contentDescription = stack.stack.action.contentDescription ?: stack.stack.action.title }
     )
 }

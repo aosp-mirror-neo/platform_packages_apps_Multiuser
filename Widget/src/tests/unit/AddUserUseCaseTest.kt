@@ -16,6 +16,7 @@
 
 package com.android.multiuser.widget.ui.tests
 
+import android.appwidget.AppWidgetProviderInfo
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -50,7 +51,7 @@ class AddUserUseCaseTest {
     private lateinit var userRepository: FakeUserRepository
     private lateinit var addUserUseCase: AddUserUseCase
 
-    private val testWidgetCategory = 0 // Arbitrary category
+    private val testWidgetCategory = 1 // Arbitrary category
 
     @Before
     fun setUp() {
@@ -229,7 +230,7 @@ class AddUserUseCaseTest {
         userRepository.addUserRestrictions = UserAddRestriction.DISABLED_ON_LOCKSCREEN
 
         // Act
-        val result = addUserUseCase.invoke(testWidgetCategory)
+        val result = addUserUseCase.invoke(AppWidgetProviderInfo.WIDGET_CATEGORY_KEYGUARD)
 
         // Assert
         assertTrue("Result should be StartActivityUseCase", result is StartActivityUseCase)
