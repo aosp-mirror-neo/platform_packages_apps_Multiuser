@@ -25,7 +25,7 @@ import com.android.multiuser.widget.data.ImageRepository
 import com.android.multiuser.widget.data.model.User
 import com.android.multiuser.widget.data.model.UserAddRestriction
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
-import com.android.multiuser.widget.domain.LoadUsersFromServerUseCase
+import com.android.multiuser.widget.domain.LoadCurrentUserUseCase
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
 import com.android.multiuser.widget.R
@@ -68,7 +68,7 @@ class LoadUsersFromServerUseCaseTest {
         usersRepository.addUserRestrictions = UserAddRestriction.NONE
         usersRepository.userRestrictions = UserSwitchRestrictions.NONE
         val useCase =
-            LoadUsersFromServerUseCase(
+            LoadCurrentUserUseCase(
                 usersRepository,
                 actionsRepository,
                 imageRepository,
@@ -84,7 +84,7 @@ class LoadUsersFromServerUseCaseTest {
         val actions: List<ActionViewModel> = result.filterIsInstance<ActionViewModel>()
         assertEquals(2, actions.size)
         actions.forEach{ action:ActionViewModel ->
-            assertTrue(action.enabled.value)
+            assertTrue(action.state.value.isEnabled())
         }
     }
 
@@ -97,7 +97,7 @@ class LoadUsersFromServerUseCaseTest {
         usersRepository.addUserRestrictions = UserAddRestriction.NONE
         usersRepository.userRestrictions = UserSwitchRestrictions.DISABLED
         val useCase =
-            LoadUsersFromServerUseCase(
+            LoadCurrentUserUseCase(
                 usersRepository,
                 actionsRepository,
                 imageRepository,
@@ -113,7 +113,7 @@ class LoadUsersFromServerUseCaseTest {
         val actions: List<ActionViewModel> = result.filterIsInstance<ActionViewModel>()
         assertEquals(2, actions.size)
         actions.forEach{ action:ActionViewModel ->
-            assertFalse(action.enabled.value)
+            assertFalse(action.state.value.isEnabled())
         }
     }
 
@@ -126,7 +126,7 @@ class LoadUsersFromServerUseCaseTest {
         usersRepository.addUserRestrictions = UserAddRestriction.ONCALL_OR_LOCKED
         usersRepository.userRestrictions = UserSwitchRestrictions.ONCALL_OR_LOCKED
         val useCase =
-            LoadUsersFromServerUseCase(
+            LoadCurrentUserUseCase(
                 usersRepository,
                 actionsRepository,
                 imageRepository,
@@ -142,7 +142,7 @@ class LoadUsersFromServerUseCaseTest {
         val actions: List<ActionViewModel> = result.filterIsInstance<ActionViewModel>()
         assertEquals(2, actions.size)
         actions.forEach{ action:ActionViewModel ->
-            assertFalse (action.enabled.value)
+            assertFalse (action.state.value.isEnabled())
         }
     }
 
@@ -153,7 +153,7 @@ class LoadUsersFromServerUseCaseTest {
         usersRepository.addUserRestrictions = UserAddRestriction.WORK_POLICY
         usersRepository.userRestrictions = UserSwitchRestrictions.WORK_POLICY
         val useCase =
-            LoadUsersFromServerUseCase(
+            LoadCurrentUserUseCase(
                 usersRepository,
                 actionsRepository,
                 imageRepository,
@@ -169,7 +169,7 @@ class LoadUsersFromServerUseCaseTest {
         val actions: List<ActionViewModel> = result.filterIsInstance<ActionViewModel>()
         assertEquals(2, actions.size)
         actions.forEach{ action:ActionViewModel ->
-            assertFalse (action.enabled.value)
+            assertFalse (action.state.value.isEnabled())
         }
     }
 
@@ -182,7 +182,7 @@ class LoadUsersFromServerUseCaseTest {
         usersRepository.addUserRestrictions = UserAddRestriction.NOT_ADMIN_OR_SYSTEM
         usersRepository.userRestrictions = UserSwitchRestrictions.NONE
         val useCase =
-            LoadUsersFromServerUseCase(
+            LoadCurrentUserUseCase(
                 usersRepository,
                 actionsRepository,
                 imageRepository,
@@ -200,7 +200,7 @@ class LoadUsersFromServerUseCaseTest {
 
         val switchUser = actions.firstOrNull{action -> action.title == switchTitle}
         assertNotNull(switchUser)
-        assertTrue(switchUser!!.enabled.value)
+        assertTrue(switchUser!!.state.value.isEnabled())
     }
 
 
@@ -211,7 +211,7 @@ class LoadUsersFromServerUseCaseTest {
         usersRepository.addUserRestrictions = UserAddRestriction.MAX_USER_LIMIT
         usersRepository.userRestrictions = UserSwitchRestrictions.NONE
         val useCase =
-            LoadUsersFromServerUseCase(
+            LoadCurrentUserUseCase(
                 usersRepository,
                 actionsRepository,
                 imageRepository,
@@ -229,11 +229,11 @@ class LoadUsersFromServerUseCaseTest {
 
         val addUser = actions.firstOrNull{action -> action.title == addUserTitle}
         assertNotNull(addUser)
-        assertFalse(addUser!!.enabled.value)
+        assertFalse(addUser!!.state.value.isEnabled())
 
         val switchUser = actions.firstOrNull{action -> action.title == switchTitle}
         assertNotNull(switchUser)
-        assertTrue(switchUser!!.enabled.value)
+        assertTrue(switchUser!!.state.value.isEnabled())
     }
 
     @Test
@@ -243,7 +243,7 @@ class LoadUsersFromServerUseCaseTest {
         usersRepository.addUserRestrictions = UserAddRestriction.DISABLED_ON_LOCKSCREEN
         usersRepository.userRestrictions = UserSwitchRestrictions.NONE
         val useCase =
-            LoadUsersFromServerUseCase(
+            LoadCurrentUserUseCase(
                 usersRepository,
                 actionsRepository,
                 imageRepository,
@@ -261,11 +261,11 @@ class LoadUsersFromServerUseCaseTest {
 
         val addUser = actions.firstOrNull{action -> action.title == addUserTitle}
         assertNotNull(addUser)
-        assertTrue(addUser!!.enabled.value)
+        assertTrue(addUser!!.state.value.isEnabled())
 
         val switchUser = actions.firstOrNull{action -> action.title == switchTitle}
         assertNotNull(switchUser)
-        assertTrue(switchUser!!.enabled.value)
+        assertTrue(switchUser!!.state.value.isEnabled())
     }
 
     @Test
@@ -275,7 +275,7 @@ class LoadUsersFromServerUseCaseTest {
         usersRepository.addUserRestrictions = UserAddRestriction.DISABLED_ON_LOCKSCREEN
         usersRepository.userRestrictions = UserSwitchRestrictions.NONE
         val useCase =
-            LoadUsersFromServerUseCase(
+            LoadCurrentUserUseCase(
                 usersRepository,
                 actionsRepository,
                 imageRepository,
@@ -293,11 +293,11 @@ class LoadUsersFromServerUseCaseTest {
 
         val addUser = actions.firstOrNull{action -> action.title == addUserTitle}
         assertNotNull(addUser)
-        assertFalse(addUser!!.enabled.value)
+        assertFalse(addUser!!.state.value.isEnabled())
 
         val switchUser = actions.firstOrNull{action -> action.title == switchTitle}
         assertNotNull(switchUser)
-        assertTrue(switchUser!!.enabled.value)
+        assertTrue(switchUser!!.state.value.isEnabled())
     }
 
     @Test
@@ -307,7 +307,7 @@ class LoadUsersFromServerUseCaseTest {
         usersRepository.addUserRestrictions = UserAddRestriction.NONE
         usersRepository.userRestrictions = UserSwitchRestrictions.NONE
         val useCase =
-            LoadUsersFromServerUseCase(
+            LoadCurrentUserUseCase(
                 usersRepository,
                 actionsRepository,
                 imageRepository,
@@ -325,11 +325,11 @@ class LoadUsersFromServerUseCaseTest {
 
         val addUser = actions.firstOrNull{action -> action.title == addUserTitle}
         assertNotNull(addUser)
-        assertTrue(addUser!!.enabled.value)
+        assertTrue(addUser!!.state.value.isEnabled())
 
         val switchUser = actions.firstOrNull{action -> action.title == switchTitle}
         assertNotNull(switchUser)
-        assertTrue(switchUser!!.enabled.value)
+        assertTrue(switchUser!!.state.value.isEnabled())
     }
 
     /* Add user is disabled whenever switch is disabled.
@@ -342,7 +342,7 @@ class LoadUsersFromServerUseCaseTest {
         usersRepository.addUserRestrictions = UserAddRestriction.NONE
         usersRepository.userRestrictions = UserSwitchRestrictions.ONCALL_OR_LOCKED
         val useCase =
-            LoadUsersFromServerUseCase(
+            LoadCurrentUserUseCase(
                 usersRepository,
                 actionsRepository,
                 imageRepository,
@@ -358,7 +358,7 @@ class LoadUsersFromServerUseCaseTest {
         val actions: List<ActionViewModel> = result.filterIsInstance<ActionViewModel>()
         assertEquals(2, actions.size)
         actions.forEach{ action:ActionViewModel ->
-            assertFalse(action.enabled.value)
+            assertFalse(action.state.value.isEnabled())
         }
     }
 
@@ -369,7 +369,7 @@ class LoadUsersFromServerUseCaseTest {
         usersRepository.addUserRestrictions = UserAddRestriction.NONE
         usersRepository.userRestrictions = UserSwitchRestrictions.WORK_POLICY
         val useCase =
-            LoadUsersFromServerUseCase(
+            LoadCurrentUserUseCase(
                 usersRepository,
                 actionsRepository,
                 imageRepository,
@@ -385,7 +385,7 @@ class LoadUsersFromServerUseCaseTest {
         val actions: List<ActionViewModel> = result.filterIsInstance<ActionViewModel>()
         assertEquals(2, actions.size)
         actions.forEach{ action:ActionViewModel ->
-            assertFalse(action.enabled.value)
+            assertFalse(action.state.value.isEnabled())
         }
     }
 }

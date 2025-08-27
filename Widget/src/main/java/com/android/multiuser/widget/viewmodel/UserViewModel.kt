@@ -31,8 +31,8 @@ class UserViewModel(
     val isSelected: Boolean,
     private val loadAvatarUseCase: LoadUserAvatarUseCase,
     action: Action,
-    enabledUseCase: IStateUseCase<Boolean>
-) : GridItemViewModel(name, contentDescription, action, enabledUseCase) {
+    stateUseCase: IStateUseCase<ButtonState>
+) : GridItemViewModel(key="user_$id", name, contentDescription, action, stateUseCase) {
     private val _uiState = MutableStateFlow<UiState>(UiState.Success)
     private val _bitmap = MutableStateFlow<Bitmap?>(null)
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
@@ -49,7 +49,7 @@ class UserViewModel(
                 name == other.name &&
                 contentDescription == other.contentDescription &&
                 isSelected == other.isSelected &&
-                enabled == other.enabled
+                state == other.state
     }
 
     override fun hashCode(): Int {
@@ -58,7 +58,7 @@ class UserViewModel(
         result = 31 * result + name.hashCode()
         result = 31 * result + contentDescription.hashCode()
         result = 31 * result + isSelected.hashCode()
-        result = 31 * result + enabled.hashCode()
+        result = 31 * result + state.hashCode()
         return result
     }
 

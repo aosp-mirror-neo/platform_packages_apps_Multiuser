@@ -24,11 +24,10 @@ import com.android.multiuser.widget.domain.actions.SwitchUserAction
 import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.ImageRepository
 import com.android.multiuser.widget.data.IUsersRepository
-import com.android.multiuser.widget.data.model.UserAddRestriction
 import com.android.multiuser.widget.domain.actions.AddUserAction
 import com.android.multiuser.widget.domain.restrictions.AddUserStateUseCase
 import com.android.multiuser.widget.domain.restrictions.SwitchUserStateUseCase
-import com.android.multiuser.widget.domain.restrictions.UserStateUseCase
+import com.android.multiuser.widget.domain.restrictions.CurrentUserStateUseCase
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
 import com.android.multiuser.widget.viewmodel.GridItemViewModel
@@ -41,7 +40,7 @@ import kotlin.collections.List
 /**
  * Maps data from the local service into list of GridItemViewModel.
  */
-class LoadUsersFromServerUseCase(
+class LoadCurrentUserUseCase(
     private val usersRepository: IUsersRepository,
     private val actionsRepository: ActionsRepository,
     private val imageRepository: ImageRepository,
@@ -49,7 +48,8 @@ class LoadUsersFromServerUseCase(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ILoadUsersUseCase{
     override suspend operator fun invoke(): List<GridItemViewModel> = withContext(dispatcher) {
-        return@withContext getUserViewModels() + getActionViewModels()
+        return@withContext (getUserViewModels() + getActionViewModels())
+            .filter{ it.state.value.isVisible() }
     }
     private suspend fun getUserViewModels() =
         usersRepository.getUsers().map { user -> UserViewModel (
@@ -64,31 +64,22 @@ class LoadUsersFromServerUseCase(
             action = actionRunCallback<SwitchUserAction>(
                 parameters = actionParametersOf(SwitchUserAction.userIdKey to user.id)
             ),
-            enabledUseCase = UserStateUseCase(user)
-        )}
+            stateUseCase = CurrentUserStateUseCase(user)
+        ).also { it.refresh(null) }}
 
     private suspend fun getActionViewModels(): List<ActionViewModel> {
-        if (usersRepository.checkUserAddRestrictions(widgetCategory) !=
-            UserAddRestriction.NOT_ADMIN_OR_SYSTEM
-        ) {
-            return listOf(
-                actionsRepository.getSwitchUserAction()
-                    .toViewModel(actionRunCallback<UserSwitcherAction>(),
-                        SwitchUserStateUseCase(usersRepository)
-                    ).also { it.refresh() },
-                actionsRepository.getAddUserAction()
-                    .toViewModel(actionRunCallback<AddUserAction>(
+        return listOf(
+            actionsRepository.getSwitchUserAction()
+                .toViewModel(
+                    actionRunCallback<UserSwitcherAction>(),
+                    SwitchUserStateUseCase(usersRepository)
+                ).also { it.refresh(null) },
+            actionsRepository.getAddUserAction()
+                .toViewModel(
+                    actionRunCallback<AddUserAction>(
                         parameters = actionParametersOf(AddUserAction.widgetCategory to widgetCategory)
                     ), AddUserStateUseCase(usersRepository, widgetCategory)
-                    ).also { it.refresh() }
-            )
-        } else {
-            return listOf(
-                actionsRepository.getSwitchUserAction()
-                    .toViewModel(actionRunCallback<UserSwitcherAction>(),
-                        SwitchUserStateUseCase(usersRepository)
-                    ).also { it.refresh() }
-            )
-        }
+                ).also { it.refresh(null) }
+        )
     }
 }
