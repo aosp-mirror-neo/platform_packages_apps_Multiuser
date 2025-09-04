@@ -19,14 +19,18 @@ package com.android.multiuser.widget.domain.restrictions
 import com.android.multiuser.widget.data.IUsersRepository
 import com.android.multiuser.widget.data.model.UserAddRestriction
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
+import com.android.multiuser.widget.viewmodel.ButtonState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class AddUserStateUseCase(val userRepository: IUsersRepository, val widgetCategory: Int,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO): IStateUseCase<Boolean> {
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO): IStateUseCase<ButtonState> {
     override suspend operator fun invoke() = withContext(dispatcher) {
-        userRepository.checkUserAddRestrictions(widgetCategory) == UserAddRestriction.NONE
-                && userRepository.checkUserSwitchRestrictions() == UserSwitchRestrictions.NONE
+        val addRestriction = userRepository.checkUserAddRestrictions(widgetCategory)
+        val switchRestriction = userRepository.checkUserSwitchRestrictions()
+        ButtonState(((addRestriction == UserAddRestriction.NONE)
+                && (switchRestriction == UserSwitchRestrictions.NONE)),
+            addRestriction != UserAddRestriction.NOT_ADMIN_OR_SYSTEM)
     }
 }

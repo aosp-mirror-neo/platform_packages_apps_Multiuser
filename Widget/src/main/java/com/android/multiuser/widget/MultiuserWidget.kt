@@ -18,6 +18,8 @@ package com.android.multiuser.widget
 
 import android.appwidget.AppWidgetManager
 import android.content.Context
+import android.util.Log
+import androidx.appcompat.app.AppCompatDelegate
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -28,10 +30,11 @@ import androidx.glance.appwidget.SizeMode
 import androidx.glance.appwidget.provideContent
 import androidx.glance.GlanceId
 import androidx.glance.GlanceTheme
+import androidx.glance.LocalContext
 import androidx.glance.appwidget.LocalAppWidgetOptions
 
 import com.android.multiuser.widget.domain.ILoadUsersUseCase
-import com.android.multiuser.widget.domain.LoadUsersFromServerUseCase
+import com.android.multiuser.widget.domain.LoadCurrentUserUseCase
 import com.android.multiuser.widget.data.ActionsRepository
 import com.android.multiuser.widget.data.ImageRepository
 import com.android.multiuser.widget.data.UsersRepository
@@ -42,10 +45,17 @@ import com.android.multiuser.widget.ui.view.layout.LoadingLayout
 import com.android.multiuser.widget.viewmodel.UiState
 import com.android.multiuser.widget.viewmodel.UsersViewModel
 
+import androidx.datastore.preferences.core.Preferences
+import androidx.glance.currentState
+import androidx.glance.state.PreferencesGlanceStateDefinition
+import com.android.multiuser.widget.data.config.PersistentState
+import java.util.Locale
+import kotlinx.coroutines.flow.MutableStateFlow
+
 import kotlinx.coroutines.launch
 
 class MultiuserWidget : GlanceAppWidget() {
-
+  override val stateDefinition = PreferencesGlanceStateDefinition
   override val sizeMode = SizeMode.Exact
 
   override suspend fun provideGlance(context: Context, id: GlanceId) {
@@ -55,7 +65,7 @@ class MultiuserWidget : GlanceAppWidget() {
     provideContent {
     val widgetCategory = LocalAppWidgetOptions.current
       .getInt(AppWidgetManager.OPTION_APPWIDGET_HOST_CATEGORY)
-      val useCase: ILoadUsersUseCase = LoadUsersFromServerUseCase(
+      val useCase: ILoadUsersUseCase = LoadCurrentUserUseCase(
         UsersRepository(userManager, activityManager, context.contentResolver),
         ActionsRepository(context.resources),
         ImageRepository(userManager, context.resources),
@@ -69,12 +79,19 @@ class MultiuserWidget : GlanceAppWidget() {
   private fun Content(viewModel: UsersViewModel) {
     val uiState by viewModel.uiState.collectAsState()
     val scope = rememberCoroutineScope()
+    // Preference change will trigger new job schedule
+    val prefs = currentState<Preferences>()
 
     when (uiState) {
       is UiState.Invalid -> scope.launch { viewModel.reload() }
       is UiState.Loading -> LoadingLayout()
-      is UiState.Success -> LayoutView(viewModel)
-      else -> ErrorLayout()
+      is UiState.Success -> {
+        LayoutView(viewModel)
+        SettingsGlobalJob.scheduleJob(LocalContext.current)
+      }
+      else -> {
+        ErrorLayout()
+      }
     }
   }
 }

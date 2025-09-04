@@ -16,11 +16,15 @@
 
 package com.android.multiuser.widget.domain.restrictions
 
+import com.android.multiuser.widget.viewmodel.ButtonState
+
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class DefaultStateUseCase(private val defaultValue: Boolean = true,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO) : IStateUseCase<Boolean> {
-    override suspend operator fun invoke() = withContext(dispatcher) {  defaultValue }
+class DefaultStateUseCase(private val enabled: Boolean = true, private val visible: Boolean = true,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO) : IStateUseCase<ButtonState> {
+    override suspend operator fun invoke() = withContext(dispatcher) {
+        ButtonState(enabled, visible)
+    }
 }

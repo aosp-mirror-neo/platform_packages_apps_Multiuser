@@ -17,6 +17,7 @@
 package com.android.multiuser.widget.data.model
 
 data class Action (
+    val key: String,
     val title: String,
     val contentDescription: String?,
     val resourceId: Int,

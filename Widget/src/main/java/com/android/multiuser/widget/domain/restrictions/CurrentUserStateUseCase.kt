@@ -17,14 +17,15 @@
 package com.android.multiuser.widget.domain.restrictions
 
 import com.android.multiuser.widget.data.model.User
+import com.android.multiuser.widget.viewmodel.ButtonState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class UserStateUseCase(private val user: User,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO) : IStateUseCase<Boolean> {
+class CurrentUserStateUseCase(private val user: User,
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO) : IStateUseCase<ButtonState> {
     override suspend operator fun invoke() = withContext(dispatcher) {
         // If needed, change to API checks instead of properties
-        user.isCurrentUser || user.switchable
+        ButtonState(user.isCurrentUser, user.isCurrentUser)
     }
 }

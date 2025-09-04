@@ -18,13 +18,14 @@ package com.android.multiuser.widget.domain.restrictions
 
 import com.android.multiuser.widget.data.IUsersRepository
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
+import com.android.multiuser.widget.viewmodel.ButtonState
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
 class SwitchUserStateUseCase(val userRepository: IUsersRepository,
-    private val dispatcher: CoroutineDispatcher = Dispatchers.IO): IStateUseCase<Boolean> {
+    private val dispatcher: CoroutineDispatcher = Dispatchers.IO): IStateUseCase<ButtonState> {
     override suspend operator fun invoke() = withContext(dispatcher) {
-        userRepository.checkUserSwitchRestrictions() == UserSwitchRestrictions.NONE
+        ButtonState(userRepository.checkUserSwitchRestrictions() == UserSwitchRestrictions.NONE, true)
     }
 }

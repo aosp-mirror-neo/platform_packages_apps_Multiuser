@@ -20,7 +20,6 @@ import android.app.ActivityManager
 import android.appwidget.AppWidgetProviderInfo
 import android.content.ContentResolver
 import android.content.pm.UserInfo
-import android.multiuser.Flags
 import android.os.UserHandle
 import android.os.UserManager
 import android.provider.Settings.Global
@@ -40,7 +39,6 @@ class UsersRepository(private val userManager: UserManager?,
             return listOf()
         }
         var userInfoList = userManager.getAliveUsers()
-            .filter { user ->user.id == currentUserId}
 
         return userInfoList
             .map { userInfo: UserInfo ->

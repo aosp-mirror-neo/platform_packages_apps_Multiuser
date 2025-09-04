@@ -16,8 +16,6 @@
 
 package com.android.multiuser.widget.domain
 
-import androidx.glance.action.Action
-
 import com.android.multiuser.widget.data.IUsersRepository
 import com.android.multiuser.widget.data.IntentRepository
 import com.android.multiuser.widget.data.model.UserSwitchRestrictions
