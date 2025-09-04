@@ -25,8 +25,10 @@
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE_OPTIONS"/>
-                <action android:name="android.settings.USER_SETTINGS" />
+                <action android:name="android.appwidget.action.APPWIDGET_ENABLED"/>
+                <action android:name="android.appwidget.action.APPWIDGET_DISABLED"/>
                 <!--To be changed to wakeup frozen widget-->
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
                 <action android:name="android.intent.action.USER_INFO_CHANGED_BACKGROUND"/>
                 <action android:name="android.intent.action.USER_REMOVED" />
                 <action android:name="android.intent.action.USER_ADDED" />
@@ -45,5 +47,9 @@
                 <action android:name="android.settings.USER_SETTINGS" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".SettingsGlobalJob"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="false" />
     </application>
 </manifest>

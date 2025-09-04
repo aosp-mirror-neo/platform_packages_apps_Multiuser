@@ -21,9 +21,10 @@ import com.android.multiuser.widget.domain.restrictions.DefaultStateUseCase
 import com.android.multiuser.widget.domain.restrictions.IStateUseCase
 
 class ActionViewModel(
+    key: String,
     val resourceId: Int,
     title: String,
     contentDescription: String?,
     action: Action,
-    enabledUseCase: IStateUseCase<Boolean> = DefaultStateUseCase()
- ) : GridItemViewModel(title, contentDescription, action, enabledUseCase)
+    stateUseCase: IStateUseCase<ButtonState> = DefaultStateUseCase()
+ ) : GridItemViewModel(key, title, contentDescription, action, stateUseCase)

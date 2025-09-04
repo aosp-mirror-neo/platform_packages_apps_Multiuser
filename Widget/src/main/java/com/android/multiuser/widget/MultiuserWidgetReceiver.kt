@@ -18,19 +18,17 @@ package com.android.multiuser.widget
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
 import androidx.glance.appwidget.updateAll
+import com.android.multiuser.widget.data.config.PersistentState
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
-import com.android.multiuser.widget.domain.ILoadUsersUseCase
-import com.android.multiuser.widget.viewmodel.GridItemViewModel
-import com.android.multiuser.widget.viewmodel.UsersViewModel
 
 /** Broadcast receiver for multiuser widget registered in the Manifest. */
 class MultiuserWidgetReceiver(
@@ -51,6 +49,17 @@ class MultiuserWidgetReceiver(
             CoroutineScope(dispatcher).launch {
                 glanceAppWidget.updateAll(context)
             }
+        }
+        if (intent.action == "android.intent.action.LOCALE_CHANGED") {
+            CoroutineScope(dispatcher).launch {
+                PersistentState(glanceAppWidget).updateAllInstances(context)
+            }
+        }
+        if (intent.action == "android.appwidget.action.APPWIDGET_ENABLED") {
+            SettingsGlobalJob.scheduleJob(context)
+        }
+        if (intent.action == "android.appwidget.action.APPWIDGET_DISABLED") {
+            SettingsGlobalJob.cancelJob(context)
         }
     }
 }

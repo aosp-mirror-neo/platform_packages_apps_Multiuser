@@ -16,13 +16,12 @@
 
 package com.android.multiuser.widget.ui.view
 
-import android.content.Context
+import android.appwidget.AppWidgetManager
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.datastore.preferences.core.Preferences
 import androidx.glance.ColorFilter
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
@@ -30,7 +29,9 @@ import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
 import androidx.glance.action.clickable
+import androidx.glance.appwidget.LocalAppWidgetOptions
 import androidx.glance.background
+import androidx.glance.currentState
 import androidx.glance.semantics.contentDescription
 import androidx.glance.semantics.semantics
 import androidx.glance.text.Text
@@ -58,13 +59,14 @@ fun StackButton(
     ) {
 
     val cornerRadius = min(stack.vertically.min, stack.horizontally.min) / 2
-    val enabled by stack.stack.action.enabled.collectAsState()
-    val background = color.byState(LocalContext.current, enabled)
-    val foreground = tint.byState(LocalContext.current, enabled)
+    val state by stack.stack.action.state.collectAsState()
+    val background = color.byState(LocalContext.current, state.isEnabled())
+    val foreground = tint.byState(LocalContext.current, state.isEnabled())
     val scope = rememberCoroutineScope()
+    val prefs = currentState<Preferences>()
 
     scope.launch {
-        stack.stack.action.refresh()
+        stack.stack.action.refresh(prefs)
     }
 
     VerticalPaddingWrapperStackView(
