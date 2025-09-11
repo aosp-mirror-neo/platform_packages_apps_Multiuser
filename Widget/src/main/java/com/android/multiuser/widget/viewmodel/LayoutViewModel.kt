@@ -30,7 +30,8 @@ class LayoutViewModel(
     userViewModel: UserViewModel,
     actionViewModelList: List<ActionViewModel>
 ) {
-    val layoutSize = FixedRect(size.width.toPx(res.displayMetrics), size.height.toPx(res.displayMetrics))
+    val layoutSize =
+        FixedRect(size.width.toPx(res.displayMetrics), size.height.toPx(res.displayMetrics))
     val titleBarVisible = MutableStateFlow(false)
     val isVertical = (layoutSize.horizontally.min <= layoutSize.vertically.min)
     var arrangement: Stack
@@ -39,28 +40,36 @@ class LayoutViewModel(
         val layouts = LayoutStacks(res, userViewModel, actionViewModelList)
         val availableHeight = layoutSize.vertically.min
         val availableWidth = layoutSize.horizontally.min
-        arrangement = layouts.fallbackShort()
         titleBarVisible.value = false
-        if (isVertical) {
-            listOf(layouts.tall(), layouts.tallSlim(), layouts.slim())
-                .filter { it.vertically.min<= availableHeight
-                        && it.horizontally.min <= availableWidth }
-                .maxByOrNull { it.horizontally.min * it.vertically.min }
-                ?.let {
-                    arrangement = it
-                    arrangement.vertically.max = availableHeight
-                }
+        val arrangements = if (isVertical) {
+            listOf(
+                layouts.tallLarge(),
+                layouts.taller(),
+                layouts.tallerSlim(),
+                layouts.tall(),
+                layouts.tallSlim(),
+                layouts.slim(),
+            )
         } else {
-            listOf(layouts.tallWide(), layouts.wide(), layouts.default(), layouts.shortWide(),
-                layouts.short(), layouts.shortSlim())
-                .filter { it.vertically.min <= availableHeight
-                        && it.horizontally.min <= availableWidth }
-                .maxByOrNull { it.horizontally.min * it.vertically.min }
-                ?.let {
-                    arrangement = it
-                    arrangement.vertically.max = availableHeight
-                }
+            listOf(
+                layouts.tallWide(),
+                layouts.wide(),
+                layouts.default(),
+                layouts.shortWide(),
+                layouts.short(),
+                layouts.shortSlim()
+            )
         }
-        arrangement.autoLayout(layoutSize.horizontally.max, layoutSize.vertically.max)
+
+        arrangement =  arrangements
+            .filter {
+                it.vertically.min <= availableHeight && it.horizontally.min <= availableWidth
+            }
+            .map { it.apply { autoLayout(availableWidth, availableHeight) } }
+            .minByOrNull {
+                (availableWidth - it.cover().horizontally.min) +
+                    (availableHeight - it.cover().vertically.min)
+            }
+            ?:  layouts.fallbackShort()
     }
 }

@@ -42,13 +42,7 @@ class InternalButtonStack(val res: Resources,
         alignment = Alignment.Center
     }
 
-    override fun increaseVerticalMin(totalAvailable: Float) : Float {
-        vertically.min = min(vertically.max, totalAvailable)
-        return vertically.min
-    }
-
-    override fun increaseHorizontalMin(totalAvailable: Float) : Float {
-        horizontally.min = min(horizontally.max, totalAvailable)
-        return vertically.min
+    override fun cover(): Measurable {
+        return this
     }
 }

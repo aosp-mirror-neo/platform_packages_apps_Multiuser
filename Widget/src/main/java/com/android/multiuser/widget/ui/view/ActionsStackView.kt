@@ -34,7 +34,7 @@ fun ActionsStackView (
             var background = GlanceTheme.colors.secondaryContainer
             var tint = GlanceTheme.colors.onSecondaryContainer
 
-            if(actionStack.stack.isPrimary) {
+            if(actionStack.getStack().isPrimary) {
                 background = GlanceTheme.colors.primary
                 tint = GlanceTheme.colors.onPrimary
             }

@@ -17,6 +17,7 @@
 package com.android.multiuser.widget.viewmodel.stacks
 
 import android.content.res.Resources
+import androidx.glance.layout.Alignment
 import com.android.multiuser.stacks.FixedSquare
 import com.android.multiuser.stacks.Stack
 import com.android.multiuser.stacks.ui.px
@@ -25,8 +26,8 @@ import com.android.multiuser.widget.viewmodel.UserViewModel
 import com.android.multiuser.widget.viewmodel.measurables.TextMeasurable
 
 class UserStacks(val res: Resources, val viewModel: UserViewModel) {
-    private val MEDIUM_TEXT = TextMeasurable(res, R.dimen.user_text_min_size, viewModel.name)
-    private val LARGE_TEXT = TextMeasurable(res, R.dimen.user_text_max_size, viewModel.name)
+    private fun mediumText() = TextMeasurable(res, R.dimen.user_text_min_size, viewModel.name)
+    private fun largeText() = TextMeasurable(res, R.dimen.user_text_max_size, viewModel.name)
 
     val mediumImageSize: Float = res.px(R.dimen.user_image_min_size)
     val largeImageSize = res.px(R.dimen.user_image_max_size)
@@ -35,30 +36,43 @@ class UserStacks(val res: Resources, val viewModel: UserViewModel) {
 
     class UserImageSquare(val viewModel: UserViewModel, imageSize: Float) :FixedSquare (imageSize)
 
-    val mediumImageMeasurable = UserImageSquare(viewModel, mediumImageSize)
-    val largeImageMeasurable = UserImageSquare(viewModel, largeImageSize)
+    fun mediumImageMeasurable() = UserImageSquare(viewModel, mediumImageSize)
+    fun largeImageMeasurable() = UserImageSquare(viewModel, largeImageSize)
 
-    val SMALL_IMAGE_ONLY = Stack.Vertical(0f, list = listOf(mediumImageMeasurable))
+    fun smallImageOnly() = Stack.Vertical(0f, list = listOf(mediumImageMeasurable()))
         .apply {
             TAG = "USER Small Image Only"
             horizontally.stretchToFill = true
+            vertically.stretchToFill = true
+            alignment = Alignment.Center
         }
-    val SMALL_VERTICAL = Stack.Vertical(verticalGutter, list = listOf(mediumImageMeasurable, MEDIUM_TEXT))
+    fun smallVertical() = Stack.Vertical(verticalGutter, list = listOf(mediumImageMeasurable(), mediumText()))
         .apply {
-            horizontally.stretchToFill = true
+            horizontally.stretchToFill = false
+            vertically.stretchToFill = true
+            alignment = Alignment.Center
             TAG = "USER Small Vertical"
         }
-    val LARGE_VERTICAL = Stack.Vertical(verticalGutter, list = listOf(largeImageMeasurable, LARGE_TEXT))
+
+    fun vertical() = Stack.Vertical(verticalGutter, list = listOf(mediumImageMeasurable(), mediumText()))
         .apply {
-            TAG = "USER Large Vertical"
             horizontally.stretchToFill = true
+            vertically.stretchToFill = true
+            alignment = Alignment.Center
+            TAG = "USER Small Vertical"
         }
-    val SMALL_HORIZONTAL = Stack.Horizontal(horizontalGutter, list = listOf(mediumImageMeasurable, MEDIUM_TEXT)).apply { TAG = "USER Small Horizontal" }
-    val LARGE_HORIZONTAL = Stack.Horizontal(horizontalGutter, list = listOf(mediumImageMeasurable, LARGE_TEXT))
+    fun largeVertical() = Stack.Vertical(verticalGutter, list = listOf(largeImageMeasurable(), largeText()))
         .apply {
             TAG = "USER Large Horizontal"
             horizontally.stretchToFill = true
             vertically.stretchToFill = true
+            alignment = Alignment.Center
+        }
+
+    fun horizontal() = Stack.Horizontal(horizontalGutter, list = listOf(mediumImageMeasurable(), largeText()))
+        .apply {
+            TAG = "USER Horizontal"
+            horizontally.stretchToFill = true
         }
 }
 

@@ -16,7 +16,6 @@
 
 package com.android.multiuser.widget.ui.view
 
-import android.appwidget.AppWidgetManager
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -29,7 +28,6 @@ import androidx.glance.Image
 import androidx.glance.ImageProvider
 import androidx.glance.LocalContext
 import androidx.glance.action.clickable
-import androidx.glance.appwidget.LocalAppWidgetOptions
 import androidx.glance.background
 import androidx.glance.currentState
 import androidx.glance.semantics.contentDescription
@@ -37,7 +35,6 @@ import androidx.glance.semantics.semantics
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
 import androidx.glance.unit.ColorProvider
-import com.android.multiuser.stacks.Stack
 import com.android.multiuser.stacks.ui.StackView
 import com.android.multiuser.stacks.ui.cornerRadius
 import com.android.multiuser.stacks.ui.height
@@ -46,6 +43,7 @@ import com.android.multiuser.widget.ui.util.byState
 import com.android.multiuser.widget.viewmodel.measurables.IconMeasurable
 import com.android.multiuser.widget.viewmodel.measurables.TextMeasurable
 import com.android.multiuser.widget.viewmodel.stacks.ActionButtonStack
+import com.android.multiuser.widget.viewmodel.stacks.InternalButtonStack
 import com.android.multiuser.widget.viewmodel.stacks.VerticalPaddingWrapperStack
 import kotlin.math.min
 import kotlinx.coroutines.launch
@@ -59,24 +57,24 @@ fun StackButton(
     ) {
 
     val cornerRadius = min(stack.vertically.min, stack.horizontally.min) / 2
-    val state by stack.stack.action.state.collectAsState()
+    val state by stack.getStack().action.state.collectAsState()
     val background = color.byState(LocalContext.current, state.isEnabled())
     val foreground = tint.byState(LocalContext.current, state.isEnabled())
     val scope = rememberCoroutineScope()
     val prefs = currentState<Preferences>()
 
     scope.launch {
-        stack.stack.action.refresh(prefs)
+        stack.getStack().action.refresh(prefs)
     }
 
     VerticalPaddingWrapperStackView(
-        stack as VerticalPaddingWrapperStack<Stack>,
+        stack as VerticalPaddingWrapperStack<InternalButtonStack>,
 
         // Return a lambda: @Composable () -> Unit
         {
             StackView(
                 // It's good practice to use mapNotNull here
-                items = stack.stack.list.mapNotNull { measurable ->
+                items = stack.getStack().list.mapNotNull { measurable ->
                     when (measurable) {
                         is IconMeasurable -> {
                             // Return a lambda: @Composable () -> Unit
@@ -113,12 +111,15 @@ fun StackButton(
                         else -> null
                     }
                 },
-                stack = stack.stack,
+                stack = stack.getStack(),
                 modifier = modifier.background(background).cornerRadius(cornerRadius)
             )
         },
         modifier = GlanceModifier
-            .clickable( stack.stack.action.action)
-            .semantics { contentDescription = stack.stack.action.contentDescription ?: stack.stack.action.title }
+            .clickable( stack.getStack().action.action)
+            .semantics {
+                contentDescription =
+                    stack.getStack().action.contentDescription ?: stack.getStack().action.title
+            }
     )
 }

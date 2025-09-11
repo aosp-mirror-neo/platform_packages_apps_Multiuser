@@ -35,4 +35,8 @@ class ActionButtonStack(
     init {
         recalculateVertical()
     }
+
+    override fun cover(): Measurable {
+        return getStack().cover()
+    }
 }

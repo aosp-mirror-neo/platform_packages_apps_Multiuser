@@ -105,6 +105,10 @@ abstract class Stack(open var gutter: Float, open var padding: Measurable, val l
         verticalSpacing = verticalPadding.add(gutterSpacing)
     }
 
+    override fun cover(): Measurable {
+        return list.reduce{ a,b -> a.cover().add(b.cover()) }
+    }
+
     /**
      * Adjusts the stack's dimensions based on the available width and height.
      * It attempts to increase the minimum dimensions of the stack and its children,
@@ -243,13 +247,14 @@ abstract class Stack(open var gutter: Float, open var padding: Measurable, val l
          */
         override fun increaseVerticalMin(totalAvailable: Float): Float {
             val items = list.filter { it.vertically.max - it.vertically.min > 0 }
-            val availableMin = totalAvailable - verticalSpacing.min
-            if(availableMin > 0) {
-                this.vertically.min =
-                    max(vertically.min, min(this.vertically.max, totalAvailable))
-                items.forEach { it.increaseVerticalMin(this.vertically.min - verticalSpacing.min) }
-            }
-            recalculateVertical()
+             var availableMin = min(vertically.max - verticalPadding.min,
+                                    totalAvailable - verticalPadding.min)
+
+             if(availableMin > 0) {
+                 items.forEach { it.increaseVerticalMin(availableMin) }
+             }
+
+           recalculateVertical()
             vertically.increaseMin(totalAvailable)
             return vertically.min
         }
@@ -285,6 +290,13 @@ abstract class Stack(open var gutter: Float, open var padding: Measurable, val l
                 vertically.stretchTo(totalAvailable)
             }
             return vertically.min
+        }
+
+        override fun cover(): Measurable {
+            return list.reduce{ a,b ->
+                Measurable(a.cover().horizontally.add(b.cover().horizontally),
+                    a.cover().vertically.max(b.cover().vertically))
+            }
         }
 
         override fun toString(): String {
@@ -350,11 +362,10 @@ abstract class Stack(open var gutter: Float, open var padding: Measurable, val l
         override fun increaseVerticalMin(totalAvailable: Float) : Float {
             val difference = totalAvailable - vertically.min
             if(difference > 0) {
-                vertically.min = min(vertically.max, totalAvailable)
                 val items = list.filter { it.vertically.max - it.vertically.min > 0 }
                 val proportional = difference / items.size
                 items.forEach {
-                    it.increaseVerticalMin(proportional + it.vertically.min - verticalSpacing.min)
+                    it.increaseVerticalMin(proportional + it.vertically.min)
                 }
             }
             recalculateVertical()
@@ -376,7 +387,6 @@ abstract class Stack(open var gutter: Float, open var padding: Measurable, val l
             if(vertically.stretchToFill) {
                 val difference = totalAvailable - vertically.min
                 if (difference > 0) {
-                    vertically.min = min(vertically.max, totalAvailable)
                     val items = list.filter { it.vertically.stretchToFill }
                     val proportional = difference / items.size
                     items.forEach { item ->
@@ -431,6 +441,13 @@ abstract class Stack(open var gutter: Float, open var padding: Measurable, val l
             return horizontally.min
         }
 
+
+        override fun cover(): Measurable {
+            return list.reduce{ a,b ->
+                Measurable(a.cover().horizontally.max(b.cover().horizontally),
+                    a.cover().vertically.add(b.cover().vertically))
+            }
+        }
         override fun toString(): String {
             return "\n\nV $TAG" +
                     "($horizontally x $vertically)" +
