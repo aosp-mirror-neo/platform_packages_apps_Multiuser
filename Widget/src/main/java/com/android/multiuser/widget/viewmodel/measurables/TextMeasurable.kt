@@ -29,24 +29,22 @@ import com.android.multiuser.stacks.ui.sp
 import com.android.multiuser.stacks.ui.toPx
 import com.android.multiuser.stacks.ui.inDp
 
-open class TextMeasurable(val res: Resources, @DimenRes val textSizeId: Int? = null, val text: String = "")
+open class TextMeasurable(val res: Resources, @DimenRes val textSizeId: Int, val text: String = "")
     : Measurable(Resizable(0f,0f), Fixed(0f)) {
-    val fontSize: TextUnit = textSizeId?.let { res.sp(it) } ?: 0.sp
+    val fontSize: TextUnit = res.sp(textSizeId)
+    val textPaint = TextPaint(TextPaint.FAKE_BOLD_TEXT_FLAG).apply {
+        textSize = fontSize.toPx(res.displayMetrics)
+    }
+    // Add 10% to start and end to avoid ellipsis
+    val safetyBuffer = (fontSize.toPx(res.displayMetrics) / 5)
+    val minWidth = textPaint.measureText(text) + safetyBuffer
+    val minHeight = textPaint.fontMetrics.bottom - textPaint.fontMetrics.top
 
     init {
-        textSizeId?.let { resId ->
-            val textPaint = TextPaint(TextPaint.FAKE_BOLD_TEXT_FLAG).apply {
-                textSize = fontSize.toPx(res.displayMetrics)
-            }
-            // Add 10% to start and end to avoid ellipsis
-            val safetyBuffer = (fontSize.toPx(res.displayMetrics) / 5)
-            val minWidth = textPaint.measureText(text) + safetyBuffer
             horizontally.min = minWidth
             horizontally.max = minWidth
-            val minHeight = textPaint.fontMetrics.bottom - textPaint.fontMetrics.top
             vertically.min = minHeight
             vertically.max = minHeight
-        }
     }
 
     val width: Dp
@@ -54,5 +52,9 @@ open class TextMeasurable(val res: Resources, @DimenRes val textSizeId: Int? = n
 
     val height: Dp
         get() = vertically.min.inDp(res.displayMetrics)
+
+    override fun cover(): Measurable {
+        return Measurable(Fixed(minWidth), Fixed(minHeight))
+    }
 
 }

@@ -104,6 +104,8 @@ open class Measurable(val horizontally: Resizable, val vertically: Resizable) {
     override fun toString(): String {
         return "($horizontally x $vertically)"
     }
+
+    open fun cover() = this
 }
 
 /**

@@ -34,7 +34,12 @@ class LayoutStacks(val res: Resources, item: UserViewModel, actions: List<Action
             res.px(R.dimen.content_vertical_gutter),
             res.layoutPadding(),
             list
-        )
+        ) {
+        init {
+            horizontally.stretchToFill = true
+            vertically.stretchToFill = true
+        }
+    }
 
     class VerticalLayoutStackWithTitleBar(res: Resources, list: List<Stack>) : Stack.Vertical(
         0f, FixedRect(0f, 0f),
@@ -44,8 +49,6 @@ class LayoutStacks(val res: Resources, item: UserViewModel, actions: List<Action
         )
     ) {
         init {
-            horizontally.stretchToFill = true
-            vertically.stretchToFill = true
         }
     }
 
@@ -104,7 +107,7 @@ class LayoutStacks(val res: Resources, item: UserViewModel, actions: List<Action
 
     fun tallWide() = HorizontalLayoutStackWithLargeTitleBar(
         res,
-        listOf(userStacks.LARGE_VERTICAL, actionStacks.LARGE_VERTICAL)
+        listOf(userStacks.largeVertical(), actionStacks.largeVertical())
     ).apply {
         TAG = "Tall Wide"
         horizontally.stretchToFill = true
@@ -114,52 +117,75 @@ class LayoutStacks(val res: Resources, item: UserViewModel, actions: List<Action
 
     fun wide() = HorizontalLayoutStackWithLargeTitleBar(
         res,
-        listOf(userStacks.LARGE_HORIZONTAL, actionStacks.TALL_HORIZONTAL)
+        listOf(userStacks.horizontal(), actionStacks.tallHorizontal())
     ).apply {
         TAG = "Wide"
-        horizontally.stretchToFill = true
+        horizontally.stretchToFill = false
         vertically.stretchToFill = true
     }
 
     fun shortWide() = HorizontalLayoutStack(
         res,
-        listOf(userStacks.LARGE_HORIZONTAL, actionStacks.TALL_HORIZONTAL)
+        listOf(userStacks.horizontal(), actionStacks.tallHorizontal())
     ).apply { TAG = "Short Wide" }
 
     fun default() = HorizontalLayoutStackWithLargeTitleBar(
         res,
-        listOf(userStacks.SMALL_VERTICAL, actionStacks.SMALL_VERTICAL)
+        listOf(userStacks.vertical(), actionStacks.smallVertical())
     ).apply { TAG = "Default" }
 
     fun short() = HorizontalLayoutStack(
         res,
-        listOf(userStacks.SMALL_IMAGE_ONLY, actionStacks.TALL_HORIZONTAL)
-    ).apply { TAG = "Short" }
+        listOf(userStacks.smallImageOnly(), actionStacks.tallHorizontal())
+    ).apply { TAG = "Short"
+        horizontally.stretchToFill = true
+        vertically.stretchToFill = true }
 
     fun shortSlim() = HorizontalLayoutStack(
         res,
-        listOf(userStacks.SMALL_IMAGE_ONLY, actionStacks.SINGLE_HORIZONTAL)
-    ).apply { TAG = "Short Slim" }
+        listOf(userStacks.smallImageOnly(), actionStacks.singleHorizontal())
+    ).apply {
+        TAG = "Short Slim"
+        horizontally.stretchToFill = true
+        vertically.stretchToFill = true
+    }
 
     fun fallback() = HorizontalLayoutStack(
         res,
-        listOf(actionStacks.TALL_HORIZONTAL)
+        listOf(actionStacks.tallHorizontal())
     ).apply { TAG = "Fallback" }
 
     fun fallbackShort() = HorizontalLayoutStack(
-        res, listOf(actionStacks.SINGLE_HORIZONTAL)
+        res, listOf(actionStacks.singleHorizontal())
     ).apply { TAG = "Fallback Short" }
 
+    fun tallLarge() = VerticalLayoutStackWithLargeTitleBar(
+        res, listOf(userStacks.largeVertical(), actionStacks.largeVertical())
+    ).apply { TAG = "Tall Large" }
+
     fun tall() = VerticalLayoutStackWithLargeTitleBar(
-        res, listOf(userStacks.SMALL_VERTICAL, actionStacks.HORIZONTAL)
+        res, listOf(userStacks.smallVertical(), actionStacks.horizontal())
     ).apply { TAG = "Tall" }
 
     fun tallSlim() = VerticalLayoutStackWithTitleBar(
-        res, listOf(userStacks.SMALL_VERTICAL, actionStacks.HORIZONTAL)
+        res, listOf(userStacks.smallVertical(), actionStacks.horizontal())
     ).apply { TAG = "Tall Slim" }
+
+
+    fun taller() = VerticalLayoutStackWithLargeTitleBar(
+        res, listOf(userStacks.largeVertical(), actionStacks.horizontal())
+    ).apply { TAG = "Taller" }
+
+    fun tallerSlim() = VerticalLayoutStackWithTitleBar(
+        res, listOf(userStacks.largeVertical(), actionStacks.horizontal())
+    ).apply {
+        TAG = "Taller Slim"
+    }
 
     fun slim() = VerticalLayoutStack(
         res,
-        listOf(userStacks.SMALL_IMAGE_ONLY, actionStacks.HORIZONTAL)
-    ).apply { TAG = "Slim" }
+        listOf(userStacks.smallImageOnly(), actionStacks.horizontal())
+    ).apply {
+        TAG = "Slim"
+    }
 }

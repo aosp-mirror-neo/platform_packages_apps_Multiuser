@@ -27,8 +27,8 @@ import com.android.multiuser.widget.viewmodel.measurables.SpacerMeasurable
 import com.android.multiuser.widget.viewmodel.stacks.VerticalPaddingWrapperStack
 
 @Composable
-fun VerticalPaddingWrapperStackView(
-    stack: VerticalPaddingWrapperStack<Stack>,
+fun <T: Stack> VerticalPaddingWrapperStackView(
+    stack: VerticalPaddingWrapperStack<T>,
     composeStack: @Composable () -> Unit,
     modifier: GlanceModifier
 ) {

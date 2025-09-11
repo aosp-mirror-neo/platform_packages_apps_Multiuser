@@ -76,8 +76,11 @@ open class Resizable(var min : Float, var max : Float) {
      * @return The (potentially updated) [min] value.
      */
     open fun increaseMin(totalAvailable: Float): Float {
+        if(max >= totalAvailable) {
+            max = totalAvailable
+        }
         if (totalAvailable > min) {
-            min = min(totalAvailable, max)
+            min = max
         }
         return min
     }
