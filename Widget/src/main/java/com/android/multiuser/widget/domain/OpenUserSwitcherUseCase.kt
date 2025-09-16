@@ -29,11 +29,7 @@ class OpenUserSwitcherUseCase(val intentRepo: IntentRepository,
             val intent = intentRepo.getUserSwitchRestrictedIntent(restriction)
             return StartActivityUseCase(intent)
         }
-        if(com.android.systemui.Flags.multiuserOpenUserSwitcherDialog()) {
-            val intent = intentRepo.getUserSwitcherIntent()
-            return SendBroadcastUseCase(intent)
-        }
-        val intent = intentRepo.getUserSwitchRestrictedIntent(UserSwitchRestrictions.UNKNOWN)
-        return StartActivityUseCase(intent)
+        val intent = intentRepo.getUserSwitcherIntent()
+        return SendBroadcastUseCase(intent)
     }
 }
