@@ -20,6 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"អ្នកប្រើប្រាស់"</string>
+    <string name="current_user_content_description" msgid="9064744464195867095">"អ្នកប្រើប្រាស់បច្ចុប្បន្នដែលនៅលើឧបករណ៍នេះគឺ %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"បញ្ចូល​អ្នក​ប្រើប្រាស់"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"បញ្ចូល​អ្នក​ប្រើប្រាស់"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"ប្ដូរអ្នកប្រើប្រាស់"</string>
@@ -30,15 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"មិនអាចផ្ទុកធាតុ​ក្រាហ្វិកបានទេ។"</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"ចូលទៅកាន់ \"ការកំណត់អ្នកប្រើប្រាស់\"។"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"បានទប់ស្កាត់ដោយ​គោលការណ៍ការងារ"</string>
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"ស្ថាប័នរបស់អ្នកមិនអនុញ្ញាតឱ្យអ្នកបញ្ចូលអ្នកប្រើប្រាស់ទេ។ ដើម្បីទទួលបានព័ត៌មានបន្ថែម សូមទាក់ទងទៅអ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មានវិទ្យារបស់អ្នក។"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"ស្ថាប័នរបស់អ្នកមិនអនុញ្ញាតឱ្យអ្នកប្ដូរអ្នកប្រើប្រាស់ទេ។ ដើម្បីទទួលបានព័ត៌មានបន្ថែម សូមទាក់ទងទៅអ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មានវិទ្យារបស់អ្នក។"</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"មិនអាចប្ដូរអ្នកប្រើប្រាស់បានទេ"</string>
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"មិនអាចបញ្ចូលអ្នកប្រើប្រាស់បានទេ"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"មានអ្វីមួយខុសប្រក្រតី។"</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"បិទ"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"មិនអាចប្ដូរអ្នកប្រើប្រាស់បានទេ"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"អ្នកមិនអាចប្ដូរអ្នកប្រើប្រាស់ក្នុងអំឡុងពេលហៅទូរសព្ទបានទេ"</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"មិនអាចប្ដូរអ្នកប្រើប្រាស់បានទេ"</string>
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"អ្នកមិនអាចបញ្ចូលអ្នកប្រើប្រាស់ក្នុងអំឡុងពេលហៅទូរសព្ទបានទេ"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"អនុញ្ញាតឱ្យប្ដូរអ្នកប្រើប្រាស់នៅក្នុង \"ការកំណត់\" រួចព្យាយាមម្ដងទៀត"</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"ការកំណត់"</string>
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"ដើម្បីបញ្ចូលអ្នកប្រើប្រាស់ ពេលឧបករណ៍របស់អ្នកជាប់សោ សូមបើក &lt;b&gt;\"បញ្ចូល​អ្នក​ប្រើប្រាស់​ពី​អេក្រង់ចាក់សោ\"&lt;/b&gt; នៅក្នុង \"ការកំណត់\""</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"គ្រប់គ្រង​អ្នក​ប្រើប្រាស់"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"អ្នកបានឈាន​ដល់ចំនួនអ្នកប្រើប្រាស់ច្រើនបំផុតហើយ។ សូមដកអ្នកប្រើប្រាស់ណាម្នាក់ចេញ ដើម្បីបញ្ចូលអ្នកប្រើប្រាស់ថ្មី។"</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"មានតែអ្នកគ្រប់គ្រងឧបករណ៍ប៉ុណ្ណោះ ទើបអាចបញ្ចូលអ្នកប្រើប្រាស់ផ្សេងទៀតបាន"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"រូបភាពរបស់ Brenda"</string>

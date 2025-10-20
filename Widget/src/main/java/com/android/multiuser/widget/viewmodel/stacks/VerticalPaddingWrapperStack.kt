@@ -16,13 +16,14 @@
 
 package com.android.multiuser.widget.viewmodel.stacks
 
-import android.util.Log
 import com.android.multiuser.stacks.Stack
 import com.android.multiuser.widget.viewmodel.measurables.SpacerMeasurable
 
 
-open class VerticalPaddingWrapperStack<T: Stack>(val stack: T, private val minSize : Float)
+open class VerticalPaddingWrapperStack<T: Stack>(stack: T, protected val minSize : Float)
     : Stack.Vertical(list =  listOf(SpacerMeasurable(), stack, SpacerMeasurable())) {
+
+    fun getStack() = list[1] as T
 
     override fun recalculateVertical() {
         if (vertically.max < minSize) {

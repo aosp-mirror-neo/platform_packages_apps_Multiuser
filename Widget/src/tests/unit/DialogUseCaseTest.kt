@@ -16,6 +16,8 @@
 
 package com.android.multiuser.widget.ui.tests
 
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.fromHtml
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
@@ -59,7 +61,7 @@ class DialogUseCaseTest {
         val dialogUseCase = DialogUseCase(action.intent, context.resources)
         val model = dialogUseCase()
         val title: String = context.getString(R.string.widget_switch_failed_dialog_title)
-        val message: String = context.getString(R.string.widget_switch_failed_dialog_message)
+        val message: AnnotatedString = AnnotatedString.Companion.fromHtml(context.getString(R.string.widget_switch_failed_dialog_message))
         assertEquals(model.title, title)
         assertEquals(model.message, message)
         assertNull(model.positiveButtonText)
@@ -77,9 +79,9 @@ class DialogUseCaseTest {
         assertNotNull(action.intent)
         val dialogUseCase = DialogUseCase(action.intent, context.resources)
         val model = dialogUseCase()
-        val title: String = context.getString(R.string.widget_switch_disabled_dialog_title)
-        val message: String = context.getString(R.string.widget_switch_disabled_dialog_message)
-        val actionButton: String = context.getString(R.string.widget_switch_disabled_dialog_open_settings_button)
+        val title: String = context.getString(R.string.widget_switch_failed_dialog_title)
+        val message: AnnotatedString = AnnotatedString.Companion.fromHtml(context.getString(R.string.widget_switch_disabled_dialog_message))
+        val actionButton: String = context.getString(R.string.widget_dialog_open_settings_button)
         assertEquals(model.title, title)
         assertEquals(model.message, message)
         assertEquals(model.positiveButtonText, actionButton)
@@ -99,7 +101,7 @@ class DialogUseCaseTest {
         val dialogUseCase = DialogUseCase(action.intent, context.resources)
         val model = dialogUseCase()
         val title: String = context.getString(R.string.widget_switch_work_restriction_dialog_title)
-        val message: String = context.getString(R.string.widget_switch_work_restriction_dialog_message)
+        val message: AnnotatedString = AnnotatedString.Companion.fromHtml(context.getString(R.string.widget_switch_work_restriction_dialog_message))
         assertEquals(model.title, title)
         assertEquals(model.message, message)
         assertNull(model.positiveButtonText)
@@ -117,8 +119,8 @@ class DialogUseCaseTest {
         assertNotNull(action.intent)
         val dialogUseCase = DialogUseCase(action.intent, context.resources)
         val model = dialogUseCase()
-        val title: String = context.getString(R.string.widget_switch_not_allowed_dialog_title)
-        val message: String = context.getString(R.string.widget_switch_not_allowed_dialog_message)
+        val title: String = context.getString(R.string.widget_switch_failed_dialog_title)
+        val message: AnnotatedString = AnnotatedString.Companion.fromHtml(context.getString(R.string.widget_switch_not_allowed_dialog_message))
         assertEquals(model.title, title)
         assertEquals(model.message, message)
         assertNull(model.positiveButtonText)

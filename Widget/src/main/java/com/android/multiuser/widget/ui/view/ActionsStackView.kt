@@ -19,7 +19,6 @@ package com.android.multiuser.widget.ui.actions
 import androidx.compose.runtime.Composable
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
-import androidx.glance.background
 import com.android.multiuser.stacks.Stack
 import com.android.multiuser.stacks.ui.StackView
 import com.android.multiuser.widget.ui.view.StackButton
@@ -34,17 +33,13 @@ fun ActionsStackView (
         items = actionsStack.list.filterIsInstance<ActionButtonStack>().map { actionStack ->
             var background = GlanceTheme.colors.secondaryContainer
             var tint = GlanceTheme.colors.onSecondaryContainer
-            if(actionStack.stack.isPrimary) {
+
+            if(actionStack.getStack().isPrimary) {
                 background = GlanceTheme.colors.primary
                 tint = GlanceTheme.colors.onPrimary
             }
-            {
-                StackButton(
-                    actionStack,
-                    GlanceModifier.background(background),
-                    tint
-                )
-            }
+
+            { StackButton(actionStack, GlanceModifier, background, tint) }
         },
         stack = actionsStack,
         modifier = modifier)

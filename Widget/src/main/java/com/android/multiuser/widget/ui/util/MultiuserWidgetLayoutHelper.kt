@@ -16,18 +16,28 @@
 
 package com.android.multiuser.widget.ui.util
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.content.ComponentCallbacks
+import android.content.Context
+import android.content.res.Configuration
+import android.content.res.Resources
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.neverEqualPolicy
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.snapshots.Snapshot
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.DpSize
+import androidx.compose.ui.unit.dp
 import androidx.glance.GlanceModifier
+import androidx.glance.LocalContext
 import androidx.glance.layout.fillMaxSize
 import androidx.glance.layout.padding
-import androidx.glance.LocalContext
+import androidx.glance.unit.ColorProvider
 import com.android.multiuser.widget.R
-import java.io.File
 
 @Composable
 fun ResourceString (resId: Int): String {
@@ -37,16 +47,6 @@ fun ResourceString (resId: Int): String {
 @Composable
 fun ResourceDp (resId: Int): Dp {
     return Dp(LocalContext.current.resources.getDimension(resId))
-}
-
-fun readFromInternalStorage(path: String): Bitmap? {
-    val file = File(path)
-    if (file.exists()) {
-        val options = BitmapFactory.Options().apply{ inMutable = true }
-        return BitmapFactory.decodeFile(file.absolutePath, options)
-    } else {
-        return null
-    }
 }
 
 @Composable
@@ -138,4 +138,31 @@ private enum class WidgetLayoutSize(val maxWidth: Dp) {
     }
 }
 
+fun ColorProvider.byState(context: Context, enabled: Boolean): ColorProvider {
+    if (enabled)
+        return this
+    return ColorProvider(this.getColor(context).copy(alpha = 0.38f))
+}
+
+
 const val EMPTY_STRING = ""
+
+@Composable
+fun rememberCurrentResources(): MutableState<Resources> {
+    val context by rememberUpdatedState(LocalContext.current)
+    val resources = remember { mutableStateOf(context.resources, neverEqualPolicy()) }
+    DisposableEffect(context) {
+        val callback = object : ComponentCallbacks {
+            override fun onConfigurationChanged(newConfig: Configuration) {
+                // retrieve the current resources
+                resources.value = context.resources
+            }
+            override fun onLowMemory() {}
+        }
+        context.registerComponentCallbacks(callback)
+        onDispose {
+            context.unregisterComponentCallbacks(callback)
+        }
+    }
+    return resources
+}

@@ -21,7 +21,7 @@ import com.android.multiuser.widget.viewmodel.ActionViewModel
 
 class ActionStacks (val res: Resources, val actions:List<ActionViewModel>) {
 
-    val WIDE_BUTTONS = actions.mapIndexed { index, action ->
+    fun wideButtons() = actions.mapIndexed { index, action ->
         ActionButtonStack(res, action, res.largeActionButtonPadding(), false, index == 0)
     }.also { buttons ->
         val max = buttons.minBy { it.horizontally.max }.horizontally.max
@@ -29,32 +29,41 @@ class ActionStacks (val res: Resources, val actions:List<ActionViewModel>) {
             button.horizontally.max = max
         }
         buttons.first().apply{
-           stack.isPrimary = true
+           getStack().isPrimary = true
         }
     }
 
-    val TALL_BUTTON_NO_TEXTS = actions.mapIndexed { index, action ->
+    fun tallButtonsNoText() = actions.mapIndexed { index, action ->
         ActionButtonStack(res, action, res.tallActionButtonPadding(), isPrimary = index == 0)
     }
 
-    val WIDE_BUTTONS_NO_TEXT = actions.mapIndexed {index, action ->
+    fun wideButtonsNoText() = actions.mapIndexed {index, action ->
         ActionButtonStack(res, action, res.wideActionButtonPadding(), isPrimary = index == 0)
     }
 
-    val BUTTONS_NO_TEXT = actions.mapIndexed { index, action ->
+    fun buttonsNoText() = actions.mapIndexed { index, action ->
         ActionButtonStack(res, action, res.actionButtonPadding(), isPrimary = index == 0)
     }
 
-    val LARGE_VERTICAL = VerticalActionStack(res.actionVerticalGutter(), res.actionLargePadding(),
-        WIDE_BUTTONS).apply { TAG = "ACTION Large Vertical" }
-    val SINGLE_HORIZONTAL = HorizontalActionStack(0f, 0f,
-        TALL_BUTTON_NO_TEXTS.subList(0,1)).apply { TAG = "ACTION Single Horizontal"  }
-    val TALL_HORIZONTAL = HorizontalActionStack(res, TALL_BUTTON_NO_TEXTS)
+    fun largeVertical() = VerticalActionStack(res, wideButtons())
+        .apply { TAG = "ACTION Large Vertical" }
+
+    fun largeHorizontal() = HorizontalActionStack(res, wideButtons())
+        .apply { TAG = "ACTION Large Horizontal" }
+
+    fun singleHorizontal() = HorizontalActionStack(0f, 0f, tallButtonsNoText().subList(0,1))
+        .apply { TAG = "ACTION Single Horizontal"  }
+
+    fun tallHorizontal() = HorizontalActionStack(res, tallButtonsNoText())
         .apply { TAG = "ACTION Tall Horizontal" }
-    val WIDE_HORIZONTAL = HorizontalActionStack(res, WIDE_BUTTONS_NO_TEXT)
+
+    fun wideHorizontal() = HorizontalActionStack(res, wideButtonsNoText())
         .apply { TAG = "ACTION Wide Horizontal" }
-    val SMALL_VERTICAL = VerticalActionStack(res, WIDE_BUTTONS_NO_TEXT)
+
+    fun smallVertical() = VerticalActionStack(res, wideButtonsNoText())
         .apply { TAG = "ACTION Small Vertical" }
-    val HORIZONTAL = HorizontalActionStack(res, BUTTONS_NO_TEXT)
+
+    fun horizontal() = HorizontalActionStack(res, buttonsNoText())
         .apply { TAG = "ACTION Horizontal" }
+
 }

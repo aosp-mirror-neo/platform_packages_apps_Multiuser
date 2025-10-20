@@ -21,7 +21,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
-import androidx.glance.LocalContext
 import androidx.glance.LocalSize
 import androidx.glance.background
 import androidx.glance.layout.Box
@@ -30,6 +29,7 @@ import androidx.glance.semantics.contentDescription
 import androidx.glance.semantics.semantics
 import com.android.multiuser.stacks.Stack
 import com.android.multiuser.stacks.ui.StackView
+import com.android.multiuser.widget.ui.util.rememberCurrentResources
 import com.android.multiuser.widget.viewmodel.ActionViewModel
 import com.android.multiuser.widget.viewmodel.LayoutViewModel
 import com.android.multiuser.widget.viewmodel.UserViewModel
@@ -41,8 +41,9 @@ import com.android.multiuser.widget.viewmodel.stacks.TitleBarStack
 fun LayoutView(model: UsersViewModel) {
     val items by model.data.collectAsState()
     val actions = items.filterIsInstance<ActionViewModel>()
+    val resources by rememberCurrentResources()
     items.filterIsInstance<UserViewModel>().firstOrNull()?.let { item ->
-        val layout = LayoutViewModel(LocalSize.current, LocalContext.current.resources, item, actions)
+        val layout = LayoutViewModel(LocalSize.current, resources, item, actions)
         Box(modifier = GlanceModifier
             .fillMaxSize()
             .background(GlanceTheme.colors.widgetBackground)

@@ -23,18 +23,21 @@ import com.android.multiuser.widget.R
 
 class ActionsRepository(private val resources: Resources) {
     fun getAddUserAction() = Action(
+        key = "add_user_key",
         title = resources.getString(R.string.add_user_button_title),
         contentDescription = resources.getString(R.string.add_user_button_content_description),
-        resourceId = if(Flags.widgetScalingBugfix()) R.drawable.add_24 else R.drawable.person_add
+        resourceId = R.drawable.add_24
     )
 
     fun getSwitchUserAction() = Action(
+        key = "switch_user_key",
         title = resources.getString(R.string.switch_user_button_title),
         contentDescription = resources.getString(R.string.switch_user_button_content_description),
         resourceId = R.drawable.switch_arrows_24
     )
 
     fun getSettingsAction() = Action(
+        key = "settings_user_key",
         title = resources.getString(R.string.widget_settings_button_content_description),
         contentDescription = resources.getString(R.string.widget_settings_button_content_description),
         resourceId = R.drawable.settings

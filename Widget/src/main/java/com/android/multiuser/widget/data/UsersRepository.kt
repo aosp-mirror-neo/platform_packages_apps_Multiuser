@@ -20,7 +20,6 @@ import android.app.ActivityManager
 import android.appwidget.AppWidgetProviderInfo
 import android.content.ContentResolver
 import android.content.pm.UserInfo
-import android.multiuser.Flags
 import android.os.UserHandle
 import android.os.UserManager
 import android.provider.Settings.Global
@@ -39,13 +38,7 @@ class UsersRepository(private val userManager: UserManager?,
             // This ensures the error layout is shown in the UI.
             return listOf()
         }
-        var userInfoList = userManager.getAliveUsers().filter { user ->
-            if (Flags.widgetScalingBugfix()) {
-                user.id == currentUserId
-            } else {
-                (user.isFull() && user.supportsSwitchTo())
-            }
-        }
+        var userInfoList = userManager.getAliveUsers()
 
         return userInfoList
             .map { userInfo: UserInfo ->

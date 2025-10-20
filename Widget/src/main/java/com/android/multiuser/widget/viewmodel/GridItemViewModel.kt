@@ -16,10 +16,39 @@
 
 package com.android.multiuser.widget.viewmodel
 
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.glance.action.Action
+import androidx.glance.action.LambdaAction
+import com.android.multiuser.widget.domain.restrictions.DefaultStateUseCase
+import com.android.multiuser.widget.domain.restrictions.IStateUseCase
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 
-sealed class GridItemViewModel(
-    open val title: String,
-    open val contentDescription: String?,
-    open val action: Action
-)
+open class GridItemViewModel(
+    val key: String,
+    val title: String,
+    val contentDescription: String? = null,
+    val action: Action = LambdaAction("GridItemViewModel $key", {}),
+    val stateUseCase: IStateUseCase<ButtonState> = DefaultStateUseCase()
+) {
+    private val _state: MutableStateFlow<ButtonState> = MutableStateFlow(ButtonState(true, true))
+    val state = _state.asStateFlow()
+
+    // Always refresh ViewModel before use
+    open suspend fun refresh(prefs: Preferences?) {
+        val stateFlags = prefs?.get(intPreferencesKey(key))
+        val newState = stateUseCase()
+        if(stateFlags == null || ButtonState(stateFlags) != newState) {
+            setState(newState)
+        } else {
+            setState(ButtonState(stateFlags))
+        }
+    }
+
+   private fun setState(newState: ButtonState) {
+        if (newState.flag != state.value.flag) {
+            _state.value = newState
+        }
+    }
+}

@@ -20,6 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"Korisnici"</string>
+    <string name="current_user_content_description" msgid="9064744464195867095">"Trenutačni korisnik na ovom uređaju je %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"Dodaj korisnika"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"Dodaj korisnika"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"Promijeni korisnika"</string>
@@ -30,15 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Učitavanje widgeta nije uspjelo."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Otvorite postavke korisnika."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Blokirano u skladu s pravilima za poslovne uređaje"</string>
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Vaša organizacija vam ne dopušta dodavanje korisnika. Za više informacija obratite se IT administratoru."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Vaša organizacija ne dopušta promjenu korisnika. Za više informacija obratite se IT administratoru."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Nije moguće promijeniti korisnika"</string>
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Nije moguće dodati korisnika"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Nešto nije u redu."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Zatvori"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Nije moguće promijeniti korisnika"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Ne možete promijeniti korisnika tijekom poziva"</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Nije moguće promijeniti korisnika"</string>
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Ne možete dodati korisnika tijekom poziva"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Dopustite promjenu korisnika u postavkama, a zatim pokušajte ponovno"</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"Postavke"</string>
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Da biste dodali korisnike dok je uređaj zaključan, uključite opciju &lt;b&gt;Dodavanje korisnika sa zaključanog zaslona&lt;/b&gt; u postavkama"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Upravljanje korisnicima"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Dosegnuli ste maksimalan broj korisnika. Uklonite korisnika kako biste dodali novog."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Samo administrator uređaja može dodati drugog korisnika"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Slika Brende"</string>

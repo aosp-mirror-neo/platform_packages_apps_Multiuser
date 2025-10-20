@@ -17,10 +17,11 @@
 package com.android.multiuser.widget.viewmodel
 
 import android.content.Intent
+import androidx.compose.ui.text.AnnotatedString
 
 class DialogViewModel(
     val title: String,
-    val message: String,
+    val message: AnnotatedString,
     val positiveButtonText: String? = null,
     val actionIntent: Intent? = null
 )

@@ -20,6 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"ব্যৱহাৰকাৰী"</string>
+    <string name="current_user_content_description" msgid="9064744464195867095">"এই ডিভাইচটোৰ বৰ্তমানৰ ব্যৱহাৰকাৰী হৈছে %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"ব্যৱহাৰকাৰী যোগ দিয়ক"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"ব্যৱহাৰকাৰী যোগ দিয়ক"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"ব্যৱহাৰকাৰী সলনি কৰক"</string>
@@ -30,15 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"ৱিজেট ল’ড কৰিব পৰা নগ’ল।"</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"ব্যৱহাৰকাৰীৰ ছেটিঙলৈ যাওক।"</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"কৰ্মস্থানৰ নীতিয়ে অৱৰোধ কৰিছে"</string>
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"আপোনাৰ প্ৰতিষ্ঠানে আপোনাক ব্যৱহাৰকাৰী যোগ দিবলৈ নিদিয়ে। অধিক তথ্যৰ বাবে আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"আপোনাৰ প্ৰতিষ্ঠানে আপোনাক ব্যৱহাৰকাৰী সলনি কৰিবলৈ নিদিয়ে। অধিক তথ্যৰ বাবে আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"ব্যৱহাৰকাৰী সলনি কৰিব নোৱাৰি"</string>
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"ব্যৱহাৰকাৰী যোগ দিব নোৱাৰি"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"কিবা ভুল হ’ল।"</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"বন্ধ কৰক"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"ব্যৱহাৰকাৰী সলনি কৰিব নোৱাৰি"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"কল কৰি থকাৰ সময়ত আপুনি ব্যৱহাৰকাৰী সলনি কৰিব নোৱাৰে"</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"ব্যৱহাৰকাৰী সলনি কৰিব নোৱাৰি"</string>
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"কল চলি থকাৰ সময়ত আপুনি ব্যৱহাৰকাৰী যোগ দিব নোৱাৰে"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"ছেটিঙত ব্যৱহাৰকাৰী সলনি কৰিবলৈ দিয়ক, তাৰ পাছত পুনৰ চেষ্টা কৰক"</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"ছেটিং"</string>
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"আপোনাৰ ডিভাইচ লক হৈ থকাৰ সময়ত ব্যৱহাৰকাৰী যোগ দিবলৈ, ছেটিঙত &lt;b&gt;লক স্ক্ৰীনৰ পৰা ব্যৱহাৰকাৰী যোগ দিয়ক&lt;/b&gt; অন কৰক"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"ব্যৱহাৰকাৰীক পৰিচালনা কৰক"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"আপুনি ব্যৱহাৰকাৰীৰ সংখ্যাৰ সৰ্বোচ্চ সীমাত উপনীত হৈছে। নতুন ব্যৱহাৰকাৰী যোগ দিবলৈ এগৰাকী ব্যৱহাৰকাৰী আঁতৰাওক।"</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"কেৱল ডিভাইচৰ প্ৰশাসকেহে আন এগৰাকী ব্যৱহাৰকাৰী যোগ দিব পাৰে"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"বৃন্দা"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"ইলা"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"বৃন্দাৰ চিত্ৰ"</string>

@@ -20,6 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"Foydalanuvchilar"</string>
+    <string name="current_user_content_description" msgid="9064744464195867095">"Bu qurilmadagi joriy foydalanuvchi: %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"Foydalanuvchi qoʻshish"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"Foydalanuvchi qoʻshish"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"Foydalanuvchini almashtirish"</string>
@@ -30,15 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Vidjet yuklanmadi."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Foydalanuvchilar Sozlamalarini oching."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Ishga oid siyosat tomonidan bloklangan"</string>
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Tashkilotingiz foydalanuvchilar qoʻshishga ruxsat bermaydi. Batafsil axborot olish uchun AT administratorga murojaat qiling."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Tashkilotingiz foydalanuvchilarni almashtirishga ruxsat bermaydi. Batafsil axborot olish uchun AT administratorga murojaat qiling."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Foydalanuvchi almashtirilmadi"</string>
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Foydalanuvchi kiritilmadi"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Nimadir xato ketdi."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Yopish"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Foydalanuvchi almashtirilmadi"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Chaqiruv paytida foydalanuvchini almashtirolmaysiz"</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Foydalanuvchi almashtirilmadi"</string>
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Chaqiruv paytida foydalanuvchi qoʻsha olmaysiz"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Sozlamalarda foydalanuvchini almashtirishga ruxsat berib, qayta urining"</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"Sozlamalar"</string>
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Qurilma qulfligida foydalanuvchilarni qoʻshish uchun Sozlamalarda &lt;b&gt;Ekran qulfidan foydalanuvchilarni qoʻshish&lt;/b&gt; bandini yoqing"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Foydalanuvchilarni boshqarish"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Foydalanuvchilarning maksimal soniga yetdingiz. Yangi foydalanuvchi qoʻshish uchun eskisini oʻchiring"</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Faqat qurilma administratori boshqa foydalanuvchi qoʻsha oladi"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Brendaning rasmi"</string>

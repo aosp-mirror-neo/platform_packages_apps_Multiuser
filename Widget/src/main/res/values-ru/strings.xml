@@ -20,6 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"Пользователи"</string>
+    <string name="current_user_content_description" msgid="9064744464195867095">"Этим устройством пользуется %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"Добавить пользователя"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"Добавить пользователя"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"Сменить пользователя"</string>
@@ -30,15 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Не удалось загрузить виджет."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Перейти в настройки пользователей."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Заблокировано правилами организации"</string>
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"В вашей организации запрещено добавлять пользователей. Чтобы узнать подробности, обратитесь к своему администратору."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"В вашей организации запрещено менять пользователей. Чтобы узнать подробности, обратитесь к своему администратору."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Не удалось сменить пользователя"</string>
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Не удалось добавить пользователя"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Что-то пошло не так."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Закрыть"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Не удалось сменить пользователя"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Во время звонка менять пользователей нельзя."</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Не удалось сменить пользователя"</string>
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Во время звонка добавлять пользователей нельзя."</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Разрешите менять пользователей в настройках и повторите попытку."</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"Настройки"</string>
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Чтобы добавлять пользователей, когда устройство заблокировано, включите параметр &lt;b&gt;Добавлять пользователей ­на заблокированном экране&lt;/b&gt; в настройках."</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Управление пользователями"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Достигнуто максимально допустимое количество пользователей. Удалите одного, чтобы добавить нового."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Добавлять пользователей может только администратор устройства."</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Полина"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Эмма"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Фото профиля Полины"</string>

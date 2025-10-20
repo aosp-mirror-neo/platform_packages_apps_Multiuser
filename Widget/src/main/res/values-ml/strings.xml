@@ -20,6 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"ഉപയോക്താക്കൾ"</string>
+    <string name="current_user_content_description" msgid="9064744464195867095">"ഈ ഉപകരണത്തിലെ നിലവിലെ ഉപയോക്താവ് %1$s ആണ്"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"ഉപയോക്താവിനെ ചേർക്കുക"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"ഉപയോക്താവിനെ ചേർക്കുക"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"ഉപയോക്താവിനെ മാറുക"</string>
@@ -30,15 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"വിജറ്റ് ലോഡ് ചെയ്യാനായില്ല."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"ഉപയോക്തൃ ക്രമീകരണങ്ങളിലേക്ക് പോകുക."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"ഔദ്യോഗിക നയമനുസരിച്ച് ബ്ലോക്ക് ചെയ്തിരിക്കുന്നു"</string>
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"ഉപയോക്താക്കളെ ചേർക്കാൻ നിങ്ങളുടെ സ്ഥാപനം അനുവദിക്കുന്നില്ല. കൂടുതൽ വിവരങ്ങൾക്ക്, നിങ്ങളുടെ ഐടി അഡ്‌മിനെ ബന്ധപ്പെടുക."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"ഉപയോക്താക്കളെ മാറ്റാൻ നിങ്ങളുടെ സ്ഥാപനം അനുവദിക്കുന്നില്ല. കൂടുതൽ വിവരങ്ങൾക്ക്, നിങ്ങളുടെ ഐടി അഡ്‌മിനെ ബന്ധപ്പെടുക."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"ഉപയോക്താവിനെ മാറ്റാനാകില്ല"</string>
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"ഉപയോക്താവിനെ ചേർക്കാനാകുന്നില്ല"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"എന്തോ പിശകുണ്ടായി."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"അടയ്ക്കുക"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"ഉപയോക്താവിനെ മാറ്റാനാകില്ല"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"കോളിനിടെ ഉപയോക്താവിനെ മാറ്റാനാകില്ല"</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"ഉപയോക്താവിനെ മാറ്റാനാകില്ല"</string>
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"കോളിനിടെ നിങ്ങൾക്ക് ഒരു ഉപയോക്താവിനെ ചേർക്കാനാകില്ല"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"ക്രമീകരണത്തിൽ ഉപയോക്തൃ മാറ്റം അനുവദിച്ച ശേഷം വീണ്ടും ശ്രമിക്കുക"</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"ക്രമീകരണം"</string>
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"നിങ്ങളുടെ ഉപകരണം ലോക്ക് ചെയ്‌തിരിക്കുമ്പോൾ ഉപയോക്താക്കളെ ചേർക്കാൻ, ക്രമീകരണത്തിൽ &lt;b&gt;ലോക്ക് സ്‌ക്രീനിൽ നിന്ന് ഉപയോക്താക്കളെ ചേർക്കുക&lt;/b&gt; ഓണാക്കുക"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"ഉപയോക്താക്കളെ മാനേജ് ചെയ്യുക"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"നിങ്ങൾ ഉപയോക്താക്കളുടെ പരമാവധി എണ്ണത്തിലെത്തി. പുതിയ ഉപയോക്താവിനെ ചേർക്കാൻ നിലവിലുള്ള ഒരാളെ നീക്കം ചെയ്യുക."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"ഉപകരണത്തിന്റെ അഡ്മിന് മാത്രമേ മറ്റൊരു ഉപയോക്താവിനെ ചേർക്കാൻ കഴിയൂ"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Brenda-യുടെ ചിത്രം"</string>

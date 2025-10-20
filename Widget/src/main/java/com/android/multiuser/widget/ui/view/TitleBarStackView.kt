@@ -22,7 +22,6 @@ import androidx.glance.GlanceModifier
 import androidx.glance.GlanceTheme
 import androidx.glance.Image
 import androidx.glance.ImageProvider
-import androidx.glance.background
 import androidx.glance.semantics.contentDescription
 import androidx.glance.semantics.semantics
 import androidx.glance.text.Text
@@ -73,7 +72,8 @@ fun TitleBarStackView(stack: TitleBarStack) {
                 {
                     StackButton(
                         measurable,
-                        GlanceModifier.background(GlanceTheme.colors.secondaryContainer),
+                        GlanceModifier,
+                        GlanceTheme.colors.secondaryContainer,
                         GlanceTheme.colors.onSecondaryContainer
                     )
                 }

@@ -20,6 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"Колдонуучулар"</string>
+    <string name="current_user_content_description" msgid="9064744464195867095">"Учурда бул түзмөктү %1$s колдонуп жатат"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"Колдонуучу кошуу"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"Колдонуучу кошуу"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"Башка колдонуучуга которулуу"</string>
@@ -30,15 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Виджет жүктөлбөй калды."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Колдонуучулардын параметрлерине өтүңүз."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Жумуш эрежелери менен бөгөттөлгөн"</string>
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Уюмуңуз колдонуучуларды кошууга уруксат бербейт. Кеңири маалымат алуу үчүн IT администраторуңузга кайрылыңыз."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Уюмуңуз колдонуучуларды өзгөртүүгө уруксат бербейт. Кеңири маалымат алуу үчүн IT администраторуңузга кайрылыңыз."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Колдонуучуну которуштурууга болбойт"</string>
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Колдонуучу кошулган жок"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Бир жерден ката кетти."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Жабуу"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Колдонуучуну которуштурууга болбойт"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Чалуу учурунда колдонуучуну которуштурууга болбойт"</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Колдонуучуну которуштурууга болбойт"</string>
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Чалуу учурунда колдонуучуну кошууга болбойт"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Параметрлерден колдонуучуну которуштурууга уруксат берип, кайра аракет кылыңыз"</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"Параметрлер"</string>
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Түзмөк кулпуланып турганда колдонуучуларды кошуу үчүн Параметрлерден &lt;b&gt;Кулпуланган экрандан колдонуучуларды кошууну&lt;/b&gt; күйгүзүңүз"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Колдонуучуларды тескөө"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Колдонуучулардын саны чекке жетти. Жаңысын кошуу үчүн учурдагы колдонуучуну өчүрүңүз."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Башка колдонуучуну түзмөктүн администратору гана кошо алат"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Бренда"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Эля"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Бренданын сүрөтү"</string>

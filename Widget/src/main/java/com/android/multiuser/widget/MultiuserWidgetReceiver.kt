@@ -18,19 +18,17 @@ package com.android.multiuser.widget
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
 import androidx.glance.appwidget.updateAll
+import com.android.multiuser.widget.data.config.PersistentState
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-
-import com.android.multiuser.widget.domain.ILoadUsersUseCase
-import com.android.multiuser.widget.viewmodel.GridItemViewModel
-import com.android.multiuser.widget.viewmodel.UsersViewModel
 
 /** Broadcast receiver for multiuser widget registered in the Manifest. */
 class MultiuserWidgetReceiver(
@@ -38,6 +36,7 @@ class MultiuserWidgetReceiver(
     override val glanceAppWidget: GlanceAppWidget = MultiuserWidget()
     private val allowedActions = arrayOf(
         // Start widget
+        "android.appwidget.action.APPWIDGET_UPDATE",
         "android.appwidget.action.APPWIDGET_UPDATE_OPTIONS",
         "android.intent.action.USER_INFO_CHANGED_BACKGROUND",
         "android.intent.action.USER_REMOVED",
@@ -48,15 +47,19 @@ class MultiuserWidgetReceiver(
         super.onReceive(context, intent)
         if (intent.action in allowedActions) {
             CoroutineScope(dispatcher).launch {
-                // Invalidate empty ViewModel to trigger SharedStateFlow
-                // reload in widgets
-                UsersViewModel(object : ILoadUsersUseCase {
-                    override suspend operator fun invoke()
-                            = emptyList<GridItemViewModel>()
-                }).invalidate()
-                // Unfreeze widgets so they can be updated
                 glanceAppWidget.updateAll(context)
             }
+        }
+        if (intent.action == "android.intent.action.LOCALE_CHANGED") {
+            CoroutineScope(dispatcher).launch {
+                PersistentState(glanceAppWidget).updateAllInstances(context)
+            }
+        }
+        if (intent.action == "android.appwidget.action.APPWIDGET_ENABLED") {
+            SettingsGlobalJob.scheduleJob(context)
+        }
+        if (intent.action == "android.appwidget.action.APPWIDGET_DISABLED") {
+            SettingsGlobalJob.cancelJob(context)
         }
     }
 }

@@ -18,6 +18,7 @@ package com.android.multiuser.widget.viewmodel
 
 import android.graphics.Bitmap
 import androidx.glance.action.Action
+import com.android.multiuser.widget.domain.restrictions.IStateUseCase
 import com.android.multiuser.widget.domain.LoadUserAvatarUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -26,12 +27,12 @@ import kotlinx.coroutines.flow.asStateFlow
 class UserViewModel(
     val id: Int,
     val name: String,
-    override val contentDescription: String?,
+    contentDescription: String?,
     val isSelected: Boolean,
-    val enabled: Boolean,
     private val loadAvatarUseCase: LoadUserAvatarUseCase,
-    override val action: Action
-) : GridItemViewModel(name, contentDescription, action) {
+    action: Action,
+    stateUseCase: IStateUseCase<ButtonState>
+) : GridItemViewModel(key="user_$id", name, contentDescription, action, stateUseCase) {
     private val _uiState = MutableStateFlow<UiState>(UiState.Success)
     private val _bitmap = MutableStateFlow<Bitmap?>(null)
     val uiState: StateFlow<UiState> = _uiState.asStateFlow()
@@ -48,7 +49,7 @@ class UserViewModel(
                 name == other.name &&
                 contentDescription == other.contentDescription &&
                 isSelected == other.isSelected &&
-                enabled == other.enabled
+                state == other.state
     }
 
     override fun hashCode(): Int {
@@ -57,7 +58,7 @@ class UserViewModel(
         result = 31 * result + name.hashCode()
         result = 31 * result + contentDescription.hashCode()
         result = 31 * result + isSelected.hashCode()
-        result = 31 * result + enabled.hashCode()
+        result = 31 * result + state.hashCode()
         return result
     }
 

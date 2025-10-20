@@ -20,6 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"பயனர்கள்"</string>
+    <string name="current_user_content_description" msgid="9064744464195867095">"இந்தச் சாதனத்தின் தற்போதைய பயனர்: %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"பயனரைச் சேர்"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"பயனரைச் சேர்க்கும்"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"பயனரை மாற்று"</string>
@@ -30,15 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"விட்ஜெட்டை ஏற்ற முடியவில்லை."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"பயனர்கள் அமைப்புகளுக்குச் செல்லும்."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"பணிக் கொள்கையின்படி தடைசெய்யப்பட்டுள்ளது"</string>
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"பயனர்களை மாற்ற உங்கள் நிறுவனம் உங்களை அனுமதிக்கவில்லை. கூடுதல் தகவல்களுக்கு உங்கள் IT நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"பயனர்களை மாற்ற உங்கள் நிறுவனம் அனுமதிக்கவில்லை. கூடுதல் தகவல்களுக்கு உங்கள் IT நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"பயனரை மாற்ற முடியவில்லை"</string>
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"பயனரைச் சேர்க்க முடியவில்லை"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"ஏதோ தவறாகிவிட்டது."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"மூடு"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"பயனரை மாற்ற முடியவில்லை"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"அழைப்பின்போது பயனரை மாற்ற முடியாது"</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"பயனரை மாற்ற முடியவில்லை"</string>
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"அழைப்பின்போது பயனரை உங்களால் சேர்க்க முடியாது"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"அமைப்புகளில் பயனர்களை மாற்றுவதை அனுமதித்து மீண்டும் முயலவும்"</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"அமைப்புகள்"</string>
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"சாதனம் பூட்டப்பட்டிருக்கும்போது பயனர்களைச் சேர்க்க, அமைப்புகளில் &lt;b&gt;பூட்டுத் திரையில் இருந்து பயனர்களைச் சேர்த்தல்&lt;/b&gt; என்பதை ஆன் செய்யுங்கள்"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"பயனர்களை நிர்வகியுங்கள்"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"பயனர்களைச் சேர்ப்பதற்கான அதிகபட்ச எண்ணிக்கையை அடைந்துவிட்டீர்கள். புதிய பயனரைச் சேர்க்க ஒரு பயனரை அகற்றவும்."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"சாதனத்தின் நிர்வாகி மட்டுமே மற்றொரு பயனரைச் சேர்க்க முடியும்"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"பிரெண்டா"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"எலியா"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"பிரெண்டாவின் படம்"</string>

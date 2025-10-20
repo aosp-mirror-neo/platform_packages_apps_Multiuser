@@ -20,6 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"Brugere"</string>
+    <string name="current_user_content_description" msgid="9064744464195867095">"Den aktuelle bruger på denne enhed er %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"Tilføj bruger"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"Tilføj bruger"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"Skift bruger"</string>
@@ -30,15 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Widgetten kunne ikke indlæses."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Gå til Brugere, og åbn Indstillinger."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Blokeret af din arbejdspolitik"</string>
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Din organisation tillader ikke, at du tilføjer brugere. Du kan få flere oplysninger ved at kontakte din it-administrator."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Din organisation tillader ikke, at du skifter bruger. Du kan få flere oplysninger ved at kontakte din it-administrator."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Det er ikke muligt at skifte bruger"</string>
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Brugeren kan ikke tilføjes"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Noget gik galt."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Luk"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Det er ikke muligt at skifte bruger"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Du kan ikke skifte bruger under et opkald"</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Det er ikke muligt at skifte bruger"</string>
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Du kan ikke tilføje en bruger under et opkald"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Tillad brugerskift i Indstillinger, og prøv derefter igen"</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"Indstillinger"</string>
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Hvis du vil tilføje brugere, mens din enhed er låst, skal du aktivere &lt;b&gt;Tilføj brugere fra låseskærmen&lt;/b&gt; i Indstillinger"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Administrer brugere"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Du har nået det maksimale antal brugere. Fjern en bruger for at tilføje en ny."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Det er kun administratoren af enheden, der kan tilføje en anden bruger"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Billede af Brenda"</string>

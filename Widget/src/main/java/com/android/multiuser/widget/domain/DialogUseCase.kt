@@ -18,6 +18,8 @@ package com.android.multiuser.widget.domain
 
 import android.content.Intent
 import android.content.res.Resources
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.fromHtml
 
 import com.android.multiuser.widget.R
 import com.android.multiuser.widget.data.getActionIntent
@@ -33,8 +35,9 @@ class DialogUseCase(private val intent: Intent,
         return DialogViewModel(
             title = intent.getStringExtra(IntentRepository.TITLE)
                 ?: resources.getString(R.string.widget_switch_not_allowed_dialog_message),
-            message = intent.getStringExtra(IntentRepository.MESSAGE)
-                ?: resources.getString(R.string.widget_switch_not_allowed_dialog_message),
+            message = AnnotatedString.Companion.fromHtml(
+                intent.getStringExtra(IntentRepository.MESSAGE)
+                ?: resources.getString(R.string.widget_switch_not_allowed_dialog_message)),
             positiveButtonText =
                 intent.getStringExtra(IntentRepository.ACTION_TEXT),
             actionIntent = intent.getActionIntent()

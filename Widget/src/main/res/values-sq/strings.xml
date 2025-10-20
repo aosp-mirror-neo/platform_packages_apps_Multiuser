@@ -20,6 +20,7 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"Përdoruesit"</string>
+    <string name="current_user_content_description" msgid="9064744464195867095">"Përdoruesi aktual në këtë pajisje është %1$s"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"Shto përdorues"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"Shto përdorues"</string>
     <string name="switch_user_button_title" msgid="3753063825137894956">"Ndërro përdoruesin"</string>
@@ -30,15 +31,19 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Ngarkimi i miniaplikacionit dështoi."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Shko te \"Cilësimet e përdoruesve\"."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"U bllokua nga politika e punës"</string>
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Organizata jote nuk të lejon që të shtosh përdoruesit. Për më shumë informacione, kontakto me administratorin e teknologjisë së informacionit."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Organizata jote nuk të lejon që të ndryshosh përdoruesit. Për më shumë informacione, kontakto me administratorin e teknologjisë së informacionit."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Përdoruesi nuk mund të ndërrohet"</string>
+    <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Përdoruesi nuk mund të shtohet"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Ndodhi një gabim."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Mbyll"</string>
-    <string name="widget_switch_not_allowed_dialog_title" msgid="3498592325204979153">"Përdoruesi nuk mund të ndërrohet"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Përdoruesi nuk mund të ndërrohet gjatë një telefonate"</string>
-    <string name="widget_switch_disabled_dialog_title" msgid="5409470583213889232">"Përdoruesi nuk mund të ndërrohet"</string>
+    <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Nuk mund të shtosh një përdorues gjatë një telefonate"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Lejo ndërrimin e përdoruesit te \"Cilësimet\" dhe më pas provo përsëri"</string>
-    <string name="widget_switch_disabled_dialog_open_settings_button" msgid="3134078338691068314">"Cilësimet"</string>
+    <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Për të shtuar përdoruesit kur pajisja jote është e kyçur, aktivizo &lt;b&gt;Shto përdorues nga ekrani i kyçjes&lt;/b&gt; te \"Cilësimet\""</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Menaxho përdoruesit"</string>
+    <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Ke arritur numrin maksimal të përdoruesve. Hiq një përdorues për të shtuar një të ri."</string>
+    <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Vetëm administratori i pajisjes mund të shtojë një përdorues tjetër"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Brenda"</string>
     <string name="preview_second_user_name" msgid="2560219968679952876">"Elia"</string>
     <string name="preview_first_avatar_content_description" msgid="7817695327328333831">"Fotografia e Brendas"</string>
