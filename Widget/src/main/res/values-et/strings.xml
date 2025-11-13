@@ -39,7 +39,7 @@
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Sule"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Kõne ajal ei saa kasutajat vahetada"</string>
     <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Kõne ajal ei saa kasutajat lisada."</string>
-    <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Lubage seadetes kasutaja vahetamine ja proovige uuesti"</string>
+    <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Lubage seadetes kasutaja vahetamine ja proovige uuesti."</string>
     <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Selleks et lisada kasutajaid, kui teie seade on lukustatud, lülitage seadetes sisse valik &lt;b&gt;Kasutajate lisamine lukustuskuval&lt;/b&gt;."</string>
     <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Kasutajate haldamine"</string>
     <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Maksimaalne kasutajate arv on täis. Uue kasutaja lisamiseks eemaldage mõni olemasolevatest."</string>

@@ -39,7 +39,7 @@
     <string name="dialog_close_button_text" msgid="4056505010322506240">"Loka"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"Ekki er hægt að skipta um notanda á meðan á símtali stendur"</string>
     <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Ekki er hægt að bæta við notanda á meðan á símtali stendur"</string>
-    <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Leygðu skipti á notendum í stillingunum og reyndu síðan aftur"</string>
+    <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Leyfðu skipti á notendum í stillingunum og reyndu síðan aftur"</string>
     <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Til að bæta við notendum þegar tækið þitt er læst skaltu kveikja á &lt;b&gt;Bæta við notendum frá lásskjá&lt;/b&gt; í stillingum"</string>
     <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Stjórna notendum"</string>
     <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Þú hefur náð hámarksfjölda notenda. Fjarlægðu notanda til að bæta nýjum við."</string>
