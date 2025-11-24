@@ -33,13 +33,13 @@
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"ऑफ़िस की नीतियों के तहत ब्लॉक किया गया है"</string>
     <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"आपका संगठन आपको उपयोगकर्ताओं को जोड़ने की अनुमति नहीं देता. ज़्यादा जानकारी के लिए, अपने आईटी एडमिन से संपर्क करें."</string>
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"आपका संगठन आपको उपयोगकर्ता खाते बदलने की अनुमति नहीं देता. ज़्यादा जानकारी के लिए, अपने आईटी एडमिन से संपर्क करें."</string>
-    <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"दूसरे उपयोगकर्ता खाते का इस्तेमाल नहीं किया जा सकता"</string>
+    <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"उपयोगकर्ता प्रोफ़ाइल स्विच नहीं की जा सकती"</string>
     <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"उपयोगकर्ता को जोड़ा नहीं जा सका"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"कोई गड़बड़ी हुई."</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"बंद करें"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"कॉल के दौरान, दूसरे उपयोगकर्ता खाते का इस्तेमाल नहीं किया जा सकता"</string>
     <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"कॉल के दौरान किसी उपयोगकर्ता को नहीं जोड़ा जा सकता"</string>
-    <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"सेटिंग में जाकर उपयोगकर्ता स्विच करने की अनुमति दें. इसके बाद, फिर से कोशिश करें"</string>
+    <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"सेटिंग में जाकर उपयोगकर्ता प्रोफ़ाइल को स्विच करने की अनुमति दें. इसके बाद, फिर से कोशिश करें"</string>
     <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"डिवाइस लॉक होने पर उपयोगकर्ताओं को जोड़ने के लिए, सेटिंग में जाकर &lt;b&amp;gt को चालू करें;लॉक स्क्रीन से उपयोगकर्ताओं को जोड़ें&lt;/b&gt; को चालू करें"</string>
     <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"उपयोगकर्ताओं को मैनेज करें"</string>
     <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"इस डिवाइस पर, इससे ज़्यादा उपयोगकर्ता नहीं जोड़े जा सकते. नए उपयोगकर्ता को जोड़ने के लिए, किसी मौजूदा उपयोगकर्ता को हटाएं."</string>
