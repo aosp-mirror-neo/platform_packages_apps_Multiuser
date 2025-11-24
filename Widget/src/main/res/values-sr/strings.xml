@@ -41,7 +41,7 @@
     <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"Не можете да додате корисника током позива"</string>
     <string name="widget_switch_disabled_dialog_message" msgid="2592076884232802557">"Дозволите промену корисника у Подешавањима, па пробајте поново"</string>
     <string name="widget_add_from_hub_dialog_message" msgid="334286440533177497">"Да бисте додали кориснике док је уређај закључан, укључите &lt;b&gt;Додајте кориснике са закључаног екрана&lt;/b&gt; у Подешавањима"</string>
-    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Управљање корисницима"</string>
+    <string name="widget_dialog_open_settings_button" msgid="7960364294257867877">"Управљај корисницима"</string>
     <string name="widget_add_max_limit_dialog_message" msgid="1929914006709425071">"Достигли сте максималан број корисника. Уклоните неког корисника да бисте додали новог."</string>
     <string name="widget_add_not_admin_dialog_message" msgid="6824808684423667963">"Само администратор уређаја може да дода другог корисника"</string>
     <string name="preview_first_user_name" msgid="51601870734302045">"Бојана"</string>
