@@ -19,7 +19,7 @@
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="multiuser_app_name" msgid="1109697918129421444">"उपयोगकर्ता खाते"</string>
+    <string name="multiuser_app_name" msgid="1109697918129421444">"उपयोगकर्ता"</string>
     <string name="current_user_content_description" msgid="9064744464195867095">"फ़िलहाल, इस डिवाइस के/की मौजूदा उपयोगकर्ता %1$s हैं"</string>
     <string name="add_user_button_title" msgid="6199522758514312329">"उपयोगकर्ता खाता जोड़ें"</string>
     <string name="add_user_button_content_description" msgid="5993020403425051818">"उपयोगकर्ता खाता जोड़ें"</string>
