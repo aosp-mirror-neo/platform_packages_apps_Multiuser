@@ -21,10 +21,10 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="multiuser_app_name" msgid="1109697918129421444">"Používatelia"</string>
     <string name="current_user_content_description" msgid="9064744464195867095">"Aktuálny používateľ v tomto zariadení je %1$s"</string>
-    <string name="add_user_button_title" msgid="6199522758514312329">"Pridanie používateľa"</string>
-    <string name="add_user_button_content_description" msgid="5993020403425051818">"Pridanie používateľa"</string>
-    <string name="switch_user_button_title" msgid="3753063825137894956">"Prepnutie používateľa"</string>
-    <string name="switch_user_button_content_description" msgid="1477907734603406105">"Prepnutie používateľa"</string>
+    <string name="add_user_button_title" msgid="6199522758514312329">"Pridať používateľa"</string>
+    <string name="add_user_button_content_description" msgid="5993020403425051818">"Pridať používateľa"</string>
+    <string name="switch_user_button_title" msgid="3753063825137894956">"Prepnúť používateľa"</string>
+    <string name="switch_user_button_content_description" msgid="1477907734603406105">"Prepnúť používateľa"</string>
     <string name="multiuser_widget_name" msgid="777739360240368049">"Používatelia"</string>
     <string name="multiuser_widget_description" msgid="7847063013547600400">"Rýchlo pridajte alebo prepnite používateľov"</string>
     <string name="multiuser_widget_title" msgid="7037827548830992353">"Používatelia"</string>
