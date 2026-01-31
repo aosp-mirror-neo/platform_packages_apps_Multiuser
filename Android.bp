@@ -58,6 +58,7 @@ android_library {
         "androidx.glance_glance",
         "PlatformComposeCore",
         "MultiuserStacksLib",
+        "dynamiccolors",
     ],
     kotlincflags: ["-Xjvm-default=all"],
 }

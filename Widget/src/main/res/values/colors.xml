@@ -15,13 +15,13 @@
   ~ limitations under the License.
   -->
 
-<resources xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
+<resources>
     <!-- Color definitions used just for the XML layout preview. -->
-    <color name="onPrimary">@androidprv:color/materialColorOnPrimary</color>
-    <color name="onSurface">@androidprv:color/materialColorOnSurface</color>
-    <color name="widgetBackground">@androidprv:color/customColorWidgetBackground</color>
-    <color name="primary">@androidprv:color/materialColorPrimary</color>
-    <color name="surface">@androidprv:color/materialColorSurface</color>
-    <color name="onSecondaryContainer">@androidprv:color/materialColorOnSecondaryContainer</color>
-    <color name="secondaryContainer">@androidprv:color/materialColorSecondaryContainer</color>
+    <color name="onPrimary">@color/materialColorOnPrimary</color>
+    <color name="onSurface">@color/materialColorOnSurface</color>
+    <color name="widgetBackground">@color/customColorWidgetBackground</color>
+    <color name="primary">@color/materialColorPrimary</color>
+    <color name="surface">@color/materialColorSurface</color>
+    <color name="onSecondaryContainer">@color/materialColorOnSecondaryContainer</color>
+    <color name="secondaryContainer">@color/materialColorSecondaryContainer</color>
 </resources>
