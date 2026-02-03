@@ -35,7 +35,7 @@
     <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"သင်၏အဖွဲ့အစည်းက သင့်ကို အသုံးပြုသူ ပြောင်းခွင့်မပြုပါ။ ပိုမိုသိရှိလိုပါက IT စီမံခန့်ခွဲသူထံ ဆက်သွယ်ပါ။"</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"အသုံးပြုသူ ပြောင်း၍မရပါ"</string>
     <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"အသုံးပြုသူကို ထည့်၍မရပါ"</string>
-    <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"တစ်ခုခုမှားသွားသည်။"</string>
+    <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"တစ်ခုခု မှားသွားသည်။"</string>
     <string name="dialog_close_button_text" msgid="4056505010322506240">"ပိတ်ရန်"</string>
     <string name="widget_switch_not_allowed_dialog_message" msgid="176903020428629851">"ဖုန်းပြောနေစဉ် အသုံးပြုသူ ပြောင်း၍မရပါ"</string>
     <string name="widget_add_not_allowed_dialog_message" msgid="5753877342745410161">"ခေါ်ဆိုမှုအတွင်းတွင် အသုံးပြုသူကို ထည့်၍မရပါ"</string>
