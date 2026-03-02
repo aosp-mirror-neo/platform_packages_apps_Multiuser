@@ -31,8 +31,8 @@
     <string name="multiuser_widget_error_message" msgid="894068490052519574">"Falha ao carregar o widget."</string>
     <string name="widget_settings_button_content_description" msgid="2218741284324972818">"Acesse as configurações de usuários."</string>
     <string name="widget_switch_work_restriction_dialog_title" msgid="8082066861782920555">"Ação bloqueada pela política de trabalho"</string>
-    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Sua organização não permite que você adicione usuários. Para mais informações, entre em contato com o administrador de TI."</string>
-    <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Sua organização não permite que você troque de usuário. Para mais informações, entre em contato com o administrador de TI."</string>
+    <string name="widget_add_work_restriction_dialog_message" msgid="741989896505806720">"Sua organização não permite que você adicione usuários. Para mais informações, entre em contato com a equipe de TI."</string>
+    <string name="widget_switch_work_restriction_dialog_message" msgid="61778610995021575">"Sua organização não permite que você troque de usuário. Para mais informações, entre em contato com a equipe de TI."</string>
     <string name="widget_switch_failed_dialog_title" msgid="5816196857557284434">"Não é possível trocar de usuário"</string>
     <string name="widget_add_failed_dialog_title" msgid="3556723397434372310">"Não é possível adicionar usuários"</string>
     <string name="widget_switch_failed_dialog_message" msgid="3852153736595588706">"Algo deu errado."</string>
